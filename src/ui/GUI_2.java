@@ -89,16 +89,17 @@ public class GUI_2 extends JFrame implements ActionListener{
 		this.navframe.setLayout(new BorderLayout());
 		this.contentframe.setLayout(new BorderLayout());	
 		
+		//SuchPanel
 		Gui_suchepanel suchPanel = new Gui_suchepanel(this);
 		menuBar.setSuchPanel(suchPanel);
 		this.contentframe.add(suchPanel.getSuchPanel(), BorderLayout.NORTH);	
 		
-		//Login
+		//LoginPanel
 		Gui_loginpanel loginPanel = new Gui_loginpanel(shop);
 		this.navframe.add(loginPanel.getloginPanel(), BorderLayout.NORTH);	
 		setJMenuBar(menuBar.getMenue());	
 		
-		//Artikelliste
+		//ArtikelPanel
 		artikelPanel = new Gui_artikelpanel(shop.gibAlleArtikel());			
 		this.contentframe.add(artikelPanel.getArtikelPanel(), BorderLayout.CENTER);	
 		
