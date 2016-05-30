@@ -26,16 +26,16 @@ public class Artikelverwaltung {
 	// Verwaltung des Artikelbestands als Liste
 	// Als Implementierung der Liste dient ein Vektor
 
-	private List<Artikel> artikelBestand = new Vector<Artikel>();
+	private List<Artikel> artikelBestand = new Vector<Artikel>(); //TODO: siehe Accountverwaltung
 
 	
 	// Persistenz-Schnittstelle, die fuer die Details des Dateizugriffs
 	// verantwortlich ist
 	
-	private PersistenceManager pm = new FilePersistenceManager();
+	private PersistenceManager pm = new FilePersistenceManager(); //TODO: siehe Accountverwaltung
 
 	public Artikelverwaltung() {
-		
+		//TODO: siehe Accountverwaltung
 	}
 
 	/**

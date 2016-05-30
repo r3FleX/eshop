@@ -15,11 +15,11 @@ public class Rechnungsverwaltung {
 	// Verwaltung des Rechnungbestands als Liste
 	// Als Implementierung der Liste dient ein Vektor
 	
-	private List<Rechnung> rechnungsBestand = new Vector<Rechnung>();
+	private List<Rechnung> rechnungsBestand = new Vector<Rechnung>(); //TODO: siehe Accountverwaltung
 	
 	
 	public Rechnungsverwaltung (){
-		
+		//TODO: siehe Accountverwaltung
 	}
 	
 	/**

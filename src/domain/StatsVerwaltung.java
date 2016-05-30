@@ -33,7 +33,7 @@ public class StatsVerwaltung {
 	private PersistenceManager pm = new FilePersistenceManager();
 
 	public StatsVerwaltung() {
-		
+		//TODO: siehe Accountverwaltung
 	}
 	/**
 	 * Methode zum Einlesen von Artikeldaten aus einer Datei.
@@ -82,7 +82,7 @@ public class StatsVerwaltung {
 		// Persistenz-Schnittstelle wieder schlieÃŸen
 		pm.close();
 	}
-	/** Fügt ein Statistikteil hinzu
+	/** Fï¿½gt ein Statistikteil hinzu
 	 * @param artklnummer Nummer des Artikels	
 	 * @param name name des Artikels
 	 * @param bestand neuer bestand
@@ -90,8 +90,8 @@ public class StatsVerwaltung {
 	 * 
 	 */
 	public void statupdate(int artklnummer,String name, int bestand, LagerEreignisTyp type) {
-		//statistik daten einfügen
-		//datum als string einfügen
+		//statistik daten einfï¿½gen
+		//datum als string einfï¿½gen
 		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 		Date today = Calendar.getInstance().getTime();        
 		String datum = df.format(today);
@@ -128,7 +128,7 @@ public class StatsVerwaltung {
 	
 	/**
 	 * Methode, die eine Statistik an das Ende der Statistikliste einfuegt.
-	 * @param einStat die einzufügende Statistik
+	 * @param einStat die einzufï¿½gende Statistik
 	 */
 	public void einfuegen(Stats eineStat) {
 		alleStats.add(eineStat);
