@@ -13,45 +13,67 @@ import javax.swing.JTextField;
 
 import domain.Shopverwaltung;
 import ui.GUI_2;
+import ui.controller.SuchController;
 import valueobjects.Artikel;
 
-public class SuchPanel implements ActionListener {
-	private GUI_2 gui;
-	private Shopverwaltung shop;
+public class SuchPanel {
+
 	private JPanel suchPanel;
 	private JPanel warenkorbPanel;
 	private List artikelListe;
 	private JTextField suchenTextField;
-	
+	private SuchController suchController;
+
 	//Konstruktor
-	public SuchPanel(GUI_2 GUI) {
-		this.gui = GUI;
-		this.shop = GUI.getShop();
-		
+	public SuchPanel(SuchController suchController) {
+		this.suchController = suchController;
+		initialize();
+	}
+
+	private void initialize() {
 		JPanel suchPanel = new JPanel();
 		suchPanel.setLayout(new GridLayout(1, 4));
-		
-		suchenTextField = new JTextField();		
+
+		suchenTextField = new JTextField();
 		suchPanel.add(suchenTextField);
-		
+
 		JButton suchButton = new JButton("Suchen");
 		suchPanel.add(suchButton);
-		suchButton.addActionListener(this);
-		
+		suchButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				suchen(suchenTextField.getText());
+			}
+		});
+
 		suchPanel.add(new JLabel()); //Platzhalter
 
 		JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen");
 		suchPanel.add(inWarenKorbLegenButton);
-		inWarenKorbLegenButton.addActionListener(this);
-		
+		inWarenKorbLegenButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+
 		JButton zumWarenKorbButton = new JButton("zum Warenkorb");
 		suchPanel.add(zumWarenKorbButton);
-		zumWarenKorbButton.addActionListener(this);
-		
+		zumWarenKorbButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+
 		suchPanel.setBorder(BorderFactory.createTitledBorder("Shop")); //Ueberschrift Suchen
 		setSuchPanel(suchPanel);
 	}
-	
+
+	private void suchen(String text) {
+		suchController.suchen(text);
+	}
+
 	//Getter und Setter
 	public JPanel getSuchPanel() {
 		return suchPanel;
@@ -61,23 +83,23 @@ public class SuchPanel implements ActionListener {
 		this.suchPanel = suchPanel;
 	}
 	
-	//ACTIONSLISTENER
-	public void actionPerformed(ActionEvent arg0) {		
-		System.out.println("Test Suchen");	
-		ArtikelPanel artikelPanel;
-		String suche = suchenTextField.getText();
-		java.util.List<Artikel> suchErgebnis;
-		System.out.println(suche);
-		
-		if (suche.isEmpty()) {
-			suchErgebnis = this.shop.gibAlleArtikel();
-		} else {
-			suchErgebnis = shop.sucheNachArtikelNummer(suche);
-		}
-		// TODO: keine ArtikelPanel
-		//funktioniert noch nicht. Gibt keine gesuchte Artikel wieder
-		//artikelListe.removeAll(artikelListe);
-		gui.setArtikelPanel(new ArtikelPanel(suchErgebnis));
-	}		
+//	//ACTIONSLISTENER
+//	public void actionPerformed(ActionEvent arg0) {
+//		System.out.println("Test Suchen");
+//		ArtikelPanel artikelPanel;
+//		String suche = suchenTextField.getText();
+//		java.util.List<Artikel> suchErgebnis;
+//		System.out.println(suche);
+//
+//		if (suche.isEmpty()) {
+//			suchErgebnis = this.shop.gibAlleArtikel();
+//		} else {
+//			suchErgebnis = shop.sucheNachArtikelNummer(suche);
+//		}
+//		// TODO: keine ArtikelPanel
+//		//funktioniert noch nicht. Gibt keine gesuchte Artikel wieder
+//		//artikelListe.removeAll(artikelListe);
+//		gui.setArtikelPanel(new ArtikelPanel(suchErgebnis));
+//	}
 }
 

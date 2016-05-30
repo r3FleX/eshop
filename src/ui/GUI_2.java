@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import domain.Shopverwaltung;
 import domain.exceptions.ArtikelExistiertNichtException;
 import domain.exceptions.BestandUeberschrittenException;
+import ui.controller.SuchController;
 import ui.module.ArtikelPanel;
 import ui.module.LoginPanel;
 import ui.module.MenuePanel;
@@ -29,6 +30,7 @@ import valueobjects.Warenkorb;
 public class GUI_2 extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
+	private SuchController suchController = null;
 
 	private Shopverwaltung shop;
 	JPanel mainPanel = new JPanel();
@@ -49,6 +51,11 @@ public class GUI_2 extends JFrame implements ActionListener{
 	
 	//Konstrukter
 	public GUI_2(String datei) {
+		try {
+			this.suchController = new SuchController(this, new Shopverwaltung(datei)); //TODO: Eklig, da die ShopVerwaltung gefährliche Sachen im Konstruktor macht.
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		setTitle("E-Shop");
 		setSize(800, 600); //Fenstergroesse
 		setResizable(false);
@@ -81,7 +88,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 		this.contentframe.setLayout(new BorderLayout());	
 		
 		//SuchPanel
-		SuchPanel suchPanel = new SuchPanel(this);
+		SuchPanel suchPanel = new SuchPanel(suchController);
 		menuBar.setSuchPanel(suchPanel);
 		this.contentframe.add(suchPanel.getSuchPanel(), BorderLayout.NORTH);	
 		
@@ -97,8 +104,9 @@ public class GUI_2 extends JFrame implements ActionListener{
 		// GUI setzen
 		this.mainPanel.add(this.navframe,BorderLayout.NORTH);
 		this.mainPanel.add(this.contentframe,BorderLayout.CENTER);	
-		add(this.mainPanel);	
-	}	
+		add(this.mainPanel);
+		setVisible(true);
+	}
 	
 	//ACTIONLISTENER
 	public void actionPerformed(ActionEvent e) {
@@ -164,18 +172,5 @@ public class GUI_2 extends JFrame implements ActionListener{
 			}	
 		}
 	}
-		
-	//MAIN
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUI_2 frame = new GUI_2("Shop");
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 }
