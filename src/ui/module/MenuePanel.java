@@ -1,34 +1,29 @@
-package ui.GuiModule;
+package ui.module;
 
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import ui.GuiModule.Gui_suchepanel;
-import ui.GuiModule.Gui_loginpanel;
 
 import domain.Shopverwaltung;
 import valueobjects.Account;
-import ui.GUI_2;
 
-public class Gui_menuepanel implements ActionListener{
+public class MenuePanel implements ActionListener{
 
 	private JMenuBar menuBar;
 	private Shopverwaltung shop;
 	private Account user;
 	JLabel gesamt = new JLabel();
-	private Gui_suchepanel suchPanel;
+	private SuchPanel suchPanel;
 	private JPanel loginPanel;
 	
 	//Konstruktor
-	public Gui_menuepanel(Shopverwaltung shop) {
+	public MenuePanel(Shopverwaltung shop) {
 		this.shop = shop;
 		
 		JMenuBar menueBar = new JMenuBar();		
@@ -45,11 +40,11 @@ public class Gui_menuepanel implements ActionListener{
 		
 		JMenuItem mnLogin = new JMenuItem("Einloggen");
 		mnAccount.add(mnLogin);
-		Gui_loginpanel gui_loginpanel = new Gui_loginpanel(shop);
-		mnLogin.addActionListener(gui_loginpanel);
+		LoginPanel loginPanel = new LoginPanel(shop);
+		mnLogin.addActionListener(loginPanel);
 		
 		JMenuItem mnReg = new JMenuItem("Registrieren");
-		mnReg.addActionListener(gui_loginpanel);
+		mnReg.addActionListener(loginPanel);
 		mnAccount.add(mnReg);
 		
 		JMenuItem mnLogout = new JMenuItem("Ausloggen");
@@ -69,11 +64,11 @@ public class Gui_menuepanel implements ActionListener{
 	}
 	
 	//Getter und Setter
-	public Gui_suchepanel getSuchPanel() {
+	public SuchPanel getSuchPanel() {
 		return suchPanel;
 	}
 
-	public void setSuchPanel(Gui_suchepanel suchPanel) {
+	public void setSuchPanel(SuchPanel suchPanel) {
 		this.suchPanel = suchPanel;
 	}
 		

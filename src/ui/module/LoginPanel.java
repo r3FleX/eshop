@@ -1,14 +1,11 @@
-package ui.GuiModule;
+package ui.module;
 
-import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,7 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.RepaintManager;
 
 import domain.Shopverwaltung;
 import domain.exceptions.AccountExistiertBereitsException;
@@ -25,7 +21,7 @@ import valueobjects.Account;
 import valueobjects.Kunde;
 import valueobjects.Mitarbeiter;
 
-public class Gui_loginpanel implements ActionListener{
+public class LoginPanel implements ActionListener{
 
 	private JPanel loginPanel;	
 	private JPanel suchPanel;	
@@ -35,7 +31,7 @@ public class Gui_loginpanel implements ActionListener{
 	private JPasswordField passTextField;
 
 	//Konstruktor
-	public Gui_loginpanel(Shopverwaltung shop) {
+	public LoginPanel(Shopverwaltung shop) {
 		
 		this.shop = shop;
 		JPanel loginPanel = new JPanel();
@@ -108,7 +104,7 @@ public class Gui_loginpanel implements ActionListener{
 							login.setVisible(false);
 							loginPanel.setVisible(true);
 							
-							//funktioniert noch nicht (ausgrauen rückgängig machen)  //mnLogout.setEnabled(true); 
+							//funktioniert noch nicht (ausgrauen rï¿½ckgï¿½ngig machen)  //mnLogout.setEnabled(true); 
 							  
 							//hilft leider nicht 	loginPanel.revalidate();
 							//hilft leider nicht	loginPanel.repaint();

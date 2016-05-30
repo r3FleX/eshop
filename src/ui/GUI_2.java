@@ -7,43 +7,36 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 
 import domain.Shopverwaltung;
-import domain.exceptions.AccountExistiertBereitsException;
 import domain.exceptions.ArtikelExistiertNichtException;
 import domain.exceptions.BestandUeberschrittenException;
-import ui.GuiModule.Gui_artikelpanel;
-import ui.GuiModule.Gui_loginpanel;
-import ui.GuiModule.Gui_menuepanel;
-import ui.GuiModule.Gui_suchepanel;
-import ui.GuiModule.Gui_warenkorbpanel;
+import ui.controller.SuchController;
+import ui.module.ArtikelPanel;
+import ui.module.LoginPanel;
+import ui.module.MenuePanel;
+import ui.module.SuchPanel;
 import valueobjects.Account;
-import valueobjects.Artikel;
 import valueobjects.Kunde;
 import valueobjects.Warenkorb;
 
 public class GUI_2 extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
+	private SuchController suchController = null;
 
 	private Shopverwaltung shop;
 	JPanel mainPanel = new JPanel();
 	
 	//Menuebar
-	Gui_menuepanel menuBar;	
+	MenuePanel menuBar;
 	
 	//LayoutPanel
 	JPanel navframe = new JPanel();		
@@ -54,17 +47,22 @@ public class GUI_2 extends JFrame implements ActionListener{
 	private JTable ausgabeTabelle = null;
 	private JTable warenkorbTabelle = null;
 	JLabel gesamt = new JLabel();
-	private Gui_artikelpanel artikelPanel;
+	private ArtikelPanel artikelPanel;
 	
 	//Konstrukter
 	public GUI_2(String datei) {
+		try {
+			this.suchController = new SuchController(this, new Shopverwaltung(datei)); //TODO: Eklig, da die ShopVerwaltung gefährliche Sachen im Konstruktor macht.
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		setTitle("E-Shop");
 		setSize(800, 600); //Fenstergroesse
 		setResizable(false);
 		
 		try {
 			shop = new Shopverwaltung(datei);
-			menuBar = new Gui_menuepanel(shop);	
+			menuBar = new MenuePanel(shop);
 		} catch (IOException e2) {
 
 		}
@@ -72,10 +70,10 @@ public class GUI_2 extends JFrame implements ActionListener{
 	}	
 	
 	//Getter und Setter
-	public Gui_artikelpanel getArtikelPanel() {
+	public ArtikelPanel getArtikelPanel() {
 		return artikelPanel;
 	}
-	public void setArtikelPanel(Gui_artikelpanel artikelPanel) {
+	public void setArtikelPanel(ArtikelPanel artikelPanel) {
 		this.artikelPanel = artikelPanel;
 	}
 	public Shopverwaltung getShop() {
@@ -90,24 +88,25 @@ public class GUI_2 extends JFrame implements ActionListener{
 		this.contentframe.setLayout(new BorderLayout());	
 		
 		//SuchPanel
-		Gui_suchepanel suchPanel = new Gui_suchepanel(this);
+		SuchPanel suchPanel = new SuchPanel(suchController);
 		menuBar.setSuchPanel(suchPanel);
 		this.contentframe.add(suchPanel.getSuchPanel(), BorderLayout.NORTH);	
 		
 		//LoginPanel
-		Gui_loginpanel loginPanel = new Gui_loginpanel(shop);
+		LoginPanel loginPanel = new LoginPanel(shop);
 		this.navframe.add(loginPanel.getloginPanel(), BorderLayout.NORTH);	
 		setJMenuBar(menuBar.getMenue());	
 		
 		//ArtikelPanel
-		artikelPanel = new Gui_artikelpanel(shop.gibAlleArtikel());			
+		artikelPanel = new ArtikelPanel(shop.gibAlleArtikel());
 		this.contentframe.add(artikelPanel.getArtikelPanel(), BorderLayout.CENTER);	
 		
 		// GUI setzen
 		this.mainPanel.add(this.navframe,BorderLayout.NORTH);
 		this.mainPanel.add(this.contentframe,BorderLayout.CENTER);	
-		add(this.mainPanel);	
-	}	
+		add(this.mainPanel);
+		setVisible(true);
+	}
 	
 	//ACTIONLISTENER
 	public void actionPerformed(ActionEvent e) {
@@ -173,18 +172,5 @@ public class GUI_2 extends JFrame implements ActionListener{
 			}	
 		}
 	}
-		
-	//MAIN
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUI_2 frame = new GUI_2("Shop");
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 }

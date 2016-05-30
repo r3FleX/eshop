@@ -1,11 +1,7 @@
 package domain;
 
 import java.io.IOException;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 
 import persistence.FilePersistenceManager;
 import persistence.PersistenceManager;
@@ -26,16 +22,16 @@ public class Artikelverwaltung {
 	// Verwaltung des Artikelbestands als Liste
 	// Als Implementierung der Liste dient ein Vektor
 
-	private List<Artikel> artikelBestand = new Vector<Artikel>();
+	private List<Artikel> artikelBestand = new ArrayList<>(); //TODO: siehe Accountverwaltung
 
 	
 	// Persistenz-Schnittstelle, die fuer die Details des Dateizugriffs
 	// verantwortlich ist
 	
-	private PersistenceManager pm = new FilePersistenceManager();
+	private PersistenceManager pm = new FilePersistenceManager(); //TODO: siehe Accountverwaltung
 
 	public Artikelverwaltung() {
-		
+		//TODO: siehe Accountverwaltung
 	}
 
 	/**
@@ -126,7 +122,7 @@ public class Artikelverwaltung {
 	/**
 	 * Methode, um den Bestand eines bereits existierenden Artikels zu �ndern.
 	 * 
-	 * @param ArtiklNummer eingegebene Artikelnummer
+	 * @param artklNummer eingegebene Artikelnummer
 	 * @param neuerBestand ge�nderter Bestand
 	 * @return
 	 */
@@ -156,21 +152,18 @@ for (Artikel testArtikel : artikelBestand) {
 
 	// VERSUCH GESCHEITERT
 	public List<Artikel> sucheArtikel(String artname) {
-		// auch fuer das Suchergebnis bietet sich 
-		// die Verwendung von Generics an
-		List<Artikel> suchErg = new Vector<Artikel>();
-				
-		Iterator<Artikel> iter = artikelBestand.iterator();
-		while (iter.hasNext()) {
-			// WICHTIG: Type Cast auf 'Artikel' f�r sp�teren Zugriff auf Bezeichnung
-			// 		    hier nicht erforderlich wegen Verwendung von Generics
-			// 			(-> Vergleiche mit Einsatz von Vector OHNE Generics)
-			Artikel art = iter.next();
-			if (art.getName().equals(artname))
-				suchErg.add(art);
-				
+		List<Artikel> suchErgebnis = new ArrayList<>();
+		String suchBegriff = artname.toLowerCase();
+
+		for (Artikel artikel: getArtikelBestand()) {
+			if (artikel.getName().toLowerCase().contains(suchBegriff)
+					|| artikel.getArtname().toLowerCase().contains(suchBegriff)) {
+
+				suchErgebnis.add(artikel);
+			}
 		}
-		return suchErg;
+
+		return suchErgebnis;
 	}
 
 	/**

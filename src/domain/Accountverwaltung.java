@@ -25,15 +25,17 @@ public class Accountverwaltung {
 
 	// Verwaltung der Accounts als Liste
 	// Als Implementierung der Liste dient ein Vektor
+	//TODO: Wieso ein Vector? Finde ich etwas exotisch. Eine ArrayList tut es auch ;)
 	private List<Account> accountBestand = new Vector<Account>();
 	
 	
 	// Persistenz-Schnittstelle, die fuer die Details des Dateizugriffs
 	// verantwortlich ist .
-	private PersistenceManager pm = new FilePersistenceManager();
+	private PersistenceManager pm = new FilePersistenceManager(); //TODO: finde ich nicht sonderlich schön, dass die Accountverwaltung sich ihren eigenen Persistenzmanager erzeugen muss. Wieso nicht einfach per Dependency Injection (Konstruktor Parameter reinreichen?)
 
-	public Accountverwaltung() {
-		
+	public Accountverwaltung( /*PersistenceManager persistenceManager*/ ) {
+		//TODO: Leerer Konstruktor muss nicht angegeben werden. Wenn keiner angegeben ist, wird der Standardkonstruktor von Object verwendet. Also: AccountVerwaltung()
+		//this.persistenceManager = persistenceManager;
 	}
 
 	
@@ -47,7 +49,9 @@ public class Accountverwaltung {
 	public void liesKundendaten(String datei) throws IOException {
 		// PersistenzManager fuer Lesevorgaenge oeffnen
 		pm.openForReading(datei);
-		
+
+		//TODO: Das sollte meiner Meinung nach Aufgabe des Persistenzmanagers sein. Der sollte lediglich eine Liste an Kunden zurückliefern die ihr dann in euren
+
 		Kunde einKunde;
 		do {
 			// Account-Objekt einlesen
@@ -59,6 +63,7 @@ public class Accountverwaltung {
 				} catch (AccountExistiertBereitsException e1) {
 					// Kann hier eigentlich nicht auftreten,
 					// daher auch keine Fehlerbehandlung...
+					//TODO: sicher?
 				}
 			}
 		} while (einKunde != null);
@@ -107,7 +112,7 @@ public class Accountverwaltung {
 	 */
 	
 	// Kunde einfuegen
-	public void KundeEinfuegen(Kunde einKunde)
+	public void KundeEinfuegen(Kunde einKunde) //TODO: Methodennamen immer klein!!
 			throws AccountExistiertBereitsException {
 		if (accountBestand.contains(einKunde)) {
 			throw new AccountExistiertBereitsException(einKunde,
@@ -125,7 +130,7 @@ public class Accountverwaltung {
 	 */
 	
 	// Mitarbeiter einfuegen
-	public void MitarbeiterEinfuegen(Mitarbeiter einMitarbeiter)
+	public void MitarbeiterEinfuegen(Mitarbeiter einMitarbeiter) //TODO: siehe oben
 			throws AccountExistiertBereitsException {
 		if (accountBestand.contains(einMitarbeiter)) {
 			throw new AccountExistiertBereitsException(einMitarbeiter,

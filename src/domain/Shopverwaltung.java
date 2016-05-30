@@ -40,19 +40,19 @@ public class Shopverwaltung {
 		this.datei = datei;
 
 		//Artikelbestand einlesen
-		meineArtikel = new Artikelverwaltung();
+		meineArtikel = new Artikelverwaltung(); //TODO: hier auf jeden Fall Dependency Injection verwenden. So ist das ganze kaum testbar per Unit-Test
 		meineArtikel.liesDaten(datei+"_A.txt");
 		//Accounts einlesen
-		meineAccounts = new Accountverwaltung();  
-		meineAccounts.liesKundendaten(datei+"_Kunde.txt");
-		meineAccounts.liesMitarbeiterdaten(datei+"_Mitarbeiter.txt");
+		meineAccounts = new Accountverwaltung();  //TODO: hier auf jeden Fall Dependency Injection verwenden. So ist das ganze kaum testbar per Unit-Test
+		meineAccounts.liesKundendaten(datei+"_Kunde.txt"); //TODO: so etwas gehört nicht in den Konstruktor
+		meineAccounts.liesMitarbeiterdaten(datei+"_Mitarbeiter.txt"); //TODO: so etwas gehört nicht in den Konstruktor
 		// Rechnungen einlesen
-		meineRechnungen = new Rechnungsverwaltung();
+		meineRechnungen = new Rechnungsverwaltung();//TODO: hier auf jeden Fall Dependency Injection verwenden. So ist das ganze kaum testbar per Unit-Test
 		//TODO Rechnungskrams?!
 		
 		//Statistik
-		meineStats = new StatsVerwaltung();
-		meineStats.liesDaten(datei+"_S.txt");
+		meineStats = new StatsVerwaltung();//TODO: hier auf jeden Fall Dependency Injection verwenden. So ist das ganze kaum testbar per Unit-Test
+		meineStats.liesDaten(datei+"_S.txt");//TODO: so etwas gehört nicht in den Konstruktor
 	}	
 	public List<Artikel> gibAlleArtikel() {
 		// -> an Artikelverwaltung
@@ -73,7 +73,7 @@ public class Shopverwaltung {
 		meineArtikel.einfuegen(a);
 		return false;
 	}	
-	// F�gt Artikel ein
+	// F�gt Artikel ein
 	public boolean fuegeArtikelEin(String artname, int artnr, int artbestand, float preis, int packungsgroesse) throws ArtikelExistiertBereitsException{
 		Artikel a = new Artikel(artname, artnr, artbestand, preis);
 		meineArtikel.einfuegen(a);

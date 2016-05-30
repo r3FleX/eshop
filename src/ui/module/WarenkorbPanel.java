@@ -1,20 +1,18 @@
-package ui.GuiModule;
+package ui.module;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Gui_warenkorbpanel implements ActionListener {
+public class WarenkorbPanel implements ActionListener {
 
 	private JPanel warenkorbPanel;
 
 	//Konstruktor
-	public Gui_warenkorbpanel() {	
+	public WarenkorbPanel() {
 			
 		JPanel warenKorbPanel = new JPanel();
 		warenKorbPanel.setLayout(new GridLayout(1, 3));
