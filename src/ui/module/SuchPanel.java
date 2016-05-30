@@ -1,13 +1,10 @@
-package ui.GuiModule;
+package ui.module;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -15,11 +12,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import domain.Shopverwaltung;
-import ui.ArtikelTableModel;
 import ui.GUI_2;
 import valueobjects.Artikel;
 
-public class Gui_suchepanel implements ActionListener {
+public class SuchPanel implements ActionListener {
 	private GUI_2 gui;
 	private Shopverwaltung shop;
 	private JPanel suchPanel;
@@ -28,7 +24,7 @@ public class Gui_suchepanel implements ActionListener {
 	private JTextField suchenTextField;
 	
 	//Konstruktor
-	public Gui_suchepanel(GUI_2 GUI) {
+	public SuchPanel(GUI_2 GUI) {
 		this.gui = GUI;
 		this.shop = GUI.getShop();
 		
@@ -68,7 +64,7 @@ public class Gui_suchepanel implements ActionListener {
 	//ACTIONSLISTENER
 	public void actionPerformed(ActionEvent arg0) {		
 		System.out.println("Test Suchen");	
-		Gui_artikelpanel artikelPanel;
+		ArtikelPanel artikelPanel;
 		String suche = suchenTextField.getText();
 		java.util.List<Artikel> suchErgebnis;
 		System.out.println(suche);
@@ -78,10 +74,10 @@ public class Gui_suchepanel implements ActionListener {
 		} else {
 			suchErgebnis = shop.sucheNachArtikelNummer(suche);
 		}
-		// TODO: keine Gui_artikelpanel
+		// TODO: keine ArtikelPanel
 		//funktioniert noch nicht. Gibt keine gesuchte Artikel wieder
 		//artikelListe.removeAll(artikelListe);
-		gui.setArtikelPanel(new Gui_artikelpanel(suchErgebnis));
+		gui.setArtikelPanel(new ArtikelPanel(suchErgebnis));
 	}		
 }
 

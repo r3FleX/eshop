@@ -1,4 +1,4 @@
-package ui.GuiModule;
+package ui.module;
 
 import java.awt.GridLayout;
 import java.util.List;
@@ -12,13 +12,13 @@ import javax.swing.JTable;
 import ui.ArtikelTableModel;
 import valueobjects.Artikel;
 
-public class Gui_artikelpanel {
+public class ArtikelPanel {
 	
 	private JPanel artikelPanel;
 	private ArtikelTableModel artikeltable;
 	
 	//Konstruktor
-	public Gui_artikelpanel(List<Artikel> artikelliste) {
+	public ArtikelPanel(List<Artikel> artikelliste) {
 		
 		JPanel artikelPanel = new JPanel();
 		artikelPanel.setLayout(new GridLayout());
@@ -29,7 +29,7 @@ public class Gui_artikelpanel {
 		spalten.add("Name");
 		spalten.add("Bestand");
 		spalten.add("Preis");
-		spalten.add("Packungsgröße");
+		spalten.add("Packungsgrï¿½ï¿½e");
 		spalten.add("Massengut");
 		
 		// TableModel als "Datencontainer" anlegen:

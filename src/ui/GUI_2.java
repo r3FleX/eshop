@@ -7,31 +7,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 
 import domain.Shopverwaltung;
-import domain.exceptions.AccountExistiertBereitsException;
 import domain.exceptions.ArtikelExistiertNichtException;
 import domain.exceptions.BestandUeberschrittenException;
-import ui.GuiModule.Gui_artikelpanel;
-import ui.GuiModule.Gui_loginpanel;
-import ui.GuiModule.Gui_menuepanel;
-import ui.GuiModule.Gui_suchepanel;
-import ui.GuiModule.Gui_warenkorbpanel;
+import ui.module.ArtikelPanel;
+import ui.module.LoginPanel;
+import ui.module.MenuePanel;
+import ui.module.SuchPanel;
 import valueobjects.Account;
-import valueobjects.Artikel;
 import valueobjects.Kunde;
 import valueobjects.Warenkorb;
 
@@ -43,7 +34,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 	JPanel mainPanel = new JPanel();
 	
 	//Menuebar
-	Gui_menuepanel menuBar;	
+	MenuePanel menuBar;
 	
 	//LayoutPanel
 	JPanel navframe = new JPanel();		
@@ -54,7 +45,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 	private JTable ausgabeTabelle = null;
 	private JTable warenkorbTabelle = null;
 	JLabel gesamt = new JLabel();
-	private Gui_artikelpanel artikelPanel;
+	private ArtikelPanel artikelPanel;
 	
 	//Konstrukter
 	public GUI_2(String datei) {
@@ -64,7 +55,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 		
 		try {
 			shop = new Shopverwaltung(datei);
-			menuBar = new Gui_menuepanel(shop);	
+			menuBar = new MenuePanel(shop);
 		} catch (IOException e2) {
 
 		}
@@ -72,10 +63,10 @@ public class GUI_2 extends JFrame implements ActionListener{
 	}	
 	
 	//Getter und Setter
-	public Gui_artikelpanel getArtikelPanel() {
+	public ArtikelPanel getArtikelPanel() {
 		return artikelPanel;
 	}
-	public void setArtikelPanel(Gui_artikelpanel artikelPanel) {
+	public void setArtikelPanel(ArtikelPanel artikelPanel) {
 		this.artikelPanel = artikelPanel;
 	}
 	public Shopverwaltung getShop() {
@@ -90,17 +81,17 @@ public class GUI_2 extends JFrame implements ActionListener{
 		this.contentframe.setLayout(new BorderLayout());	
 		
 		//SuchPanel
-		Gui_suchepanel suchPanel = new Gui_suchepanel(this);
+		SuchPanel suchPanel = new SuchPanel(this);
 		menuBar.setSuchPanel(suchPanel);
 		this.contentframe.add(suchPanel.getSuchPanel(), BorderLayout.NORTH);	
 		
 		//LoginPanel
-		Gui_loginpanel loginPanel = new Gui_loginpanel(shop);
+		LoginPanel loginPanel = new LoginPanel(shop);
 		this.navframe.add(loginPanel.getloginPanel(), BorderLayout.NORTH);	
 		setJMenuBar(menuBar.getMenue());	
 		
 		//ArtikelPanel
-		artikelPanel = new Gui_artikelpanel(shop.gibAlleArtikel());			
+		artikelPanel = new ArtikelPanel(shop.gibAlleArtikel());
 		this.contentframe.add(artikelPanel.getArtikelPanel(), BorderLayout.CENTER);	
 		
 		// GUI setzen
