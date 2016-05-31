@@ -44,15 +44,15 @@ public class Shopverwaltung {
 		meineArtikel.liesDaten(datei+"_A.txt");
 		//Accounts einlesen
 		meineAccounts = new Accountverwaltung();  //TODO: hier auf jeden Fall Dependency Injection verwenden. So ist das ganze kaum testbar per Unit-Test
-		meineAccounts.liesKundendaten(datei+"_Kunde.txt"); //TODO: so etwas gehört nicht in den Konstruktor
-		meineAccounts.liesMitarbeiterdaten(datei+"_Mitarbeiter.txt"); //TODO: so etwas gehört nicht in den Konstruktor
+		meineAccounts.liesKundendaten(datei+"_Kunde.txt"); //TODO: so etwas gehoert nicht in den Konstruktor
+		meineAccounts.liesMitarbeiterdaten(datei+"_Mitarbeiter.txt"); //TODO: so etwas gehoert nicht in den Konstruktor
 		// Rechnungen einlesen
 		meineRechnungen = new Rechnungsverwaltung();//TODO: hier auf jeden Fall Dependency Injection verwenden. So ist das ganze kaum testbar per Unit-Test
 		//TODO Rechnungskrams?!
 		
 		//Statistik
 		meineStats = new StatsVerwaltung();//TODO: hier auf jeden Fall Dependency Injection verwenden. So ist das ganze kaum testbar per Unit-Test
-		meineStats.liesDaten(datei+"_S.txt");//TODO: so etwas gehört nicht in den Konstruktor
+		meineStats.liesDaten(datei+"_S.txt");//TODO: so etwas geh�rt nicht in den Konstruktor
 	}	
 	public List<Artikel> gibAlleArtikel() {
 		// -> an Artikelverwaltung

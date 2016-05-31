@@ -22,7 +22,7 @@ import valueobjects.Account;
 import valueobjects.Kunde;
 import valueobjects.Mitarbeiter;
 
-public class LoginPanel implements ActionListener{
+public class LoginPanel {
 
 	private JPanel loginPanel;	
 	private JPanel suchPanel;	
@@ -38,13 +38,8 @@ public class LoginPanel implements ActionListener{
 		
 		this.shop = shop;
 		this.gui = gui;
-		loginPanel = new JPanel();
-		loginPanel.setLayout(new GridLayout(1, 2));		
-		loginPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich -  Willkommen !")); //Ueberschrift Login
-		//setloginPanel(loginPanel);
-		
-		//zuerst ausgeblendet, wenn eingeloggt, dann eingeblendet
-		loginPanel.setVisible(false);
+
+		initialize();
 	}
 	
 	//Getter und Setter
@@ -55,14 +50,22 @@ public class LoginPanel implements ActionListener{
 	public void setloginPanel(JPanel loginPanel) {
 		this.loginPanel = loginPanel;
 	}
-	
+
+	private void initialize() {
 	//ACTIONLISTENER
-	public void actionPerformed(ActionEvent arg0) {
-		String command = arg0.getActionCommand();
+	//public void actionPerformed(ActionEvent arg0) {
+		
+		loginPanel = new JPanel();
+		loginPanel.setLayout(new GridLayout(1, 2));		
+		loginPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich -  Willkommen !")); //Ueberschrift Login
+		//setloginPanel(loginPanel);
+		
+		//zuerst ausgeblendet, wenn eingeloggt, dann eingeblendet
+		loginPanel.setVisible(false);
 			
 		System.out.println("test einloggen");
 		//Fuer Menue Account -> Einloggen Button
-		if(command.equals("Einloggen")){
+		//if(command.equals("Einloggen")){
 			
 			final JFrame login = new JFrame();
 	
@@ -83,6 +86,7 @@ public class LoginPanel implements ActionListener{
 			
 			JButton loginButton = new JButton("Login");
 			login.add(loginButton);
+			login.setVisible(true);	
 			
 			//Fuer Menue Account -> Einloggen -> Login Button
 			loginButton.addActionListener(new ActionListener() { 
@@ -93,7 +97,6 @@ public class LoginPanel implements ActionListener{
 					
 					//LoginButton
 					JButton loginButton = new JButton("Login");
-				
 					loginPanel.add(loginButton);
 					
 					//hole Name und Passwort aus Textfelder
@@ -108,6 +111,10 @@ public class LoginPanel implements ActionListener{
 							
 							login.setVisible(false);
 							loginPanel.setVisible(true);
+							
+							//Test //loginPanel.setLayout(new GridLayout(4, 3));	
+							//suchPanel.setVisible(false);
+							
 							gui.refresh();
 							//funktioniert noch nicht (ausgrauen rueckgaengig machen)  //mnLogout.setEnabled(true); 
 							//mnLogout.setEnabled(true);
@@ -125,10 +132,9 @@ public class LoginPanel implements ActionListener{
 				}
 			});
 			
-			login.setVisible(true);	
-			loginPanel.setVisible(true);
-		}
-		
+			//login.setVisible(true);	
+		//}
+		/*
 		//Fuer Menue Account -> Registrieren Button
 		else if (command.equals("Registrieren")){
 			final JFrame registrieren = new JFrame();
@@ -196,6 +202,7 @@ public class LoginPanel implements ActionListener{
 				}
 			});
 			registrieren.setVisible(true);
-		}
+		}*/
+	//}
 	}
 }
