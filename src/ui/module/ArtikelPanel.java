@@ -29,7 +29,7 @@ public class ArtikelPanel {
 		spalten.add("Name");
 		spalten.add("Bestand");
 		spalten.add("Preis");
-		spalten.add("Packungsgr��e");
+		spalten.add("Packungsgroesse");
 		spalten.add("Massengut");
 		
 		// TableModel als "Datencontainer" anlegen:
