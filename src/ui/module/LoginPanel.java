@@ -36,7 +36,7 @@ public class LoginPanel implements ActionListener{
 		this.shop = shop;
 		JPanel loginPanel = new JPanel();
 		loginPanel.setLayout(new GridLayout(1, 2));		
-		loginPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich - "+ user.getName()+ "Willkommen !")); //Ueberschrift Login
+		loginPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich - Willkommen !")); //Ueberschrift Login
 		setloginPanel(loginPanel);
 		
 		//zuerst ausgeblendet, wenn eingeloggt, dann eingeblendet

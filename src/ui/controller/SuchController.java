@@ -23,7 +23,7 @@ public class SuchController {
     public void suchen(String suchText) {
         List<Artikel> suchErgebnis = suchText.isEmpty() ?
                 shopverwaltung.gibAlleArtikel() :
-                shopverwaltung.sucheNachArtikelNummer(suchText);
+                shopverwaltung.sucheNachArtikel(suchText);
         gui.getArtikelPanel().getArtikeltable().setDataVector(suchErgebnis);
     }
 }
