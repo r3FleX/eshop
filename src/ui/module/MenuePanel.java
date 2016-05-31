@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import domain.Shopverwaltung;
+import ui.GUI_2;
 import valueobjects.Account;
 
 public class MenuePanel implements ActionListener{
@@ -20,10 +21,10 @@ public class MenuePanel implements ActionListener{
 	private Account user;
 	JLabel gesamt = new JLabel();
 	private SuchPanel suchPanel;
-	private JPanel loginPanel;
+	//private JPanel loginPanel;
 	
 	//Konstruktor
-	public MenuePanel(Shopverwaltung shop) {
+	public MenuePanel(Shopverwaltung shop, GUI_2 gui) {
 		this.shop = shop;
 		
 		JMenuBar menueBar = new JMenuBar();		
@@ -40,7 +41,7 @@ public class MenuePanel implements ActionListener{
 		
 		JMenuItem mnLogin = new JMenuItem("Einloggen");
 		mnAccount.add(mnLogin);
-		LoginPanel loginPanel = new LoginPanel(shop);
+		LoginPanel loginPanel = new LoginPanel(shop,gui);
 		mnLogin.addActionListener(loginPanel);
 		
 		JMenuItem mnReg = new JMenuItem("Registrieren");

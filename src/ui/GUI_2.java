@@ -58,11 +58,11 @@ public class GUI_2 extends JFrame implements ActionListener{
 		}
 		setTitle("E-Shop");
 		setSize(800, 600); //Fenstergroesse
-		setResizable(false);
+		//setResizable(false);
 		
 		try {
 			shop = new Shopverwaltung(datei);
-			menuBar = new MenuePanel(shop);
+			menuBar = new MenuePanel(shop,this);
 		} catch (IOException e2) {
 
 		}
@@ -80,6 +80,14 @@ public class GUI_2 extends JFrame implements ActionListener{
 		return shop;
 	}
 	
+	public JPanel getNavframe() {
+		return navframe;
+	}
+
+	public void setNavframe(JPanel navframe) {
+		this.navframe = navframe;
+	}
+	
 	//initialisieren
 	private void initialize() {
 	
@@ -87,13 +95,15 @@ public class GUI_2 extends JFrame implements ActionListener{
 		this.navframe.setLayout(new BorderLayout());
 		this.contentframe.setLayout(new BorderLayout());	
 		
+		navframe.setVisible(true);
+		
 		//SuchPanel
 		SuchPanel suchPanel = new SuchPanel(suchController);
 		menuBar.setSuchPanel(suchPanel);
 		this.contentframe.add(suchPanel.getSuchPanel(), BorderLayout.NORTH);	
 		
 		//LoginPanel
-		LoginPanel loginPanel = new LoginPanel(shop);
+		LoginPanel loginPanel = new LoginPanel(shop,this);
 		this.navframe.add(loginPanel.getloginPanel(), BorderLayout.NORTH);	
 		setJMenuBar(menuBar.getMenue());	
 		
@@ -172,5 +182,18 @@ public class GUI_2 extends JFrame implements ActionListener{
 			}	
 		}
 	}
+	
+	public void refresh(){
+		mainPanel.repaint();
+		contentframe.repaint();
+		navframe.repaint();
+		gesamt.repaint();
+		
+		mainPanel.revalidate();
+		contentframe.revalidate();
+		navframe.revalidate();
+		gesamt.revalidate();	
+	}
+	
 
 }

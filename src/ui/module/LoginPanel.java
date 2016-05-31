@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import domain.Shopverwaltung;
 import domain.exceptions.AccountExistiertBereitsException;
 import domain.exceptions.AccountExistiertNichtException;
+import ui.GUI_2;
 import valueobjects.Account;
 import valueobjects.Kunde;
 import valueobjects.Mitarbeiter;
@@ -29,15 +30,17 @@ public class LoginPanel implements ActionListener{
 	private Account user;
 	private JTextField nameTextField;
 	private JPasswordField passTextField;
+	private GUI_2 gui;
 
 	//Konstruktor
-	public LoginPanel(Shopverwaltung shop) {
+	public LoginPanel(Shopverwaltung shop, GUI_2 gui) {
 		
 		this.shop = shop;
-		JPanel loginPanel = new JPanel();
+		this.gui = gui;
+		loginPanel = new JPanel();
 		loginPanel.setLayout(new GridLayout(1, 2));		
-		loginPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich - Willkommen !")); //Ueberschrift Login
-		setloginPanel(loginPanel);
+		loginPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich -  Willkommen !")); //Ueberschrift Login
+		//setloginPanel(loginPanel);
 		
 		//zuerst ausgeblendet, wenn eingeloggt, dann eingeblendet
 		loginPanel.setVisible(false);
@@ -89,6 +92,7 @@ public class LoginPanel implements ActionListener{
 					
 					//LoginButton
 					JButton loginButton = new JButton("Login");
+				
 					loginPanel.add(loginButton);
 					
 					//hole Name und Passwort aus Textfelder
@@ -103,12 +107,12 @@ public class LoginPanel implements ActionListener{
 							
 							login.setVisible(false);
 							loginPanel.setVisible(true);
-							
+							gui.refresh();
 							//funktioniert noch nicht (ausgrauen rueckgaengig machen)  //mnLogout.setEnabled(true); 
 							  
-							//hilft leider nicht 	loginPanel.revalidate();
-							//hilft leider nicht	loginPanel.repaint();
-				
+							//hilft leider nicht 	
+							//hilft leider nicht
+							
 							JOptionPane.showMessageDialog(null,"Erfolgreich als Kunde eingeloggt!");	
 						}
 						else if (user instanceof Mitarbeiter){
@@ -122,8 +126,9 @@ public class LoginPanel implements ActionListener{
 				}
 			});
 			
-			login.setVisible(true);	
+			login.setVisible(true);		
 		}
+		
 		//Fuer Menue Account -> Registrieren Button
 		else if (command.equals("Registrieren")){
 			final JFrame registrieren = new JFrame();
