@@ -33,6 +33,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 	private SuchController suchController = null;
 
 	private Shopverwaltung shop;
+	private Shopverwaltung shopverwaltung;
 	JPanel mainPanel = new JPanel();
 	
 	//Menuebar

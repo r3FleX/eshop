@@ -27,6 +27,7 @@ public class LoginPanel implements ActionListener{
 	private JPanel loginPanel;	
 	private JPanel suchPanel;	
 	private Shopverwaltung shop;
+	Shopverwaltung shopverwaltung;
 	private Account user;
 	private JTextField nameTextField;
 	private JPasswordField passTextField;
@@ -109,11 +110,9 @@ public class LoginPanel implements ActionListener{
 							loginPanel.setVisible(true);
 							gui.refresh();
 							//funktioniert noch nicht (ausgrauen rueckgaengig machen)  //mnLogout.setEnabled(true); 
-							  
-							//hilft leider nicht 	
-							//hilft leider nicht
-							
-							JOptionPane.showMessageDialog(null,"Erfolgreich als Kunde eingeloggt!");	
+							//mnLogout.setEnabled(true);
+								
+							JOptionPane.showMessageDialog(null,"Erfolgreich als Kunde eingeloggt!");
 						}
 						else if (user instanceof Mitarbeiter){
 							login.setVisible(false);
@@ -126,7 +125,8 @@ public class LoginPanel implements ActionListener{
 				}
 			});
 			
-			login.setVisible(true);		
+			login.setVisible(true);	
+			loginPanel.setVisible(true);
 		}
 		
 		//Fuer Menue Account -> Registrieren Button
