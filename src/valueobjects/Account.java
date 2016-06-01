@@ -6,8 +6,7 @@ package valueobjects;
 
 public class Account {
 
-	// Attribute zur Beschreibung des Accounts
-
+	//Attribute zur Beschreibung des Accounts
 	protected int accountNr;
 	protected String accountname;
 	protected String accountpasswort;
@@ -21,8 +20,7 @@ public class Account {
 		this.accountNr = accnummer;	
 	}
 
-	//Überprüfe ob der Account schon vorhanden ist
-	
+	//Überprüfe ob der Account schon vorhanden ist	
 	public boolean equals(Object obj) {
 		if (obj instanceof Account) {
 			Account anderesAccount = (Account) obj;
@@ -31,7 +29,7 @@ public class Account {
 		return false;
 	}
 
-	// Getter und Setter
+	//Getter und Setter
 	public int getAccountNr() {
 		return accountNr;
 	}
@@ -54,8 +52,7 @@ public class Account {
 
 	public String getPasswort() {
 		return accountpasswort;
-	}
-	
+	}	
 
 	public void setPasswort(String passwort) {
 		this.accountpasswort = passwort;

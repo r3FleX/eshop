@@ -25,6 +25,7 @@ import ui.module.MenuePanel;
 import ui.module.SuchPanel;
 import valueobjects.Account;
 import valueobjects.Kunde;
+import valueobjects.Mitarbeiter;
 import valueobjects.Warenkorb;
 
 public class GUI_2 extends JFrame implements ActionListener{
@@ -81,14 +82,6 @@ public class GUI_2 extends JFrame implements ActionListener{
 		return shop;
 	}
 	
-	public void userLoggedIn(Account user) {
-		// Panel einblenden
-		loginPanel.setVisible(true);
-		System.out.println("Person " + user.getName() + " ist eingeloggt.");
-		
-//		if (user instanceof Mitarbeiter)..
-	}
-	
 	//initialisieren
 	private void initialize() {
 	
@@ -111,7 +104,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 		artikelPanel = new ArtikelPanel(shop.gibAlleArtikel());
 		this.contentframe.add(artikelPanel.getArtikelPanel(), BorderLayout.CENTER);	
 		
-		// GUI setzen
+		//GUI setzen
 		this.mainPanel.add(this.navframe,BorderLayout.NORTH);
 		this.mainPanel.add(this.contentframe,BorderLayout.CENTER);	
 		add(this.mainPanel);
@@ -182,6 +175,20 @@ public class GUI_2 extends JFrame implements ActionListener{
 			}	
 		}
 	}
+	
+	//Wenn Benutzer eingeloggt
+	public void userLoggedIn(Account user) {
+		
+		if (user instanceof Kunde) {
+			loginPanel.setVisible(true); //Panel einblenden
+			System.out.println("Kunde" + user.getName() + " ist eingeloggt.");
+		}
+		else if(user instanceof Mitarbeiter) {
+			loginPanel.setVisible(true); //Panel einblenden
+			System.out.println("Mitarbeiter" + user.getName() + " ist eingeloggt.");		}
+	}
+	
+	//refresh alle Panels
 	public void refresh(){
 		mainPanel.repaint();
 		contentframe.repaint();
