@@ -74,7 +74,6 @@ public class LoginPanel extends JPanel implements ActionListener{
 				public void actionPerformed(ActionEvent arg0) {
 			
 					System.out.println("loginbutton");
-				
 
 					//hole Name und Passwort aus Textfelder
 					String name = nameFeld.getText();

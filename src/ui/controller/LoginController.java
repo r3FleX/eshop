@@ -2,9 +2,9 @@ package ui.controller;
 
 import domain.Shopverwaltung;
 import ui.GUI_2;
-import valueobjects.Artikel;
-
-import java.util.List;
+import valueobjects.Kunde;
+import valueobjects.Mitarbeiter;
+import valueobjects.Account;
 
 
 public class LoginController {

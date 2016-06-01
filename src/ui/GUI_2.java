@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -182,10 +183,13 @@ public class GUI_2 extends JFrame implements ActionListener{
 		if (user instanceof Kunde) {
 			loginPanel.setVisible(true); //Panel einblenden
 			System.out.println("Kunde" + user.getName() + " ist eingeloggt.");
+			loginPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich - "+user.getName()+" Willkommen !")); //Ueberschrift Login
 		}
 		else if(user instanceof Mitarbeiter) {
 			loginPanel.setVisible(true); //Panel einblenden
-			System.out.println("Mitarbeiter" + user.getName() + " ist eingeloggt.");		}
+			System.out.println("Mitarbeiter" + user.getName() + " ist eingeloggt.");		
+			loginPanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiter - "+user.getName()+" Willkommen !")); //Ueberschrift Login
+		}
 	}
 	
 	//refresh alle Panels
