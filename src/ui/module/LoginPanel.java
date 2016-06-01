@@ -66,6 +66,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 			
 			JButton loginButton = new JButton("Login");
 			login.add(loginButton);
+			login.setVisible(true);	
 			
 			//Fuer Menue Account -> Einloggen -> Login Button
 			loginButton.addActionListener(new ActionListener() { 
@@ -83,29 +84,25 @@ public class LoginPanel extends JPanel implements ActionListener{
 					try {
 						Account user = shop.loginAccount(name, passwort);
 						
-						if (user instanceof Kunde) {
+						if (user instanceof Kunde) {	
 							
-							login.setVisible(false);
-							
-							//wenn eingeloggt, dann loginPanel.setVisible(true);
-							gui.userLoggedIn(user);
+							login.setVisible(false);	
+							gui.userLoggedIn(user); //wenn eingeloggt, loginPanel sichtbar
 
-							//gui.refresh();
 							JOptionPane.showMessageDialog(null,"Erfolgreich als Kunde eingeloggt!");	
 						}
 						else if (user instanceof Mitarbeiter){
+							
 							login.setVisible(false);
-							gui.userLoggedIn(user);
-							System.out.println("Mitarbeiter eingeloggt");
+							gui.userLoggedIn(user); //wenn eingeloggt, loginPanel sichtbar
+							
 							JOptionPane.showMessageDialog(null,"Erfolgreich als Mitarbeiter eingeloggt!");
 						}
 					} catch (AccountExistiertNichtException ex) {
 						JOptionPane.showMessageDialog(null, ex.getMessage());
 					}
 				}
-			});
-			
-			login.setVisible(true);	
+			});	
 		}
 		//Fuer Menue Account -> Registrieren Button
 		else if (command.equals("Registrieren")){
