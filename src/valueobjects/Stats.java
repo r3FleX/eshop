@@ -36,7 +36,8 @@ public class Stats {
 	public String toString() {
 		return ("\n ArtikelNummer: " + this.arklnummer + " Datum: " + this.datum + " Bestand: " + this.bestand);
 	}
-
+	
+	
 	public String getDatum() {
 		return this.datum;
 	}

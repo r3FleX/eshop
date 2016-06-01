@@ -128,18 +128,18 @@ public class Artikelverwaltung {
 	 */
 
 	public int aendereBestand(int artklNummer, int neuerBestand)
-	throws ArtikelExistiertNichtException {
+			throws ArtikelExistiertNichtException {
 
-for (Artikel testArtikel : artikelBestand) {
-	if (testArtikel.getNummer() == artklNummer) {
-		testArtikel.setBestand(neuerBestand);
-		return testArtikel.getBestand();
-	}
-}
-	
+		for (Artikel testArtikel : artikelBestand) {
+			if (testArtikel.getNummer() == artklNummer) {
+				testArtikel.setBestand(neuerBestand);
+				return testArtikel.getBestand();
+			}
+		}
+
 		throw new ArtikelExistiertNichtException(artklNummer);
 
-}
+	}
 
 	/**
 	 * Methode, die anhand eines Titels nach Artikeln sucht. Es wird eine Liste

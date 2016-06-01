@@ -10,7 +10,7 @@ import valueobjects.Stats;
 
 /**
  *
- * Allgemeine Schnittstelle f�r den Zugriff auf ein Speichermedium
+ * Allgemeine Schnittstelle fuer den Zugriff auf ein Speichermedium
  * (z.B. Datei oder Datenbank) zum Ablegen von beispielsweise
  * Artikel- oder Kundendaten.
  * 

@@ -33,7 +33,6 @@ public class GUI_2 extends JFrame implements ActionListener{
 	private SuchController suchController = null;
 
 	private Shopverwaltung shop;
-	private Shopverwaltung shopverwaltung;
 	JPanel mainPanel = new JPanel();
 	
 	//Menuebar
@@ -49,6 +48,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 	private JTable warenkorbTabelle = null;
 	JLabel gesamt = new JLabel();
 	private ArtikelPanel artikelPanel;
+	private LoginPanel loginPanel;
 	
 	//Konstrukter
 	public GUI_2(String datei) {
@@ -59,11 +59,11 @@ public class GUI_2 extends JFrame implements ActionListener{
 		}
 		setTitle("E-Shop");
 		setSize(800, 600); //Fenstergroesse
-		//setResizable(false);
+		setResizable(false);
 		
 		try {
 			shop = new Shopverwaltung(datei);
-			menuBar = new MenuePanel(shop,this);
+			menuBar = new MenuePanel(this, shop);
 		} catch (IOException e2) {
 
 		}
@@ -81,12 +81,12 @@ public class GUI_2 extends JFrame implements ActionListener{
 		return shop;
 	}
 	
-	public JPanel getNavframe() {
-		return navframe;
-	}
-
-	public void setNavframe(JPanel navframe) {
-		this.navframe = navframe;
+	public void userLoggedIn(Account user) {
+		// Panel einblenden
+		loginPanel.setVisible(true);
+		System.out.println("Person " + user.getName() + " ist eingeloggt.");
+		
+//		if (user instanceof Mitarbeiter)..
 	}
 	
 	//initialisieren
@@ -96,16 +96,15 @@ public class GUI_2 extends JFrame implements ActionListener{
 		this.navframe.setLayout(new BorderLayout());
 		this.contentframe.setLayout(new BorderLayout());	
 		
-		//	navframe.setVisible(true);
-		
 		//SuchPanel
 		SuchPanel suchPanel = new SuchPanel(suchController);
-		this.contentframe.add(suchPanel.getSuchPanel(), BorderLayout.NORTH);	
 		menuBar.setSuchPanel(suchPanel);
+		this.contentframe.add(suchPanel.getSuchPanel(), BorderLayout.NORTH);	
 		
 		//LoginPanel
-		LoginPanel loginPanel = new LoginPanel(shop,this);
-		this.navframe.add(loginPanel.getloginPanel(), BorderLayout.NORTH);	
+		loginPanel = new LoginPanel(this, shop);
+		loginPanel.setVisible(false);
+		this.navframe.add(loginPanel /*.getloginPanel() */, BorderLayout.NORTH);	
 		setJMenuBar(menuBar.getMenue());	
 		
 		//ArtikelPanel
@@ -183,7 +182,6 @@ public class GUI_2 extends JFrame implements ActionListener{
 			}	
 		}
 	}
-	
 	public void refresh(){
 		mainPanel.repaint();
 		contentframe.repaint();
@@ -195,6 +193,5 @@ public class GUI_2 extends JFrame implements ActionListener{
 		navframe.revalidate();
 		gesamt.revalidate();	
 	}
-	
 
 }

@@ -1,18 +1,13 @@
 package ui.module;
 
 import java.awt.GridLayout;
-import java.awt.MenuBar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -22,131 +17,130 @@ import domain.Shopverwaltung;
 import domain.exceptions.AccountExistiertBereitsException;
 import domain.exceptions.AccountExistiertNichtException;
 import ui.GUI_2;
-import ui.CUI;
 import valueobjects.Account;
 import valueobjects.Kunde;
 import valueobjects.Mitarbeiter;
-import ui.module.MenuePanel;
 
-public class LoginPanel {
+public class LoginPanel extends JPanel implements ActionListener{
 
-	private static final ActionEvent ActionEvent = null;
-	private JPanel loginPanel;	
+//	private JPanel loginPanel;	
 	private JPanel suchPanel;	
 	private Shopverwaltung shop;
-	Shopverwaltung shopverwaltung;
 	private Account user;
 	private JTextField nameTextField;
 	private JPasswordField passTextField;
 	private GUI_2 gui;
-	private JMenuBar menuBar;
-	private MenuePanel mpanel;
 
 	//Konstruktor
-	public LoginPanel(Shopverwaltung shop, GUI_2 gui) {
+	public LoginPanel(GUI_2 gui, Shopverwaltung shop) {
 		
 		this.shop = shop;
 		this.gui = gui;
 		
-		initialize();
-	}
-
-	//Getter und Setter
-	public JPanel getloginPanel() {
-		return loginPanel;
-	}
-
-	public void setloginPanel(JPanel loginPanel) {
-		this.loginPanel = loginPanel;
-	}
-	
-	
-	public void initialize() {
+//		JPanel loginPanel = new JPanel();
+//		loginPanel.setLayout(new GridLayout(1, 2));		
+		setLayout(new GridLayout(1, 2));
+		add(new JLabel("Text 1"));
+		add(new JLabel("Text 2"));
+//		setloginPanel(loginPanel);	
 		
-		loginPanel = new JPanel();
+		//zuerst ausgeblendet, wenn eingeloggt, dann eingeblendet
+//		this.setVisible(false);
+	}
+
+//	//Getter und Setter
+//	public JPanel getloginPanel() {
+//		return loginPanel;
+//	}
+//
+//	public void setloginPanel(JPanel loginPanel) {
+//		this.loginPanel = loginPanel;
+//	}
+	
+	//ACTIONLISTENER
+	public void actionPerformed(ActionEvent arg0) {
+		String command = arg0.getActionCommand();
+		
+		/*
+		JPanel loginPanel = new JPanel();
 		loginPanel.setLayout(new GridLayout(1, 2));		
-		loginPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich -  Willkommen !")); //Ueberschrift Login
+		loginPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich - Willkommen !")); //Ueberschrift Login
+		setloginPanel(loginPanel);
 		
 		//zuerst ausgeblendet, wenn eingeloggt, dann eingeblendet
 		loginPanel.setVisible(false);
-			
+		
 		System.out.println("test einloggen");
-	
+		*/
 		//Fuer Menue Account -> Einloggen Button
-		getMnLogin.addActionListener(new ActionListener() { 
-			public void actionPerformed(ActionEvent arg0) {
-					
-			//if(command.equals("Einloggen")){
-				
-				final JFrame login = new JFrame();
-		
-				login.setSize(200, 300);
-				login.setLayout(new GridLayout(7, 1));
-		
-				JLabel labelname = new JLabel("Name:");
-				login.add(labelname);
-				
-				final JTextField nameFeld = new JTextField();
-				login.add(nameFeld);
-		
-				JLabel labelpasswort = new JLabel("Passwort:");
-				login.add(labelpasswort);
-		
-				final JPasswordField passwortFeld = new JPasswordField();
-				login.add(passwortFeld);
-				
-				JButton loginButton = new JButton("Login");
-				login.add(loginButton);
-				login.setVisible(true);	
-				*/
-				//Fuer Menue Account -> Einloggen -> Login Button
-				loginButton.addActionListener(new ActionListener() { 
-					
-					public void actionPerformed(ActionEvent arg0) {
-				
-						System.out.println("loginbutton");
-						
-						//LoginButton
-						JButton loginButton = new JButton("Login");
-						loginPanel.add(loginButton);
-						
-						//hole Name und Passwort aus Textfelder
-						String name = nameFeld.getText();
-						String passwort = String.valueOf(passwortFeld.getPassword());
-				
-						//Ueberpruefe ob Kunde oder Mitarbeiter
-						try {
-							Account user = shop.loginAccount(name, passwort);
-							
-							if (user instanceof Kunde) {
-								
-								login.setVisible(false);
-								loginPanel.setVisible(true);
-								
-								//Test //loginPanel.setLayout(new GridLayout(4, 3));	
-								//suchPanel.setVisible(false);
-								
-								gui.refresh();
-								//funktioniert noch nicht (ausgrauen rueckgaengig machen)  //mnLogout.setEnabled(true); 
-								//mnLogout.setEnabled(true);
-									
-								JOptionPane.showMessageDialog(null,"Erfolgreich als Kunde eingeloggt!");
-							}
-							else if (user instanceof Mitarbeiter){
-								login.setVisible(false);
-								System.out.println("Mitarbeiter eingeloggt");
-								JOptionPane.showMessageDialog(null,"Erfolgreich als Mitarbeiter eingeloggt!");
-							}
-						} catch (AccountExistiertNichtException ex) {
-							JOptionPane.showMessageDialog(null, ex.getMessage());
-						}
-					}
-				}); //Ende loginButton.addActionListener	
-			} //Ende actionPerformed
-		});
+		if(command.equals("Einloggen")){
+			
+			final JFrame login = new JFrame();
 	
+			login.setSize(200, 300);
+			login.setLayout(new GridLayout(7, 1));
+	
+			JLabel labelname = new JLabel("Name:");
+			login.add(labelname);
+			
+			final JTextField nameFeld = new JTextField();
+			login.add(nameFeld);
+	
+			JLabel labelpasswort = new JLabel("Passwort:");
+			login.add(labelpasswort);
+	
+			final JPasswordField passwortFeld = new JPasswordField();
+			login.add(passwortFeld);
+			
+			JButton loginButton = new JButton("Login");
+			login.add(loginButton);
+			
+			//Fuer Menue Account -> Einloggen -> Login Button
+			loginButton.addActionListener(new ActionListener() { 
+				
+				public void actionPerformed(ActionEvent arg0) {
+			
+					System.out.println("loginbutton");
+				
+					
+					//hole Name und Passwort aus Textfelder
+					String name = nameFeld.getText();
+					String passwort = String.valueOf(passwortFeld.getPassword());
+			
+					//Ueberpruefe ob Kunde oder Mitarbeiter
+					try {
+						Account user = shop.loginAccount(name, passwort);
+						
+						if (user instanceof Kunde) {
+							
+							login.setVisible(false);
+
+							gui.userLoggedIn(user);
+//							LoginPanel.this.setVisible(true);
+							
+							//loginPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich -"+ user.getName()+" Willkommen !")); //Ueberschrift Login
+							//funktioniert noch nicht (ausgrauen rueckgaengig machen)  //mnLogout.setEnabled(true); 
+							  
+							//hilft leider nicht 	loginPanel.revalidate();
+							//hilft leider nicht	loginPanel.repaint();
+			//				gui.refresh();
+							JOptionPane.showMessageDialog(null,"Erfolgreich als Kunde eingeloggt!");	
+						}
+						else if (user instanceof Mitarbeiter){
+							login.setVisible(false);
+							System.out.println("Mitarbeiter eingeloggt");
+							JOptionPane.showMessageDialog(null,"Erfolgreich als Mitarbeiter eingeloggt!");
+						}
+					} catch (AccountExistiertNichtException ex) {
+						JOptionPane.showMessageDialog(null, ex.getMessage());
+					}
+				}
+			});
+			
+			login.setVisible(true);	
+		}
 		//Fuer Menue Account -> Registrieren Button
-		//else if (command.equals("Registrieren")){
+		else if (command.equals("Registrieren")){
 			final JFrame registrieren = new JFrame();
 
 			registrieren.setSize(400, 300);
@@ -185,14 +179,10 @@ public class LoginPanel {
 			JButton regButton = new JButton("Registrieren");
 			registrieren.add(regButton);
 			
-			registrieren.setVisible(false);
-			
 			//Fuer Menue Account -> Registrieren -> Registrieren Button
 			regButton.addActionListener(new ActionListener() { 
 		
 				public void actionPerformed(ActionEvent arg0) {
-					
-					registrieren.setVisible(true);
 					
 					//hole Name, Passwort, Starsse, PLZ und Ort aus Textfelder
 					String name = nameFeld.getText();
@@ -214,7 +204,8 @@ public class LoginPanel {
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					}
 				}
-			});//Ende regButton.addActionListener
-		//}//Ende "Registrieren" Button
-	  }//Ende initialize();
+			});
+			registrieren.setVisible(true);
+		}
+	}
 }

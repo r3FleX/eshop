@@ -6,6 +6,7 @@ import valueobjects.Artikel;
 
 import java.util.List;
 
+
 public class SuchController {
 
     private GUI_2 gui;
@@ -16,12 +17,14 @@ public class SuchController {
         this.gui = gui;
         this.shopverwaltung = shopverwaltung;
     }
-
+    
+    //Der Such Button ruft im suchController suchen auf. 
+    //Der sagt der GUI -> Tabelle ändern.
+    
     public void suchen(String suchText) {
-    	
         List<Artikel> suchErgebnis = suchText.isEmpty() ?
                 shopverwaltung.gibAlleArtikel() :
-                shopverwaltung.sucheNachArtikelNummer(suchText);
+                shopverwaltung.sucheNachArtikel(suchText);
         gui.getArtikelPanel().getArtikeltable().setDataVector(suchErgebnis);
     }
 }
