@@ -97,6 +97,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 		
 		//LoginPanel
 		loginPanel = new LoginPanel(this, shop);
+		loginPanel.setLayout(new GridLayout(1, 4));
 		loginPanel.setVisible(false);
 		this.navframe.add(loginPanel /*.getloginPanel() */, BorderLayout.NORTH);	
 		setJMenuBar(menuBar.getMenue());	
@@ -183,6 +184,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 		if (user instanceof Kunde) {
 			loginPanel.setVisible(true); //Panel einblenden
 			System.out.println("Kunde " + user.getName() + " ist eingeloggt.");
+			//statistikButton.setVisible(true);
 			loginPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  herzlich willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login
 		}
 		else if(user instanceof Mitarbeiter) {

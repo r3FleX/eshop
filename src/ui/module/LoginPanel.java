@@ -28,15 +28,51 @@ public class LoginPanel extends JPanel implements ActionListener{
 	private Shopverwaltung shop;
 	private GUI_2 gui;
 
+	public Object statistikButton;
+
 	//Konstruktor
 	public LoginPanel(GUI_2 gui, Shopverwaltung shop) {
 		
 		this.shop = shop;
 		this.gui = gui;
 	
-		setLayout(new GridLayout(1, 2));
-		add(new JLabel("Text 1"));
-		add(new JLabel("Text 2"));
+		//Statistik Button 
+		JButton statistikButton = new JButton("Statistik");
+		add(statistikButton);
+		statistikButton.setVisible(false);
+		
+		//ACTIONLISTINER
+		statistikButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+			
+		add(new JLabel()); //Platzhalter
+		
+		//Warenkorb Button "in Warenkorb legen"
+		JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen");
+		add(inWarenKorbLegenButton);
+		inWarenKorbLegenButton.setVisible(false);
+		
+		//ACTIONLISTINER
+		inWarenKorbLegenButton.addActionListener(new ActionListener() {	
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		
+		//Warenkorb Button "zum Warenkorb"
+		JButton zumWarenKorbButton = new JButton("zum Warenkorb");
+		add(zumWarenKorbButton);
+		zumWarenKorbButton.setVisible(false);
+		
+		//ACTIONLISTINER
+		zumWarenKorbButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
 	}
 
 	
@@ -68,6 +104,8 @@ public class LoginPanel extends JPanel implements ActionListener{
 			login.add(loginButton);
 			login.setVisible(true);	
 			
+			
+			
 			//Fuer Menue Account -> Einloggen -> Login Button
 			loginButton.addActionListener(new ActionListener() { 
 				
@@ -87,7 +125,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 							
 							login.setVisible(false);	
 							gui.userLoggedIn(user); //wenn eingeloggt, loginPanel sichtbar
-
+							//statistikButton.setVisible(true);
 							JOptionPane.showMessageDialog(null,"Erfolgreich als Kunde eingeloggt!");	
 						}
 						else if (user instanceof Mitarbeiter){

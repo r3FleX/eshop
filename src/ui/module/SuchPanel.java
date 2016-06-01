@@ -40,14 +40,16 @@ public class SuchPanel {
 		JButton suchButton = new JButton("Suchen");
 		suchPanel.add(suchButton);
 		suchButton.addActionListener(new ActionListener() {
-			@Override
+			
 			public void actionPerformed(ActionEvent e) {
 				suchen(suchenTextField.getText());
 			}
 		});
 
 		suchPanel.add(new JLabel()); //Platzhalter
-
+		suchPanel.add(new JLabel()); //Platzhalter
+		
+		/*
 		JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen");
 		suchPanel.add(inWarenKorbLegenButton);
 		inWarenKorbLegenButton.addActionListener(new ActionListener() {
@@ -65,8 +67,9 @@ public class SuchPanel {
 
 			}
 		});
-
-		suchPanel.setBorder(BorderFactory.createTitledBorder("Shop")); //Ueberschrift Suchen
+		*/
+		
+		suchPanel.setBorder(BorderFactory.createTitledBorder("Suchen")); //Ueberschrift Suchen
 		setSuchPanel(suchPanel);
 	}
 
@@ -82,24 +85,5 @@ public class SuchPanel {
 	public void setSuchPanel(JPanel suchPanel) {
 		this.suchPanel = suchPanel;
 	}
-	
-//	//ACTIONSLISTENER
-//	public void actionPerformed(ActionEvent arg0) {
-//		System.out.println("Test Suchen");
-//		ArtikelPanel artikelPanel;
-//		String suche = suchenTextField.getText();
-//		java.util.List<Artikel> suchErgebnis;
-//		System.out.println(suche);
-//
-//		if (suche.isEmpty()) {
-//			suchErgebnis = this.shop.gibAlleArtikel();
-//		} else {
-//			suchErgebnis = shop.sucheNachArtikelNummer(suche);
-//		}
-//		// TODO: keine ArtikelPanel
-//		//funktioniert noch nicht. Gibt keine gesuchte Artikel wieder
-//		//artikelListe.removeAll(artikelListe);
-//		gui.setArtikelPanel(new ArtikelPanel(suchErgebnis));
-//	}
 }
 

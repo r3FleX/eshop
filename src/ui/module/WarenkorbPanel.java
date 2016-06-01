@@ -15,7 +15,7 @@ public class WarenkorbPanel implements ActionListener {
 	public WarenkorbPanel() {
 			
 		JPanel warenKorbPanel = new JPanel();
-		warenKorbPanel.setLayout(new GridLayout(1, 3));
+		warenKorbPanel.setLayout(new GridLayout(1, 4));
 		
 		warenKorbPanel.setBorder(BorderFactory.createTitledBorder("Warenkorb")); //Ueberschrift Warenkorb
 		setWarenkorbPanel(warenKorbPanel);		
