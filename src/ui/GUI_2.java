@@ -55,7 +55,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 	//Konstrukter
 	public GUI_2(String datei) {
 		try {
-			this.suchController = new SuchController(this, new Shopverwaltung(datei)); //TODO: Eklig, da die ShopVerwaltung gefährliche Sachen im Konstruktor macht.
+			this.suchController = new SuchController(this, new Shopverwaltung(datei)); //TODO: Eklig, da die ShopVerwaltung gefaehrliche Sachen im Konstruktor macht.
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -182,13 +182,13 @@ public class GUI_2 extends JFrame implements ActionListener{
 		
 		if (user instanceof Kunde) {
 			loginPanel.setVisible(true); //Panel einblenden
-			System.out.println("Kunde" + user.getName() + " ist eingeloggt.");
-			loginPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich - "+user.getName()+" Willkommen !")); //Ueberschrift Login
+			System.out.println("Kunde " + user.getName() + " ist eingeloggt.");
+			loginPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  herzlich willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login
 		}
 		else if(user instanceof Mitarbeiter) {
 			loginPanel.setVisible(true); //Panel einblenden
-			System.out.println("Mitarbeiter" + user.getName() + " ist eingeloggt.");		
-			loginPanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiter - "+user.getName()+" Willkommen !")); //Ueberschrift Login
+			System.out.println("Mitarbeiter " + user.getName() + " ist eingeloggt.");		
+			loginPanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  herzlich willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
 		}
 	}
 	
