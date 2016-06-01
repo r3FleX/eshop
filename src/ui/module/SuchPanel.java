@@ -31,6 +31,7 @@ public class SuchPanel {
 	}
 
 	private void initialize() {
+		
 		JPanel suchPanel = new JPanel();
 		suchPanel.setLayout(new GridLayout(1, 4));
 

@@ -42,7 +42,7 @@ public class MenuePanel implements ActionListener{
 		JMenuItem mnLogin = new JMenuItem("Einloggen");
 		mnAccount.add(mnLogin);
 		LoginPanel loginPanel = new LoginPanel(shop,gui);
-		//mnLogin.add(loginPanel);
+		//mnLogin.addActionListener(loginPanel);
 		
 		JMenuItem mnReg = new JMenuItem("Registrieren");
 		//mnReg.addActionListener(loginPanel);
@@ -65,6 +65,46 @@ public class MenuePanel implements ActionListener{
 	}
 	
 	//Getter und Setter
+	public JMenuBar getMenue() {
+		return this.menuBar;
+	}
+	
+	public void setMenue(JMenuBar menue) {
+		this.menuBar = menue;
+	}
+	
+	public JMenuBar getMenuBar() {
+		return menuBar;
+	}
+
+	public void setMenuBar(JMenuBar menuBar) {
+		this.menuBar = menuBar;
+	}
+
+	public Shopverwaltung getShop() {
+		return shop;
+	}
+
+	public void setShop(Shopverwaltung shop) {
+		this.shop = shop;
+	}
+
+	public Account getUser() {
+		return user;
+	}
+
+	public void setUser(Account user) {
+		this.user = user;
+	}
+
+	public JLabel getGesamt() {
+		return gesamt;
+	}
+
+	public void setGesamt(JLabel gesamt) {
+		this.gesamt = gesamt;
+	}
+
 	public SuchPanel getSuchPanel() {
 		return suchPanel;
 	}
@@ -73,13 +113,6 @@ public class MenuePanel implements ActionListener{
 		this.suchPanel = suchPanel;
 	}
 		
-	public JMenuBar getMenue() {
-		return this.menuBar;
-	}
-	
-	public void setMenue(JMenuBar menue) {
-		this.menuBar = menue;
-	}
 	
 	//ACTIONLISTENER
 	public void actionPerformed(ActionEvent arg0) {

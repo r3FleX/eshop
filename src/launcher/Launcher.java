@@ -4,9 +4,6 @@ import ui.controller.ViewController;
 
 import java.awt.*;
 
-/**
- * Created by Tobi on 30.05.16.
- */
 public class Launcher {
 
     //MAIN

@@ -96,12 +96,12 @@ public class GUI_2 extends JFrame implements ActionListener{
 		this.navframe.setLayout(new BorderLayout());
 		this.contentframe.setLayout(new BorderLayout());	
 		
-		navframe.setVisible(true);
+		//	navframe.setVisible(true);
 		
 		//SuchPanel
 		SuchPanel suchPanel = new SuchPanel(suchController);
-		menuBar.setSuchPanel(suchPanel);
 		this.contentframe.add(suchPanel.getSuchPanel(), BorderLayout.NORTH);	
+		menuBar.setSuchPanel(suchPanel);
 		
 		//LoginPanel
 		LoginPanel loginPanel = new LoginPanel(shop,this);
