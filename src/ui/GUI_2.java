@@ -1,5 +1,6 @@
 package ui;
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.List;
@@ -96,7 +97,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 		this.contentframe.add(suchPanel.getSuchPanel(), BorderLayout.NORTH);	
 		
 		//LoginPanel
-		loginPanel = new LoginPanel(this, shop);
+		loginPanel = new LoginPanel(this, shop, user);
 		loginPanel.setLayout(new GridLayout(1, 4));
 		loginPanel.setVisible(false);
 		this.navframe.add(loginPanel /*.getloginPanel() */, BorderLayout.NORTH);	
@@ -154,6 +155,8 @@ public class GUI_2 extends JFrame implements ActionListener{
 				wieViele.getContentPane().add(anz);
 				wieViele.getContentPane().add(anzahl1);
 				wieViele.getContentPane().add(ok);
+				wieViele.setVisible(true);
+				
 				ok.addActionListener(new ActionListener() {
 
 					public void actionPerformed(ActionEvent arg0) {
@@ -170,7 +173,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 					}
 				});
 
-				wieViele.setVisible(true);
+				
 
 			} catch (NumberFormatException e1) {
 				e1.printStackTrace();
@@ -194,7 +197,8 @@ public class GUI_2 extends JFrame implements ActionListener{
 		}
 	}
 	
-	//refresh alle Panels
+	
+	//refresht alle Panels
 	public void refresh(){
 		mainPanel.repaint();
 		contentframe.repaint();

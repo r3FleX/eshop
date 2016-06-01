@@ -31,7 +31,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 	public Object statistikButton;
 
 	//Konstruktor
-	public LoginPanel(GUI_2 gui, Shopverwaltung shop) {
+	public LoginPanel(GUI_2 gui, Shopverwaltung shop, Account user ) {
 		
 		this.shop = shop;
 		this.gui = gui;
@@ -39,7 +39,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 		//Statistik Button 
 		JButton statistikButton = new JButton("Statistik");
 		add(statistikButton);
-		statistikButton.setVisible(false);
+		statistikButton.setVisible(true);
 		
 		//ACTIONLISTINER
 		statistikButton.addActionListener(new ActionListener() {
@@ -53,7 +53,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 		//Warenkorb Button "in Warenkorb legen"
 		JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen");
 		add(inWarenKorbLegenButton);
-		inWarenKorbLegenButton.setVisible(false);
+		inWarenKorbLegenButton.setVisible(true);
 		
 		//ACTIONLISTINER
 		inWarenKorbLegenButton.addActionListener(new ActionListener() {	
@@ -65,16 +65,22 @@ public class LoginPanel extends JPanel implements ActionListener{
 		//Warenkorb Button "zum Warenkorb"
 		JButton zumWarenKorbButton = new JButton("zum Warenkorb");
 		add(zumWarenKorbButton);
-		zumWarenKorbButton.setVisible(false);
+		zumWarenKorbButton.setVisible(true);
 		
 		//ACTIONLISTINER
 		zumWarenKorbButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 			}
-		});
+		});	
+		
+		if (user instanceof Kunde) {
+			
+		}
+		zumWarenKorbButton.setVisible(true);
+		inWarenKorbLegenButton.setVisible(true);
+		zumWarenKorbButton.setVisible(true);
 	}
-
 	
 	//ACTIONLISTENER
 	public void actionPerformed(ActionEvent arg0) {

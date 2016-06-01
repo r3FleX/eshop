@@ -14,7 +14,7 @@ import domain.Shopverwaltung;
 import ui.GUI_2;
 import valueobjects.Account;
 
-public class MenuePanel implements ActionListener{
+public class MenuePanel extends JPanel implements ActionListener{
 
 	private JMenuBar menuBar;
 	private Shopverwaltung shop;
@@ -41,7 +41,7 @@ public class MenuePanel implements ActionListener{
 		
 		JMenuItem mnLogin = new JMenuItem("Einloggen");
 		mnAccount.add(mnLogin);
-		LoginPanel loginPanel = new LoginPanel(gui, shop);
+		LoginPanel loginPanel = new LoginPanel(gui, shop, user);
 		mnLogin.addActionListener(loginPanel);
 		
 		JMenuItem mnReg = new JMenuItem("Registrieren");
