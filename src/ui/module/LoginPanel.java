@@ -24,11 +24,10 @@ import valueobjects.Mitarbeiter;
 
 public class LoginPanel extends JPanel implements ActionListener{
 
-	private static final long serialVersionUID = 1L;
+
 	
 	private Shopverwaltung shop;
 	private GUI_2 gui;
-
 	public Object statistikButton;
 
 	//Konstruktor
@@ -37,50 +36,6 @@ public class LoginPanel extends JPanel implements ActionListener{
 		this.shop = shop;
 		this.gui = gui;
 	
-		//Statistik Button 
-		JButton statistikButton = new JButton("Statistik",new ImageIcon("src/assets/statistikIcon.png"));
-		add(statistikButton);
-		statistikButton.setVisible(true);
-		
-		//ACTIONLISTINER
-		statistikButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-			
-		//add(new JLabel()); //Platzhalter
-		
-		//Warenkorb Button "in Warenkorb legen" 
-		JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
-		add(inWarenKorbLegenButton);
-		inWarenKorbLegenButton.setVisible(true);
-		
-		//ACTIONLISTINER
-		inWarenKorbLegenButton.addActionListener(new ActionListener() {	
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-		
-		//Warenkorb Button "zum Warenkorb"
-		JButton zumWarenKorbButton = new JButton("zum Warenkorb",new ImageIcon("src/assets/warenkorbIcon.png"));
-		add(zumWarenKorbButton);
-		zumWarenKorbButton.setVisible(true);
-		
-		//ACTIONLISTINER
-		zumWarenKorbButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});	
-		
-		if (user instanceof Kunde) {
-			
-		}
-		zumWarenKorbButton.setVisible(true);
-		inWarenKorbLegenButton.setVisible(true);
-		zumWarenKorbButton.setVisible(true);
 	}
 	
 	//ACTIONLISTENER

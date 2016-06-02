@@ -1,0 +1,74 @@
+package ui.module;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+import domain.Shopverwaltung;
+import ui.GUI_2;
+import valueobjects.Account;
+import valueobjects.Kunde;
+
+public class UserPanel extends JPanel implements ActionListener{
+	private Shopverwaltung shop;
+	private GUI_2 gui;
+
+	public UserPanel(GUI_2 gui, Shopverwaltung shop, Account user ) {
+		
+		this.shop = shop;
+		this.gui = gui;
+	
+		//Statistik Button 
+		JButton statistikButton = new JButton("Statistik",new ImageIcon("src/assets/statistikIcon.png"));
+		add(statistikButton);
+		
+		//ACTIONLISTINER
+		statistikButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+			
+		//add(new JLabel()); //Platzhalter
+		
+		//Warenkorb Button "in Warenkorb legen" 
+		JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
+		add(inWarenKorbLegenButton);
+
+		
+		//ACTIONLISTINER
+		inWarenKorbLegenButton.addActionListener(new ActionListener() {	
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		
+		//Warenkorb Button "zum Warenkorb"
+		JButton zumWarenKorbButton = new JButton("zum Warenkorb",new ImageIcon("src/assets/warenkorbIcon.png"));
+		add(zumWarenKorbButton);
+		
+		//ACTIONLISTINER
+		zumWarenKorbButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});	
+		
+		if (user instanceof Kunde) {
+			
+		}
+		zumWarenKorbButton.setVisible(true);
+		inWarenKorbLegenButton.setVisible(true);
+		zumWarenKorbButton.setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -25,6 +25,7 @@ import ui.module.ArtikelPanel;
 import ui.module.LoginPanel;
 import ui.module.MenuePanel;
 import ui.module.SuchPanel;
+import ui.module.UserPanel;
 import valueobjects.Account;
 import valueobjects.Kunde;
 import valueobjects.Mitarbeiter;
@@ -52,6 +53,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 	JLabel gesamt = new JLabel();
 	private ArtikelPanel artikelPanel;
 	private LoginPanel loginPanel;
+	private UserPanel userpanel;
 	
 	//Konstrukter
 	public GUI_2(String datei) {
@@ -97,10 +99,10 @@ public class GUI_2 extends JFrame implements ActionListener{
 		this.contentframe.add(suchPanel.getSuchPanel(), BorderLayout.NORTH);	
 		
 		//LoginPanel
-		loginPanel = new LoginPanel(this, shop, user);
-		loginPanel.setLayout(new GridLayout(1, 3));
-		loginPanel.setVisible(false);
-		this.navframe.add(loginPanel /*.getloginPanel() */, BorderLayout.NORTH);	
+		userpanel = new UserPanel(this, shop, user);
+		userpanel.setLayout(new GridLayout(1, 3));
+		userpanel.setVisible(false);
+		this.navframe.add(userpanel, BorderLayout.NORTH);	
 		setJMenuBar(menuBar.getMenue());	
 		
 		//ArtikelPanel
@@ -185,15 +187,16 @@ public class GUI_2 extends JFrame implements ActionListener{
 	public void userLoggedIn(Account user) {
 		
 		if (user instanceof Kunde) {
-			loginPanel.setVisible(true); //Panel einblenden
+			userpanel.setVisible(true); //Panel einblenden
 			System.out.println("Kunde " + user.getName() + " ist eingeloggt.");
+			
 			//statistikButton.setVisible(true);
-			loginPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login
+			userpanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login
 		}
 		else if(user instanceof Mitarbeiter) {
-			loginPanel.setVisible(true); //Panel einblenden
+			userpanel.setVisible(true); //Panel einblenden
 			System.out.println("Mitarbeiter " + user.getName() + " ist eingeloggt.");		
-			loginPanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
+			userpanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
 		}
 	}
 	
