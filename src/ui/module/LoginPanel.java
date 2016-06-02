@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -37,7 +38,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 		this.gui = gui;
 	
 		//Statistik Button 
-		JButton statistikButton = new JButton("Statistik");
+		JButton statistikButton = new JButton("Statistik",new ImageIcon("src/assets/statistikIcon.png"));
 		add(statistikButton);
 		statistikButton.setVisible(true);
 		
@@ -48,10 +49,10 @@ public class LoginPanel extends JPanel implements ActionListener{
 			}
 		});
 			
-		add(new JLabel()); //Platzhalter
+		//add(new JLabel()); //Platzhalter
 		
-		//Warenkorb Button "in Warenkorb legen"
-		JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen");
+		//Warenkorb Button "in Warenkorb legen" 
+		JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
 		add(inWarenKorbLegenButton);
 		inWarenKorbLegenButton.setVisible(true);
 		
@@ -63,7 +64,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 		});
 		
 		//Warenkorb Button "zum Warenkorb"
-		JButton zumWarenKorbButton = new JButton("zum Warenkorb");
+		JButton zumWarenKorbButton = new JButton("zum Warenkorb",new ImageIcon("src/assets/warenkorbIcon.png"));
 		add(zumWarenKorbButton);
 		zumWarenKorbButton.setVisible(true);
 		

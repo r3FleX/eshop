@@ -98,7 +98,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 		
 		//LoginPanel
 		loginPanel = new LoginPanel(this, shop, user);
-		loginPanel.setLayout(new GridLayout(1, 4));
+		loginPanel.setLayout(new GridLayout(1, 3));
 		loginPanel.setVisible(false);
 		this.navframe.add(loginPanel /*.getloginPanel() */, BorderLayout.NORTH);	
 		setJMenuBar(menuBar.getMenue());	
@@ -188,12 +188,12 @@ public class GUI_2 extends JFrame implements ActionListener{
 			loginPanel.setVisible(true); //Panel einblenden
 			System.out.println("Kunde " + user.getName() + " ist eingeloggt.");
 			//statistikButton.setVisible(true);
-			loginPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  herzlich willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login
+			loginPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login
 		}
 		else if(user instanceof Mitarbeiter) {
 			loginPanel.setVisible(true); //Panel einblenden
 			System.out.println("Mitarbeiter " + user.getName() + " ist eingeloggt.");		
-			loginPanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  herzlich willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
+			loginPanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
 		}
 	}
 	
