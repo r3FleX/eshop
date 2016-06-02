@@ -70,5 +70,4 @@ public class UserPanel extends JPanel implements ActionListener{
 	public void setwarenkorbvisible() {
 		inWarenKorbLegenButton.setVisible(true);
 	}
-
 }

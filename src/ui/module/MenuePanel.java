@@ -22,6 +22,9 @@ public class MenuePanel extends JPanel implements ActionListener{
 	JLabel gesamt = new JLabel();
 	private SuchPanel suchPanel;
 	private JPanel loginPanel;
+	private JMenuItem mnLogin;
+	private JMenuItem mnReg;
+	private JMenuItem mnLogout;
 	
 	//Konstruktor
 	public MenuePanel(GUI_2 gui, Shopverwaltung shop) {
@@ -39,16 +42,16 @@ public class MenuePanel extends JPanel implements ActionListener{
 		JMenu mnAccount = new JMenu("Account");
 		menueBar.add(mnAccount);
 		
-		JMenuItem mnLogin = new JMenuItem("Einloggen");
+		mnLogin = new JMenuItem("Einloggen");
 		mnAccount.add(mnLogin);
 		LoginPanel loginPanel = new LoginPanel(gui, shop, user);
 		mnLogin.addActionListener(loginPanel);
 		
-		JMenuItem mnReg = new JMenuItem("Registrieren");
+		mnReg = new JMenuItem("Registrieren");
 		mnReg.addActionListener(loginPanel);
 		mnAccount.add(mnReg);
 		
-		JMenuItem mnLogout = new JMenuItem("Ausloggen");
+		mnLogout = new JMenuItem("Ausloggen");
 
 		mnLogout.setEnabled(false);   //ausgegraut                            
 		mnAccount.add(mnLogout);
@@ -105,5 +108,11 @@ public class MenuePanel extends JPanel implements ActionListener{
 		}
 		
 		System.out.println("menuepanel Aktion ausgefuehrt");
+	}
+
+	public void setUserLoggedin(boolean b) {
+		mnLogout.setEnabled(b);
+		mnReg.setEnabled(!b);
+		mnLogin.setEnabled(!b);
 	}
 }

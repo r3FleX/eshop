@@ -186,17 +186,19 @@ public class GUI_2 extends JFrame implements ActionListener{
 	//Wenn Benutzer eingeloggt
 	public void userLoggedIn(Account user) {
 		
+		menuBar.setUserLoggedin(true);
+		
 		if (user instanceof Kunde) {
 			userpanel.setVisible(true); //Panel einblenden
 			System.out.println("Kunde " + user.getName() + " ist eingeloggt.");
 			userpanel.setwarenkorbvisible();
-			//statistikButton.setVisible(true);
 			userpanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login
 		}
 		else if(user instanceof Mitarbeiter) {
 			userpanel.setVisible(true); //Panel einblenden
 			System.out.println("Mitarbeiter " + user.getName() + " ist eingeloggt.");		
 			userpanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
+
 		}
 	}
 	
