@@ -189,7 +189,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 		if (user instanceof Kunde) {
 			userpanel.setVisible(true); //Panel einblenden
 			System.out.println("Kunde " + user.getName() + " ist eingeloggt.");
-			
+			userpanel.setwarenkorbvisible();
 			//statistikButton.setVisible(true);
 			userpanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login
 		}
