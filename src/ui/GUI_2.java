@@ -101,7 +101,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 		JPanel suchleiste = new JPanel();
 		suchleiste.setLayout(new GridLayout(1,1));
 		suchleiste.add(suchPanel.getSuchPanel());
-		suchleiste.add(WarenKorbButtons.getZumWarenkorbButton());
+		suchleiste.add(WarenKorbButtons.getZumWarenkorbButton(user));
 		
 		this.contentframe.add(suchleiste, BorderLayout.NORTH);	
 		
@@ -129,55 +129,9 @@ public class GUI_2 extends JFrame implements ActionListener{
 		String command = e.getActionCommand();
 		/*
 		
-		//Fuer zum Warenkorb Button
-		if (command.equals("zum Warenkorb")) {
-			Warenkorb suchErgebnis;
-			Kunde kunde = (Kunde) user;
-
-			suchErgebnis = kunde.getWarenkorb();
-
-			ArtikelTableModel tModel = (ArtikelTableModel) warenkorbTabelle.getModel();
-			tModel.setDataVector2(suchErgebnis);
-
-			float gesamtpreis = 0.0f;
-
-			gesamt.setText("Gesampreis: " + gesamtpreis + "Euro");
-		}
 		//Fuer Warenkorb Button
 		else if (command.equals("in Warenkorb legen")) {
-			try {
-
-				JLabel anz = new JLabel("Wie oft wollen Sie den Artikel kaufen?");
-				final JTextField anzahl1 = new JTextField();
-				JButton ok = new JButton("In den Warenkorb");
-
-				final JFrame wieViele = new JFrame();
-				wieViele.getContentPane().setLayout(new GridLayout(2, 1));
-				wieViele.setSize(450, 100);
-				wieViele.getContentPane().add(anz);
-				wieViele.getContentPane().add(anzahl1);
-				wieViele.getContentPane().add(ok);
-				wieViele.setVisible(true);
 				
-				ok.addActionListener(new ActionListener() {
-
-					public void actionPerformed(ActionEvent arg0) {
-						try {
-							shop.inWarenkorbEinfuegen(shop.artikelSuchen(Integer.parseInt((ausgabeTabelle.getValueAt(ausgabeTabelle.getSelectedRow(),0)).toString())),Integer.parseInt(anzahl1.getText()),(Kunde) user);
-							wieViele.setVisible(false);
-						} catch (NumberFormatException e) {
-							e.printStackTrace();
-						} catch (BestandUeberschrittenException e) {
-							JOptionPane.showMessageDialog(null, e.getMessage());
-						} catch (ArtikelExistiertNichtException e) {
-							JOptionPane.showMessageDialog(null, e.getMessage());
-						}
-					}
-				});
-
-			} catch (NumberFormatException e1) {
-				e1.printStackTrace();
-			}	
 		}
 	  */
 	}
@@ -202,10 +156,14 @@ public class GUI_2 extends JFrame implements ActionListener{
 	}
 	
 	//Wenn Benutzer ausgeloggt
-	public void userLoggedOut() {
+	public void userLoggedOut(){
 		//menuBar.setUserLoggedOut();
 		userpanel.setVisible(false);
 		
+	}
+	
+	public void zumWarenKorb(){
+		contentframe.setVisible(false);
 	}
 
 	//refresht alle Panels

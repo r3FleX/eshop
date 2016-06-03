@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Klasse zur Repr�sentation des Warenkorbs.
+ * Klasse zur Repraesentation des Warenkorbs.
  */
 
 //Ereignisse 
@@ -13,13 +13,11 @@ import java.util.List;
 // -> wann
 // -> was (Artikel)
 // -> ggf. wie viel
-// -> typ -> Enumeration (ANGELEGT, BESTAND_ERH�T, ... )
+// -> typ -> Enumeration (ANGELEGT, BESTAND_ERHOET, ... )
 
 public class Warenkorb {
 
 	// Verwaltung des Warenkorbbestands als Liste
-
-
 	private HashMap<Artikel, Integer> inhalt = new HashMap<Artikel, Integer>();
 
 
@@ -28,11 +26,9 @@ public class Warenkorb {
 		inhalt.put(a, anzahl);
 	}
 
-
 	public void loeschen(Artikel artikel) {
 		inhalt.remove(artikel);
 	}
-
 
 	public void leeren() {
 		inhalt.clear();
@@ -41,7 +37,6 @@ public class Warenkorb {
 	public HashMap getInhalt() {
 		return inhalt;
 	}
-
 
 	public void setWarenkorbInhalt(HashMap Inhalt) {
 		this.inhalt = Inhalt;
