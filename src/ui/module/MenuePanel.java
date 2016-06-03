@@ -20,9 +20,6 @@ public class MenuePanel extends JPanel implements ActionListener{
 	private Shopverwaltung shop;
 	private Account user;
 	JLabel gesamt = new JLabel();
-	//private SuchPanel suchPanel;
-	//private JPanel loginPanel;
-	//private JPanel userpanel;
 	private JMenuItem mnLogin;
 	private JMenuItem mnReg;
 	private JMenuItem mnLogout;
@@ -70,16 +67,7 @@ public class MenuePanel extends JPanel implements ActionListener{
 		setMenue(menueBar);
 	}
 	
-	//Getter und Setter
-	/*
-	public SuchPanel getSuchPanel() {
-		return suchPanel;
-	}
-
-	public void setSuchPanel(SuchPanel suchPanel) {
-		this.suchPanel = suchPanel;
-	}
-	*/	
+	//Getter und Setter	
 	public JMenuBar getMenue() {
 		return this.menuBar;
 	}

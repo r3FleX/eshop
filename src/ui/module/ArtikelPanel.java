@@ -23,7 +23,6 @@ public class ArtikelPanel {
 		JPanel artikelPanel = new JPanel();
 		artikelPanel.setLayout(new GridLayout());
 		artikelPanel.setBorder(BorderFactory.createTitledBorder("Artikel")); //Ueberschrift Artikel
-				
 		
 		// TableModel als "Datencontainer" anlegen:
 		artikeltable = new ArtikelTableModel();
@@ -33,7 +32,7 @@ public class ArtikelPanel {
 		
 		// JTable-Objekt erzeugen und mit Datenmodell initialisieren:
 		JTable ausgabeTabelle = new JTable(artikeltable);
-		
+		ausgabeTabelle.setAutoCreateRowSorter(true);
 		// JTable in ScrollPane platzieren:
 		JScrollPane scrollPane = new JScrollPane(ausgabeTabelle);
 				

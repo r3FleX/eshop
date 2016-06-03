@@ -91,7 +91,10 @@ public class GUI_2 extends JFrame implements ActionListener{
 	
 	//initialisieren
 	private void initialize() {
-	
+		
+		//schlieﬂt das Programm durch klicken auf [X]
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
 		this.mainPanel.setLayout(new BorderLayout());
 		this.navframe.setLayout(new BorderLayout());
 		this.contentframe.setLayout(new BorderLayout());	
@@ -211,8 +214,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 		userpanel.setVisible(false);
 		
 	}
-	
-	
+
 	//refresht alle Panels
 	public void refresh(){
 		mainPanel.repaint();
