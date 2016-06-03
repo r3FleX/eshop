@@ -24,8 +24,6 @@ import valueobjects.Mitarbeiter;
 
 public class LoginPanel extends JPanel implements ActionListener{
 
-
-	
 	private Shopverwaltung shop;
 	private GUI_2 gui;
 	public Object statistikButton;

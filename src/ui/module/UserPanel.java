@@ -23,20 +23,6 @@ public class UserPanel extends JPanel implements ActionListener{
 		//Statistik Button 
 		JButton statistikButton = new JButton("Statistik",new ImageIcon("src/assets/statistikIcon.png"));
 		add(statistikButton);
-		
-		//ACTIONLISTINER
-		statistikButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-			
-		
-
-		
-		if (user instanceof Kunde) {
-			
-		}
 	}
 
 	@Override

@@ -48,14 +48,15 @@ public class GUI_2 extends JFrame implements ActionListener{
 	JPanel contentframe = new JPanel();	
 	
 	private Account user;
-	private List artikelListe = new List();
-	private JTable ausgabeTabelle = null;
-	private JTable warenkorbTabelle = null;
-	JLabel gesamt = new JLabel();
+	//private List artikelListe = new List();
+	//private JTable ausgabeTabelle = null;
+	//private JTable warenkorbTabelle = null;
+	private JLabel gesamt = new JLabel();
 	private ArtikelPanel artikelPanel;
-	private LoginPanel loginPanel;
+	//private LoginPanel loginPanel;
 	private UserPanel userpanel;
 	private WarenkorbButton WarenKorbButtons;
+	private SuchPanel suchPanel = new SuchPanel(suchController);
 	
 	//Konstrukter
 	public GUI_2(String datei) {
@@ -70,7 +71,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 		
 		try {
 			shop = new Shopverwaltung(datei);
-			menuBar = new MenuePanel(this, shop);
+			menuBar = new MenuePanel(this, shop, user);
 		} catch (IOException e2) {
 
 		}
@@ -98,7 +99,6 @@ public class GUI_2 extends JFrame implements ActionListener{
 		WarenKorbButtons = new WarenkorbButton();
 		
 		//SuchPanel
-		SuchPanel suchPanel = new SuchPanel(suchController);
 		//"norden splitten"
 		JPanel suchleiste = new JPanel();
 		suchleiste.setLayout(new GridLayout(1,1));
@@ -125,21 +125,14 @@ public class GUI_2 extends JFrame implements ActionListener{
 		setVisible(true);
 	}
 	
+	
 	//ACTIONLISTENER
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand();
+		/*
 		
-		//Fuer Menue Datei -> Beenden Button
-		if (command.equals("Beenden")) {
-			System.exit(0);
-		}
-		
-		//Fuer Suchen Button
-		else if (command.equals("Suchen")) {
-				
-		}
 		//Fuer zum Warenkorb Button
-		else if (command.equals("zum Warenkorb")) {
+		if (command.equals("zum Warenkorb")) {
 			Warenkorb suchErgebnis;
 			Kunde kunde = (Kunde) user;
 
@@ -190,12 +183,13 @@ public class GUI_2 extends JFrame implements ActionListener{
 				e1.printStackTrace();
 			}	
 		}
+	  */
 	}
-	
+		
 	//Wenn Benutzer eingeloggt
 	public void userLoggedIn(Account user) {
 		//menübar anpassen 
-		menuBar.setUserLoggedin(true);
+		menuBar.setUserLoggedIn(true);
 		//userpanel einblenden
 		if (user instanceof Kunde) {
 			userpanel.setVisible(true); //Panel einblenden
@@ -209,6 +203,13 @@ public class GUI_2 extends JFrame implements ActionListener{
 			userpanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
 
 		}
+	}
+	
+	//Wenn Benutzer ausgeloggt
+	public void userLoggedOut() {
+		//menuBar.setUserLoggedOut();
+		userpanel.setVisible(false);
+		
 	}
 	
 	

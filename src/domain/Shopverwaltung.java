@@ -186,7 +186,6 @@ public class Shopverwaltung {
 		return meineAccounts.logoutAccount(name, passwort);
 	}
 
-	
 	//Bestand aendern
 	public int aendereBestand(int artklnummer, int newBestand1) throws ArtikelExistiertNichtException {
 		Artikel data = meineArtikel.artikelSuchen(artklnummer);

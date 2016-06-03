@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import ui.GUI_2;
+import valueobjects.Account;
 
 public class WarenkorbButton extends JPanel implements ActionListener {
 	
@@ -18,6 +19,10 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 	
 	//Konstruktor
 	public WarenkorbButton() {
+		
+		//JPanel zumWarenKorbButtonPanel = new JPanel();
+		//zumWarenKorbButtonPanel.setLayout(new GridLayout(1, 1));
+		//zumWarenKorbButtonPanel.setBorder(BorderFactory.createTitledBorder("Warenkorb")); //Ueberschrift Warenkorb
 		
 	}
 	public JButton createInWarenkorbLegenButton() {
@@ -36,6 +41,7 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 	public JButton getZumWarenkorbButton() {
 		//Warenkorb Button "zum Warenkorb"
 		zumWarenKorbButton = new JButton("zum Warenkorb",new ImageIcon("src/assets/warenkorbIcon.png"));
+		
 		//ACTIONLISTINER
 		zumWarenKorbButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

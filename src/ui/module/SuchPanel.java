@@ -3,24 +3,20 @@ package ui.module;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import domain.Shopverwaltung;
-import ui.GUI_2;
 import ui.controller.SuchController;
-import valueobjects.Artikel;
+
 
 public class SuchPanel {
 
 	private JPanel suchPanel;
-	private JPanel warenkorbPanel;
-	private List artikelListe;
+	//private JPanel warenkorbPanel;
+	//private List artikelListe;
 	private JTextField suchenTextField;
 	private SuchController suchController;
 
