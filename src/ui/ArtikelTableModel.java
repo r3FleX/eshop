@@ -18,18 +18,21 @@ public class ArtikelTableModel extends DefaultTableModel {
 	Kunde kunde;
 	private HashMap<Artikel, Integer> positionen = null;
 	private float gesamtpreis = 0.0f;
-	private int anzahl = 0;
+	private int anzahl = 0;	
 	
-	
-	public ArtikelTableModel(List<Artikel> articles, Vector columnNames) {
+	public ArtikelTableModel() {
 		// Ober-Objekt der Klasse DefaultTableModel initialisieren
 		super();
-	
+		Vector spalten = new Vector();		
+		spalten.add("Nummer");
+		spalten.add("Name");
+		spalten.add("Bestand");
+		spalten.add("Preis");
+		spalten.add("Packungsgroesse");
+		spalten.add("Option");
 		// Spaltennamen in geerbtem Attribut merken
-		this.columnIdentifiers = columnNames;
+		this.columnIdentifiers = spalten;
 		
-		// Artikel-Liste aufbereiten
-		setDataVector(articles);
 	}
 	
 	// Tabellendaten hinzufügen

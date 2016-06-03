@@ -24,16 +24,12 @@ public class ArtikelPanel {
 		artikelPanel.setLayout(new GridLayout());
 		artikelPanel.setBorder(BorderFactory.createTitledBorder("Artikel")); //Ueberschrift Artikel
 				
-		Vector spalten = new Vector();		
-		spalten.add("Nummer");
-		spalten.add("Name");
-		spalten.add("Bestand");
-		spalten.add("Preis");
-		spalten.add("Packungsgroesse");
-		spalten.add("Option");
 		
 		// TableModel als "Datencontainer" anlegen:
-		artikeltable = new ArtikelTableModel(new Vector<Artikel>(), spalten);
+		artikeltable = new ArtikelTableModel();
+		
+		// Artikel-Liste aufbereiten
+		artikeltable.setDataVector(new Vector<Artikel>());
 		
 		// JTable-Objekt erzeugen und mit Datenmodell initialisieren:
 		JTable ausgabeTabelle = new JTable(artikeltable);
