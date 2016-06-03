@@ -30,9 +30,9 @@ public class ArtikelTableModel extends DefaultTableModel {
 		spalten.add("Preis");
 		spalten.add("Packungsgroesse");
 		spalten.add("Option");
+		
 		// Spaltennamen in geerbtem Attribut merken
 		this.columnIdentifiers = spalten;
-		
 	}
 	
 	// Tabellendaten hinzufügen

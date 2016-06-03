@@ -19,7 +19,7 @@ public class MenuePanel extends JPanel implements ActionListener{
 	private JMenuBar menuBar;
 	private Shopverwaltung shop;
 	private Account user;
-	JLabel gesamt = new JLabel();
+	//JLabel gesamt = new JLabel();
 	private JMenuItem mnLogin;
 	private JMenuItem mnReg;
 	private JMenuItem mnLogout;

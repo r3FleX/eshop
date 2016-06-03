@@ -35,28 +35,23 @@ import valueobjects.Warenkorb;
 public class GUI_2 extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
+	
 	private SuchController suchController = null;
 
 	private Shopverwaltung shop;
-	JPanel mainPanel = new JPanel();
-	
+	private Account user;
+
 	//Menuebar
 	MenuePanel menuBar;
 	
 	//LayoutPanel
-	JPanel navframe = new JPanel();		
-	JPanel contentframe = new JPanel();	
-	
-	private Account user;
-	//private List artikelListe = new List();
-	//private JTable ausgabeTabelle = null;
-	//private JTable warenkorbTabelle = null;
-	private JLabel gesamt = new JLabel();
+	private JPanel navframe = new JPanel();		
+	private JPanel contentframe = new JPanel();	
+	private JPanel mainPanel = new JPanel();
+	private SuchPanel suchPanel = new SuchPanel(suchController);
 	private ArtikelPanel artikelPanel;
-	//private LoginPanel loginPanel;
 	private UserPanel userpanel;
 	private WarenkorbButton WarenKorbButtons;
-	private SuchPanel suchPanel = new SuchPanel(suchController);
 	
 	//Konstrukter
 	public GUI_2(String datei) {
@@ -67,7 +62,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 		}
 		setTitle("E-Shop");
 		setSize(800, 600); //Fenstergroesse
-		setResizable(false);
+		//setResizable(false);
 		
 		try {
 			shop = new Shopverwaltung(datei);
@@ -180,8 +175,6 @@ public class GUI_2 extends JFrame implements ActionListener{
 					}
 				});
 
-				
-
 			} catch (NumberFormatException e1) {
 				e1.printStackTrace();
 			}	
@@ -220,12 +213,10 @@ public class GUI_2 extends JFrame implements ActionListener{
 		mainPanel.repaint();
 		contentframe.repaint();
 		navframe.repaint();
-		gesamt.repaint();
 		
 		mainPanel.revalidate();
 		contentframe.revalidate();
 		navframe.revalidate();
-		gesamt.revalidate();	
 	}
 
 }

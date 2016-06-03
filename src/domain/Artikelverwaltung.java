@@ -51,7 +51,7 @@ public class Artikelverwaltung {
 			einArtikel = pm.ladeArtikel();
 
 			if (einArtikel != null) {
-				// Artikel in Liste einf�gen
+				// Artikel in Liste einfuegen
 				try {
 					einfuegen(einArtikel);
 				} catch (ArtikelExistiertBereitsException e1) {
@@ -85,7 +85,7 @@ public class Artikelverwaltung {
 	 * @throws ArtikelExistiertBereitsException wenn der Artikel bereits existiert
 	 */
 
-	//TODO Ereignisse hinzufügen (extra txt-Datei), z.B. bei Bestand erhöht usw. nach Tag filtern ...
+	//TODO Ereignisse hinzufuegen (extra txt-Datei), z.B. bei Bestand erhaelht usw. nach Tag filtern ...
 	
 	public void einfuegen(Artikel einArtikel)
 			throws ArtikelExistiertBereitsException {
@@ -123,7 +123,7 @@ public class Artikelverwaltung {
 	 * Methode, um den Bestand eines bereits existierenden Artikels zu �ndern.
 	 * 
 	 * @param artklNummer eingegebene Artikelnummer
-	 * @param neuerBestand ge�nderter Bestand
+	 * @param neuerBestand geaenderter Bestand
 	 * @return
 	 */
 
