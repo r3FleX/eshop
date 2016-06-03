@@ -32,7 +32,7 @@ public class SuchPanel {
 
 	private void initialize() {
 		JPanel suchPanel = new JPanel();
-		suchPanel.setLayout(new GridLayout(1, 4));
+		suchPanel.setLayout(new GridLayout(1, 2));
 
 		suchenTextField = new JTextField();
 		suchPanel.add(suchenTextField);
@@ -44,31 +44,7 @@ public class SuchPanel {
 			public void actionPerformed(ActionEvent e) {
 				suchen(suchenTextField.getText());
 			}
-		});
-
-		suchPanel.add(new JLabel()); //Platzhalter
-		suchPanel.add(new JLabel()); //Platzhalter
-		
-		/*
-		JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen");
-		suchPanel.add(inWarenKorbLegenButton);
-		inWarenKorbLegenButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-
-		JButton zumWarenKorbButton = new JButton("zum Warenkorb");
-		suchPanel.add(zumWarenKorbButton);
-		zumWarenKorbButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-		*/
-		
+		});		
 		suchPanel.setBorder(BorderFactory.createTitledBorder("Suchen")); //Ueberschrift Suchen
 		setSuchPanel(suchPanel);
 	}

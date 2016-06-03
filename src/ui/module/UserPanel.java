@@ -15,7 +15,6 @@ import valueobjects.Kunde;
 public class UserPanel extends JPanel implements ActionListener{
 	private Shopverwaltung shop;
 	private GUI_2 gui;
-	private JButton inWarenKorbLegenButton;
 	public UserPanel(GUI_2 gui, Shopverwaltung shop, Account user ) {
 		
 		this.shop = shop;
@@ -32,30 +31,8 @@ public class UserPanel extends JPanel implements ActionListener{
 			}
 		});
 			
-		//add(new JLabel()); //Platzhalter
 		
-		//Warenkorb Button "in Warenkorb legen" 
-		inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
-		add(inWarenKorbLegenButton);		
-		inWarenKorbLegenButton.setVisible(false);
-		
-		//ACTIONLISTINER
-		inWarenKorbLegenButton.addActionListener(new ActionListener() {	
-			public void actionPerformed(ActionEvent e) {
 
-			}
-		});
-		
-		//Warenkorb Button "zum Warenkorb"
-		JButton zumWarenKorbButton = new JButton("zum Warenkorb",new ImageIcon("src/assets/warenkorbIcon.png"));
-		add(zumWarenKorbButton);
-		
-		//ACTIONLISTINER
-		zumWarenKorbButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});	
 		
 		if (user instanceof Kunde) {
 			
@@ -68,6 +45,6 @@ public class UserPanel extends JPanel implements ActionListener{
 		
 	}
 	public void setwarenkorbvisible() {
-		inWarenKorbLegenButton.setVisible(true);
+	//	inWarenKorbLegenButton.setVisible(true);
 	}
 }

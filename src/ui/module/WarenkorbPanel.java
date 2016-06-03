@@ -5,20 +5,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class WarenkorbPanel implements ActionListener {
+public class WarenkorbPanel extends JPanel implements ActionListener {
 
 	private JPanel warenkorbPanel;
+	private JButton inWarenKorbLegenButton;
+	private JButton zumWarenKorbButton;
 
 	//Konstruktor
 	public WarenkorbPanel() {
 			
-		JPanel warenKorbPanel = new JPanel();
-		warenKorbPanel.setLayout(new GridLayout(1, 4));
-		
-		warenKorbPanel.setBorder(BorderFactory.createTitledBorder("Warenkorb")); //Ueberschrift Warenkorb
-		setWarenkorbPanel(warenKorbPanel);		
+	
 	}
 	
 	//Getter und Setter

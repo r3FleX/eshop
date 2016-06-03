@@ -7,6 +7,7 @@ import java.util.Vector;
 
 import javax.swing.table.DefaultTableModel;
 
+import ui.module.WarenkorbButton;
 import valueobjects.Artikel;
 import valueobjects.Kunde;
 import valueobjects.Warenkorb;
@@ -27,7 +28,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 		// Spaltennamen in geerbtem Attribut merken
 		this.columnIdentifiers = columnNames;
 		
-		// Bücher-Liste aufbereiten
+		// Artikel-Liste aufbereiten
 		setDataVector(articles);
 	}
 	
@@ -36,6 +37,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 		// DefaultTableModel erwartet Repräsentation der Tabellendaten
 		// als Vector von Vectoren
 		Vector rows = new Vector();
+		WarenkorbButton warenkorbButton = new WarenkorbButton();
 		for (Artikel artikel: articles) {
 			Vector einArtikelAlsVector = new Vector();
 			einArtikelAlsVector.add(artikel.getNummer());
@@ -43,11 +45,8 @@ public class ArtikelTableModel extends DefaultTableModel {
 			einArtikelAlsVector.add(artikel.getBestand());
 			einArtikelAlsVector.add(artikel.getPreis());
 			einArtikelAlsVector.add(artikel.getPackungsgroesse());
-
-			if(artikel.getPackungsgroesse() > 0) {
-				einArtikelAlsVector.add("x");
-			}
-
+			
+		//	einArtikelAlsVector.add(warenkorbButton.createInWarenkorbLegenButton());
 			rows.add(einArtikelAlsVector);
 
 			//einArtikelAlsVector.add(kunde.getWarenkorb().getInhalt().values());

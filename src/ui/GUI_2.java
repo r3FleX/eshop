@@ -26,6 +26,7 @@ import ui.module.LoginPanel;
 import ui.module.MenuePanel;
 import ui.module.SuchPanel;
 import ui.module.UserPanel;
+import ui.module.WarenkorbButton;
 import valueobjects.Account;
 import valueobjects.Kunde;
 import valueobjects.Mitarbeiter;
@@ -54,6 +55,7 @@ public class GUI_2 extends JFrame implements ActionListener{
 	private ArtikelPanel artikelPanel;
 	private LoginPanel loginPanel;
 	private UserPanel userpanel;
+	private WarenkorbButton WarenKorbButtons;
 	
 	//Konstrukter
 	public GUI_2(String datei) {
@@ -92,11 +94,18 @@ public class GUI_2 extends JFrame implements ActionListener{
 		this.mainPanel.setLayout(new BorderLayout());
 		this.navframe.setLayout(new BorderLayout());
 		this.contentframe.setLayout(new BorderLayout());	
+		//warenkorb schaltflächen
+		WarenKorbButtons = new WarenkorbButton();
 		
 		//SuchPanel
 		SuchPanel suchPanel = new SuchPanel(suchController);
-		menuBar.setSuchPanel(suchPanel);
-		this.contentframe.add(suchPanel.getSuchPanel(), BorderLayout.NORTH);	
+		//"norden splitten"
+		JPanel suchleiste = new JPanel();
+		suchleiste.setLayout(new GridLayout(1,1));
+		suchleiste.add(suchPanel.getSuchPanel());
+		suchleiste.add(WarenKorbButtons.getZumWarenkorbButton());
+		
+		this.contentframe.add(suchleiste, BorderLayout.NORTH);	
 		
 		//LoginPanel
 		userpanel = new UserPanel(this, shop, user);
@@ -185,9 +194,9 @@ public class GUI_2 extends JFrame implements ActionListener{
 	
 	//Wenn Benutzer eingeloggt
 	public void userLoggedIn(Account user) {
-		
+		//menübar anpassen 
 		menuBar.setUserLoggedin(true);
-		
+		//userpanel einblenden
 		if (user instanceof Kunde) {
 			userpanel.setVisible(true); //Panel einblenden
 			System.out.println("Kunde " + user.getName() + " ist eingeloggt.");

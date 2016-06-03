@@ -30,7 +30,7 @@ public class ArtikelPanel {
 		spalten.add("Bestand");
 		spalten.add("Preis");
 		spalten.add("Packungsgroesse");
-		spalten.add("Massengut");
+		spalten.add("Option");
 		
 		// TableModel als "Datencontainer" anlegen:
 		artikeltable = new ArtikelTableModel(new Vector<Artikel>(), spalten);
