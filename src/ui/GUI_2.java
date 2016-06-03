@@ -32,7 +32,7 @@ import valueobjects.Kunde;
 import valueobjects.Mitarbeiter;
 import valueobjects.Warenkorb;
 
-public class GUI_2 extends JFrame implements ActionListener{
+public class GUI_2 extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -123,18 +123,6 @@ public class GUI_2 extends JFrame implements ActionListener{
 		setVisible(true);
 	}
 	
-	
-	//ACTIONLISTENER
-	public void actionPerformed(ActionEvent e) {
-		String command = e.getActionCommand();
-		/*
-		
-		//Fuer Warenkorb Button
-		else if (command.equals("in Warenkorb legen")) {
-				
-		}
-	  */
-	}
 		
 	//Wenn Benutzer eingeloggt
 	public void userLoggedIn(Account user) {

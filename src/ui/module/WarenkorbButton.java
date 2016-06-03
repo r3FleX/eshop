@@ -36,22 +36,21 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 	//Konstruktor
 	public WarenkorbButton() {
 		
-		//JPanel zumWarenKorbButtonPanel = new JPanel();
-		//zumWarenKorbButtonPanel.setLayout(new GridLayout(1, 1));
-		//zumWarenKorbButtonPanel.setBorder(BorderFactory.createTitledBorder("Warenkorb")); //Ueberschrift Warenkorb
+		JPanel zumWarenKorbButtonPanel = new JPanel();
+		zumWarenKorbButtonPanel.setLayout(new GridLayout(1, 1));
+		zumWarenKorbButtonPanel.setBorder(BorderFactory.createTitledBorder("Warenkorb")); //Ueberschrift Warenkorb
 		
 	}
 	public JButton createInWarenkorbLegenButton() {
 		//Warenkorb Button "in Warenkorb legen" 
-		JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));	
-		
+		JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
+		//zumWarenKorbButtonPanel.add(inWarenKorbLegenButton);
 		//ACTIONLISTINER
 		inWarenKorbLegenButton.addActionListener(new ActionListener() {	
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("in den warenkorb");
 				
 				try {
-
 					JLabel anz = new JLabel("Wie oft wollen Sie den Artikel kaufen?");
 					final JTextField anzahl1 = new JTextField();
 					JButton ok = new JButton("In den Warenkorb");

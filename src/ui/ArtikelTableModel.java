@@ -1,10 +1,17 @@
 package ui;
 
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.Vector;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 import ui.module.WarenkorbButton;
@@ -30,9 +37,27 @@ public class ArtikelTableModel extends DefaultTableModel {
 		spalten.add("Preis");
 		spalten.add("Packungsgroesse");
 		spalten.add("Option");
-		
+
 		// Spaltennamen in geerbtem Attribut merken
 		this.columnIdentifiers = spalten;
+		/*
+		//Fuer Warenkorb Button "in Warenkorb legen" 
+		
+		JPanel inWarenkorbLegenPanel = new JPanel();
+			
+		inWarenkorbLegenPanel.add(inWarenkorbLegenPanel, BorderLayout.NORTH);	
+		
+		JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
+		inWarenkorbLegenPanel.add(inWarenKorbLegenButton);
+		inWarenkorbLegenPanel.setVisible(true);
+		
+		//ACTIONLISTINER
+		inWarenKorbLegenButton.addActionListener(new ActionListener() {	
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("in den warenkorb");
+			}
+		});
+		*/
 	}
 	
 	// Tabellendaten hinzufügen
@@ -51,7 +76,6 @@ public class ArtikelTableModel extends DefaultTableModel {
 			
 		//	einArtikelAlsVector.add(warenkorbButton.createInWarenkorbLegenButton());
 			rows.add(einArtikelAlsVector);
-
 			//einArtikelAlsVector.add(kunde.getWarenkorb().getInhalt().values());
 		}
 		// Vector von Vectoren mit Bücher-Strings eintragen
