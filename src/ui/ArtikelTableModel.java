@@ -65,7 +65,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 		// DefaultTableModel erwartet Repräsentation der Tabellendaten
 		// als Vector von Vectoren
 		Vector rows = new Vector();
-		WarenkorbButton warenkorbButton = new WarenkorbButton();
+		//WarenkorbButton warenkorbButton = new WarenkorbButton();
 		for (Artikel artikel: articles) {
 			Vector einArtikelAlsVector = new Vector();
 			einArtikelAlsVector.add(artikel.getNummer());

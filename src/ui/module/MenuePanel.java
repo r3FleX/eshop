@@ -86,7 +86,7 @@ public class MenuePanel extends JPanel implements ActionListener{
 		}
 		//Fuer Menue Datei -> Ausloggen Button
 		else if(command.equals("Ausloggen")){
-			setUserLoggedIn(true);
+			setUserLoggedIn(false);
 			//user = shop.logoutAccount(user.getName(), user.getPasswort());
 			gui.userLoggedOut();
 			//this.setContentPane(this.hauptscreen);

@@ -9,13 +9,11 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import ui.GUI_2;
 import ui.controller.SuchController;
 
 
 public class SuchPanel {
-	
-	private GUI_2 gui;
+
 	private JPanel suchPanel;
 	//private JPanel warenkorbPanel;
 	//private List artikelListe;

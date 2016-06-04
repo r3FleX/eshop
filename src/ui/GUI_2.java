@@ -147,14 +147,14 @@ public class GUI_2 extends JFrame{
 			userpanel.setVisible(true); //Panel einblenden
 			System.out.println("Mitarbeiter " + user.getName() + " ist eingeloggt.");		
 			userpanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
-
 		}
 	}
 	
 	//Wenn Benutzer ausgeloggt
 	public void userLoggedOut(){
-		userpanel.setVisible(false);	
+		userpanel.setVisible(false);
 	}
+	
 	//warenkorb anzeigen
 	public void zumWarenKorb(){
 		//artikel entfernen
@@ -170,10 +170,12 @@ public class GUI_2 extends JFrame{
 		mainPanel.repaint();
 		contentframe.repaint();
 		navframe.repaint();
+		menuBar.repaint();
 		
 		mainPanel.revalidate();
 		contentframe.revalidate();
 		navframe.revalidate();
+		menuBar.revalidate();
 	}
 
 }

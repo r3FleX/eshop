@@ -43,7 +43,6 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 	public JButton createInWarenkorbLegenButton() {
 		//Warenkorb Button "in Warenkorb legen" 
 		JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
-		//zumWarenKorbButtonPanel.add(inWarenKorbLegenButton);
 		
 		//ACTIONLISTINER
 		inWarenKorbLegenButton.addActionListener(new ActionListener() {	
@@ -94,7 +93,6 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 
 		//Warenkorb Button "zum Warenkorb"
 		zumWarenKorbButton = new JButton("zum Warenkorb",new ImageIcon("src/assets/warenkorbIcon.png"));
-		
 		
 		//ACTIONLISTINER
 		zumWarenKorbButton.addActionListener(new ActionListener() {
