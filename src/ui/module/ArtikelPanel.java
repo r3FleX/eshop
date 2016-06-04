@@ -10,7 +10,23 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import ui.ArtikelTableModel;
+import ui.ButtonEditor;
 import valueobjects.Artikel;
+import ui.ButtonRenderer;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.DefaultCellEditor;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 public class ArtikelPanel {
 	
@@ -33,13 +49,17 @@ public class ArtikelPanel {
 		// JTable-Objekt erzeugen und mit Datenmodell initialisieren:
 		JTable ausgabeTabelle = new JTable(artikeltable);
 		ausgabeTabelle.setAutoCreateRowSorter(true);
+
 		// JTable in ScrollPane platzieren:
 		JScrollPane scrollPane = new JScrollPane(ausgabeTabelle);
 				
 		// Anzeige der Artikelliste auch in der Kunden-Ansicht
 		artikeltable.setDataVector(artikelliste);
-		artikelPanel.add(scrollPane);
 		
+		artikelPanel.add(scrollPane);
+		ausgabeTabelle.getColumn("Option").setCellRenderer(new ButtonRenderer());
+		ausgabeTabelle.getColumn("Option").setCellEditor(
+	        new ButtonEditor(new JCheckBox()));		
 		setArtikelPanel(artikelPanel);
 	}
 	

@@ -65,7 +65,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 		// DefaultTableModel erwartet Repräsentation der Tabellendaten
 		// als Vector von Vectoren
 		Vector rows = new Vector();
-		//WarenkorbButton warenkorbButton = new WarenkorbButton();
+		WarenkorbButton warenkorbButton = new WarenkorbButton();
 		for (Artikel artikel: articles) {
 			Vector einArtikelAlsVector = new Vector();
 			einArtikelAlsVector.add(artikel.getNummer());
@@ -74,12 +74,10 @@ public class ArtikelTableModel extends DefaultTableModel {
 			einArtikelAlsVector.add(artikel.getPreis());
 			einArtikelAlsVector.add(artikel.getPackungsgroesse());
 			
-		//	einArtikelAlsVector.add(warenkorbButton.createInWarenkorbLegenButton());
+			einArtikelAlsVector.add(warenkorbButton.createInWarenkorbLegenButton());
 			rows.add(einArtikelAlsVector);
 			//einArtikelAlsVector.add(kunde.getWarenkorb().getInhalt().values());
 		}
-		// Vector von Vectoren mit Bücher-Strings eintragen
-		// (geerbte Methode)
 		this.setDataVector(rows, columnIdentifiers);
 	}
 	
