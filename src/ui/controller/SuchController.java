@@ -6,7 +6,6 @@ import valueobjects.Artikel;
 
 import java.util.List;
 
-
 public class SuchController {
 
     private GUI_2 gui;
@@ -22,6 +21,7 @@ public class SuchController {
     //Der sagt der GUI -> Tabelle ändern.
     
     public void suchen(String suchText) {
+    	
         List<Artikel> suchErgebnis = suchText.isEmpty() ?
                 shopverwaltung.gibAlleArtikel() :
                 shopverwaltung.sucheNachArtikel(suchText);

@@ -1,6 +1,7 @@
 package ui.module;
 
 import java.awt.GridLayout;
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,8 +16,8 @@ import ui.controller.SuchController;
 public class SuchPanel {
 
 	private JPanel suchPanel;
-	//private JPanel warenkorbPanel;
-	//private List artikelListe;
+	private JPanel warenkorbPanel;
+	private List artikelListe;
 	private JTextField suchenTextField;
 	private SuchController suchController;
 
@@ -29,6 +30,7 @@ public class SuchPanel {
 	}
 
 	private void initialize() {
+		
 		JPanel suchPanel = new JPanel();
 		suchPanel.setLayout(new GridLayout(1, 2));
 

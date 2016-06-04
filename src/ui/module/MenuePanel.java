@@ -23,6 +23,7 @@ public class MenuePanel extends JPanel implements ActionListener{
 	private JMenuItem mnLogin;
 	private JMenuItem mnReg;
 	private JMenuItem mnLogout;
+	private SuchPanel suchPanel;
 	private GUI_2 gui;
 	
 	//Konstruktor
@@ -76,6 +77,14 @@ public class MenuePanel extends JPanel implements ActionListener{
 		this.menuBar = menue;
 	}
 	
+	public SuchPanel getSuchPanel() {
+		return suchPanel;
+	}
+
+	public void setSuchPanel(SuchPanel suchPanel) {
+		this.suchPanel = suchPanel;
+	}
+	
 	//ACTIONLISTENER
 	public void actionPerformed(ActionEvent arg0) {
 		String command = arg0.getActionCommand();
@@ -89,7 +98,6 @@ public class MenuePanel extends JPanel implements ActionListener{
 			setUserLoggedIn(false);
 			//user = shop.logoutAccount(user.getName(), user.getPasswort());
 			gui.userLoggedOut();
-			//this.setContentPane(this.hauptscreen);
 			System.out.println("Tschuess!");
 		}
 		//Fuer Menue Hilfe -> Artikel kaufen? Button

@@ -33,7 +33,7 @@ import valueobjects.Kunde;
 import valueobjects.Mitarbeiter;
 import valueobjects.Warenkorb;
 
-public class GUI_2 extends JFrame{
+public class GUI_2 extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -49,7 +49,7 @@ public class GUI_2 extends JFrame{
 	private JPanel contentframe = new JPanel();	
 	private JPanel mainPanel = new JPanel();
 	private SuchPanel suchPanel = new SuchPanel(suchController);
-	JPanel untenWarenKorbBereichPanel = new JPanel();
+	private JPanel untenWarenKorbBereichPanel = new JPanel();
 	private ArtikelPanel artikelPanel;
 	private UserPanel userpanel;
 	private WarenkorbButton WarenKorbButtons;
@@ -101,6 +101,10 @@ public class GUI_2 extends JFrame{
 		warenkorb = new WarenkorbPanel(this,user);	
 		
 		//SuchPanel
+		SuchPanel suchPanel = new SuchPanel(suchController);
+		this.contentframe.add(suchPanel.getSuchPanel(), BorderLayout.NORTH);	
+		menuBar.setSuchPanel(suchPanel);
+		
 		//"norden splitten"
 		JPanel suchleiste = new JPanel();
 		suchleiste.setLayout(new GridLayout(1,1));
