@@ -1,5 +1,6 @@
 package ui.module;
 
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -86,6 +87,7 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 		return inWarenKorbLegenButton;
 	}
 
+	//Zum Warenkorb Button
 	public JButton getZumWarenkorbButton(GUI_2 gui) {
 		
 		this.gui = gui;
@@ -102,7 +104,24 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 			}
 		});	
 		return zumWarenKorbButton;
-	}		
+	}	
+	
+	// getZumWarenKorbPanel
+	public JButton getKaufAbschliessenButton(GUI_2 gui_2){
+		
+		this.gui = gui;
+		
+		JButton kaufAbschliessenButton = new JButton("Kauf abschlieﬂen");
+		
+		//ACTIONLISTINER
+		kaufAbschliessenButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				System.out.println("Kauf Abschlieﬂ Button");	
+			}
+		});	
+		return kaufAbschliessenButton;
+	}
 	
 	public void actionPerformed(ActionEvent arg0) {
 		System.out.println("Warenkorb Aktion ausgefuehrt");	
