@@ -48,6 +48,7 @@ public class SuchPanel {
 			public void actionPerformed(ActionEvent e) {
 				suchen(suchenTextField.getText());
 				gui.artikelPanelEinblenden(true);
+				gui.untenWarenKorbBereichPanel(false);
 			}
 		});		
 		suchPanel.setBorder(BorderFactory.createTitledBorder("Suchen")); //Ueberschrift Suchen

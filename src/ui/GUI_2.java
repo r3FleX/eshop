@@ -179,6 +179,10 @@ public class GUI_2 extends JFrame {
 	public void artikelPanelEinblenden(boolean b){
 		artikelPanel.getArtikelPanel().setVisible(true);
 	}
+	
+	public void untenWarenKorbBereichPanel(boolean b){
+		untenWarenKorbBereichPanel.setVisible(false);
+	}
 
 	//refresht alle Panels
 	public void refresh(){
