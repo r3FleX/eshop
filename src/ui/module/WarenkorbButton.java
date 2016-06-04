@@ -111,7 +111,7 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 	public JButton getKaufAbschliessenButton(){
 		
 		JButton kaufAbschliessenButton = new JButton("Kauf abschlieﬂen");
-		
+	
 		//ACTIONLISTINER
 		kaufAbschliessenButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

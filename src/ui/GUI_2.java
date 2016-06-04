@@ -116,6 +116,7 @@ public class GUI_2 extends JFrame {
 		untenWarenKorbBereichPanel.add(WarenKorbButtons.getKaufAbschliessenButton());
 		this.contentframe.add(suchleiste, BorderLayout.NORTH);
 		this.contentframe.add(untenWarenKorbBereichPanel, BorderLayout.SOUTH);
+		untenWarenKorbBereichPanel.setBorder(BorderFactory.createTitledBorder("Kaufabwicklungsbereich")); //Ueberschrift Kaufabwicklungsbereich
 		untenWarenKorbBereichPanel.setVisible(false);
 		
 		//Hinzugefuegte Artikel Panel
