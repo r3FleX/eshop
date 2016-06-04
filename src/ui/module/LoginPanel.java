@@ -83,7 +83,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 							
 							login.setVisible(false);	
 							gui.userLoggedIn(user); //wenn eingeloggt, loginPanel sichtbar
-							//statistikButton.setVisible(true);
+		
 							JOptionPane.showMessageDialog(null,"Erfolgreich als Kunde eingeloggt!");	
 						}
 						else if (user instanceof Mitarbeiter){
@@ -138,6 +138,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 
 			JButton regButton = new JButton("Registrieren");
 			registrieren.add(regButton);
+			registrieren.setVisible(true);
 			
 			//Fuer Menue Account -> Registrieren -> Registrieren Button
 			regButton.addActionListener(new ActionListener() { 
@@ -165,7 +166,6 @@ public class LoginPanel extends JPanel implements ActionListener{
 					}
 				}
 			});
-			registrieren.setVisible(true);
 		}
 	}
 }

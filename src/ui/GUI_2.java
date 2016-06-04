@@ -38,12 +38,11 @@ public class GUI_2 extends JFrame{
 	private static final long serialVersionUID = 1L;
 	
 	private SuchController suchController = null;
-
 	private Shopverwaltung shop;
 	private Account user = (Account) new Kunde("Gast", "gast", -1, "none", 12345, "none");
 
 	//Menuebar
-	MenuePanel menuBar;
+	private MenuePanel menuBar;
 	
 	//LayoutPanel
 	private JPanel navframe = new JPanel();		
@@ -89,7 +88,7 @@ public class GUI_2 extends JFrame{
 	//initialisieren
 	private void initialize() {
 		
-		//schlieﬂt das Programm durch klicken auf [X]
+		//beendet das Programm durch klicken auf [X]
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		this.mainPanel.setLayout(new BorderLayout());

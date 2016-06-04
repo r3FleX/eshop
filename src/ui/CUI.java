@@ -36,7 +36,6 @@ public class CUI {
 		
 		// Die Shop-Verwaltung erledigt, die Aufgaben,
 		// die nichts mit Ein-/Ausgabe zu tun haben
-		
 		shop = new Shopverwaltung(datei);
 		
 		// Stream-Objekt fuer Texteingabe ueber Konsolenfenster erzeugen
@@ -44,8 +43,8 @@ public class CUI {
 		// zu bekommen.
 		reader = new BufferedReader(new InputStreamReader(System.in));
 	}
+	
 	// Startmenue: interne (private) Methode zur Ausgabe des Menues
-
 	private void menueStart() throws IOException {
 
 		System.out.println("\n[Startmenue] \n");
@@ -57,8 +56,7 @@ public class CUI {
 		System.out.flush();
 	}
 
-	// Startmenue: interne (private) Methode zur Ausgabe des Menues fï¿½r den Kunden
-	
+	// Startmenue: interne (private) Methode zur Ausgabe des Menues fuer den Kunden
 	private void menueKunde() {
 
 		System.out.println("\n[Kundenbereich] \n");
@@ -93,20 +91,9 @@ public class CUI {
 	/**
 	 * Methode zum Verarbeiten der Eingabe im Menue
 	 * 
-	 * @param line
-	 * @throws IOException
-	 * @throws ArtikelExistiertNichtException 
 	 */
 	
 	private void verarbeiteEingabe(String line) throws IOException, ArtikelExistiertNichtException {
-		//TODO @Daniel (bei Flascher Eingabe) Fehleingaben abfangen und fehlermeldung ausgeben 19.04
-		//TODO @Daniel Login fehlerhaft feedback, PW war falsch
-		//TODO @Manu Warenkorb befuellen texte erweitern
-		//TODO @stefan Artikelmenge aendern "z"
-		//TODO @alle bug fixen
-		
-		 
-		// Eingabe bearbeiten
 		
 		/**
 		 * Befehl e: Artikel einfuegen, nur als Mitarbeiter
@@ -117,7 +104,6 @@ public class CUI {
 			if (user instanceof Mitarbeiter) {
 
 				// lies die notwendigen Parameter einzeln pro Zeile
-
 				System.out.print("Artikelnummer > ");
 				String nummer = liesEingabe();
 				int artnr = Integer.parseInt(nummer);
@@ -140,7 +126,6 @@ public class CUI {
 
 				System.out.println("Bestand  > ");
 				String bestand = liesEingabe();
-
 				artbestand = Integer.parseInt(bestand);
 
 				System.out.println("Einzelpreis > ");
@@ -181,7 +166,6 @@ public class CUI {
 
 		/**
 		 * Befehl a: Artikelliste wird ausgegeben
-		 * 
 		 */
 
 		else if (line.equals("a")) {
@@ -214,10 +198,11 @@ public class CUI {
 			}			
 			shop.schreibeArtikeldaten();			
 		}
-		/** Befehl sd - Statistik debug funktionen 
-		 * 
-		 * 
+		
+		/**
+		 * Befehl sd - Statistik debug funktionen 
 		 */
+		
 		else if (line.equals("sd")) {		
 		}
 		else if (line.equals("sl")) {
@@ -226,17 +211,13 @@ public class CUI {
 		}
 		else if (line.equals("sa")) {
 			List <Stats> statszuartikel = shop.statsSuchen(8953);
-			gibStatsAus(statszuartikel);			
-			
-			
-			
+			gibStatsAus(statszuartikel);				
 		}
-		else if (line.equals("sb")) {
+		else if (line.equals("sb")) {	
+		}
 		
-		}
 		/**
-		 * Befehl d: Artikel wird entfernt, nur als Mitarbeiter
-		 * 
+		 * Befehl d: Artikel wird entfernt, nur als Mitarbeiter	 
 		 */
 
 		else if (line.equals("d")) {
@@ -263,8 +244,7 @@ public class CUI {
 		}
 
 		/**
-		 * Befehl o: Artikelliste sortieren nach Name oder Nummer
-		 * 
+		 * Befehl o: Artikelliste sortieren nach Name oder Nummer 
 		 */
 
 		else if (line.equals("o")) {
@@ -275,8 +255,7 @@ public class CUI {
 				String name = liesEingabe();
 
 				List<Artikel> artikelListe;
-				// TODO: Die Sortierung sollte eigentlich nicht in der CUI
-				// stehen
+				// TODO: Die Sortierung sollte eigentlich nicht in der CUI stehen
 
 				if (name.equals("x")) {
 
@@ -289,7 +268,6 @@ public class CUI {
 				} else if (name.equals("y")) {
 
 					// Nach Nummer sortieren
-
 					artikelListe = shop.getSortierteArtikelnummern();
 
 					// Artikel ausgeben
@@ -298,19 +276,15 @@ public class CUI {
 				} else {
 
 					System.out.println("Ungueltige Eingabe!");
-					System.out
-							.println("Zum Sortieren nur Befehl x oder y moeglich.");
-					System.out
-							.println("Sortiervorgang wiederholen");
+					System.out.println("Zum Sortieren nur Befehl x oder y moeglich.");
+					System.out.println("Sortiervorgang wiederholen");
 				}
-
 			} else
 				System.out.println("Bitte einloggen");
 		}
 
 		/**
-		 * Befehl f: Artikel finden --> nach Artikelname
-		 * 
+		 * Befehl f: Artikel finden -> nach Artikelname
 		 */
 		
 		//Artikel suchen
@@ -323,7 +297,6 @@ public class CUI {
 
 		/**
 		 * Befehl n: Neuen Account anlegen
-		 * 
 		 */
 
 		else if (line.equals("n")) {
@@ -332,8 +305,7 @@ public class CUI {
 			String name = liesEingabe();
 			System.out.println("Passwort eingeben");
 			String passwort = liesEingabe();
-			System.out
-					.println("Kunde oder Mitarbeiter? Kunde = k / Mitarbeiter = m");
+			System.out.println("Kunde oder Mitarbeiter? Kunde = k / Mitarbeiter = m");
 			String account = liesEingabe();
 
 			// Auswahldialog mit erweiterter Eingabe
@@ -389,7 +361,6 @@ public class CUI {
 					}
 
 				} catch (AccountExistiertBereitsException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
@@ -398,7 +369,6 @@ public class CUI {
 
 		/**
 		 * Befehl l: einloggen
-		 * 
 		 */
 
 		else if (line.equals("l")) {
@@ -410,15 +380,13 @@ public class CUI {
 				String name = liesEingabe();
 				System.out.println("Passwort eingeben:");
 				String passwort = liesEingabe();
-
-				
+	
 				try {
 					user = shop.loginAccount(name, passwort);
 					System.out.println("Einloggen erfolgreich.");
 					System.out.println("Hallo " + user.getName());
 
 					do {
-
 						// Accountunterscheidung Mitarbeiter bzw Kunde
 						if (user instanceof Mitarbeiter)
 							menueMitarbeiter();
@@ -433,8 +401,7 @@ public class CUI {
 							e.printStackTrace();
 						}
 
-					} while (!line.equals("q"));
-
+					}while (!line.equals("q"));
 
 				} catch (AccountExistiertNichtException e) {
 					System.out.println("Der eingegebene Name ("+name+") und das Passwort stimmen nicht überein!");
@@ -446,8 +413,8 @@ public class CUI {
 
 		/**
 		 * Befehl k: Artikel kaufen, nur als Kunde
-		 * 
 		 */
+		
 		else if (line.equals("k")) {
 			
 			if (user instanceof Kunde) {
@@ -456,8 +423,7 @@ public class CUI {
 				
 				System.out.println("Welchen Artikel? Artikelnummer eingeben.");
 				
-				try {
-					
+				try {	
 					String kaufen = liesEingabe();
 					int einkaufen = Integer.parseInt(kaufen);
 					Artikel a = shop.artikelSuchen(einkaufen);
@@ -479,13 +445,11 @@ public class CUI {
 				
 			// wenn als Mitarbeiter eingeloggt
 			} else
-				System.out.println("Bitte loggen Sie sich fuer diesen Vorgang als"
-								+ "Kunde ein!");
+				System.out.println("Bitte loggen Sie sich fuer diesen Vorgang als Kunde ein!");
 		}
 		
 		/**
 		 * Befehl w: Warenkorb anzeigen, nur als Kunde
-		 * 
 		 */
 
 		else if (line.equals("w")) {
@@ -520,8 +484,7 @@ public class CUI {
 		}
 
 		/**
-		 * Befehl z: Bestand aendern, nur als Mitarbeiter
-		 * 
+		 * Befehl z: Bestand aendern, nur als Mitarbeiter 
 		 */
 		
 		else if (line.equals("z")) {
@@ -529,9 +492,7 @@ public class CUI {
 			if (user instanceof Mitarbeiter) {
 				List<Artikel> artikelListe = shop.gibAlleArtikel();
 				gibArtikellisteAus(artikelListe);
-				System.out
-						.println("Waehlen Sie einen Artikel aus, dessen Bestand "
-								+ "Sie veraendern wollen, indem Sie die Artikelnummer angeben.");
+				System.out.println("Waehlen Sie einen Artikel aus, dessen Bestand Sie veraendern wollen, indem Sie die Artikelnummer angeben.");
 				String bestandAnders = liesEingabe();
 				int bestandAendern = Integer.parseInt(bestandAnders);
 
@@ -545,7 +506,6 @@ public class CUI {
 					System.out.println("Artikel geloescht.");
 					shop.schreibeArtikeldaten();
 				} else {
-
 					try {
 						shop.aendereBestand(bestandAendern, newBestand1);
 						System.out.println("Bestand geaendert.");
@@ -563,7 +523,6 @@ public class CUI {
 
 		/**
 		 * Befehl al: User ausloggen
-		 * 
 		 */
 		
 		else if (line.equals("al")) {
@@ -609,28 +568,23 @@ public class CUI {
 						System.out.println("Datum: " + rechnung.getDatum());
 						System.out.println("Gekauft von: " + user.getName());
 						System.out.println(((Kunde) user).getStrasse());
-						System.out.println(((Kunde) user).getPlz() + " "
-								+ ((Kunde) user).getWohnort());
+						System.out.println(((Kunde) user).getPlz() + " " + ((Kunde) user).getWohnort());
 						System.out.println("");
-						System.out.println("Der Gesamtpreis betraegt: "
-								+ rechnung.getGesamtpreis());
+						System.out.println("Der Gesamtpreis betraegt:" + rechnung.getGesamtpreis());
 
 					} else if (kaufenJaNein.equals("n")) {
 						menueKunde();
 					} else {
-						System.out
-								.println("Bitte geben Sie nur j (Ja) oder n (Nein) ein.");
+						System.out.println("Bitte geben Sie nur j (Ja) oder n (Nein) ein.");
 					}
 				}
 				
 			// wenn als Mitarbeiter eingeloggt
 			} else
-				System.out
-						.println("Bitte loggen Sie sich fuer diesen Vorgang als Kunde ein!");
+				System.out.println("Bitte loggen Sie sich fuer diesen Vorgang als Kunde ein!");
 		} else {
 			if (!line.equals("q"))
-				System.out
-						.println("Bitte geben Sie einen der aufgefuehrten Befehle ein.");
+				System.out.println("Bitte geben Sie einen der aufgefuehrten Befehle ein.");
 		}
 	}
 
@@ -663,8 +617,7 @@ public class CUI {
 			System.out.println("Keine Statistik zum Artikel");
 		} else {
 			//TODO sotieren
-			
-			
+	
 			//TODO tabelle erzeugen
 			Iterator<Stats> iter = statslist.iterator();
 			while (iter.hasNext()) {
@@ -691,9 +644,7 @@ public class CUI {
 		} while (!input.equals("q"));
 	}
 
-	// Die main-Methode
-	// .....
-
+	//MAIN
 	public static void main(String[] args) throws StatExistiertBereitsException, ArtikelExistiertNichtException {
 
 		CUI cui;

@@ -36,10 +36,10 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 		// TableModel als "Datencontainer" anlegen:
 		ArtikelTableModel artikeltable = new ArtikelTableModel();
 		
-		
 		// JTable-Objekt erzeugen und mit Datenmodell initialisieren:
 		JTable ausgabeTabelle = new JTable(artikeltable);
 		ausgabeTabelle.setAutoCreateRowSorter(true);
+		
 		// JTable in ScrollPane platzieren:
 		JScrollPane scrollPane = new JScrollPane(ausgabeTabelle);
 				

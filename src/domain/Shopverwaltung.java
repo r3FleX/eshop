@@ -44,15 +44,15 @@ public class Shopverwaltung {
 		meineArtikel.liesDaten(datei+"_A.txt");
 		//Accounts einlesen
 		meineAccounts = new Accountverwaltung();  //TODO: hier auf jeden Fall Dependency Injection verwenden. So ist das ganze kaum testbar per Unit-Test
-		meineAccounts.liesKundendaten(datei+"_Kunde.txt"); //TODO: so etwas gehört nicht in den Konstruktor
-		meineAccounts.liesMitarbeiterdaten(datei+"_Mitarbeiter.txt"); //TODO: so etwas gehört nicht in den Konstruktor
+		meineAccounts.liesKundendaten(datei+"_Kunde.txt"); //TODO: so etwas gehoert nicht in den Konstruktor
+		meineAccounts.liesMitarbeiterdaten(datei+"_Mitarbeiter.txt"); //TODO: so etwas gehoert nicht in den Konstruktor
 		// Rechnungen einlesen
 		meineRechnungen = new Rechnungsverwaltung();//TODO: hier auf jeden Fall Dependency Injection verwenden. So ist das ganze kaum testbar per Unit-Test
 		//TODO Rechnungskrams?!
 		
 		//Statistik
 		meineStats = new StatsVerwaltung();//TODO: hier auf jeden Fall Dependency Injection verwenden. So ist das ganze kaum testbar per Unit-Test
-		meineStats.liesDaten(datei+"_S.txt");//TODO: so etwas gehört nicht in den Konstruktor
+		meineStats.liesDaten(datei+"_S.txt");//TODO: so etwas gehoert nicht in den Konstruktor
 	}	
 	public List<Artikel> gibAlleArtikel() {
 		// -> an Artikelverwaltung
@@ -73,7 +73,7 @@ public class Shopverwaltung {
 		meineArtikel.einfuegen(a);
 		return false;
 	}	
-	// F�gt Artikel ein
+	// Fuegt Artikel ein
 	public boolean fuegeArtikelEin(String artname, int artnr, int artbestand, float preis, int packungsgroesse) throws ArtikelExistiertBereitsException{
 		Artikel a = new Artikel(artname, artnr, artbestand, preis);
 		meineArtikel.einfuegen(a);
@@ -203,7 +203,6 @@ public class Shopverwaltung {
 	public Artikel artikelSuchen(int gesuchteNummer) throws BestandUeberschrittenException, ArtikelExistiertNichtException {
 		return meineArtikel.artikelSuchen (gesuchteNummer);
 	}
-	
 	
 	// Artikel aus dem Warenkorb ausgeben
 	public HashMap<Artikel, Integer> gibAlleArtikelAusWarenkorb(Kunde kunde) {
