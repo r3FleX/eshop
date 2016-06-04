@@ -54,9 +54,10 @@ public class ArtikelPanel {
 		JScrollPane scrollPane = new JScrollPane(ausgabeTabelle);
 				
 		// Anzeige der Artikelliste auch in der Kunden-Ansicht
-		artikeltable.setDataVector(artikelliste);
-		
+		artikeltable.setDataVector(artikelliste);	
 		artikelPanel.add(scrollPane);
+		
+		//Layout Tabelle -> Button fuer "Option"
 		ausgabeTabelle.getColumn("Option").setCellRenderer(new ButtonRenderer());
 		ausgabeTabelle.getColumn("Option").setCellEditor(
 	        new ButtonEditor(new JCheckBox()));		

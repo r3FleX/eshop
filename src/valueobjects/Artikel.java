@@ -58,10 +58,10 @@ public class Artikel {
 
 	public boolean equals(Object andererArtikel) {
 		if (andererArtikel instanceof Artikel)
-			return ((nummer == ((Artikel) andererArtikel).nummer) && (artname
-					.equals(((Artikel) andererArtikel).artname)));
-		else
+			return ((nummer == ((Artikel) andererArtikel).nummer) && (artname.equals(((Artikel) andererArtikel).artname)));
+		else{
 			return false;
+		}
 	}
 
 	// Getter und Setter

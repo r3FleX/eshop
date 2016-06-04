@@ -48,8 +48,9 @@ public class GUI_2 extends JFrame {
 	private JPanel navframe = new JPanel();		
 	private JPanel contentframe = new JPanel();	
 	private JPanel mainPanel = new JPanel();
-	private SuchPanel suchPanel = new SuchPanel(suchController);
+	private SuchPanel suchPanel = new SuchPanel(suchController, this);
 	private JPanel untenWarenKorbBereichPanel = new JPanel();
+	private JPanel hinzugefuegteArtikelPanel = new JPanel();
 	private ArtikelPanel artikelPanel;
 	private UserPanel userpanel;
 	private WarenkorbButton WarenKorbButtons;
@@ -101,7 +102,7 @@ public class GUI_2 extends JFrame {
 		warenkorb = new WarenkorbPanel(this,user);	
 		
 		//SuchPanel
-		SuchPanel suchPanel = new SuchPanel(suchController);
+		SuchPanel suchPanel = new SuchPanel(suchController, this);
 		this.contentframe.add(suchPanel.getSuchPanel(), BorderLayout.NORTH);	
 		menuBar.setSuchPanel(suchPanel);
 		
@@ -112,11 +113,16 @@ public class GUI_2 extends JFrame {
 		suchleiste.add(WarenKorbButtons.getZumWarenkorbButton(this));
 		
 		//Unten WarenKorb Panel
-		untenWarenKorbBereichPanel.add(WarenKorbButtons.getKaufAbschliessenButton(this));
+		untenWarenKorbBereichPanel.add(WarenKorbButtons.getKaufAbschliessenButton());
 		this.contentframe.add(suchleiste, BorderLayout.NORTH);
 		this.contentframe.add(untenWarenKorbBereichPanel, BorderLayout.SOUTH);
 		untenWarenKorbBereichPanel.setVisible(false);
-		untenWarenKorbBereichPanel.setBorder(BorderFactory.createTitledBorder("Kaufabwicklung")); //Ueberschrift Kaufabwicklung
+		
+		//Hinzugefuegte Artikel Panel
+		this.contentframe.add(hinzugefuegteArtikelPanel);
+		hinzugefuegteArtikelPanel.setLayout(new GridLayout(1, 1));
+		hinzugefuegteArtikelPanel.setBorder(BorderFactory.createTitledBorder("Hinzugefuegte Artikel")); //Ueberschrift Hinzugefuegte Artikel
+		hinzugefuegteArtikelPanel.setVisible(true);
 		
 		//LoginPanel
 		userpanel = new UserPanel(this, shop, user);
@@ -162,11 +168,16 @@ public class GUI_2 extends JFrame {
 	//warenkorb anzeigen
 	public void zumWarenKorb(){
 		//artikel entfernen
-		contentframe.remove(artikelPanel.getArtikelPanel());
+		//contentframe.remove(artikelPanel.getArtikelPanel());
 		//warenkorb hinzufügen
-		contentframe.add(warenkorb);	
+		//contentframe.add(warenkorb);	
+		artikelPanel.getArtikelPanel().setVisible(false);
 		untenWarenKorbBereichPanel.setVisible(true);
 		refresh();
+	}
+	
+	public void artikelPanelEinblenden(boolean b){
+		artikelPanel.getArtikelPanel().setVisible(true);
 	}
 
 	//refresht alle Panels

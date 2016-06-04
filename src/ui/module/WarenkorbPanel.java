@@ -31,7 +31,7 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 		
 		warenkorbPanel = new JPanel();
 		warenkorbPanel.setLayout(new GridLayout());
-		warenkorbPanel.setBorder(BorderFactory.createTitledBorder("Warenkorb")); //Ueberschrift Artikel
+		warenkorbPanel.setBorder(BorderFactory.createTitledBorder("Warenkorb")); //Ueberschrift Warenkorb
 		
 		// TableModel als "Datencontainer" anlegen:
 		ArtikelTableModel artikeltable = new ArtikelTableModel();

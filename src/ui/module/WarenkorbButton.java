@@ -94,12 +94,13 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 		this.gui = gui;
 
 		//Warenkorb Button "zum Warenkorb"
-		zumWarenKorbButton = new JButton("zum Warenkorb",new ImageIcon("src/assets/warenkorbIcon.png"));
+		JButton zumWarenKorbButton = new JButton("zum Warenkorb",new ImageIcon("src/assets/warenkorbIcon.png"));
 		
 		//ACTIONLISTINER
 		zumWarenKorbButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Warenkorb geöffnet ausgefuehrt");	
+
 				gui.zumWarenKorb();
 			}
 		});	
@@ -107,9 +108,7 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 	}	
 	
 	// getZumWarenKorbPanel
-	public JButton getKaufAbschliessenButton(GUI_2 gui_2){
-		
-		this.gui = gui;
+	public JButton getKaufAbschliessenButton(){
 		
 		JButton kaufAbschliessenButton = new JButton("Kauf abschließen");
 		

@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import ui.GUI_2;
 import ui.controller.SuchController;
 
 
@@ -20,11 +21,14 @@ public class SuchPanel {
 	private List artikelListe;
 	private JTextField suchenTextField;
 	private SuchController suchController;
+	private GUI_2 gui;
 
 	//Konstruktor
-	public SuchPanel(SuchController suchController) {
+	public SuchPanel(SuchController suchController, GUI_2 gui) {
 		
 		this.suchController = suchController;
+		this.gui = gui;
+		
 		initialize();
 		//gui.refresh();
 	}
@@ -43,7 +47,7 @@ public class SuchPanel {
 			
 			public void actionPerformed(ActionEvent e) {
 				suchen(suchenTextField.getText());
-				//gui.refresh();
+				gui.artikelPanelEinblenden(true);
 			}
 		});		
 		suchPanel.setBorder(BorderFactory.createTitledBorder("Suchen")); //Ueberschrift Suchen

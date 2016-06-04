@@ -75,6 +75,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 			einArtikelAlsVector.add(artikel.getPackungsgroesse());
 			
 			einArtikelAlsVector.add(warenkorbButton.createInWarenkorbLegenButton());
+			
 			rows.add(einArtikelAlsVector);
 			//einArtikelAlsVector.add(kunde.getWarenkorb().getInhalt().values());
 		}
@@ -98,6 +99,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 		// als Vector von Vectoren
 //		Set<Artikel> articles1 = this.positionen.keySet();
 		Vector rows = new Vector();
+		WarenkorbButton warenkorbButton = new WarenkorbButton();
 		for (Artikel artikel : articles) {
 //			 for (Artikel artikel1 : articles1) {
 //				 anzahl = this.positionen.get(artikel1);
@@ -114,6 +116,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 			einArtikelAlsVector.add((Integer)warenkorb.getInhalt().get(artikel));
 			einArtikelAlsVector.add(artikel.getPreis());
 			
+			einArtikelAlsVector.add(warenkorbButton.createInWarenkorbLegenButton());
 		//	einArtikelAlsVector.add
 			rows.add(einArtikelAlsVector);
 		}
