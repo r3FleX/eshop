@@ -3,6 +3,7 @@ package ui.module;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -20,6 +21,7 @@ import domain.exceptions.BestandUeberschrittenException;
 import ui.ArtikelTableModel;
 import ui.GUI_2;
 import valueobjects.Account;
+import valueobjects.Artikel;
 import valueobjects.Kunde;
 import valueobjects.Warenkorb;
 
@@ -35,10 +37,6 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 	
 	//Konstruktor
 	public WarenkorbButton() {
-		
-		JPanel zumWarenKorbButtonPanel = new JPanel();
-		zumWarenKorbButtonPanel.setLayout(new GridLayout(1, 1));
-		zumWarenKorbButtonPanel.setBorder(BorderFactory.createTitledBorder("Warenkorb")); //Ueberschrift Warenkorb
 		
 	}
 	public JButton createInWarenkorbLegenButton() {
@@ -87,31 +85,15 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 		return inWarenKorbLegenButton;
 	}
 
-	public JButton getZumWarenkorbButton(Account user) {
+	public JButton getZumWarenkorbButton(GUI_2 gui) {
 		//Warenkorb Button "zum Warenkorb"
 		zumWarenKorbButton = new JButton("zum Warenkorb",new ImageIcon("src/assets/warenkorbIcon.png"));
-		
+		this.gui = gui;
 		//ACTIONLISTINER
 		zumWarenKorbButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Warenkorb geöffnet ausgefuehrt");	
-				//gui.zumWarenKorb();
-				
-				Warenkorb suchErgebnis;
-				Kunde kunde = (Kunde) user;
-
-				suchErgebnis = kunde.getWarenkorb();
-
-				ArtikelTableModel tModel = (ArtikelTableModel) warenkorbTabelle.getModel();
-				tModel.setDataVector2(suchErgebnis);
-
-				float gesamtpreis = 0.0f;
-
-				// for (Artikel art : suchErgebnis) {
-				// 	  gesamtpreis = art.getPreis() * kunde.getWarenkorb().getInhalt().
-				// }
-
-				gesamt.setText("Gesampreis: " + gesamtpreis + "€");
+				gui.zumWarenKorb();
 			}
 		});	
 		return zumWarenKorbButton;

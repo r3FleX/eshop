@@ -27,6 +27,7 @@ import ui.module.MenuePanel;
 import ui.module.SuchPanel;
 import ui.module.UserPanel;
 import ui.module.WarenkorbButton;
+import ui.module.WarenkorbPanel;
 import valueobjects.Account;
 import valueobjects.Kunde;
 import valueobjects.Mitarbeiter;
@@ -39,7 +40,7 @@ public class GUI_2 extends JFrame{
 	private SuchController suchController = null;
 
 	private Shopverwaltung shop;
-	private Account user;
+	private Account user = (Account) new Kunde("Gast", "gast", -1, "none", 12345, "none");
 
 	//Menuebar
 	MenuePanel menuBar;
@@ -52,6 +53,7 @@ public class GUI_2 extends JFrame{
 	private ArtikelPanel artikelPanel;
 	private UserPanel userpanel;
 	private WarenkorbButton WarenKorbButtons;
+	private WarenkorbPanel warenkorb;
 	
 	//Konstrukter
 	public GUI_2(String datei) {
@@ -95,13 +97,14 @@ public class GUI_2 extends JFrame{
 		this.contentframe.setLayout(new BorderLayout());	
 		//warenkorb schaltflächen
 		WarenKorbButtons = new WarenkorbButton();
-		
+		//warenkorb erstellen.
+		warenkorb = new WarenkorbPanel(this,user);		
 		//SuchPanel
 		//"norden splitten"
 		JPanel suchleiste = new JPanel();
 		suchleiste.setLayout(new GridLayout(1,1));
 		suchleiste.add(suchPanel.getSuchPanel());
-		suchleiste.add(WarenKorbButtons.getZumWarenkorbButton(user));
+		suchleiste.add(WarenKorbButtons.getZumWarenkorbButton(this));
 		
 		this.contentframe.add(suchleiste, BorderLayout.NORTH);	
 		
@@ -145,13 +148,16 @@ public class GUI_2 extends JFrame{
 	
 	//Wenn Benutzer ausgeloggt
 	public void userLoggedOut(){
-		//menuBar.setUserLoggedOut();
 		userpanel.setVisible(false);
 		
 	}
-	
+	//warenkorb anzeigen
 	public void zumWarenKorb(){
-		contentframe.setVisible(false);
+		//artikel entfernen
+		contentframe.remove(artikelPanel.getArtikelPanel());
+		//warenkorb hinzufügen
+		contentframe.add(warenkorb);
+		refresh();
 	}
 
 	//refresht alle Panels
