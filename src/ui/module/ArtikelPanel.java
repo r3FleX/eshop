@@ -32,7 +32,7 @@ public class ArtikelPanel {
 	
 	private JPanel artikelPanel;
 	private ArtikelTableModel artikeltable;
-	
+	private JTable ausgabeTabelle;
 	//Konstruktor
 	public ArtikelPanel(List<Artikel> artikelliste) {
 		
@@ -47,7 +47,7 @@ public class ArtikelPanel {
 		artikeltable.setDataVector(new Vector<Artikel>());
 		
 		// JTable-Objekt erzeugen und mit Datenmodell initialisieren:
-		JTable ausgabeTabelle = new JTable(artikeltable);
+		ausgabeTabelle = new JTable(artikeltable);
 		ausgabeTabelle.setAutoCreateRowSorter(true);
 
 		// JTable in ScrollPane platzieren:
@@ -56,14 +56,18 @@ public class ArtikelPanel {
 		// Anzeige der Artikelliste auch in der Kunden-Ansicht
 		artikeltable.setDataVector(artikelliste);	
 		artikelPanel.add(scrollPane);
-		
-		//Layout Tabelle -> Button fuer "Option"
-		ausgabeTabelle.getColumn("Option").setCellRenderer(new ButtonRenderer());
-		ausgabeTabelle.getColumn("Option").setCellEditor(
-	        new ButtonEditor(new JCheckBox()));		
+		renderOption();
+	
 		setArtikelPanel(artikelPanel);
 	}
 	
+	public void renderOption() {
+		//Layout Tabelle -> Button fuer "Option"
+		ausgabeTabelle.getColumn("Option").setCellRenderer(new ButtonRenderer());
+		ausgabeTabelle.getColumn("Option").setCellEditor(
+	        new ButtonEditor(new JCheckBox()));	
+		
+	}
 	//Getter und Setter
 	public ArtikelTableModel getArtikeltable() {
 		return artikeltable;

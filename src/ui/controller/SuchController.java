@@ -26,7 +26,8 @@ public class SuchController {
     	
         List<Artikel> suchErgebnis = suchText.isEmpty() ?
                 shopverwaltung.gibAlleArtikel() :
-                shopverwaltung.sucheNachArtikel(suchText);
+                shopverwaltung.sucheNachArtikel(suchText);                
         gui.getArtikelPanel().getArtikeltable().setDataVector(suchErgebnis);
+        gui.getArtikelPanel().renderOption();
     }
 }
