@@ -95,7 +95,8 @@ public class GUI_2 extends JFrame {
 		
 		this.mainPanel.setLayout(new BorderLayout());
 		this.navframe.setLayout(new BorderLayout());
-		this.contentframe.setLayout(new BorderLayout());	
+		this.contentframe.setLayout(new BorderLayout());
+		
 		//Warenkorb schaltflächen
 		WarenKorbButtons = new WarenkorbButton();
 		//Warenkorb erstellen.
