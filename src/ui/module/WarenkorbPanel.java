@@ -21,6 +21,15 @@ import valueobjects.Kunde;
 public class WarenkorbPanel extends JPanel implements ActionListener {
 
 	private JPanel warenkorbPanel;
+	private JTable ausgabeTabelle;
+	public JTable getAusgabeTabelle() {
+		return ausgabeTabelle;
+	}
+
+	public void setAusgabeTabelle(JTable ausgabeTabelle) {
+		this.ausgabeTabelle = ausgabeTabelle;
+	}
+
 	private GUI_2 gui;
 	private Kunde user;
 

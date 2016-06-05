@@ -40,12 +40,13 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 	public WarenkorbButton() {
 		
 	}
-	public String createInWarenkorbLegenButton() {
-		//Warenkorb Button "in Warenkorb legen" 
-		/*JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
-		//zumWarenKorbButtonPanel.add(inWarenKorbLegenButton);
+	public String createInWarenkorbLegenButtonTable() {
+		return "Buy it";
+	}
+	public JButton createInWarenkorbLegenButton() {
+	//Warenkorb Button "in Warenkorb legen" 
 		JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
-		
+		//zumWarenKorbButtonPanel.add(inWarenKorbLegenButton);		
 		//ACTIONLISTINER
 		inWarenKorbLegenButton.addActionListener(new ActionListener() {	
 			public void actionPerformed(ActionEvent e) {
@@ -55,7 +56,7 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 					JLabel anz = new JLabel("Wie oft wollen Sie den Artikel kaufen?");
 					final JTextField anzahl1 = new JTextField();
 					JButton ok = new JButton("In den Warenkorb");
-
+	
 					final JFrame wieViele = new JFrame();
 					wieViele.getContentPane().setLayout(new GridLayout(2, 1));
 					wieViele.setSize(450, 100);
@@ -65,10 +66,10 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 					wieViele.setVisible(true);
 					
 					ok.addActionListener(new ActionListener() {
-
+	
 						public void actionPerformed(ActionEvent arg0) {
 							try {
-								shop.inWarenkorbEinfuegen(shop.artikelSuchen(Integer.parseInt((ausgabeTabelle.getValueAt(ausgabeTabelle.getSelectedRow(),0)).toString())),Integer.parseInt(anzahl1.getText()),(Kunde) user);
+								shop.inWarenkorbEinfuegen(shop.artikelSuchen(Integer.parseInt((gui.getWarenkorb().getAusgabeTabelle().getValueAt(gui.getWarenkorb().getAusgabeTabelle().getSelectedRow(),0)).toString())),Integer.parseInt(anzahl1.getText()),(Kunde) gui.getUser());
 								wieViele.setVisible(false);
 							} catch (NumberFormatException e) {
 								e.printStackTrace();
@@ -79,15 +80,14 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 							}
 						}
 					});
-
+	
 				} catch (NumberFormatException e1) {
 					e1.printStackTrace();
 				}
 			}
-		});	*/
-		return "Buy it";
+		});
+		return inWarenKorbLegenButton;	
 	}
-
 	//Zum Warenkorb Button
 	public JButton getZumWarenkorbButton(GUI_2 gui) {
 		

@@ -74,7 +74,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 			einArtikelAlsVector.add(artikel.getPreis());
 			einArtikelAlsVector.add(artikel.getPackungsgroesse());
 			
-			einArtikelAlsVector.add(warenkorbButton.createInWarenkorbLegenButton());
+			einArtikelAlsVector.add(warenkorbButton.createInWarenkorbLegenButtonTable());
 			
 			rows.add(einArtikelAlsVector);
 			//einArtikelAlsVector.add(kunde.getWarenkorb().getInhalt().values());
@@ -116,7 +116,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 			einArtikelAlsVector.add((Integer)warenkorb.getInhalt().get(artikel));
 			einArtikelAlsVector.add(artikel.getPreis());
 			
-			einArtikelAlsVector.add(warenkorbButton.createInWarenkorbLegenButton());
+			einArtikelAlsVector.add(warenkorbButton.createInWarenkorbLegenButtonTable());
 		//	einArtikelAlsVector.add
 			rows.add(einArtikelAlsVector);
 		}

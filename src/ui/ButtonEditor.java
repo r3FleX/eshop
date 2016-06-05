@@ -10,15 +10,17 @@ import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
+import valueobjects.Kunde;
+
 /**
  * @version 1.0 11/09/98
+ * //Example from http://www.java2s.com/Code/Java/Swing-Components/ButtonTableExample.htm
  */
 public class ButtonEditor extends DefaultCellEditor {
 
 protected JButton button;
 
   private String label;
-
   private boolean isPushed;
 
   public ButtonEditor(JCheckBox checkBox) {
@@ -27,7 +29,7 @@ protected JButton button;
     button.setOpaque(true);
     button.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        fireEditingStopped();
+        fireEditingStopped();        
       }
     });
   }
@@ -49,10 +51,9 @@ protected JButton button;
 
   public Object getCellEditorValue() {
     if (isPushed) {
-      // 
-      // 
-      JOptionPane.showMessageDialog(button, label + ": Ouch!");
-      // System.out.println(label + ": Ouch!");
+
+        JOptionPane.showMessageDialog(button, label + ": Ouch!");
+         System.out.println(label + ": Ouch!");  	
     }
     isPushed = false;
     return new String(label);

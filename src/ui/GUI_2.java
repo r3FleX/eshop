@@ -41,6 +41,14 @@ public class GUI_2 extends JFrame {
 	private Shopverwaltung shop;
 	private Account user = (Account) new Kunde("Gast", "gast", -1, "none", 12345, "none");
 
+	public Account getUser() {
+		return user;
+	}
+
+	public void setUser(Account user) {
+		this.user = user;
+	}
+
 	//Menuebar
 	private MenuePanel menuBar;
 	
@@ -58,6 +66,14 @@ public class GUI_2 extends JFrame {
 	private WarenkorbButton WarenKorbButtons;
 	private WarenkorbPanel warenkorb;
 	
+	public WarenkorbPanel getWarenkorb() {
+		return warenkorb;
+	}
+
+	public void setWarenkorb(WarenkorbPanel warenkorb) {
+		this.warenkorb = warenkorb;
+	}
+
 	//Konstrukter
 	public GUI_2(String datei) {
 		try {
@@ -114,6 +130,7 @@ public class GUI_2 extends JFrame {
 		suchleiste.setLayout(new GridLayout(1,1));
 		suchleiste.add(suchPanel.getSuchPanel());
 		suchleiste.add(WarenKorbButtons.getZumWarenkorbButton(this));
+		suchleiste.add(WarenKorbButtons.createInWarenkorbLegenButton());
 		
 		this.contentframe.add(suchleiste, BorderLayout.NORTH);
 	//TODO das gehört in den warenkorbPanel!!!
