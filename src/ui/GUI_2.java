@@ -49,10 +49,12 @@ public class GUI_2 extends JFrame {
 	private JPanel contentframe = new JPanel();	
 	private JPanel mainPanel = new JPanel();
 	private SuchPanel suchPanel = new SuchPanel(suchController, this);
+	private JPanel suchleiste;
 	private JPanel untenWarenKorbBereichPanel = new JPanel();
 	private JPanel hinzugefuegteArtikelPanel = new JPanel();
 	private ArtikelPanel artikelPanel;
 	private UserPanel userpanel;
+	
 	private WarenkorbButton WarenKorbButtons;
 	private WarenkorbPanel warenkorb;
 	
@@ -108,14 +110,17 @@ public class GUI_2 extends JFrame {
 		menuBar.setSuchPanel(suchPanel);
 		
 		//"norden splitten"
-		JPanel suchleiste = new JPanel();
+		suchleiste = new JPanel();
 		suchleiste.setLayout(new GridLayout(1,1));
 		suchleiste.add(suchPanel.getSuchPanel());
 		suchleiste.add(WarenKorbButtons.getZumWarenkorbButton(this));
 		
+		this.contentframe.add(suchleiste, BorderLayout.NORTH);
+	//TODO das gehört in den warenkorbPanel!!!
+	//TODO Navigationsleiste für Warenkorb
+		
 		//Unten WarenKorb Panel
 		untenWarenKorbBereichPanel.add(WarenKorbButtons.getKaufAbschliessenButton());
-		this.contentframe.add(suchleiste, BorderLayout.NORTH);
 		this.contentframe.add(untenWarenKorbBereichPanel, BorderLayout.SOUTH);
 		untenWarenKorbBereichPanel.setBorder(BorderFactory.createTitledBorder("Kaufabwicklungsbereich")); //Ueberschrift Kaufabwicklungsbereich
 		untenWarenKorbBereichPanel.setVisible(false);
@@ -169,21 +174,19 @@ public class GUI_2 extends JFrame {
 	
 	//warenkorb anzeigen
 	public void zumWarenKorb(){
-		//artikel entfernen
-		//contentframe.remove(artikelPanel.getArtikelPanel());
-		//warenkorb hinzufügen
-		//contentframe.add(warenkorb);	
 		artikelPanel.getArtikelPanel().setVisible(false);
 		untenWarenKorbBereichPanel.setVisible(true);
+		//Suchleiste Ausblenden/entfernen
+		contentframe.remove(suchleiste);
 		refresh();
 	}
 	
 	public void artikelPanelEinblenden(boolean b){
-		artikelPanel.getArtikelPanel().setVisible(true);
+		artikelPanel.getArtikelPanel().setVisible(b);
 	}
 	
 	public void untenWarenKorbBereichPanel(boolean b){
-		untenWarenKorbBereichPanel.setVisible(false);
+		untenWarenKorbBereichPanel.setVisible(b);
 	}
 
 	//refresht alle Panels
