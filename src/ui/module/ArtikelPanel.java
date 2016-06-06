@@ -13,6 +13,8 @@ import ui.ArtikelTableModel;
 import ui.ButtonEditor;
 import valueobjects.Artikel;
 import ui.ButtonRenderer;
+import ui.GUI_2;
+
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,6 +35,7 @@ public class ArtikelPanel {
 	private JPanel artikelPanel;
 	private ArtikelTableModel artikeltable;
 	private JTable ausgabeTabelle;
+	
 	//Konstruktor
 	public ArtikelPanel(List<Artikel> artikelliste) {
 		

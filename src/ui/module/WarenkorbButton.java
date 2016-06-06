@@ -35,6 +35,7 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 	private GUI_2 gui;
 	private Shopverwaltung shop;
 	private Account user;
+	private WarenkorbPanel warenkorbpanel;
 	
 	//Konstruktor
 	public WarenkorbButton() {
@@ -46,44 +47,15 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 	public JButton createInWarenkorbLegenButton() {
 	//Warenkorb Button "in Warenkorb legen" 
 		JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
-		//zumWarenKorbButtonPanel.add(inWarenKorbLegenButton);		
+		//zumWarenKorbButtonPanel.add(inWarenKorbLegenButton);	
+		
 		//ACTIONLISTINER
 		inWarenKorbLegenButton.addActionListener(new ActionListener() {	
 			public void actionPerformed(ActionEvent e) {
+			//public void wieOftArtikelKaufenMethode(){}	
 				System.out.println("in den warenkorb");
-				
-				try {
-					JLabel anz = new JLabel("Wie oft wollen Sie den Artikel kaufen?");
-					final JTextField anzahl1 = new JTextField();
-					JButton ok = new JButton("In den Warenkorb");
-	
-					final JFrame wieViele = new JFrame();
-					wieViele.getContentPane().setLayout(new GridLayout(2, 1));
-					wieViele.setSize(450, 100);
-					wieViele.getContentPane().add(anz);
-					wieViele.getContentPane().add(anzahl1);
-					wieViele.getContentPane().add(ok);
-					wieViele.setVisible(true);
-					
-					ok.addActionListener(new ActionListener() {
-	
-						public void actionPerformed(ActionEvent arg0) {
-							try {
-								shop.inWarenkorbEinfuegen(shop.artikelSuchen(Integer.parseInt((gui.getWarenkorb().getAusgabeTabelle().getValueAt(gui.getWarenkorb().getAusgabeTabelle().getSelectedRow(),0)).toString())),Integer.parseInt(anzahl1.getText()),(Kunde) gui.getUser());
-								wieViele.setVisible(false);
-							} catch (NumberFormatException e) {
-								e.printStackTrace();
-							} catch (BestandUeberschrittenException e) {
-								JOptionPane.showMessageDialog(null, e.getMessage());
-							} catch (ArtikelExistiertNichtException e) {
-								JOptionPane.showMessageDialog(null, e.getMessage());
-							}
-						}
-					});
-	
-				} catch (NumberFormatException e1) {
-					e1.printStackTrace();
-				}
+				//TODO public class WarenkorbButton -> warenkorbpanel.wieOftArtikelZumWarenKorb();
+				warenkorbpanel.wieOftArtikelZumWarenKorb();	
 			}
 		});
 		return inWarenKorbLegenButton;	
@@ -99,9 +71,10 @@ public class WarenkorbButton extends JPanel implements ActionListener {
 		//ACTIONLISTINER
 		zumWarenKorbButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				System.out.println("Warenkorb geöffnet ausgefuehrt");	
-
 				gui.zumWarenKorb();
+				gui.mittigWarenKorbBereich();
 			}
 		});	
 		return zumWarenKorbButton;
