@@ -135,7 +135,8 @@ public class GUI_2 extends JFrame {
 		obenPanel.setLayout(new GridLayout(1,1));
 		obenPanel.add(suchPanel);
 		obenPanel.add(warenKorbButtons.getZumWarenkorbButton(this));
-		obenPanel.add(warenKorbButtons.createInWarenkorbLegenButton());
+		//obenPanel.add(warenKorbButtons.createInWarenkorbLegenButton());
+		//obenPanel.add(zumWare)
 		
 		this.contentframe.add(obenPanel, BorderLayout.NORTH);
 	//TODO das gehört in den warenkorbPanel!!!
@@ -215,8 +216,9 @@ public class GUI_2 extends JFrame {
 		contentframe.remove(suchPanel);
 		// TODO: obenPanel global machen
 		//ObenPanel opObenPanel = new ObenPanel();
-		obenPanel.zeigeWarenKorb();
+		//obenPanel.zeigeWarenKorb();
 		//obenPanel.zeiegArtikelPanel();
+		obenPanel.zumWarenKorbButtonAnklicken();
 		refresh();
 		
 	}
