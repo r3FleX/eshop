@@ -131,14 +131,16 @@ public class GUI_2 extends JFrame {
 		//this.contentframe.add(suchPanel, BorderLayout.NORTH);	
 		//menuBar.setSuchPanel(suchPanel);
 		
+		//Oben Panel
+		this.contentframe.add(obenPanel, BorderLayout.NORTH);
 		//"norden splitten"
 		obenPanel.setLayout(new GridLayout(1,1));
 		obenPanel.add(suchPanel);
 		obenPanel.add(warenKorbButtons.getZumWarenkorbButton(this));
 		//obenPanel.add(warenKorbButtons.createInWarenkorbLegenButton());
-		//obenPanel.add(zumWare)
+		//obenPanel.zumWarenKorbButtonAnklicken();
 		
-		this.contentframe.add(obenPanel, BorderLayout.NORTH);
+		obenPanel.zumWarenKorbButtonAnklicken();
 	//TODO das gehört in den warenkorbPanel!!!
 	//TODO Navigationsleiste für Warenkorb
 		
@@ -152,10 +154,10 @@ public class GUI_2 extends JFrame {
 		JPanel warenKorbBereichPanel = new JPanel();
 		warenKorbBereichPanel.setLayout(new GridLayout(1,1));
 		//warenKorbBereichPanel.add(warenKorbBereichPanel);
-		contentframe.add(warenKorbBereichPanel);
-		JButton warenKorbBereichButton = new JButton();
-		warenKorbBereichPanel.setBorder(BorderFactory.createTitledBorder("WarenKorbBereich")); //Ueberschrift WarenKorbBereich
-		warenKorbBereichPanel.setVisible(false);
+		//contentframe.add(warenKorbBereichPanel);
+//		JButton warenKorbBereichButton = new JButton();
+//		warenKorbBereichPanel.setBorder(BorderFactory.createTitledBorder("WarenKorbBereich")); //Ueberschrift WarenKorbBereich
+//		warenKorbBereichPanel.setVisible(false);
 		
 		
 		

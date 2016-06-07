@@ -28,14 +28,14 @@ import valueobjects.Warenkorb;
 
 public class WarenkorbButtonPanel extends JPanel implements ActionListener {
 	
-	private JButton zumWarenKorbButton;
-	private JTable warenkorbTabelle = null;
+	//private JButton zumWarenKorbButton;
+	//private JTable warenkorbTabelle = null;
 	private JTable ausgabeTabelle = null;
-	private JLabel gesamt = new JLabel();
+	//private JLabel gesamt = new JLabel();
 	private GUI_2 gui;
 	private Shopverwaltung shop;
 	private Account user;
-	private WarenkorbPanel warenkorbpanel;
+	//private WarenkorbPanel warenkorbpanel;
 	
 	//Konstruktor
 	public WarenkorbButtonPanel() {
@@ -94,6 +94,7 @@ public class WarenkorbButtonPanel extends JPanel implements ActionListener {
 		});
 		return inWarenKorbLegenButton;	
 	}
+	
 	//Zum Warenkorb Button
 	public JButton getZumWarenkorbButton(GUI_2 gui) {
 		
