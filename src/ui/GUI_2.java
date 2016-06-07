@@ -124,11 +124,11 @@ public class GUI_2 extends JFrame {
 		warenkorb = new WarenkorbPanel(this,user);	
 		
 		//Warenkorb schaltflächen
-		warenKorbButtons = new WarenkorbButtonPanel();
+		warenKorbButtons = new WarenkorbButtonPanel(this);
 		
 		//SuchPanel
 		suchPanel = new SuchPanel(suchController, this);
-		//this.contentframe.add(suchPanel, BorderLayout.NORTH);	
+		this.contentframe.add(suchPanel, BorderLayout.NORTH);	
 		//menuBar.setSuchPanel(suchPanel);
 		
 		//Oben Panel
@@ -137,7 +137,7 @@ public class GUI_2 extends JFrame {
 		obenPanel.setLayout(new GridLayout(1,1));
 		obenPanel.add(suchPanel);
 		obenPanel.add(warenKorbButtons.getZumWarenkorbButton(this));
-		//obenPanel.add(warenKorbButtons.createInWarenkorbLegenButton());
+		obenPanel.add(warenKorbButtons.createInWarenkorbLegenButton());
 		//obenPanel.zumWarenKorbButtonAnklicken();
 		
 		obenPanel.zumWarenKorbButtonAnklicken();
