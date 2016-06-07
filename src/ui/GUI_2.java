@@ -24,9 +24,11 @@ import ui.controller.SuchController;
 import ui.module.ArtikelPanel;
 import ui.module.LoginPanel;
 import ui.module.MenuePanel;
+import ui.module.ObenPanel;
 import ui.module.SuchPanel;
 import ui.module.UserPanel;
-import ui.module.WarenkorbButton;
+//import ui.module.WarenkorbButton;
+import ui.module.WarenkorbButtonPanel;
 import ui.module.WarenkorbPanel;
 import valueobjects.Account;
 import valueobjects.Kunde;
@@ -48,15 +50,16 @@ public class GUI_2 extends JFrame {
 	private JPanel navframe = new JPanel();		
 	private JPanel contentframe = new JPanel();	
 	private JPanel mainPanel = new JPanel();
-	private SuchPanel suchPanel = new SuchPanel(suchController, this);
-	private JPanel obenPanel = new JPanel();
+	private SuchPanel suchPanel;
+	private ObenPanel obenPanel = new ObenPanel();
+	
 	private JPanel untenWarenKorbBereichPanel = new JPanel();
 	private JPanel hinzugefuegteArtikelPanel = new JPanel();
 	private JPanel warenKorbBereichPanel = new JPanel();
 	private ArtikelPanel artikelPanel;
 	private UserPanel userpanel;
 	
-	private WarenkorbButton WarenKorbButtons;
+	private WarenkorbButtonPanel warenKorbButtons;
 	private WarenkorbPanel warenkorb;
 	
 
@@ -117,28 +120,29 @@ public class GUI_2 extends JFrame {
 		this.navframe.setLayout(new BorderLayout());
 		this.contentframe.setLayout(new BorderLayout());
 		
-		//Warenkorb schaltflächen
-		WarenKorbButtons = new WarenkorbButton();
 		//Warenkorb erstellen.
 		warenkorb = new WarenkorbPanel(this,user);	
 		
+		//Warenkorb schaltflächen
+		warenKorbButtons = new WarenkorbButtonPanel();
+		
 		//SuchPanel
-		SuchPanel suchPanel = new SuchPanel(suchController, this);
+		suchPanel = new SuchPanel(suchController, this);
 		//this.contentframe.add(suchPanel, BorderLayout.NORTH);	
 		//menuBar.setSuchPanel(suchPanel);
 		
 		//"norden splitten"
 		obenPanel.setLayout(new GridLayout(1,1));
 		obenPanel.add(suchPanel);
-		obenPanel.add(WarenKorbButtons.getZumWarenkorbButton(this));
-		obenPanel.add(WarenKorbButtons.createInWarenkorbLegenButton());
+		obenPanel.add(warenKorbButtons.getZumWarenkorbButton(this));
+		obenPanel.add(warenKorbButtons.createInWarenkorbLegenButton());
 		
 		this.contentframe.add(obenPanel, BorderLayout.NORTH);
 	//TODO das gehört in den warenkorbPanel!!!
 	//TODO Navigationsleiste für Warenkorb
 		
 		//Unten WarenKorb Panel
-		untenWarenKorbBereichPanel.add(WarenKorbButtons.getKaufAbschliessenButton());
+		untenWarenKorbBereichPanel.add(warenKorbButtons.getKaufAbschliessenButton());
 		this.contentframe.add(untenWarenKorbBereichPanel, BorderLayout.SOUTH);
 		untenWarenKorbBereichPanel.setBorder(BorderFactory.createTitledBorder("Kaufabwicklungsbereich")); //Ueberschrift Kaufabwicklungsbereich
 		untenWarenKorbBereichPanel.setVisible(false);
@@ -206,8 +210,13 @@ public class GUI_2 extends JFrame {
 		hinzugefuegteArtikelPanel.setLayout(new GridLayout(1, 1));
 		hinzugefuegteArtikelPanel.setBorder(BorderFactory.createTitledBorder("Hinzugefuegte Artikel")); //Ueberschrift Hinzugefuegte Artikel
 		hinzugefuegteArtikelPanel.setVisible(true);
+		
 		obenPanel.remove(suchPanel);
 		contentframe.remove(suchPanel);
+		// TODO: obenPanel global machen
+		//ObenPanel opObenPanel = new ObenPanel();
+		obenPanel.zeigeWarenKorb();
+		//obenPanel.zeiegArtikelPanel();
 		refresh();
 		
 	}

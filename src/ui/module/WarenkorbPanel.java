@@ -59,38 +59,7 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 	
 	public void wieOftArtikelZumWarenKorb(){
 		
-		try {
-			JLabel wieOftArtikelKaufenLabel = new JLabel("Wie oft wollen Sie den Artikel kaufen?");
-			final JTextField anzahl = new JTextField();
-			JButton inDenWarenkorbButton = new JButton("In den Warenkorb");
-
-			final JFrame wieOftArtikelKaufenFrame = new JFrame();
-			wieOftArtikelKaufenFrame.getContentPane().setLayout(new GridLayout(2, 1));
-			wieOftArtikelKaufenFrame.setSize(450, 100);
-			wieOftArtikelKaufenFrame.getContentPane().add(wieOftArtikelKaufenLabel);
-			wieOftArtikelKaufenFrame.getContentPane().add(anzahl);
-			wieOftArtikelKaufenFrame.getContentPane().add(inDenWarenkorbButton);
-			wieOftArtikelKaufenFrame.setVisible(true);
-			
-			inDenWarenkorbButton.addActionListener(new ActionListener() {
-
-				public void actionPerformed(ActionEvent arg0) {
-					try {  //inWarenkorbEinfuegen(Artikel art,                ->                                                                                            ,int anzahl                        , Kunde kunde)	
-						shop.inWarenkorbEinfuegen(shop.artikelSuchen(Integer.parseInt((ausgabeTabelle.getValueAt(ausgabeTabelle.getSelectedRow(),0)).toString())),Integer.parseInt(anzahl.getText()),(Kunde) user);
-						wieOftArtikelKaufenFrame.setVisible(false);
-					} catch (NumberFormatException e) {
-						e.printStackTrace();
-					} catch (BestandUeberschrittenException e) {
-						JOptionPane.showMessageDialog(null, e.getMessage());
-					} catch (ArtikelExistiertNichtException e) {
-						JOptionPane.showMessageDialog(null, e.getMessage());
-					}
-				}
-			});
-
-		} catch (NumberFormatException e1) {
-			e1.printStackTrace();
-		}
+		
 	}
 	
 	public JPanel warenKorbBereich(){
