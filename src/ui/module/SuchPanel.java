@@ -14,10 +14,10 @@ import ui.GUI_2;
 import ui.controller.SuchController;
 
 
-public class SuchPanel {
+public class SuchPanel extends JPanel{
 
-	private JPanel suchPanel;
-	private JPanel warenkorbPanel;
+	//private JPanel suchPanel;
+	//private JPanel warenkorbPanel;
 	private List artikelListe;
 	private JTextField suchenTextField;
 	private SuchController suchController;
@@ -35,14 +35,14 @@ public class SuchPanel {
 
 	private void initialize() {
 		
-		JPanel suchPanel = new JPanel();
-		suchPanel.setLayout(new GridLayout(1, 2));
+		//JPanel suchPanel = new JPanel();
+		this.setLayout(new GridLayout(1, 2));
 
 		suchenTextField = new JTextField();
-		suchPanel.add(suchenTextField);
+		this.add(suchenTextField);
 
 		JButton suchButton = new JButton("Suchen");
-		suchPanel.add(suchButton);
+		this.add(suchButton);
 		suchButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -51,8 +51,8 @@ public class SuchPanel {
 				gui.untenWarenKorbBereichPanel(false);
 			}
 		});		
-		suchPanel.setBorder(BorderFactory.createTitledBorder("Suchen")); //Ueberschrift Suchen
-		setSuchPanel(suchPanel);
+		this.setBorder(BorderFactory.createTitledBorder("Suchen")); //Ueberschrift Suchen
+		
 	}
 
 	private void suchen(String text) {
@@ -60,6 +60,7 @@ public class SuchPanel {
 		//gui.refresh();
 	}
 
+	/*
 	//Getter und Setter
 	public JPanel getSuchPanel() {
 		return suchPanel;
@@ -68,5 +69,6 @@ public class SuchPanel {
 	public void setSuchPanel(JPanel suchPanel) {
 		this.suchPanel = suchPanel;
 	}
+	*/
 }
 

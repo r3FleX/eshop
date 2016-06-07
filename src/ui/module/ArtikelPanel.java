@@ -30,18 +30,18 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
-public class ArtikelPanel {
+public class ArtikelPanel extends JPanel{
 	
-	private JPanel artikelPanel;
+	//private JPanel artikelPanel;
 	private ArtikelTableModel artikeltable;
 	private JTable ausgabeTabelle;
 	
 	//Konstruktor
 	public ArtikelPanel(List<Artikel> artikelliste) {
 		
-		JPanel artikelPanel = new JPanel();
-		artikelPanel.setLayout(new GridLayout());
-		artikelPanel.setBorder(BorderFactory.createTitledBorder("Artikel")); //Ueberschrift Artikel
+		//JPanel artikelPanel = new JPanel();
+		this.setLayout(new GridLayout());
+		this.setBorder(BorderFactory.createTitledBorder("Artikel")); //Ueberschrift Artikel
 		
 		// TableModel als "Datencontainer" anlegen:
 		artikeltable = new ArtikelTableModel();
@@ -58,10 +58,10 @@ public class ArtikelPanel {
 				
 		// Anzeige der Artikelliste auch in der Kunden-Ansicht
 		artikeltable.setDataVector(artikelliste);	
-		artikelPanel.add(scrollPane);
+		this.add(scrollPane);
 		renderOption();
 	
-		setArtikelPanel(artikelPanel);
+		//setArtikelPanel(artikelPanel);
 	}
 	
 	public void renderOption() {
@@ -78,11 +78,12 @@ public class ArtikelPanel {
 	public void setArtikeltable(ArtikelTableModel artikeltable) {
 		this.artikeltable = artikeltable;
 	}
-	public JPanel getArtikelPanel() {
+	
+	/*public JPanel getArtikelPanel() {
 		return this.artikelPanel;
 	}
 	public void setArtikelPanel(JPanel artikelPanel) {
 		this.artikelPanel = artikelPanel;
 	}	
-	
+	*/
 }

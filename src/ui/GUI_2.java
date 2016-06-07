@@ -124,12 +124,12 @@ public class GUI_2 extends JFrame {
 		
 		//SuchPanel
 		SuchPanel suchPanel = new SuchPanel(suchController, this);
-		this.contentframe.add(suchPanel.getSuchPanel(), BorderLayout.NORTH);	
+		//this.contentframe.add(suchPanel, BorderLayout.NORTH);	
 		//menuBar.setSuchPanel(suchPanel);
 		
 		//"norden splitten"
 		obenPanel.setLayout(new GridLayout(1,1));
-		obenPanel.add(suchPanel.getSuchPanel());
+		obenPanel.add(suchPanel);
 		obenPanel.add(WarenKorbButtons.getZumWarenkorbButton(this));
 		obenPanel.add(WarenKorbButtons.createInWarenkorbLegenButton());
 		
@@ -152,11 +152,7 @@ public class GUI_2 extends JFrame {
 		warenKorbBereichPanel.setBorder(BorderFactory.createTitledBorder("WarenKorbBereich")); //Ueberschrift WarenKorbBereich
 		warenKorbBereichPanel.setVisible(false);
 		
-		//Hinzugefuegte Artikel Panel
-		this.contentframe.add(hinzugefuegteArtikelPanel);
-		hinzugefuegteArtikelPanel.setLayout(new GridLayout(1, 1));
-		hinzugefuegteArtikelPanel.setBorder(BorderFactory.createTitledBorder("Hinzugefuegte Artikel")); //Ueberschrift Hinzugefuegte Artikel
-		hinzugefuegteArtikelPanel.setVisible(true);
+		
 		
 		//LoginPanel
 		userpanel = new UserPanel(this, shop, user);
@@ -167,7 +163,7 @@ public class GUI_2 extends JFrame {
 		
 		//ArtikelPanel
 		artikelPanel = new ArtikelPanel(shop.gibAlleArtikel());
-		this.contentframe.add(artikelPanel.getArtikelPanel(), BorderLayout.CENTER);	
+		this.contentframe.add(artikelPanel, BorderLayout.CENTER);	
 		
 		//GUI setzen
 		this.mainPanel.add(this.navframe,BorderLayout.NORTH);
@@ -204,12 +200,20 @@ public class GUI_2 extends JFrame {
 		//artikelPanel.getArtikelPanel().setVisible(false);
 		untenWarenKorbBereichPanel.setVisible(true);
 		//obenPanel Ausblenden/entfernen
-		contentframe.remove(obenPanel);
+		contentframe.remove(artikelPanel);
+		//Hinzugefuegte Artikel Panel
+		this.contentframe.add(hinzugefuegteArtikelPanel);
+		hinzugefuegteArtikelPanel.setLayout(new GridLayout(1, 1));
+		hinzugefuegteArtikelPanel.setBorder(BorderFactory.createTitledBorder("Hinzugefuegte Artikel")); //Ueberschrift Hinzugefuegte Artikel
+		hinzugefuegteArtikelPanel.setVisible(true);
+		obenPanel.remove(suchPanel);
+		contentframe.remove(suchPanel);
 		refresh();
+		
 	}
 	
 	public void artikelPanelEinblenden(boolean b){
-		artikelPanel.getArtikelPanel().setVisible(b);
+		artikelPanel.setVisible(b);
 	}
 	
 	public void untenWarenKorbBereichPanel(boolean b){
