@@ -39,7 +39,8 @@ public class WarenkorbButtonPanel extends JPanel implements ActionListener {
 	
 	//Konstruktor
 	public WarenkorbButtonPanel(GUI_2 gui) {
-		
+		this.gui = gui;
+		shop = gui.getShop();
 	}
 	public WarenkorbButtonPanel() {
 		
