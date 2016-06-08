@@ -36,11 +36,14 @@ public class WarenkorbButtonPanel extends JPanel implements ActionListener {
 	private GUI_2 gui;
 	private Shopverwaltung shop;
 	private Account user;
+	private ObenPanel obenPanel;
 	//private WarenkorbPanel warenkorbpanel;
+	
 	public JButton zumWarenKorbButton = new JButton("zum Warenkorb",new ImageIcon("src/assets/warenkorbIcon.png"));
 	public JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
+	public JButton kaufAbschliessenButton = new JButton("Kauf abschlieﬂen");	
 	public JButton zumShop = new JButton("zurueck zum Shop");
-	private ObenPanel obenPanel;
+	
 	
 	//Konstruktor
 	public WarenkorbButtonPanel(GUI_2 gui, Shopverwaltung shop) {
@@ -83,7 +86,7 @@ public class WarenkorbButtonPanel extends JPanel implements ActionListener {
 					inDenWarenkorbButton.addActionListener(new ActionListener() {
 
 						public void actionPerformed(ActionEvent arg0) {
-							try {  //inWarenkorbEinfuegen(Artikel art,                ->                                                                                  ,int anzahl                       , Kunde kunde)	
+							try {  //inWarenkorbEinfuegen(Artikel art, int anzahl, Kunde kunde)                                                                                	
 								shop.inWarenkorbEinfuegen(shop.artikelSuchen(Integer.parseInt((gui.getArtikelPanel().getArtikeltable().getValueAt(ausgabeTabelle.getSelectedRow(),0)).toString())),Integer.parseInt(anzahl.getText()),(Kunde) gui.getUser());
 								wieOftArtikelKaufenFrame.setVisible(false);
 							} catch (NumberFormatException e) {
@@ -114,7 +117,16 @@ public class WarenkorbButtonPanel extends JPanel implements ActionListener {
 				//obenPanel.add(zumWarenKorbButton);
 			}
 		});	
-	}
+		
+		//Fuer Warenkorb Button "Kauf abschlieﬂen"	
+		//ACTIONLISTINER
+		kaufAbschliessenButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				System.out.println("Kauf Abschlieﬂ Button");	
+			}
+		});	
+	}//ENDE KONSTRUKTOR
 	
 	
 	public String createInWarenkorbLegenButtonTable() {
@@ -142,19 +154,11 @@ public class WarenkorbButtonPanel extends JPanel implements ActionListener {
 	//}	
 	
 	// getZumWarenKorbPanel
-	public JButton getKaufAbschliessenButton(){
+//public JButton getKaufAbschliessenButton(){
 		
-		JButton kaufAbschliessenButton = new JButton("Kauf abschlieﬂen");
-	
-		//ACTIONLISTINER
-		kaufAbschliessenButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				System.out.println("Kauf Abschlieﬂ Button");	
-			}
-		});	
-		return kaufAbschliessenButton;
-	}
+		
+		//return kaufAbschliessenButton;
+	//}
 	
 	
 	
