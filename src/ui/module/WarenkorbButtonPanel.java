@@ -1,6 +1,7 @@
 package ui.module;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,26 +37,28 @@ public class WarenkorbButtonPanel extends JPanel implements ActionListener {
 	private Shopverwaltung shop;
 	private Account user;
 	//private WarenkorbPanel warenkorbpanel;
+	public JButton zumWarenKorbButton = new JButton("zum Warenkorb",new ImageIcon("src/assets/warenkorbIcon.png"));
+	public JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
+	public JButton zumShop = new JButton("zurueck zum Shop");
+	private ObenPanel obenPanel;
 	
 	//Konstruktor
-	public WarenkorbButtonPanel(GUI_2 gui) {
+	public WarenkorbButtonPanel(GUI_2 gui, Shopverwaltung shop) {
 		this.gui = gui;
-		shop = gui.getShop();
-	}
-	public WarenkorbButtonPanel() {
+		this.shop = shop;
 		
-	}
-	public String createInWarenkorbLegenButtonTable() {
-		return "Buy it";
-	}
-	
-	public JButton createInWarenkorbLegenButton() {
+		//Fuer Warenkorb Button "zum Warenkorb"
+		//ACTIONLISTINER
+		zumWarenKorbButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				System.out.println("Warenkorb geöffnet ausgefuehrt");	
+				gui.zumWarenKorb();
+				gui.mittigWarenKorbBereich();
+			}
+		});	
 		
-	//Warenkorb Button "in Warenkorb legen" 
-		JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
-		//zumWarenKorbButtonPanel.add(inWarenKorbLegenButton);
-		//
-		
+		//Fuer Warenkorb Button "in Warenkorb legen" 
 		//ACTIONLISTINER
 		inWarenKorbLegenButton.addActionListener(new ActionListener() {	
 			public void actionPerformed(ActionEvent e) {
@@ -81,7 +84,7 @@ public class WarenkorbButtonPanel extends JPanel implements ActionListener {
 
 						public void actionPerformed(ActionEvent arg0) {
 							try {  //inWarenkorbEinfuegen(Artikel art,                ->                                                                                  ,int anzahl                       , Kunde kunde)	
-								shop.inWarenkorbEinfuegen(shop.artikelSuchen(Integer.parseInt((ausgabeTabelle.getValueAt(ausgabeTabelle.getSelectedRow(),0)).toString())),Integer.parseInt(anzahl.getText()),(Kunde) user);
+								shop.inWarenkorbEinfuegen(shop.artikelSuchen(Integer.parseInt((gui.getArtikelPanel().getArtikeltable().getValueAt(ausgabeTabelle.getSelectedRow(),0)).toString())),Integer.parseInt(anzahl.getText()),(Kunde) gui.getUser());
 								wieOftArtikelKaufenFrame.setVisible(false);
 							} catch (NumberFormatException e) {
 								e.printStackTrace();
@@ -98,28 +101,45 @@ public class WarenkorbButtonPanel extends JPanel implements ActionListener {
 				}
 			}
 		});
+		
+		//Fuer Warenkorb Button "zum Shop"
+		//ACTIONLISTINER
+		zumShop.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				System.out.println("zum Shop ausgefuehrt");	
+				gui.zumShopButton();
+				//obenPanel.setLayout(new GridLayout(1,1));
+				//obenPanel.add(suchPanel);
+				//obenPanel.add(zumWarenKorbButton);
+			}
+		});	
+	}
+	
+	
+	public String createInWarenkorbLegenButtonTable() {
+		return "Buy it";
+	}
+	
+	
+	public JButton createInWarenkorbLegenButton() {
+		
+		
 		return inWarenKorbLegenButton;	
 	}
 	
-	//Zum Warenkorb Button
-	public JButton getZumWarenkorbButton(GUI_2 gui) {
+	
+	/**
+	 * Zum Warenkorb Button
+	 */
+	
+	//public JButton getZumWarenkorbButton(GUI_2 gui) {
 		
-		this.gui = gui;
+		//this.gui = gui;
 
-		//Warenkorb Button "zum Warenkorb"
-		JButton zumWarenKorbButton = new JButton("zum Warenkorb",new ImageIcon("src/assets/warenkorbIcon.png"));
 		
-		//ACTIONLISTINER
-		zumWarenKorbButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				System.out.println("Warenkorb geöffnet ausgefuehrt");	
-				gui.zumWarenKorb();
-				gui.mittigWarenKorbBereich();
-			}
-		});	
-		return zumWarenKorbButton;
-	}	
+		//return zumWarenKorbButton;
+	//}	
 	
 	// getZumWarenKorbPanel
 	public JButton getKaufAbschliessenButton(){
@@ -136,8 +156,22 @@ public class WarenkorbButtonPanel extends JPanel implements ActionListener {
 		return kaufAbschliessenButton;
 	}
 	
+	
+	
 	public void actionPerformed(ActionEvent arg0) {
 		System.out.println("Warenkorb Aktion ausgefuehrt");	
-	}			
+	}	
+	
+	
+	public void zumShopButtonAngeklickt(){
+		
+		//this.remove(zumWarenKorbButton);
+		
+		//this.remove(warenkorbbuttonpanel.getZumWarenkorbButton(gui));
+		//this.remove(warenkorbbuttonpanel.createInWarenkorbLegenButton());
+		//this.remove(inWarenKorbLegenButton);
+		//this.add(zumShopButton);
+		//obenPanel.add(zumWarenKorbButton);
+	}
 }
 

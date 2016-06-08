@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
+import domain.Shopverwaltung;
 import ui.module.WarenkorbButtonPanel;
 import ui.module.WarenkorbPanel;
 import valueobjects.Artikel;
@@ -28,6 +29,8 @@ public class ArtikelTableModel extends DefaultTableModel {
 	private float gesamtpreis = 0.0f;
 	private int anzahl = 0;	
 	private WarenkorbPanel warenkorbPanel;
+	private GUI_2 gui;
+	private Shopverwaltung shop;
 	
 	public ArtikelTableModel() {
 		// Ober-Objekt der Klasse DefaultTableModel initialisieren
@@ -67,7 +70,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 		// DefaultTableModel erwartet Repräsentation der Tabellendaten
 		// als Vector von Vectoren
 		Vector rows = new Vector();
-		WarenkorbButtonPanel warenkorbButton = new WarenkorbButtonPanel();
+		WarenkorbButtonPanel warenkorbButton = new WarenkorbButtonPanel(gui, shop);
 		for (Artikel artikel: articles) {
 			Vector einArtikelAlsVector = new Vector();
 			einArtikelAlsVector.add(artikel.getNummer());
@@ -101,7 +104,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 		// als Vector von Vectoren
 //		Set<Artikel> articles1 = this.positionen.keySet();
 		Vector rows = new Vector();
-		WarenkorbButtonPanel warenkorbButton = new WarenkorbButtonPanel();
+		WarenkorbButtonPanel warenkorbButton = new WarenkorbButtonPanel(gui, shop);
 		for (Artikel artikel : articles) {
 //			 for (Artikel artikel1 : articles1) {
 //				 anzahl = this.positionen.get(artikel1);

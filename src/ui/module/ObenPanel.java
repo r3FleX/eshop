@@ -12,18 +12,20 @@ public class ObenPanel extends JPanel{
 	
 	private WarenkorbButtonPanel warenkorbbuttonpanel;
 	private GUI_2 gui;
+
 	//JButton zumWarenKorbButton = new JButton("zum Warenkorb",new ImageIcon("src/assets/warenkorbIcon.png"));
 	//JButton zumShopButton = new JButton("zum Shop");
 	//JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
 	//suchPnal rein
 	
-	public ObenPanel(){
-		
-	}
+//	public ObenPanel(WarenkorbButtonPanel warenkorbbuttonpanel){
+//		
+//	}
 	
 	public void zumWarenKorbButtonAnklicken(){
+		
 		//this.remove(warenkorbbuttonpanel.getZumWarenkorbButton(gui));
-		//this.remove(zumWarenKorbButton);
+		//this.remove(warenkorbbuttonpanel.createInWarenkorbLegenButton());
 		//this.remove(inWarenKorbLegenButton);
 		//this.add(zumShopButton);
 		

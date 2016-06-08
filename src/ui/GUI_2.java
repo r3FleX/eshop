@@ -51,6 +51,7 @@ public class GUI_2 extends JFrame {
 	private JPanel contentframe = new JPanel();	
 	private JPanel mainPanel = new JPanel();
 	private SuchPanel suchPanel;
+	//private WarenkorbButtonPanel warenkorbbuttonpanel;
 	private ObenPanel obenPanel = new ObenPanel();
 	
 	private JPanel untenWarenKorbBereichPanel = new JPanel();
@@ -124,7 +125,7 @@ public class GUI_2 extends JFrame {
 		warenkorb = new WarenkorbPanel(this,user);	
 		
 		//Warenkorb schaltflächen
-		warenKorbButtons = new WarenkorbButtonPanel(this);
+		warenKorbButtons = new WarenkorbButtonPanel(this, shop);
 		
 		//SuchPanel
 		suchPanel = new SuchPanel(suchController, this);
@@ -134,13 +135,8 @@ public class GUI_2 extends JFrame {
 		//Oben Panel
 		this.contentframe.add(obenPanel, BorderLayout.NORTH);
 		//"norden splitten"
-		obenPanel.setLayout(new GridLayout(1,1));
-		obenPanel.add(suchPanel);
-		obenPanel.add(warenKorbButtons.getZumWarenkorbButton(this));
-		obenPanel.add(warenKorbButtons.createInWarenkorbLegenButton());
-		//obenPanel.zumWarenKorbButtonAnklicken();
-		
-		obenPanel.zumWarenKorbButtonAnklicken();
+		obenPanelSetzen();
+
 	//TODO das gehört in den warenkorbPanel!!!
 	//TODO Navigationsleiste für Warenkorb
 		
@@ -177,6 +173,13 @@ public class GUI_2 extends JFrame {
 		this.mainPanel.add(this.contentframe,BorderLayout.CENTER);	
 		add(this.mainPanel);
 		setVisible(true);
+	}
+	
+	public void obenPanelSetzen(){
+		obenPanel.setLayout(new GridLayout(1,1));
+		obenPanel.add(suchPanel);
+		obenPanel.add(warenKorbButtons.zumWarenKorbButton);
+		obenPanel.add(warenKorbButtons.createInWarenkorbLegenButton());
 	}
 		
 	//Wenn Benutzer eingeloggt
@@ -220,9 +223,18 @@ public class GUI_2 extends JFrame {
 		//ObenPanel opObenPanel = new ObenPanel();
 		//obenPanel.zeigeWarenKorb();
 		//obenPanel.zeiegArtikelPanel();
-		obenPanel.zumWarenKorbButtonAnklicken();
-		refresh();
+		//obenPanel.zumWarenKorbButtonAnklicken();
 		
+		obenPanel.remove(warenKorbButtons.zumWarenKorbButton);
+		obenPanel.remove(warenKorbButtons.inWarenKorbLegenButton);
+		obenPanel.add(warenKorbButtons.zumShop);
+		refresh();
+	}
+	
+	public void zumShopButton(){
+		obenPanel.remove(warenKorbButtons.zumShop);
+		obenPanelSetzen();
+		refresh();
 	}
 	
 	public void artikelPanelEinblenden(boolean b){
