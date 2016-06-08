@@ -13,8 +13,10 @@ import valueobjects.Account;
 import valueobjects.Kunde;
 
 public class UserPanel extends JPanel implements ActionListener{
+	
 	private Shopverwaltung shop;
 	private GUI_2 gui;
+	
 	public UserPanel(GUI_2 gui, Shopverwaltung shop, Account user ) {
 		
 		this.shop = shop;
