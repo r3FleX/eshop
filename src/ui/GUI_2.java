@@ -226,11 +226,10 @@ public class GUI_2 extends JFrame {
 		obenPanel.remove(suchPanel);
 		contentframe.remove(suchPanel);
 		// TODO: obenPanel global machen
-	
+		
 		obenPanel.remove(warenKorbButtons.zumWarenKorbButton);
 		obenPanel.remove(warenKorbButtons.inWarenKorbLegenButton);
 		obenPanel.add(warenKorbButtons.zumShop);
-		
 		refresh();
 	}
 	
@@ -240,7 +239,7 @@ public class GUI_2 extends JFrame {
 		contentframe.remove(untenWarenKorbBereichPanel);
 		untenWarenKorbBereichPanel.remove(warenKorbButtons.kaufAbschliessenButton);
 		initialize();
-		userLoggedIn(user);
+		//userLoggedIn(user);
 		refresh();
 	}
 	
