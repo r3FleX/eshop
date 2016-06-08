@@ -30,13 +30,16 @@ public class ButtonEditor extends DefaultCellEditor {
 	private Shopverwaltung shop;
 	private Account user;
 	private WarenkorbPanel warenkorbpanel;
-	private JTable ausgabeTabelle = null;
+	private JTable ausgabeTabelle;
 	private GUI_2 gui;
 
-	public ButtonEditor(JCheckBox checkBox) {
+	public ButtonEditor(JCheckBox checkBox, JTable ausgabeTabelle, Account user, Shopverwaltung shop) {
 		super(checkBox);
 	    button = new JButton();
 	    button.setOpaque(true);
+	    this.ausgabeTabelle = ausgabeTabelle;
+	    this.user = user;
+	    this.shop = shop;
 	    
 	    //Actionlistener
 	    button.addActionListener(new ActionListener() {

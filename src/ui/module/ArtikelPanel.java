@@ -11,6 +11,7 @@ import javax.swing.JTable;
 
 import ui.ArtikelTableModel;
 import ui.ButtonEditor;
+import valueobjects.Account;
 import valueobjects.Artikel;
 import ui.ButtonRenderer;
 import ui.GUI_2;
@@ -30,11 +31,15 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
+import domain.Shopverwaltung;
+
 public class ArtikelPanel extends JPanel{
 	
 	//private JPanel artikelPanel;
 	private ArtikelTableModel artikeltable;
 	private JTable ausgabeTabelle;
+	private Account user;
+	private Shopverwaltung shop;
 	
 	//Konstruktor
 	public ArtikelPanel(List<Artikel> artikelliste) {
@@ -68,7 +73,7 @@ public class ArtikelPanel extends JPanel{
 		//Layout Tabelle -> Button fuer "Option"
 		ausgabeTabelle.getColumn("Option").setCellRenderer(new ButtonRenderer());
 		ausgabeTabelle.getColumn("Option").setCellEditor(
-	        new ButtonEditor(new JCheckBox()));	
+	        new ButtonEditor(new JCheckBox(),ausgabeTabelle, user, shop));	
 		
 	}
 	//Getter und Setter
