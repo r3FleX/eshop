@@ -60,10 +60,14 @@ public class MenuePanel extends JPanel implements ActionListener{
 		JMenu mnHilfe = new JMenu("Hilfe");
 		menueBar.add(mnHilfe);
 
-		JMenuItem menuItem = new JMenuItem("Wie Artikel kaufen?");
-		mnHilfe.add(menuItem);
-		menuItem.addActionListener(this);
-		//user loginfunktionen aktivieren
+		JMenuItem mnWieArtikelKaufen = new JMenuItem("Wie Artikel kaufen?");
+		mnHilfe.add(mnWieArtikelKaufen);
+		mnWieArtikelKaufen.addActionListener(this);
+		
+		JMenuItem mnUberUns = new JMenuItem("Über uns");
+		mnHilfe.add(mnUberUns);
+		mnUberUns.addActionListener(this);
+		
 		setUserLoggedIn(false);
 		setMenue(menueBar);
 	}
@@ -86,27 +90,35 @@ public class MenuePanel extends JPanel implements ActionListener{
 	}
 	
 	//ACTIONLISTENER
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent arg0){
 		String command = arg0.getActionCommand();
 		
 		//Fuer Menue Datei -> Beenden Button
-		if (command.equals("Beenden")) {
+		if (command.equals("Beenden")){
 			System.exit(0);
 		}
 		//Fuer Menue Datei -> Ausloggen Button
 		else if(command.equals("Ausloggen")){
 			setUserLoggedIn(false);
-			//user = shop.logoutAccount(user.getName(), user.getPasswort());
+			user = shop.logoutAccount(user.getName(), user.getPasswort());
 			gui.userLoggedOut();
 			System.out.println("Tschuess!");
 		}
 		//Fuer Menue Hilfe -> Artikel kaufen? Button
-		else if (command.equals("Wie Artikel kaufen?")) {
+		else if (command.equals("Wie Artikel kaufen?")){
 			JOptionPane.showMessageDialog(null,
 				"Willkommen im E-Shop. \n Wenn Sie Artikel kaufen wollen, dann registrieren"
 				+ "Sie sich und loggen Sie sich ein! \n Anschliessend koennen Sie die gewuenschten "
 			    + "Artikel kaufen.");
 		}
+		//Fuer Menue Hilfe -> Ueber uns Button
+		else if (command.equals("\u00DCber uns")){
+			JOptionPane.showMessageDialog(null, "Entwickler: \n"
+					+ "Immanuel Zimmermann \n" + "Stefan Mayer \n"
+					+ "Daniel Böckmann \n\n" 
+					+ "HS Bremen, Prog 2, SS 2016");
+		}
+		
 		System.out.println("menuepanel Aktion ausgefuehrt");
 	}
 /**  Aktiviert oder deaktiviert die ein/auslogfunktion 
@@ -114,7 +126,7 @@ public class MenuePanel extends JPanel implements ActionListener{
  *   @param b true blendet loginfunktionen/anmeldefunktionen aus 
  * 			false blendet Ausslogen aus
  */
-	public void setUserLoggedIn(boolean b) {
+	public void setUserLoggedIn(boolean b){
 		mnLogout.setEnabled(b);
 		mnReg.setEnabled(!b);
 		mnLogin.setEnabled(!b);

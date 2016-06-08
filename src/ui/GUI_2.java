@@ -210,6 +210,8 @@ public class GUI_2 extends JFrame {
 	//warenkorb anzeigen
 	public void zumWarenKorb(){
 		
+		//this.user = user;
+		
 		//Unten WarenKorb Panel
 		untenWarenKorbBereichPanel.add(warenKorbButtons.kaufAbschliessenButton);
 		this.contentframe.add(untenWarenKorbBereichPanel, BorderLayout.SOUTH);
@@ -230,6 +232,7 @@ public class GUI_2 extends JFrame {
 		obenPanel.remove(warenKorbButtons.zumWarenKorbButton);
 		obenPanel.remove(warenKorbButtons.inWarenKorbLegenButton);
 		obenPanel.add(warenKorbButtons.zumShop);
+	
 		refresh();
 	}
 	
@@ -239,7 +242,6 @@ public class GUI_2 extends JFrame {
 		contentframe.remove(untenWarenKorbBereichPanel);
 		untenWarenKorbBereichPanel.remove(warenKorbButtons.kaufAbschliessenButton);
 		initialize();
-		//userLoggedIn(user);
 		refresh();
 	}
 	
@@ -257,8 +259,7 @@ public class GUI_2 extends JFrame {
 
 	//refresht alle Panels
 	public void refresh(){
-		
-		
+
 		mainPanel.revalidate();
 		contentframe.revalidate();
 		navframe.revalidate();
