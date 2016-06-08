@@ -38,6 +38,7 @@ public class ArtikelPanel extends JPanel{
 	//private JPanel artikelPanel;
 	private ArtikelTableModel artikeltable;
 	private JTable ausgabeTabelle;
+	private JScrollPane scrollPane;
 	private Account user;
 	private Shopverwaltung shop;
 	
@@ -59,7 +60,7 @@ public class ArtikelPanel extends JPanel{
 		ausgabeTabelle.setAutoCreateRowSorter(true);
 
 		// JTable in ScrollPane platzieren:
-		JScrollPane scrollPane = new JScrollPane(ausgabeTabelle);
+		scrollPane = new JScrollPane(ausgabeTabelle);
 				
 		// Anzeige der Artikelliste auch in der Kunden-Ansicht
 		artikeltable.setDataVector(artikelliste);	
@@ -76,6 +77,7 @@ public class ArtikelPanel extends JPanel{
 	        new ButtonEditor(new JCheckBox(),ausgabeTabelle, user, shop));	
 		
 	}
+	
 	//Getter und Setter
 	public ArtikelTableModel getArtikeltable() {
 		return artikeltable;
