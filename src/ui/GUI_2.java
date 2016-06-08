@@ -128,9 +128,7 @@ public class GUI_2 extends JFrame {
 		warenKorbButtons = new WarenkorbButtonPanel(this, shop);
 		
 		//SuchPanel
-		suchPanel = new SuchPanel(suchController, this);
-		this.contentframe.add(suchPanel, BorderLayout.NORTH);	
-		//menuBar.setSuchPanel(suchPanel);
+		suchPanelSetzen();
 		
 		//Oben Panel
 		this.contentframe.add(obenPanel, BorderLayout.NORTH);
@@ -165,8 +163,7 @@ public class GUI_2 extends JFrame {
 		setJMenuBar(menuBar.getMenue());	
 		
 		//ArtikelPanel
-		artikelPanel = new ArtikelPanel(shop.gibAlleArtikel());
-		this.contentframe.add(artikelPanel, BorderLayout.CENTER);	
+		artikelPanelSetzen();
 		
 		//GUI setzen
 		this.mainPanel.add(this.navframe,BorderLayout.NORTH);
@@ -175,11 +172,24 @@ public class GUI_2 extends JFrame {
 		setVisible(true);
 	}
 	
+	//ObenPanel
 	public void obenPanelSetzen(){
 		obenPanel.setLayout(new GridLayout(1,1));
 		obenPanel.add(suchPanel);
 		obenPanel.add(warenKorbButtons.zumWarenKorbButton);
 		obenPanel.add(warenKorbButtons.createInWarenkorbLegenButton());
+	}
+	
+	//SuchPanel
+	public void suchPanelSetzen(){
+		suchPanel = new SuchPanel(suchController, this);
+		this.contentframe.add(suchPanel, BorderLayout.NORTH);	
+	}
+	
+	//ArtikelPanel
+	public void artikelPanelSetzen(){
+		artikelPanel = new ArtikelPanel(shop.gibAlleArtikel());
+		this.contentframe.add(artikelPanel, BorderLayout.CENTER);	
 	}
 		
 	//Wenn Benutzer eingeloggt
@@ -233,7 +243,15 @@ public class GUI_2 extends JFrame {
 	
 	public void zumShopButton(){
 		obenPanel.remove(warenKorbButtons.zumShop);
-		obenPanelSetzen();
+		//obenPanelSetzen();
+		//obenPanel.add(suchPanel);
+		//obenPanel.add(warenKorbButtons.zumWarenKorbButton);
+		//obenPanel.add(warenKorbButtons.createInWarenkorbLegenButton());
+		untenWarenKorbBereichPanel.setVisible(false);
+		contentframe.remove(hinzugefuegteArtikelPanel);
+		//suchPanelSetzen();
+		//artikelPanelSetzen();
+		initialize();
 		refresh();
 	}
 	
@@ -251,15 +269,17 @@ public class GUI_2 extends JFrame {
 
 	//refresht alle Panels
 	public void refresh(){
-		mainPanel.repaint();
-		contentframe.repaint();
-		navframe.repaint();
-		menuBar.repaint();
+		
 		
 		mainPanel.revalidate();
 		contentframe.revalidate();
 		navframe.revalidate();
 		menuBar.revalidate();
+		
+		mainPanel.repaint();
+		contentframe.repaint();
+		navframe.repaint();
+		menuBar.repaint();
 	}
 
 }
