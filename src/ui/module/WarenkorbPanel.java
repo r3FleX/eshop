@@ -27,8 +27,10 @@ import valueobjects.Kunde;
 
 public class WarenkorbPanel extends JPanel implements ActionListener {
 
-	private JPanel warenkorbPanel;
+	//private JPanel warenkorbPanel;
 	private JTable ausgabeTabelle;
+	ArtikelTableModel artikeltable;
+	private JScrollPane scrollPane;
 	private Shopverwaltung shop;
 	private GUI_2 gui;
 	private Kunde user;
@@ -38,23 +40,23 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 		this.gui = gui;
 		this.user = (Kunde) user;
 		
-		warenkorbPanel = new JPanel();
-		warenkorbPanel.setLayout(new GridLayout());
-		warenkorbPanel.setBorder(BorderFactory.createTitledBorder("Warenkorb")); //Ueberschrift Warenkorb
+		//warenkorbPanel = new JPanel();
+		this.setLayout(new GridLayout());
+		this.setBorder(BorderFactory.createTitledBorder("Warenkorb")); //Ueberschrift Warenkorb
 		
 		// TableModel als "Datencontainer" anlegen:
-		ArtikelTableModel artikeltable = new ArtikelTableModel();
+		artikeltable = new ArtikelTableModel();
 		
 		// JTable-Objekt erzeugen und mit Datenmodell initialisieren:
-		JTable ausgabeTabelle = new JTable(artikeltable);
+		ausgabeTabelle = new JTable(artikeltable);
 		ausgabeTabelle.setAutoCreateRowSorter(true);
 		
 		// JTable in ScrollPane platzieren:
-		JScrollPane scrollPane = new JScrollPane(ausgabeTabelle);
+		scrollPane = new JScrollPane(ausgabeTabelle);
 				
 		// Anzeige der Artikelliste auch in der Kunden-Ansicht
 		artikeltable.setDataVector2(this.user.getWarenkorb());
-		warenkorbPanel.add(scrollPane);	
+		this.add(scrollPane);	
 	}	
 	
 	public void wieOftArtikelZumWarenKorb(){
@@ -70,7 +72,7 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 		warenKorbBereichPanel.setBorder(BorderFactory.createTitledBorder("WarenKorbBereich")); //Ueberschrift WarenKorbBereich
 		return warenKorbBereichPanel;
 	}
-	
+	/*
 	//Getter und Setter
 	public JPanel getWarenkorbPanel() {
 		return warenkorbPanel;
@@ -79,7 +81,7 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 	public void setWarenkorbPanel(JPanel warenkorbPanel) {
 		this.warenkorbPanel = warenkorbPanel;
 	}	
-	
+	*/
 	public void actionPerformed(ActionEvent arg0) {
 		System.out.println("Warenkorb Aktion ausgefuehrt");	
 	}	
