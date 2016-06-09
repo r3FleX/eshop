@@ -51,7 +51,7 @@ public class GUI_2 extends JFrame{
 	private JPanel mainPanel = new JPanel();
 	
 	private JPanel untenWarenKorbBereichPanel = new JPanel();
-	private JPanel hinzugefuegteArtikelPanel = new JPanel();
+	private JPanel warenkorbPanel = new JPanel();
 	private JPanel warenKorbBereichPanel = new JPanel();
 	
 	private JPanel obenPanel = new JPanel();
@@ -122,7 +122,7 @@ public class GUI_2 extends JFrame{
 		//Warenkorb erstellen.
 		warenkorb = new WarenkorbPanel(this,user);	
 		
-		//Warenkorb schaltflächen
+		//Warenkorb schaltflï¿½chen
 		warenKorbButtons = new WarenkorbButtonPanel(shop, this);
 		
 		//SuchPanel
@@ -134,8 +134,8 @@ public class GUI_2 extends JFrame{
 		//"norden splitten"
 		obenPanelSetzen();
 
-	//TODO das gehört in den warenkorbPanel!!!
-	//TODO Navigationsleiste für Warenkorb
+	//TODO das gehï¿½rt in den warenkorbPanel!!!
+	//TODO Navigationsleiste fï¿½r Warenkorb
 		
 
 		JPanel warenKorbBereichPanel = new JPanel();
@@ -185,7 +185,7 @@ public class GUI_2 extends JFrame{
 		
 	//Wenn Benutzer eingeloggt
 	public void userLoggedIn(Account user) {
-		//menübar anpassen 
+		//menï¿½bar anpassen 
 		menuBar.setUserLoggedIn(true);
 		//userpanel einblenden
 		if (user instanceof Kunde) {
@@ -213,14 +213,14 @@ public class GUI_2 extends JFrame{
 		untenWarenKorbBereichPanel.setBorder(BorderFactory.createTitledBorder("Kaufabwicklungsbereich")); //Ueberschrift Kaufabwicklungsbereich
 		untenWarenKorbBereichPanel.setVisible(true);
 		
-		//löscht Artikel Panel
+		//lï¿½scht Artikel Panel
 		contentframe.remove(artikelPanel);
 		
 		//Hinzufuegen hinzugefuegte Artikel Panel
-		this.contentframe.add(hinzugefuegteArtikelPanel);
-		hinzugefuegteArtikelPanel.setLayout(new GridLayout(1, 1));
-		hinzugefuegteArtikelPanel.setBorder(BorderFactory.createTitledBorder("Hinzugefuegte Artikel")); //Ueberschrift Hinzugefuegte Artikel
-		hinzugefuegteArtikelPanel.setVisible(true);
+		this.contentframe.add(warenkorbPanel);
+		warenkorbPanel.setLayout(new GridLayout(1, 1));
+		warenkorbPanel.setBorder(BorderFactory.createTitledBorder("Warenkorb")); //Ueberschrift Hinzugefuegte Artikel
+		warenkorbPanel.setVisible(true);
 		
 		obenPanel.remove(suchPanel);
 		contentframe.remove(suchPanel);
@@ -235,7 +235,7 @@ public class GUI_2 extends JFrame{
 	
 	public void zumShopButton(){
 		obenPanel.remove(warenKorbButtons.zumShop);
-		contentframe.remove(hinzugefuegteArtikelPanel);
+		contentframe.remove(warenkorbPanel);
 		contentframe.remove(untenWarenKorbBereichPanel);
 		untenWarenKorbBereichPanel.remove(warenKorbButtons.kaufAbschliessenButton);
 		
