@@ -29,7 +29,7 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 
 	//private JPanel warenkorbPanel;
 	private JTable ausgabeTabelle;
-	ArtikelTableModel artikeltable;
+	private ArtikelTableModel artikeltable;
 	private JScrollPane scrollPane;
 	private Shopverwaltung shop;
 	private GUI_2 gui;
