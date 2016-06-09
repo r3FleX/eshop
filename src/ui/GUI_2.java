@@ -218,10 +218,11 @@ public class GUI_2 extends JFrame{
 		
 		//Hinzufuegen hinzugefuegte Artikel Panel
 		this.contentframe.add(warenkorbPanel);
+		/*
 		warenkorbPanel.setLayout(new GridLayout(1, 1));
 		warenkorbPanel.setBorder(BorderFactory.createTitledBorder("Warenkorb")); //Ueberschrift Hinzugefuegte Artikel
 		warenkorbPanel.setVisible(true);
-		
+		*/
 		obenPanel.remove(suchPanel);
 		contentframe.remove(suchPanel);
 		// TODO: obenPanel global machen
