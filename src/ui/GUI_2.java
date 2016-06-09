@@ -51,7 +51,7 @@ public class GUI_2 extends JFrame{
 	private JPanel mainPanel = new JPanel();
 	
 	private JPanel untenWarenKorbBereichPanel = new JPanel();
-	private JPanel warenkorbPanel = new JPanel();
+	//private JPanel warenkorbPanel = new JPanel();
 	private JPanel warenKorbBereichPanel = new JPanel();
 	
 	private JPanel obenPanel = new JPanel();
@@ -59,7 +59,7 @@ public class GUI_2 extends JFrame{
 	private SuchPanel suchPanel;
 	private ArtikelPanel artikelPanel;
 	private WarenkorbButtonPanel warenKorbButtons;
-	private WarenkorbPanel warenkorb;
+	private WarenkorbPanel warenkorbPanel;
 	
 
 	//Konstrukter
@@ -92,7 +92,7 @@ public class GUI_2 extends JFrame{
 	public Shopverwaltung getShop() {
 		return shop;
 	}
-	
+	/*
 	public WarenkorbPanel getWarenkorb() {
 		return warenkorb;
 	}
@@ -100,7 +100,7 @@ public class GUI_2 extends JFrame{
 	public void setWarenkorb(WarenkorbPanel warenkorb) {
 		this.warenkorb = warenkorb;
 	}
-	
+	*/
 	public Account getUser() {
 		return user;
 	}
@@ -120,7 +120,7 @@ public class GUI_2 extends JFrame{
 		this.contentframe.setLayout(new BorderLayout());
 		
 		//Warenkorb erstellen.
-		warenkorb = new WarenkorbPanel(this,user);	
+		warenkorbPanel = new WarenkorbPanel(this,user);	
 		
 		//Warenkorb schaltfl�chen
 		warenKorbButtons = new WarenkorbButtonPanel(shop, this);
