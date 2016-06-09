@@ -19,7 +19,6 @@ public class MenuePanel extends JPanel implements ActionListener{
 	private JMenuBar menuBar;
 	private Shopverwaltung shop;
 	private Account user;
-	//JLabel gesamt = new JLabel();
 	private JMenuItem mnLogin;
 	private JMenuItem mnReg;
 	private JMenuItem mnLogout;
@@ -64,7 +63,7 @@ public class MenuePanel extends JPanel implements ActionListener{
 		mnHilfe.add(mnWieArtikelKaufen);
 		mnWieArtikelKaufen.addActionListener(this);
 		
-		JMenuItem mnUberUns = new JMenuItem("Über uns");
+		JMenuItem mnUberUns = new JMenuItem("u00DCber uns");
 		mnHilfe.add(mnUberUns);
 		mnUberUns.addActionListener(this);
 		
@@ -100,7 +99,7 @@ public class MenuePanel extends JPanel implements ActionListener{
 		//Fuer Menue Datei -> Ausloggen Button
 		else if(command.equals("Ausloggen")){
 			setUserLoggedIn(false);
-			user = shop.logoutAccount(user.getName(), user.getPasswort());
+			//user = shop.logoutAccount(user.getName(), user.getPasswort());
 			gui.userLoggedOut();
 			System.out.println("Tschuess!");
 		}

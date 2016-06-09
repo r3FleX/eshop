@@ -70,7 +70,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 		// DefaultTableModel erwartet Repräsentation der Tabellendaten
 		// als Vector von Vectoren
 		Vector rows = new Vector();
-		WarenkorbButtonPanel warenkorbButton = new WarenkorbButtonPanel(gui, shop);
+		WarenkorbButtonPanel warenkorbButton = new WarenkorbButtonPanel(shop, gui);
 		for (Artikel artikel: articles) {
 			Vector einArtikelAlsVector = new Vector();
 			einArtikelAlsVector.add(artikel.getNummer());
@@ -104,7 +104,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 		// als Vector von Vectoren
 //		Set<Artikel> articles1 = this.positionen.keySet();
 		Vector rows = new Vector();
-		WarenkorbButtonPanel warenkorbButton = new WarenkorbButtonPanel(gui, shop);
+		WarenkorbButtonPanel warenkorbButton = new WarenkorbButtonPanel(shop, gui);
 		for (Artikel artikel : articles) {
 //			 for (Artikel artikel1 : articles1) {
 //				 anzahl = this.positionen.get(artikel1);

@@ -12,27 +12,18 @@ import ui.GUI_2;
 import valueobjects.Account;
 import valueobjects.Kunde;
 
-public class UserPanel extends JPanel implements ActionListener{
+public class UserPanel extends JPanel {
 	
 	private Shopverwaltung shop;
 	private GUI_2 gui;
+	private JButton statistikButton = new JButton("Statistik",new ImageIcon("src/assets/statistikIcon.png"));
 	
+	//Konstruktor
 	public UserPanel(GUI_2 gui, Shopverwaltung shop, Account user ) {
 		
 		this.shop = shop;
 		this.gui = gui;
 	
-		//Statistik Button 
-		JButton statistikButton = new JButton("Statistik",new ImageIcon("src/assets/statistikIcon.png"));
 		add(statistikButton);
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void setwarenkorbvisible() {
-	//	inWarenKorbLegenButton.setVisible(true);
 	}
 }

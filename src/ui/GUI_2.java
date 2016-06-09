@@ -24,7 +24,6 @@ import ui.controller.SuchController;
 import ui.module.ArtikelPanel;
 import ui.module.LoginPanel;
 import ui.module.MenuePanel;
-import ui.module.ObenPanel;
 import ui.module.SuchPanel;
 import ui.module.UserPanel;
 //import ui.module.WarenkorbButton;
@@ -35,7 +34,7 @@ import valueobjects.Kunde;
 import valueobjects.Mitarbeiter;
 import valueobjects.Warenkorb;
 
-public class GUI_2 extends JFrame {
+public class GUI_2 extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -55,7 +54,7 @@ public class GUI_2 extends JFrame {
 	private JPanel hinzugefuegteArtikelPanel = new JPanel();
 	private JPanel warenKorbBereichPanel = new JPanel();
 	
-	private ObenPanel obenPanel = new ObenPanel();
+	private JPanel obenPanel = new JPanel();
 	private UserPanel userpanel;
 	private SuchPanel suchPanel;
 	private ArtikelPanel artikelPanel;
@@ -124,7 +123,7 @@ public class GUI_2 extends JFrame {
 		warenkorb = new WarenkorbPanel(this,user);	
 		
 		//Warenkorb schaltflächen
-		warenKorbButtons = new WarenkorbButtonPanel(this, shop);
+		warenKorbButtons = new WarenkorbButtonPanel(shop, this);
 		
 		//SuchPanel
 		suchPanelSetzen();
@@ -160,7 +159,7 @@ public class GUI_2 extends JFrame {
 		obenPanel.setLayout(new GridLayout(1,1));
 		obenPanel.add(suchPanel);
 		obenPanel.add(warenKorbButtons.zumWarenKorbButton);
-		obenPanel.add(warenKorbButtons.createInWarenkorbLegenButton());
+		obenPanel.add(warenKorbButtons.getInWarenKorbLegenButton());
 	}
 	
 	//LoginPanel
@@ -175,7 +174,7 @@ public class GUI_2 extends JFrame {
 	//SuchPanel
 	public void suchPanelSetzen(){
 		suchPanel = new SuchPanel(suchController, this);
-		this.contentframe.add(suchPanel, BorderLayout.NORTH);	
+		this.obenPanel.add(suchPanel, BorderLayout.NORTH);	
 	}
 	
 	//ArtikelPanel
@@ -192,7 +191,6 @@ public class GUI_2 extends JFrame {
 		if (user instanceof Kunde) {
 			userpanel.setVisible(true); //Panel einblenden
 			System.out.println("Kunde " + user.getName() + " ist eingeloggt.");
-			userpanel.setwarenkorbvisible();
 			userpanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login
 		}
 		else if(user instanceof Mitarbeiter) {
@@ -209,17 +207,16 @@ public class GUI_2 extends JFrame {
 	
 	//warenkorb anzeigen
 	public void zumWarenKorb(){
-		
-		//this.user = user;
-		
-		//Unten WarenKorb Panel
-		untenWarenKorbBereichPanel.add(warenKorbButtons.kaufAbschliessenButton);
+		//Hinzufuegen unten Warenkorb Panel
 		this.contentframe.add(untenWarenKorbBereichPanel, BorderLayout.SOUTH);
+		untenWarenKorbBereichPanel.add(warenKorbButtons.kaufAbschliessenButton);
 		untenWarenKorbBereichPanel.setBorder(BorderFactory.createTitledBorder("Kaufabwicklungsbereich")); //Ueberschrift Kaufabwicklungsbereich
-
 		untenWarenKorbBereichPanel.setVisible(true);
+		
+		//löscht Artikel Panel
 		contentframe.remove(artikelPanel);
-		//Hinzugefuegte Artikel Panel
+		
+		//Hinzufuegen hinzugefuegte Artikel Panel
 		this.contentframe.add(hinzugefuegteArtikelPanel);
 		hinzugefuegteArtikelPanel.setLayout(new GridLayout(1, 1));
 		hinzugefuegteArtikelPanel.setBorder(BorderFactory.createTitledBorder("Hinzugefuegte Artikel")); //Ueberschrift Hinzugefuegte Artikel
@@ -230,7 +227,7 @@ public class GUI_2 extends JFrame {
 		// TODO: obenPanel global machen
 		
 		obenPanel.remove(warenKorbButtons.zumWarenKorbButton);
-		obenPanel.remove(warenKorbButtons.inWarenKorbLegenButton);
+		obenPanel.remove(warenKorbButtons.getInWarenKorbLegenButton());
 		obenPanel.add(warenKorbButtons.zumShop);
 	
 		refresh();
@@ -241,20 +238,13 @@ public class GUI_2 extends JFrame {
 		contentframe.remove(hinzugefuegteArtikelPanel);
 		contentframe.remove(untenWarenKorbBereichPanel);
 		untenWarenKorbBereichPanel.remove(warenKorbButtons.kaufAbschliessenButton);
+		
 		initialize();
 		refresh();
 	}
 	
-	public void artikelPanelEinblenden(boolean b){
-		artikelPanel.setVisible(b);
-	}
-	
 	public void untenWarenKorbBereichPanel(boolean b){
 		untenWarenKorbBereichPanel.setVisible(b);
-	}
-	
-	public void mittigWarenKorbBereich(){
-		warenKorbBereichPanel.setVisible(true);
 	}
 
 	//refresht alle Panels

@@ -16,9 +16,6 @@ import ui.controller.SuchController;
 
 public class SuchPanel extends JPanel{
 
-	//private JPanel suchPanel;
-	//private JPanel warenkorbPanel;
-	private List artikelListe;
 	private JTextField suchenTextField;
 	private SuchController suchController;
 	private GUI_2 gui;
@@ -30,45 +27,30 @@ public class SuchPanel extends JPanel{
 		this.gui = gui;
 		
 		initialize();
-		//gui.refresh();
 	}
 
 	private void initialize() {
-		
-		//JPanel suchPanel = new JPanel();
+
 		this.setLayout(new GridLayout(1, 2));
 
 		suchenTextField = new JTextField();
 		this.add(suchenTextField);
 
 		JButton suchButton = new JButton("Suchen");
+		this.setBorder(BorderFactory.createTitledBorder("Suchen")); //Ueberschrift Suchen
 		this.add(suchButton);
+		
+		//Actionlostener
 		suchButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
 				suchen(suchenTextField.getText());
-				gui.artikelPanelEinblenden(true);
-				gui.untenWarenKorbBereichPanel(false);
 			}
 		});		
-		this.setBorder(BorderFactory.createTitledBorder("Suchen")); //Ueberschrift Suchen
-		
 	}
 
 	private void suchen(String text) {
 		suchController.suchen(text);
-		//gui.refresh();
 	}
-
-	/*
-	//Getter und Setter
-	public JPanel getSuchPanel() {
-		return suchPanel;
-	}
-
-	public void setSuchPanel(JPanel suchPanel) {
-		this.suchPanel = suchPanel;
-	}
-	*/
 }
 

@@ -26,12 +26,10 @@ public class LoginPanel extends JPanel implements ActionListener{
 
 	private Shopverwaltung shop;
 	private GUI_2 gui;
-	public Object statistikButton;
-	private JLabel labelname;
-	private JLabel labelpasswort;
 
 	//Konstruktor
 	public LoginPanel(GUI_2 gui, Shopverwaltung shop, Account user ) {
+		
 		this.shop = shop;
 		this.gui = gui;
 	}
@@ -48,13 +46,13 @@ public class LoginPanel extends JPanel implements ActionListener{
 			login.setSize(200, 300);
 			login.setLayout(new GridLayout(7, 1));
 	
-			labelname = new JLabel("Name:");
+			JLabel labelname = new JLabel("Name:");
 			login.add(labelname);
 			
 			final JTextField nameFeld = new JTextField();
 			login.add(nameFeld);
 	
-			labelpasswort = new JLabel("Passwort:");
+			JLabel labelpasswort = new JLabel("Passwort:");
 			login.add(labelpasswort);
 	
 			final JPasswordField passwortFeld = new JPasswordField();
@@ -62,7 +60,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 			
 			JButton loginButton = new JButton("Login");
 			login.add(loginButton);
-			login.setVisible(true);
+			login.setVisible(true);	
 
 			//Fuer Menue Account -> Einloggen -> Login Button
 			loginButton.addActionListener(new ActionListener() { 
