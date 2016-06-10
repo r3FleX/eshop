@@ -65,14 +65,6 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 		
 	}
 	
-	public JPanel warenKorbBereich(){
-		JPanel warenKorbBereichPanel = new JPanel();
-		warenKorbBereichPanel.setLayout(new GridLayout(1,1));
-		warenKorbBereichPanel.add(warenKorbBereichPanel);
-		JButton warenKorbBereichButton = new JButton();
-		warenKorbBereichPanel.setBorder(BorderFactory.createTitledBorder("WarenKorbBereich")); //Ueberschrift WarenKorbBereich
-		return warenKorbBereichPanel;
-	}
 	/*
 	//Getter und Setter
 	public JPanel getWarenkorbPanel() {

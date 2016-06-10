@@ -52,7 +52,7 @@ public class GUI_2 extends JFrame{
 	
 	private JPanel untenWarenKorbBereichPanel = new JPanel();
 	//private JPanel warenkorbPanel = new JPanel();
-	private JPanel warenKorbBereichPanel = new JPanel();
+	//private JPanel warenKorbBereichPanel = new JPanel();
 	
 	private JPanel obenPanel = new JPanel();
 	private UserPanel userpanel;
@@ -137,10 +137,10 @@ public class GUI_2 extends JFrame{
 	//TODO das geh�rt in den warenkorbPanel!!!
 	//TODO Navigationsleiste f�r Warenkorb
 		
-
+		/*
 		warenKorbBereichPanel = new JPanel();
 		warenKorbBereichPanel.setLayout(new GridLayout(1,1));
-		
+		*/
 		//LoginPanel
 		userPanelSetzen();
 			
