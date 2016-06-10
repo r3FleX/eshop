@@ -138,7 +138,7 @@ public class GUI_2 extends JFrame{
 	//TODO Navigationsleiste f�r Warenkorb
 		
 
-		JPanel warenKorbBereichPanel = new JPanel();
+		warenKorbBereichPanel = new JPanel();
 		warenKorbBereichPanel.setLayout(new GridLayout(1,1));
 		
 		//LoginPanel
