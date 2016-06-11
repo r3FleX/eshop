@@ -63,10 +63,6 @@ public class MenuePanel extends JPanel implements ActionListener{
 		mnHilfe.add(mnWieArtikelKaufen);
 		mnWieArtikelKaufen.addActionListener(this);
 		
-		JMenuItem mnUberUns = new JMenuItem("u00DCber uns");
-		mnHilfe.add(mnUberUns);
-		mnUberUns.addActionListener(this);
-		
 		setUserLoggedIn(false);
 		setMenue(menueBar);
 	}
@@ -114,7 +110,7 @@ public class MenuePanel extends JPanel implements ActionListener{
 		else if (command.equals("\u00DCber uns")){
 			JOptionPane.showMessageDialog(null, "Entwickler: \n"
 					+ "Immanuel Zimmermann \n" + "Stefan Mayer \n"
-					+ "Daniel Böckmann \n\n" 
+					+ "Daniel Bï¿½ckmann \n\n" 
 					+ "HS Bremen, Prog 2, SS 2016");
 		}
 		
