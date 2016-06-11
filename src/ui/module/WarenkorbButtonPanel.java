@@ -60,7 +60,6 @@ public class WarenkorbButtonPanel extends JPanel{
 				gui.zumWarenKorb();
 			}
 		});	
-
 		
 		//Fuer Warenkorb Button "in Warenkorb legen" 
 		//ACTIONLISTINER
@@ -79,8 +78,9 @@ public class WarenkorbButtonPanel extends JPanel{
 
 					inDenWarenkorbButton.addActionListener(new ActionListener() {	
 						public void actionPerformed(ActionEvent arg1) {
-							try {  //inWarenkorbEinfuegen(Artikel art, int anzahl, Kunde kunde)                                                                                	
-								shop.inWarenkorbEinfuegen(shop.artikelSuchen(Integer.parseInt((gui.getArtikelPanel().getArtikeltable().getValueAt(ausgabeTabelle.getSelectedRow(),0)).toString())),Integer.parseInt(anzahl.getText()),(Kunde) gui.getUser());
+							try {  //inWarenkorbEinfuegen(Artikel art, int anzahl, Kunde kunde)
+								Artikel art = shop.artikelSuchen(Integer.parseInt((gui.getArtikelPanel().getArtikeltable().getValueAt(gui.getArtikelPanel().getAusgabeTabelle().getSelectedRow(),0)).toString()));
+								shop.inWarenkorbEinfuegen(art,Integer.parseInt(anzahl.getText()),(Kunde) gui.getUser());
 								wieOftArtikelKaufenFrame.setVisible(false);
 							} catch (NumberFormatException e) {
 								e.printStackTrace();

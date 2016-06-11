@@ -85,6 +85,10 @@ public class ArtikelPanel extends JPanel{
 	public void setArtikeltable(ArtikelTableModel artikeltable) {
 		this.artikeltable = artikeltable;
 	}
+
+	public JTable getAusgabeTabelle() {
+		return this.ausgabeTabelle;
+	}
 	
 	/*public JPanel getArtikelPanel() {
 		return this.artikelPanel;

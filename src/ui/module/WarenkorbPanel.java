@@ -33,12 +33,10 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 	private JScrollPane scrollPane;
 	private Shopverwaltung shop;
 	private GUI_2 gui;
-	private Kunde user;
 
 	//Konstruktor
-	public WarenkorbPanel(GUI_2 gui, Account user) {
+	public WarenkorbPanel(GUI_2 gui) {
 		this.gui = gui;
-		this.user = (Kunde) user;
 		
 		//warenkorbPanel = new JPanel();
 		this.setLayout(new GridLayout());
@@ -55,8 +53,9 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 		// JTable in ScrollPane platzieren:
 		scrollPane = new JScrollPane(ausgabeTabelle);
 				
+		Kunde user =(Kunde) this.gui.getUser();
 		// Anzeige der Artikelliste auch in der Kunden-Ansicht
-		artikeltable.setDataVector2(this.user.getWarenkorb());
+		artikeltable.setDataVector2(user.getWarenkorb());
 		this.add(scrollPane);	
 	}	
 	
@@ -64,17 +63,7 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 		
 		
 	}
-	
-	/*
-	//Getter und Setter
-	public JPanel getWarenkorbPanel() {
-		return warenkorbPanel;
-	}
 
-	public void setWarenkorbPanel(JPanel warenkorbPanel) {
-		this.warenkorbPanel = warenkorbPanel;
-	}	
-	*/
 	public void actionPerformed(ActionEvent arg0) {
 		System.out.println("Warenkorb Aktion ausgefuehrt");	
 	}	

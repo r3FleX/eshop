@@ -65,20 +65,15 @@ public class GUI_2 extends JFrame{
 	//Konstrukter
 	public GUI_2(String datei) {
 		try {
-			this.suchController = new SuchController(this, new Shopverwaltung(datei)); //TODO: Eklig, da die ShopVerwaltung gefaehrliche Sachen im Konstruktor macht.
+			shop = new Shopverwaltung(datei);
+			menuBar = new MenuePanel(this, shop, user);			
+			this.suchController = new SuchController(this, shop); //TODO: Eklig, da die ShopVerwaltung gefaehrliche Sachen im Konstruktor macht.
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		setTitle("E-Shop");
 		setSize(800, 600); //Fenstergroesse
 		//setResizable(false);
-		
-		try {
-			shop = new Shopverwaltung(datei);
-			menuBar = new MenuePanel(this, shop, user);
-		} catch (IOException e2) {
-
-		}
 		this.initialize();
 	}	
 	
@@ -120,7 +115,7 @@ public class GUI_2 extends JFrame{
 		this.contentframe.setLayout(new BorderLayout());
 		
 		//Warenkorb erstellen.
-		warenkorbPanel = new WarenkorbPanel(this,user);	
+		warenkorbPanel = new WarenkorbPanel(this);	
 		
 		//Warenkorb schaltfl�chen
 		warenKorbButtons = new WarenkorbButtonPanel(shop, this);
