@@ -62,6 +62,14 @@ public class GUI_2 extends JFrame{
 	private WarenkorbPanel warenkorbPanel;
 	
 
+	public WarenkorbPanel getWarenkorbPanel() {
+		return warenkorbPanel;
+	}
+
+	public void setWarenkorbPanel(WarenkorbPanel warenkorbPanel) {
+		this.warenkorbPanel = warenkorbPanel;
+	}
+
 	//Konstrukter
 	public GUI_2(String datei) {
 		try {
@@ -256,5 +264,7 @@ public class GUI_2 extends JFrame{
 		navframe.repaint();
 		menuBar.repaint();
 	}
+
+
 
 }
