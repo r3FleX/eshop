@@ -26,7 +26,6 @@ import ui.module.LoginPanel;
 import ui.module.MenuePanel;
 import ui.module.SuchPanel;
 import ui.module.UserPanel;
-//import ui.module.WarenkorbButton;
 import ui.module.WarenkorbButtonPanel;
 import ui.module.WarenkorbPanel;
 import valueobjects.Account;
@@ -95,15 +94,7 @@ public class GUI_2 extends JFrame{
 	public Shopverwaltung getShop() {
 		return shop;
 	}
-	/*
-	public WarenkorbPanel getWarenkorb() {
-		return warenkorb;
-	}
-
-	public void setWarenkorb(WarenkorbPanel warenkorb) {
-		this.warenkorb = warenkorb;
-	}
-	*/
+	
 	public Account getUser() {
 		return user;
 	}
@@ -125,7 +116,7 @@ public class GUI_2 extends JFrame{
 		//Warenkorb erstellen.
 		warenkorbPanel = new WarenkorbPanel(this);	
 		
-		//Warenkorb schaltfl�chen
+		//Warenkorb Schaltflarchen
 		warenKorbButtons = new WarenkorbButtonPanel(shop, this);
 		
 		//SuchPanel
@@ -137,13 +128,6 @@ public class GUI_2 extends JFrame{
 		//"norden splitten"
 		obenPanelSetzen();
 
-	//TODO das geh�rt in den warenkorbPanel!!!
-	//TODO Navigationsleiste f�r Warenkorb
-		
-		/*
-		warenKorbBereichPanel = new JPanel();
-		warenKorbBereichPanel.setLayout(new GridLayout(1,1));
-		*/
 		//LoginPanel
 		userPanelSetzen();
 			
@@ -188,7 +172,7 @@ public class GUI_2 extends JFrame{
 		
 	//Wenn Benutzer eingeloggt
 	public void userLoggedIn(Account user) {
-		//men�bar anpassen 
+		//menuebar anpassen 
 		menuBar.setUserLoggedIn(true);
 		//userpanel einblenden
 		if (user instanceof Kunde) {
@@ -216,16 +200,12 @@ public class GUI_2 extends JFrame{
 		untenWarenKorbBereichPanel.setBorder(BorderFactory.createTitledBorder("Kaufabwicklungsbereich")); //Ueberschrift Kaufabwicklungsbereich
 		untenWarenKorbBereichPanel.setVisible(true);
 		
-		//l�scht Artikel Panel
+		//loescht Artikel Panel
 		contentframe.remove(artikelPanel);
 		
 		//Hinzufuegen hinzugefuegte Artikel Panel
 		this.contentframe.add(warenkorbPanel);
-		/*
-		warenkorbPanel.setLayout(new GridLayout(1, 1));
-		warenkorbPanel.setBorder(BorderFactory.createTitledBorder("Warenkorb")); //Ueberschrift Hinzugefuegte Artikel
-		warenkorbPanel.setVisible(true);
-		*/
+		
 		obenPanel.remove(suchPanel);
 		contentframe.remove(suchPanel);
 		// TODO: obenPanel global machen
@@ -264,7 +244,4 @@ public class GUI_2 extends JFrame{
 		navframe.repaint();
 		menuBar.repaint();
 	}
-
-
-
 }
