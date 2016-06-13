@@ -40,12 +40,12 @@ public class RechnungsPanel {
 		this.gui = gui;
 	}	
 	
-		
+	
 	//ACTIONLISTENER
-	/*
 	public void actionPerformed(ActionEvent arg0){
 		String command = arg0.getActionCommand();
-
+		System.out.println("IN RECHNUNGSPANEL");
+		/*
 		if (command.equals("Bestellung abschliessen")) {
 			int jaNein = JOptionPane.showConfirmDialog(null,"Bestellung abschliessen?");
 	
@@ -53,7 +53,8 @@ public class RechnungsPanel {
 				HashMap<Artikel, Integer> fehlerliste = shop.pruefeKauf((Kunde) user);
 				if (!fehlerliste.isEmpty()) {
 					JOptionPane.showMessageDialog(null,"Es konnten nicht alle Artikel zum Kauf angeboten werden.");
-				} else {
+				}*/
+					/*} else {
 					Rechnung rechnung = null;
 	
 					try {
@@ -109,7 +110,7 @@ public class RechnungsPanel {
 					gekauft = kunde.getWarenkorb().getInhalt().keySet();
 	
 					gesamtpreis = rechnung.getGesamtpreis();
-					gesamt.setText("Gesamtpreis: " + gesamtpreis + "Ã„");
+					gesamt.setText("Gesamtpreis: " + gesamtpreis + "€");
 	
 					JScrollPane scrollPane2 = new JScrollPane();
 					// JScrollBar scrollbar = new JScrollBar();
@@ -121,7 +122,7 @@ public class RechnungsPanel {
 					spalten2.add("Preis");
 					
 					// TableModel als "Datencontainer" anlegen:
-					ArtikelTableModel tModel2 = new ArtikelTableModel(new Vector<Artikel>(), spalten2);
+					ArtikelTableModel tModel2 = new ArtikelTableModel();
 	
 					tModel2 = (ArtikelTableModel) warenkorbTabelle.getModel();
 	
@@ -146,9 +147,8 @@ public class RechnungsPanel {
 							rechnungFenster.setVisible(false);
 						}
 					});//Ende schliessen Button						
-				}//Ende else
-			}//Ende if (jaNein == 0)
-		}//Ende if (command.equals("Bestellung abschliessen"))
-	}//Ende public void actionPerformed(ActionEvent arg0)
-	*/
+				}//Ende else*/
+			//}//Ende if (jaNein == 0)
+		//}//Ende if (command.equals("Bestellung abschliessen"))
+	}//Ende public void actionPerformed(ActionEvent arg0)	
 }//Ende RechnungsPanel
