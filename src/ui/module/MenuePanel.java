@@ -45,7 +45,7 @@ public class MenuePanel extends JPanel implements ActionListener{
 		
 		mnLogin = new JMenuItem("Einloggen");
 		mnAccount.add(mnLogin);
-		LoginPanel loginPanel = new LoginPanel(gui, shop, user);
+		LoginPanel loginPanel = new LoginPanel(gui);
 		mnLogin.addActionListener(loginPanel);
 		
 		mnReg = new JMenuItem("Registrieren");

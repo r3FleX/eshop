@@ -174,6 +174,18 @@ public class GUI_2 extends JFrame{
 	public void userLoggedIn(Account user) {
 		//menuebar anpassen 
 		menuBar.setUserLoggedIn(true);
+		
+	//TODO Fragen nach eleganterer lösung
+		//GUI user ersetzen
+		Kunde guest = (Kunde) this.user;
+		Warenkorb tmpWarenkorb = guest.getWarenkorb();
+		this.user = user;
+		//warenkorb übernehmen
+		//guest wird zum aktuellen "kunden"
+		guest = (Kunde) this.user;
+		guest.setWarenkorb(tmpWarenkorb);
+		//und zurück
+		this.user = guest;
 		//userpanel einblenden
 		if (user instanceof Kunde) {
 			userpanel.setVisible(true); //Panel einblenden
@@ -190,6 +202,8 @@ public class GUI_2 extends JFrame{
 	//Wenn Benutzer ausgeloggt
 	public void userLoggedOut(){
 		userpanel.setVisible(false);
+		//Gastkonto "reaktivieren"
+		this.user = (Account) new Kunde("Gast", "gast", -1, "none", 12345, "none");
 	}
 	
 	//warenkorb anzeigen

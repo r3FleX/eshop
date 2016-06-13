@@ -83,7 +83,6 @@ public class WarenkorbButtonPanel extends JPanel{
 								//aktuallisere Warenkorb
 								Kunde user = (Kunde) gui.getUser();
 						        gui.getWarenkorbPanel().getArtikeltable().setDataVector2(user.getWarenkorb());
-						//        gui.getArtikelPanel().renderOption();
 								wieOftArtikelKaufenFrame.setVisible(false);
 							} catch (NumberFormatException e) {
 								e.printStackTrace();
@@ -113,9 +112,18 @@ public class WarenkorbButtonPanel extends JPanel{
 		//Fuer Warenkorb Button "Kauf abschlieﬂen"	
 		//ACTIONLISTINER
 		kaufAbschliessenButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				System.out.println("Kauf Abschlieﬂ Button");	
+			public void actionPerformed(ActionEvent e) {				
+				System.out.println("Kauf Abschlieﬂ Button");
+				//pr¸fen ob User eingelogt?
+				Account user = gui.getUser();
+				if (user.getName()== "Gast") {
+					System.out.println("Gast konto");
+					//user muss sich erst einloggen 
+					
+				}else{
+					//kauf abwickeln
+					
+				}
 			}
 		});	
 	}//ENDE KONSTRUKTOR

@@ -24,13 +24,10 @@ import valueobjects.Mitarbeiter;
 
 public class LoginPanel extends JPanel implements ActionListener{
 
-	private Shopverwaltung shop;
 	private GUI_2 gui;
 
 	//Konstruktor
-	public LoginPanel(GUI_2 gui, Shopverwaltung shop, Account user ) {
-		
-		this.shop = shop;
+	public LoginPanel(GUI_2 gui) {
 		this.gui = gui;
 	}
 	
@@ -75,7 +72,9 @@ public class LoginPanel extends JPanel implements ActionListener{
 			
 					//Ueberpruefe ob Kunde oder Mitarbeiter
 					try {
-						Account user = shop.loginAccount(name, passwort);
+						
+						Shopverwaltung shop = gui.getShop();
+						Account user = shop .loginAccount(name, passwort);
 						
 						if (user instanceof Kunde) {	
 							
@@ -151,6 +150,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 					String ort = ortFeld.getText();
 					
 					try {
+						Shopverwaltung shop = gui.getShop();
 						shop.fuegeKundenAccountEin(name, passwort, strasse, plz, ort);
 						try {
 							shop.schreibeKundendaten();
