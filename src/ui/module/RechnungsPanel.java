@@ -29,7 +29,7 @@ public class RechnungsPanel {
 	private GUI_2 gui;
 	private Shopverwaltung shop;
 	private Account user;
-	float gesamtpreis = 0.0f;
+	private float gesamtpreis = 0.0f;
 	private JLabel gesamt = new JLabel();
 	private JTable ausgabeTabelle = null;
 	private JTable warenkorbTabelle = null;
@@ -42,6 +42,7 @@ public class RechnungsPanel {
 	
 		
 	//ACTIONLISTENER
+	/*
 	public void actionPerformed(ActionEvent arg0){
 		String command = arg0.getActionCommand();
 
@@ -149,4 +150,5 @@ public class RechnungsPanel {
 			}//Ende if (jaNein == 0)
 		}//Ende if (command.equals("Bestellung abschliessen"))
 	}//Ende public void actionPerformed(ActionEvent arg0)
+	*/
 }//Ende RechnungsPanel

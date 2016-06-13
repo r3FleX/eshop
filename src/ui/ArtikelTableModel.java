@@ -32,7 +32,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 	private GUI_2 gui;
 	private Shopverwaltung shop;
 	
-	public ArtikelTableModel(Vector<Artikel> vector, Vector spalten2) {
+	public ArtikelTableModel() {
 		// Ober-Objekt der Klasse DefaultTableModel initialisieren
 		super();
 		Vector spalten = new Vector();		
@@ -65,10 +65,6 @@ public class ArtikelTableModel extends DefaultTableModel {
 		*/
 	}
 	
-	public ArtikelTableModel() {
-		// TODO Auto-generated constructor stub
-	}
-
 	// Tabellendaten hinzufügen
 	public void setDataVector(List<Artikel> articles) {
 		// DefaultTableModel erwartet Repräsentation der Tabellendaten
