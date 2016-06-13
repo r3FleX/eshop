@@ -151,7 +151,7 @@ public class GUI_2 extends JFrame{
 	
 	//LoginPanel
 	public void userPanelSetzen(){
-		userpanel = new UserPanel(this, shop, user);
+		userpanel = new UserPanel(this);
 		userpanel.setLayout(new GridLayout(1, 3));
 		userpanel.setVisible(false);
 		this.navframe.add(userpanel, BorderLayout.NORTH);	

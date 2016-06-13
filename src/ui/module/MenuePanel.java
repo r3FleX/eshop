@@ -17,8 +17,6 @@ import valueobjects.Account;
 public class MenuePanel extends JPanel implements ActionListener{
 
 	private JMenuBar menuBar;
-	private Shopverwaltung shop;
-	private Account user;
 	private JMenuItem mnLogin;
 	private JMenuItem mnReg;
 	private JMenuItem mnLogout;
@@ -28,8 +26,6 @@ public class MenuePanel extends JPanel implements ActionListener{
 	//Konstruktor
 	public MenuePanel(GUI_2 gui, Shopverwaltung shop, Account user) {
 		this.gui = gui;
-		this.shop = shop;
-		this.user = user;
 		
 		JMenuBar menueBar = new JMenuBar();		
 		
