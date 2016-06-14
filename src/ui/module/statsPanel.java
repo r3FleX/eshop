@@ -22,7 +22,7 @@ import ui.GUI_2;
 import valueobjects.Artikel;
 import valueobjects.Stats;
 
-	//Code von http://stackoverflow.com/questions/8693342/drawing-a-simple-line-graph-in-java
+	
 	
 	
 @SuppressWarnings("serial")
@@ -41,7 +41,6 @@ public class statsPanel extends JPanel {
 	   public statsPanel(List <Stats> Statlist) {
 			if (Statlist.isEmpty()) {
 				System.out.println("Keine Statistik verfügbar");
-				//TODO sags der GUI ..
 			} else {
 				Iterator<Stats> iter = Statlist.iterator();
 				int max_bes = 0;
@@ -58,6 +57,7 @@ public class statsPanel extends JPanel {
 			}
 	   }
 	 @Override
+	//Code von http://stackoverflow.com/questions/8693342/drawing-a-simple-line-graph-in-java
      public void paintComponent(Graphics g) {
 	      super.paintComponent(g);
 	      Graphics2D g2 = (Graphics2D)g;
@@ -139,26 +139,22 @@ public class statsPanel extends JPanel {
 				Iterator<Stats> iter = alleStats.iterator();
 				int lastartikelnummer = 0;
 				int max_bes = 0;
-				List stats = new ArrayList();
 				while (iter.hasNext()) {
 					Stats statslist2 = iter.next();
-					if (lastartikelnummer == 0) stats.add(statslist2);
 					//Für jeden artikel ein Listenemelemt erstellen
 					if (statslist2.getArklnummer() != lastartikelnummer) {
 
 						//neues Listenfeld erzeugen
-						JButton button = new JButton("->" + statslist2.getAtklname());
+						JButton button = new JButton("Statistik für: " + statslist2.getAtklname());
 						button.addActionListener(new ActionListener() { 
-							
 							public void actionPerformed(ActionEvent arg0) {
-								layout.add(new statsPanel(alleStats), BorderLayout.CENTER);
+								System.out.println("layout " + statslist2.getAtklname());
+								layout.add(new statsPanel(gui.getShop().statsSuchen(statslist2.getArklnummer())), BorderLayout.CENTER);
+								frame.pack();
 							}
 						});
 						nav.add(button);
 						System.out.println("add: " + statslist2.getAtklname());
-					}else{
-						stats.add(statslist2);
-						
 					}
 					lastartikelnummer = statslist2.getArklnummer();
 				}
