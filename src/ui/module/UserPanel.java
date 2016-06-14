@@ -24,4 +24,13 @@ public class UserPanel extends JPanel {
 	
 		add(statistikButton);
 	}
+	
+	//Getter uns Setter
+	public JButton getStatistikButton() {
+		return statistikButton;
+	}
+
+	public void setStatistikButton(JButton statistikButton) {
+		this.statistikButton = statistikButton;
+	}
 }

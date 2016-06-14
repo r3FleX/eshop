@@ -208,6 +208,7 @@ public class GUI_2 extends JFrame{
 				userpanel.setVisible(true); //Panel einblenden
 				System.out.println("Kunde " + user.getName() + " ist eingeloggt.");
 				userpanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login	
+				userpanel.getStatistikButton().setVisible(false);
 			}
 			else if(user instanceof Mitarbeiter) {
 				menuBar.setUserLoggedIn(true);
@@ -215,6 +216,7 @@ public class GUI_2 extends JFrame{
 				System.out.println("Mitarbeiter " + user.getName() + " ist eingeloggt.");		
 				userpanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
 				obenPanel.setVisible(false);
+				
 				
 			}
 	}
