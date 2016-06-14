@@ -216,6 +216,7 @@ public class GUI_2 extends JFrame{
 				System.out.println("Mitarbeiter " + user.getName() + " ist eingeloggt.");		
 				userpanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
 				obenPanel.setVisible(false);
+				userpanel.getStatistikButton().setVisible(true);
 				
 				
 			}
