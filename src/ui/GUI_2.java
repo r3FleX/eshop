@@ -135,7 +135,7 @@ public class GUI_2 extends JFrame{
 		artikelPanelSetzen();
 		
 		//userLoggedIn
-		userLoggedIn(user);
+	//	userLoggedIn(user);
 		
 		//GUI setzen
 		this.mainPanel.add(this.navframe,BorderLayout.NORTH);
@@ -176,36 +176,32 @@ public class GUI_2 extends JFrame{
 	//Wenn Benutzer eingeloggt
 	public void userLoggedIn(Account user) {
 		//menuebar anpassen 
-	
-		
-		if(!(user.getAccountNr() == -1)){
-			menuBar.setUserLoggedIn(true);
-			//TODO Fragen nach eleganterer lösung
-			//GUI user ersetzen
-			Kunde guest = (Kunde) this.user;
-			Warenkorb tmpWarenkorb = guest.getWarenkorb();
-			this.user = user;
-			//warenkorb übernehmen
-			//guest wird zum aktuellen "kunden"
-			guest = (Kunde) this.user;
-			
-			guest.setWarenkorb(tmpWarenkorb);
-			//und zurück
-			this.user = guest;
-			//userpanel einblenden
-		
-			if (user instanceof Kunde) {	
+			if (user instanceof Kunde) {
+				if(!(user.getAccountNr() == -1)){
+					menuBar.setUserLoggedIn(true);
+					//TODO Fragen nach eleganterer lösung
+					//GUI user ersetzen
+					Kunde guest = (Kunde) this.user;
+					Warenkorb tmpWarenkorb = guest.getWarenkorb();
+					this.user = user;
+					//warenkorb übernehmen
+					//guest wird zum aktuellen "kunden"
+					guest = (Kunde) this.user;
+					
+					guest.setWarenkorb(tmpWarenkorb);
+					//und zurück
+					this.user = guest;
+					//userpanel einblenden
+				}				
 				userpanel.setVisible(true); //Panel einblenden
 				System.out.println("Kunde " + user.getName() + " ist eingeloggt.");
-				userpanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login
-				
+				userpanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login	
 			}
 			else if(user instanceof Mitarbeiter) {
 				userpanel.setVisible(true); //Panel einblenden
 				System.out.println("Mitarbeiter " + user.getName() + " ist eingeloggt.");		
 				userpanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
 			}
-		}
 	}
 	
 	//Wenn Benutzer ausgeloggt

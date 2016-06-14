@@ -9,6 +9,8 @@ import java.awt.GridLayout;
 import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.Stroke;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -127,7 +129,6 @@ public class statsPanel extends JPanel {
 	      	   
 	      JPanel layout = new JPanel();
 	      JPanel nav = new JPanel();
-	      JPanel content = new JPanel();
 	      layout.setLayout(new BorderLayout());
 	      nav.setLayout(new GridLayout(5,1));
 		   List <Stats> alleStats = gui.getShop().gibAlleStats();
@@ -138,20 +139,31 @@ public class statsPanel extends JPanel {
 				Iterator<Stats> iter = alleStats.iterator();
 				int lastartikelnummer = 0;
 				int max_bes = 0;
+				List stats = new ArrayList();
 				while (iter.hasNext()) {
 					Stats statslist2 = iter.next();
+					if (lastartikelnummer == 0) stats.add(statslist2);
 					//Für jeden artikel ein Listenemelemt erstellen
 					if (statslist2.getArklnummer() != lastartikelnummer) {
+
 						//neues Listenfeld erzeugen
 						JButton button = new JButton("->" + statslist2.getAtklname());
+						button.addActionListener(new ActionListener() { 
+							
+							public void actionPerformed(ActionEvent arg0) {
+								layout.add(new statsPanel(alleStats), BorderLayout.CENTER);
+							}
+						});
 						nav.add(button);
 						System.out.println("add: " + statslist2.getAtklname());
-					}	
+					}else{
+						stats.add(statslist2);
+						
+					}
 					lastartikelnummer = statslist2.getArklnummer();
 				}
 			}	      
 	      layout.add(nav, BorderLayout.WEST);
-	      layout.add(new statsPanel(alleStats), BorderLayout.CENTER);
 	      frame.getContentPane().add(layout);	
 	      frame.pack();
 	      frame.setLocationByPlatform(true);
