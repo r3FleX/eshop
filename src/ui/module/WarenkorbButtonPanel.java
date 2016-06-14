@@ -130,7 +130,7 @@ public class WarenkorbButtonPanel extends JPanel{
 				//prüfen ob User eingelogt?
 				Account user = gui.getUser();
 				//JOptionPane.showMessageDialog(null,"bitte einloggen!");
-				if(user instanceof Kunde){
+				if(!(user.getAccountNr() == -1)){
 					int jaNein = JOptionPane.showConfirmDialog(null,"Bestellung abschliessen?");
 					if (jaNein == 0) {
 						
@@ -236,10 +236,11 @@ public class WarenkorbButtonPanel extends JPanel{
 					else if (user.getName()== "Gast") {
 						System.out.println("Gast konto");
 						//user muss sich erst einloggen 	
-					}else{
-		
+					
 					}
-				}//if(user instanceof Kunde)
+				}else{
+					JOptionPane.showMessageDialog(null,"bitte einloggen!");
+				}//Ende else if(user instanceof Kunde)
 			}//Ende public void actionPerformed(ActionEvent e)
 		});//Endekauf AbschliessenButton.addActionListener(new ActionListener()
 	}
