@@ -184,7 +184,7 @@ public class GUI_2 extends JFrame{
 	//Wenn Benutzer eingeloggt
 	public void userLoggedIn(Account user) {
 		//menuebar anpassen 
-		
+		userpanel.remove(userpanel.statistikButton);
 			if (user instanceof Kunde) {
 				obenPanel.setVisible(true);
 				refresh();
@@ -210,6 +210,7 @@ public class GUI_2 extends JFrame{
 				System.out.println("Kunde " + user.getName() + " ist eingeloggt.");
 				userpanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login	
 				userpanel.getStatistikButton().setVisible(false);
+				userpanel.remove(userpanel.statistikButton);
 				refresh();
 			}
 			else if(user instanceof Mitarbeiter) {
@@ -219,6 +220,8 @@ public class GUI_2 extends JFrame{
 				userpanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
 				obenPanel.setVisible(false);
 				userpanel.getStatistikButton().setVisible(true);
+				userpanel.add(userpanel.statistikButton);
+				
 				refresh();
 			}
 	}
@@ -253,6 +256,7 @@ public class GUI_2 extends JFrame{
 		obenPanel.remove(warenKorbButtons.getInWarenKorbLegenButton());
 		obenPanel.add(warenKorbButtons.zumShop);
 		userpanel.setVisible(true);
+		userpanel.remove(userpanel.statistikButton);
 		refresh();
 	}
 	

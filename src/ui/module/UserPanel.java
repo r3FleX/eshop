@@ -15,7 +15,7 @@ import valueobjects.Kunde;
 public class UserPanel extends JPanel {
 	
 	private GUI_2 gui;
-	private JButton statistikButton = new JButton("Statistik",new ImageIcon("src/assets/statistikIcon.png"));
+	public JButton statistikButton = new JButton("Statistik",new ImageIcon("src/assets/statistikIcon.png"));
 	
 	//Konstruktor
 	public UserPanel(GUI_2 gui) {
