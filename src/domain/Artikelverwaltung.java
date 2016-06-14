@@ -150,7 +150,6 @@ public class Artikelverwaltung {
 	 * 
 	 */
 
-	// VERSUCH GESCHEITERT
 	public List<Artikel> sucheArtikel(String artname) {
 		List<Artikel> suchErgebnis = new ArrayList<>();
 		String suchBegriff = artname.toLowerCase();

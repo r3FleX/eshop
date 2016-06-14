@@ -3,10 +3,6 @@ package valueobjects;
 
 
 /** statistik für Artikel
- * 
- * 
- * type -> "Artikel"
- * type -> "Delete"
  */
 
 public class Stats {
