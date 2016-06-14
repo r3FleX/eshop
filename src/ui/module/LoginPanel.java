@@ -74,7 +74,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 					try {
 						
 						Shopverwaltung shop = gui.getShop();
-						Account user = shop .loginAccount(name, passwort);
+						Account user = shop.loginAccount(name, passwort);
 						
 						if (user instanceof Kunde) {	
 							

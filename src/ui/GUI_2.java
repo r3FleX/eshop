@@ -103,6 +103,14 @@ public class GUI_2 extends JFrame{
 		this.user = user;
 	}
 	
+	public JPanel getContentframe() {
+		return contentframe;
+	}
+
+	public void setContentframe(JPanel contentframe) {
+		this.contentframe = contentframe;
+	}
+	
 	//initialisieren
 	private void initialize() {
 		
@@ -176,8 +184,13 @@ public class GUI_2 extends JFrame{
 	//Wenn Benutzer eingeloggt
 	public void userLoggedIn(Account user) {
 		//menuebar anpassen 
+		
 			if (user instanceof Kunde) {
+				contentframe.setVisible(true);
+				refresh();
 				if(!(user.getAccountNr() == -1)){
+					contentframe.setVisible(true);
+					refresh();
 					menuBar.setUserLoggedIn(true);
 					//TODO Fragen nach eleganterer lösung
 					//GUI user ersetzen
@@ -198,9 +211,12 @@ public class GUI_2 extends JFrame{
 				userpanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login	
 			}
 			else if(user instanceof Mitarbeiter) {
+				menuBar.setUserLoggedIn(true);
 				userpanel.setVisible(true); //Panel einblenden
 				System.out.println("Mitarbeiter " + user.getName() + " ist eingeloggt.");		
 				userpanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
+				contentframe.setVisible(false);
+				//warenKorbButtons.remove
 			}
 	}
 	
@@ -241,11 +257,8 @@ public class GUI_2 extends JFrame{
 		contentframe.remove(warenkorbPanel);
 		contentframe.remove(untenWarenKorbBereichPanel);
 		untenWarenKorbBereichPanel.remove(warenKorbButtons.kaufAbschliessenButton);
-		
-	
-		
-		initialize();
-		
+
+		initialize();	
 		
 		refresh();
 	}

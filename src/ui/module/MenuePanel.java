@@ -3,6 +3,7 @@ package ui.module;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -94,6 +95,8 @@ public class MenuePanel extends JPanel implements ActionListener{
 			//user = shop.logoutAccount(user.getName(), user.getPasswort());
 			gui.userLoggedOut();
 			System.out.println("Tschuess!");
+			
+			gui.getContentframe().setVisible(true);
 		}
 		//Fuer Menue Hilfe -> Artikel kaufen? Button
 		else if (command.equals("Wie Artikel kaufen?")){
