@@ -236,10 +236,10 @@ public class WarenkorbButtonPanel extends JPanel{
 					else if (user.getName()== "Gast") {
 						System.out.println("Gast konto");
 						//user muss sich erst einloggen 	
-					
 					}
 				}else{
 					JOptionPane.showMessageDialog(null,"bitte einloggen!");
+						
 				}//Ende else if(user instanceof Kunde)
 			}//Ende public void actionPerformed(ActionEvent e)
 		});//Endekauf AbschliessenButton.addActionListener(new ActionListener()
@@ -254,7 +254,6 @@ public class WarenkorbButtonPanel extends JPanel{
 	
 	public String createInWarenkorbLegenButtonTable() {
 		return "Buy it";
-	}
-	
+	}	
 }
 
