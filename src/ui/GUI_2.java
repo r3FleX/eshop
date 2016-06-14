@@ -134,6 +134,9 @@ public class GUI_2 extends JFrame{
 		//ArtikelPanel
 		artikelPanelSetzen();
 		
+		//userLoggedIn
+		userLoggedIn(user);
+		
 		//GUI setzen
 		this.mainPanel.add(this.navframe,BorderLayout.NORTH);
 		this.mainPanel.add(this.contentframe,BorderLayout.CENTER);	
@@ -173,29 +176,34 @@ public class GUI_2 extends JFrame{
 	//Wenn Benutzer eingeloggt
 	public void userLoggedIn(Account user) {
 		//menuebar anpassen 
-		menuBar.setUserLoggedIn(true);
+	
 		
-	//TODO Fragen nach eleganterer lösung
-		//GUI user ersetzen
-		Kunde guest = (Kunde) this.user;
-		Warenkorb tmpWarenkorb = guest.getWarenkorb();
-		this.user = user;
-		//warenkorb übernehmen
-		//guest wird zum aktuellen "kunden"
-		guest = (Kunde) this.user;
-		guest.setWarenkorb(tmpWarenkorb);
-		//und zurück
-		this.user = guest;
-		//userpanel einblenden
-		if (user instanceof Kunde) {
-			userpanel.setVisible(true); //Panel einblenden
-			System.out.println("Kunde " + user.getName() + " ist eingeloggt.");
-			userpanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login
-		}
-		else if(user instanceof Mitarbeiter) {
-			userpanel.setVisible(true); //Panel einblenden
-			System.out.println("Mitarbeiter " + user.getName() + " ist eingeloggt.");		
-			userpanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
+		if(!(user.getAccountNr() == -1)){
+			menuBar.setUserLoggedIn(true);
+		//TODO Fragen nach eleganterer lösung
+			//GUI user ersetzen
+			Kunde guest = (Kunde) this.user;
+			Warenkorb tmpWarenkorb = guest.getWarenkorb();
+			this.user = user;
+			//warenkorb übernehmen
+			//guest wird zum aktuellen "kunden"
+			guest = (Kunde) this.user;
+			guest.setWarenkorb(tmpWarenkorb);
+			//und zurück
+			this.user = guest;
+			//userpanel einblenden
+		
+			if (user instanceof Kunde) {	
+				userpanel.setVisible(true); //Panel einblenden
+				System.out.println("Kunde " + user.getName() + " ist eingeloggt.");
+				userpanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login
+				
+			}
+			else if(user instanceof Mitarbeiter) {
+				userpanel.setVisible(true); //Panel einblenden
+				System.out.println("Mitarbeiter " + user.getName() + " ist eingeloggt.");		
+				userpanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
+			}
 		}
 	}
 	
@@ -237,7 +245,11 @@ public class GUI_2 extends JFrame{
 		contentframe.remove(untenWarenKorbBereichPanel);
 		untenWarenKorbBereichPanel.remove(warenKorbButtons.kaufAbschliessenButton);
 		
+	
+		
 		initialize();
+		
+		
 		refresh();
 	}
 	
