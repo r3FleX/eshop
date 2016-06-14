@@ -96,7 +96,7 @@ public class MenuePanel extends JPanel implements ActionListener{
 			gui.userLoggedOut();
 			System.out.println("Tschuess!");
 			
-			gui.getContentframe().setVisible(true);
+			gui.getObenPanel().setVisible(true);
 		}
 		//Fuer Menue Hilfe -> Artikel kaufen? Button
 		else if (command.equals("Wie Artikel kaufen?")){

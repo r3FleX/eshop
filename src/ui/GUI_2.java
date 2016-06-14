@@ -60,15 +60,6 @@ public class GUI_2 extends JFrame{
 	private WarenkorbButtonPanel warenKorbButtons;
 	private WarenkorbPanel warenkorbPanel;
 	
-
-	public WarenkorbPanel getWarenkorbPanel() {
-		return warenkorbPanel;
-	}
-
-	public void setWarenkorbPanel(WarenkorbPanel warenkorbPanel) {
-		this.warenkorbPanel = warenkorbPanel;
-	}
-
 	//Konstrukter
 	public GUI_2(String datei) {
 		try {
@@ -103,12 +94,20 @@ public class GUI_2 extends JFrame{
 		this.user = user;
 	}
 	
-	public JPanel getContentframe() {
-		return contentframe;
+	public WarenkorbPanel getWarenkorbPanel() {
+		return warenkorbPanel;
 	}
 
-	public void setContentframe(JPanel contentframe) {
-		this.contentframe = contentframe;
+	public void setWarenkorbPanel(WarenkorbPanel warenkorbPanel) {
+		this.warenkorbPanel = warenkorbPanel;
+	}
+	
+	public JPanel getObenPanel() {
+		return obenPanel;
+	}
+
+	public void setObenPanel(JPanel obenPanel) {
+		this.obenPanel = obenPanel;
 	}
 	
 	//initialisieren
@@ -186,10 +185,10 @@ public class GUI_2 extends JFrame{
 		//menuebar anpassen 
 		
 			if (user instanceof Kunde) {
-				contentframe.setVisible(true);
+				obenPanel.setVisible(true);
 				refresh();
 				if(!(user.getAccountNr() == -1)){
-					contentframe.setVisible(true);
+					obenPanel.setVisible(true);
 					refresh();
 					menuBar.setUserLoggedIn(true);
 					//TODO Fragen nach eleganterer lösung
@@ -215,8 +214,8 @@ public class GUI_2 extends JFrame{
 				userpanel.setVisible(true); //Panel einblenden
 				System.out.println("Mitarbeiter " + user.getName() + " ist eingeloggt.");		
 				userpanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
-				contentframe.setVisible(false);
-				//warenKorbButtons.remove
+				obenPanel.setVisible(false);
+				
 			}
 	}
 	
