@@ -157,6 +157,7 @@ public class GUI_2 extends JFrame{
 		obenPanel.add(suchPanel);
 		obenPanel.add(warenKorbButtons.zumWarenKorbButton);
 		obenPanel.add(warenKorbButtons.getInWarenKorbLegenButton());
+		obenPanel.setVisible(true);
 	}
 	
 	//LoginPanel
@@ -209,6 +210,7 @@ public class GUI_2 extends JFrame{
 				System.out.println("Kunde " + user.getName() + " ist eingeloggt.");
 				userpanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login	
 				userpanel.getStatistikButton().setVisible(false);
+				refresh();
 			}
 			else if(user instanceof Mitarbeiter) {
 				menuBar.setUserLoggedIn(true);
@@ -217,8 +219,7 @@ public class GUI_2 extends JFrame{
 				userpanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
 				obenPanel.setVisible(false);
 				userpanel.getStatistikButton().setVisible(true);
-				
-				
+				refresh();
 			}
 	}
 	
@@ -231,6 +232,7 @@ public class GUI_2 extends JFrame{
 	
 	//warenkorb anzeigen
 	public void zumWarenKorb(){
+		obenPanel.setVisible(true);
 		//Hinzufuegen unten Warenkorb Panel
 		this.contentframe.add(untenWarenKorbBereichPanel, BorderLayout.SOUTH);
 		untenWarenKorbBereichPanel.add(warenKorbButtons.kaufAbschliessenButton);
@@ -250,7 +252,7 @@ public class GUI_2 extends JFrame{
 		obenPanel.remove(warenKorbButtons.zumWarenKorbButton);
 		obenPanel.remove(warenKorbButtons.getInWarenKorbLegenButton());
 		obenPanel.add(warenKorbButtons.zumShop);
-	
+		userpanel.setVisible(true);
 		refresh();
 	}
 	
@@ -259,9 +261,9 @@ public class GUI_2 extends JFrame{
 		contentframe.remove(warenkorbPanel);
 		contentframe.remove(untenWarenKorbBereichPanel);
 		untenWarenKorbBereichPanel.remove(warenKorbButtons.kaufAbschliessenButton);
-
-		initialize();	
 		
+		initialize();	
+		userpanel.setVisible(true);
 		refresh();
 	}
 	

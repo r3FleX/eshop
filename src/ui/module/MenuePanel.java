@@ -94,8 +94,7 @@ public class MenuePanel extends JPanel implements ActionListener{
 			setUserLoggedIn(false);
 			//user = shop.logoutAccount(user.getName(), user.getPasswort());
 			gui.userLoggedOut();
-			System.out.println("Tschuess!");
-			
+			System.out.println("Tschuess!");		
 			gui.getObenPanel().setVisible(true);
 		}
 		//Fuer Menue Hilfe -> Artikel kaufen? Button
