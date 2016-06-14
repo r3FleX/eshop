@@ -192,17 +192,17 @@ public class GUI_2 extends JFrame{
 					contentframe.setVisible(true);
 					refresh();
 					menuBar.setUserLoggedIn(true);
-					//TODO Fragen nach eleganterer lï¿½sung
+					//TODO Fragen nach eleganterer lösung
 					//GUI user ersetzen
 					Kunde guest = (Kunde) this.user;
 					Warenkorb tmpWarenkorb = guest.getWarenkorb();
 					this.user = user;
-					//warenkorb ï¿½bernehmen
+					//warenkorb übernehmen
 					//guest wird zum aktuellen "kunden"
 					guest = (Kunde) this.user;
 					
 					guest.setWarenkorb(tmpWarenkorb);
-					//und zurï¿½ck
+					//und zurück
 					this.user = guest;
 					//userpanel einblenden
 				}				
@@ -213,7 +213,6 @@ public class GUI_2 extends JFrame{
 			else if(user instanceof Mitarbeiter) {
 				menuBar.setUserLoggedIn(true);
 				userpanel.setVisible(true); //Panel einblenden
-				this.user = user;
 				System.out.println("Mitarbeiter " + user.getName() + " ist eingeloggt.");		
 				userpanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
 				contentframe.setVisible(false);
