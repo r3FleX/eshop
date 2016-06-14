@@ -125,15 +125,15 @@ public class WarenkorbButtonPanel extends JPanel{
 		kaufAbschliessenButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {				
 				System.out.println("Kauf Abschließ Button");
-				
+				//JOptionPane.showMessageDialog(null,"bitte einloggen!");
 				//rechnungspanel.actionPerformed(arg0);
 				//prüfen ob User eingelogt?
 				Account user = gui.getUser();
-				if (user.getName()== "Gast") {
-					System.out.println("Gast konto");
-					//user muss sich erst einloggen 
+				//JOptionPane.showMessageDialog(null,"bitte einloggen!");
+				if(user instanceof Kunde){
 					int jaNein = JOptionPane.showConfirmDialog(null,"Bestellung abschliessen?");
 					if (jaNein == 0) {
+						
 						HashMap<Artikel, Integer> fehlerliste = shop.pruefeKauf((Kunde) user);
 						if (!fehlerliste.isEmpty()) {
 							JOptionPane.showMessageDialog(null,"Es konnten nicht alle Artikel zum Kauf angeboten werden.");				
@@ -230,15 +230,18 @@ public class WarenkorbButtonPanel extends JPanel{
 									rechnungFenster.setVisible(false);
 								}
 							});//Ende schliessen Button						
-						}//Ende else*
+						}//Ende else (!fehlerliste.isEmpty())
+					}//if (jaNein == 0)
+					
+					else if (user.getName()== "Gast") {
+						System.out.println("Gast konto");
+						//user muss sich erst einloggen 	
+					}else{
+		
 					}
-					
-				}else{
-					
-					int jaNein = JOptionPane.showConfirmDialog(null,"Bestellung abschliessen?");
-				}
-			}//Ende actionPerformed(ActionEvent e)
-		});	
+				}//if(user instanceof Kunde)
+			}//Ende public void actionPerformed(ActionEvent e)
+		});//Endekauf AbschliessenButton.addActionListener(new ActionListener()
 	}
 	public JButton getInWarenKorbLegenButton() {
 		return inWarenKorbLegenButton;
