@@ -33,33 +33,18 @@ public class statsPanel extends JPanel {
 	   private static final int GRAPH_POINT_WIDTH = 5;
 	   private static final int Y_HATCH_CNT = 10;
 	   private List<Integer> scores = new ArrayList<Integer>();
-	   private JPanel layout = new JPanel();
-	   private JPanel nav = new JPanel();
-	   private JPanel content = new JPanel();
 	   
-	   public statsPanel(GUI_2 gui) {
-		   
-		   this.layout.setLayout(new BorderLayout()); 	
-		   this.nav.setLayout(new GridLayout(5,1));
-		   this.content.setLayout(new BorderLayout());
-		   //TODO Produktauswahlleite bauen 
-		   List <Stats> alleStats = gui.getShop().gibAlleStats();
-			if (alleStats.isEmpty()) {
-				System.out.println("Keine Statistiken verfügbar");
+
+	   
+	   public statsPanel(List <Stats> Statlist) {
+			if (Statlist.isEmpty()) {
+				System.out.println("Keine Statistik verfügbar");
 				//TODO sags der GUI ..
 			} else {
-				Iterator<Stats> iter = alleStats.iterator();
-				int lastartikelnummer = 0;
+				Iterator<Stats> iter = Statlist.iterator();
 				int max_bes = 0;
 				while (iter.hasNext()) {
 					Stats statslist2 = iter.next();
-					//Für jeden artikel ein Listenemelemt erstellen
-					if (statslist2.getArklnummer() != lastartikelnummer) {
-						//neues Listenfeld erzeugen
-						JButton button = new JButton("->" + statslist2.getAtklname());
-						this.nav.add(button);
-						System.out.println("add" + statslist2.getAtklname());
-					}
 					scores.add(statslist2.getBestand());
 					//maximalhöhe bestimmen
 					if (max_bes < statslist2.getBestand()) {
@@ -67,15 +52,8 @@ public class statsPanel extends JPanel {
 						System.out.println("Bestand: " + statslist2.getBestand());
 						max_bes = this.max_bestand;
 					}		
-					lastartikelnummer = statslist2.getArklnummer();
 				}
 			}
-			  
-			
-		
-
-		   //Stistik anzeigen
-		  // this.content.add(, BorderLayout.CENTER);
 	   }
 	 @Override
      public void paintComponent(Graphics g) {
@@ -142,14 +120,39 @@ public class statsPanel extends JPanel {
 	      return new Dimension(800, 600);
 	   }
 
-	   private static void createAndShowGui() {
-
+	   private static void createAndShowGui() {		   
 	      GUI_2 gui = new GUI_2("Shop");
-	      statsPanel mainPanel = new statsPanel(gui);
-
 	      JFrame frame = new JFrame("");
 	      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	      frame.getContentPane().add(mainPanel);
+	      	   
+	      JPanel layout = new JPanel();
+	      JPanel nav = new JPanel();
+	      JPanel content = new JPanel();
+	      layout.setLayout(new BorderLayout());
+	      nav.setLayout(new GridLayout(5,1));
+		   List <Stats> alleStats = gui.getShop().gibAlleStats();
+			if (alleStats.isEmpty()) {
+				System.out.println("Keine Statistiken verfügbar");
+				//TODO sags der GUI ..
+			} else {
+				Iterator<Stats> iter = alleStats.iterator();
+				int lastartikelnummer = 0;
+				int max_bes = 0;
+				while (iter.hasNext()) {
+					Stats statslist2 = iter.next();
+					//Für jeden artikel ein Listenemelemt erstellen
+					if (statslist2.getArklnummer() != lastartikelnummer) {
+						//neues Listenfeld erzeugen
+						JButton button = new JButton("->" + statslist2.getAtklname());
+						nav.add(button);
+						System.out.println("add: " + statslist2.getAtklname());
+					}	
+					lastartikelnummer = statslist2.getArklnummer();
+				}
+			}	      
+	      layout.add(nav, BorderLayout.WEST);
+	      layout.add(new statsPanel(alleStats), BorderLayout.CENTER);
+	      frame.getContentPane().add(layout);	
 	      frame.pack();
 	      frame.setLocationByPlatform(true);
 	      frame.setVisible(true);
