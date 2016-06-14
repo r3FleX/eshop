@@ -105,8 +105,9 @@ public class MenuePanel extends JPanel implements ActionListener{
 		//Fuer Menue Hilfe -> Ueber uns Button
 		else if (command.equals("\u00DCber uns")){
 			JOptionPane.showMessageDialog(null, "Entwickler: \n"
-					+ "Immanuel Zimmermann \n" + "Stefan Mayer \n"
-					+ "Daniel Bï¿½ckmann \n\n" 
+					+ "Immanuel Zimmermann \n" 
+					+ "Stefan Mayer \n"
+					+ "Daniel Böckmann \n\n" 
 					+ "HS Bremen, Prog 2, SS 2016");
 		}
 		

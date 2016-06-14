@@ -25,7 +25,7 @@ import valueobjects.Kunde;
 import valueobjects.Rechnung;
 
 
-public class RechnungsPanel {
+public class RechnungsPanel extends JPanel implements ActionListener{
 	private GUI_2 gui;
 	private Shopverwaltung shop;
 	private Account user;
@@ -35,7 +35,7 @@ public class RechnungsPanel {
 	private JTable warenkorbTabelle = null;
 	
 	//Konstruktor
-	public RechnungsPanel(GUI_2 gui) {
+	public RechnungsPanel(GUI_2 gui){
 		
 		this.gui = gui;
 	}	

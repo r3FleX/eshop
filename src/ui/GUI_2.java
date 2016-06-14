@@ -180,7 +180,7 @@ public class GUI_2 extends JFrame{
 		
 		if(!(user.getAccountNr() == -1)){
 			menuBar.setUserLoggedIn(true);
-		//TODO Fragen nach eleganterer lösung
+			//TODO Fragen nach eleganterer lösung
 			//GUI user ersetzen
 			Kunde guest = (Kunde) this.user;
 			Warenkorb tmpWarenkorb = guest.getWarenkorb();
@@ -188,6 +188,7 @@ public class GUI_2 extends JFrame{
 			//warenkorb übernehmen
 			//guest wird zum aktuellen "kunden"
 			guest = (Kunde) this.user;
+			
 			guest.setWarenkorb(tmpWarenkorb);
 			//und zurück
 			this.user = guest;
