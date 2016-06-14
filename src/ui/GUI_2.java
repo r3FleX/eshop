@@ -200,6 +200,7 @@ public class GUI_2 extends JFrame{
 			else if(user instanceof Mitarbeiter) {
 				menuBar.setUserLoggedIn(true);
 				userpanel.setVisible(true); //Panel einblenden
+				this.user = user;
 				System.out.println("Mitarbeiter " + user.getName() + " ist eingeloggt.");		
 				userpanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
 			}
