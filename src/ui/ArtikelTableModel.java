@@ -45,24 +45,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 
 		// Spaltennamen in geerbtem Attribut merken
 		this.columnIdentifiers = spalten;
-		/*
-		//Fuer Warenkorb Button "in Warenkorb legen" 
 		
-		JPanel inWarenkorbLegenPanel = new JPanel();
-			
-		inWarenkorbLegenPanel.add(inWarenkorbLegenPanel, BorderLayout.NORTH);	
-		
-		JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
-		inWarenkorbLegenPanel.add(inWarenKorbLegenButton);
-		inWarenkorbLegenPanel.setVisible(true);
-		
-		//ACTIONLISTINER
-		inWarenKorbLegenButton.addActionListener(new ActionListener() {	
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("in den warenkorb");
-			}
-		});
-		*/
 	}
 	
 	// Tabellendaten hinzufügen
@@ -79,7 +62,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 			einArtikelAlsVector.add(artikel.getPreis());
 			einArtikelAlsVector.add(artikel.getPackungsgroesse());
 			
-	//		einArtikelAlsVector.add(warenkorbButton.createInWarenkorbLegenButtonTable());
+			einArtikelAlsVector.add("Kaufen");
 			
 			rows.add(einArtikelAlsVector);
 			//einArtikelAlsVector.add(kunde.getWarenkorb().getInhalt().values());
