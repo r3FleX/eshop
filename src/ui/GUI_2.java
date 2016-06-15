@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import domain.Shopverwaltung;
@@ -40,6 +41,7 @@ public class GUI_2 extends JFrame{
 	private JPanel untenWarenKorbBereichPanel = new JPanel();
 	private JPanel obenPanel = new JPanel();
 	public JPanel untenframe = new JPanel();
+	
 	private MitarbeiterPanel mitarbeiterPanel;
 	private KundenPanel kundenPanel;
 	private SuchPanel suchPanel;
@@ -140,7 +142,9 @@ public class GUI_2 extends JFrame{
 	//untenframe
 	public void untenframe(){
 		untenframe.setLayout(new GridLayout(1, 3));
+		untenframe.add(new JLabel());//Platzhalter
 		untenframe.add(warenKorbButtons.kaufAbschliessenButton);
+		untenframe.add(new JLabel());//Platzhalter
 		untenframe.setBorder(BorderFactory.createTitledBorder("Kaufabwicklungsbereich")); //Ueberschrift Kaufabwicklungsbereich
 		untenframe.setVisible(false);
 	}
@@ -157,7 +161,6 @@ public class GUI_2 extends JFrame{
 					this.user = user;
 					
 					((Kunde) this.user).setWarenkorb(wk);
-
 				}				
 				
 				//Panel einblenden
@@ -196,8 +199,8 @@ public class GUI_2 extends JFrame{
 	
 	//warenkorb anzeigen
 	public void zumWarenKorb(){
-		obenPanel.setVisible(true);
 		
+		obenPanel.setVisible(true);
 		untenframe.setVisible(true);
 		
 		//loescht Artikel Panel
@@ -216,6 +219,9 @@ public class GUI_2 extends JFrame{
 	}
 	
 	public void zumShopButton(){	
+		
+		obenPanel.setVisible(true);
+		untenframe.setVisible(false);
 		
 		obenPanel.remove(warenKorbButtons.zumShop);
 		contentframe.remove(warenkorbPanel);
