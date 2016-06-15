@@ -27,19 +27,20 @@ public class ButtonEditor extends DefaultCellEditor {
 	protected JButton button;
 	private String label;
 	private boolean isPushed;
-	private Shopverwaltung shop;
+//	private Shopverwaltung shop;
 	private Account user;
 	private WarenkorbPanel warenkorbpanel;
 	private JTable ausgabeTabelle;
 	private GUI_2 gui;
+	public ButtonEditor(JCheckBox checkBox, JTable ausgabeTabelle, Account user, GUI_2 gui) {
 
-	public ButtonEditor(JCheckBox checkBox, JTable ausgabeTabelle, Account user, Shopverwaltung shop) {
 		super(checkBox);
 	    button = new JButton();
 	    button.setOpaque(true);
 	    this.ausgabeTabelle = ausgabeTabelle;
 	    this.user = user;
-	    this.shop = shop;
+//	    this.shop = shop;
+	    this.gui = gui;
 	    
 	    //Actionlistener
 	    button.addActionListener(new ActionListener() {
@@ -64,6 +65,7 @@ public class ButtonEditor extends DefaultCellEditor {
 
 						public void actionPerformed(ActionEvent arg0) {
 							try {  //inWarenkorbEinfuegen(Artikel art,                ->                                                                                            ,int anzahl                        , Kunde kunde)	
+								Shopverwaltung shop = gui.getShop();
 								shop.inWarenkorbEinfuegen(shop.artikelSuchen(Integer.parseInt((ausgabeTabelle.getValueAt(ausgabeTabelle.getSelectedRow(),0)).toString())),Integer.parseInt(anzahl.getText()),(Kunde) user);
 								wieOftArtikelKaufenFrame.setVisible(false);
 							} catch (NumberFormatException e) {

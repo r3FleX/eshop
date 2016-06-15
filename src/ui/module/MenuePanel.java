@@ -15,7 +15,7 @@ import domain.Shopverwaltung;
 import ui.GUI_2;
 import valueobjects.Account;
 
-public class MenuePanel extends JPanel implements ActionListener{
+public class MenuePanel implements ActionListener{
 
 	private JMenuBar menuBar;
 	private JMenuItem mnLogin;
@@ -113,7 +113,7 @@ public class MenuePanel extends JPanel implements ActionListener{
 			JOptionPane.showMessageDialog(null, "Entwickler: \n"
 					+ "Immanuel Zimmermann \n" 
 					+ "Stefan Mayer \n"
-					+ "Daniel Böckmann \n\n" 
+					+ "Daniel Bï¿½ckmann \n\n" 
 					+ "HS Bremen, Prog 2, SS 2016");
 		}
 		

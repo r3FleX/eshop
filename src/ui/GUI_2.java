@@ -27,7 +27,7 @@ public class GUI_2 extends JFrame{
 	
 	private SuchController suchController = null;
 	private Shopverwaltung shop;
-	private Account user = (Account) new Kunde("Gast", "gast", -1, "none", 12345, "none");
+	private Account user = new Kunde("Gast", "gast", -1, "none", 12345, "none");
 	
 	//Menuebar
 	private MenuePanel menuBar;
@@ -73,7 +73,7 @@ public class GUI_2 extends JFrame{
 		this.mainPanel.setLayout(new BorderLayout());
 		this.navframe.setLayout(new BorderLayout());
 		this.contentframe.setLayout(new BorderLayout());
-		//menübar
+		//menï¿½bar
 		setJMenuBar(menuBar.getMenue());
 		
 		//Warenkorb erstellen.
@@ -132,7 +132,7 @@ public class GUI_2 extends JFrame{
 	
 	//ArtikelPanel
 	public void artikelPanelSetzen(){
-		artikelPanel = new ArtikelPanel(shop.gibAlleArtikel());
+		artikelPanel = new ArtikelPanel(shop.gibAlleArtikel(), this);
 		this.contentframe.add(artikelPanel, BorderLayout.CENTER);	
 	}
 		
@@ -144,17 +144,23 @@ public class GUI_2 extends JFrame{
 					obenPanel.setVisible(true);
 					menuBar.setUserLoggedIn(true);
 					//TODO Fragen nach eleganterer lï¿½sung
-					//GUI user ersetzen
-					Kunde guest = (Kunde) this.user;
-					Warenkorb tmpWarenkorb = guest.getWarenkorb();
+
+					Warenkorb wk = ((Kunde) this.user).getWarenkorb();
 					this.user = user;
-					//warenkorb ï¿½bernehmen
-					//guest wird zum aktuellen "kunden"
-					guest = (Kunde) this.user;
-					
-					guest.setWarenkorb(tmpWarenkorb);
-					//und zurück
-					this.user = guest;
+//					getShop().setWarenkorb(this.user, wk);
+					((Kunde) this.user).setWarenkorb(wk);
+
+//					//GUI user ersetzen
+//					Kunde guest = (Kunde) this.user;
+//					Warenkorb tmpWarenkorb = guest.getWarenkorb();
+//					this.user = user;
+//					//warenkorb ï¿½bernehmen
+//					//guest wird zum aktuellen "kunden"
+//					guest = (Kunde) this.user;
+//					
+//					guest.setWarenkorb(tmpWarenkorb);
+//					//und zurï¿½ck
+//					this.user = guest;
 					//userpanel einblenden
 				}				
 				
@@ -167,7 +173,7 @@ public class GUI_2 extends JFrame{
 			}
 			else if(user instanceof Mitarbeiter) {
 				obenPanel.setVisible(false);
-				menuBar.setUserLoggedIn(true); //menübar mitteilen das user eingelogt
+				menuBar.setUserLoggedIn(true); //menï¿½bar mitteilen das user eingelogt
 				//mitarbeiter einloggen
 				this.user = user;
 				MitarbeiterPanelSetzen();
@@ -268,11 +274,11 @@ public class GUI_2 extends JFrame{
 		mainPanel.revalidate();
 		contentframe.revalidate();
 		navframe.revalidate();
-		menuBar.revalidate();
+//		menuBar.revalidate();
 		
 		mainPanel.repaint();
 		contentframe.repaint();
 		navframe.repaint();
-		menuBar.repaint();
+//		menuBar.repaint();
 	}
 }

@@ -40,10 +40,12 @@ public class ArtikelPanel extends JPanel{
 	private JTable ausgabeTabelle;
 	private JScrollPane scrollPane;
 	private Account user;
-	private Shopverwaltung shop;
+//	private Shopverwaltung shop;
+	private GUI_2 gui;
 	
 	//Konstruktor
-	public ArtikelPanel(List<Artikel> artikelliste) {
+	public ArtikelPanel(List<Artikel> artikelliste, GUI_2 gui) {
+		this.gui = gui;
 		
 		//JPanel artikelPanel = new JPanel();
 		this.setLayout(new GridLayout());
@@ -74,7 +76,7 @@ public class ArtikelPanel extends JPanel{
 		//Layout Tabelle -> Button fuer "Option"
 		ausgabeTabelle.getColumn("Option").setCellRenderer(new ButtonRenderer());
 		ausgabeTabelle.getColumn("Option").setCellEditor(
-	        new ButtonEditor(new JCheckBox(),ausgabeTabelle, user, shop));	
+	        new ButtonEditor(new JCheckBox(),ausgabeTabelle, user, gui));	
 		
 	}
 	

@@ -18,9 +18,13 @@ import javax.swing.JTextField;
 
 import domain.Shopverwaltung;
 import domain.exceptions.AccountExistiertBereitsException;
+import domain.exceptions.AccountExistiertNichtException;
+import domain.exceptions.ArtikelExistiertBereitsException;
 import ui.GUI_2;
 import valueobjects.Account;
+import valueobjects.Artikel;
 import valueobjects.Kunde;
+import valueobjects.Mitarbeiter;
 
 public class MitarbeiterPanel extends JPanel{
 	
@@ -87,7 +91,20 @@ public class MitarbeiterPanel extends JPanel{
 							String artikelname = artikelnameFeld.getText();
 							String artikelnummer = artikelnummerFeld.getText();
 							int preis = Integer.parseInt(preisFeld.getText());
-							String bestand = bestandFeld.getText();				
+							String bestand = bestandFeld.getText();
+							/*
+							try {
+								
+								Shopverwaltung shop = gui.getShop();
+								Artikel artikel = artikel.setArtname(name);
+								
+								if (){
+									
+									JOptionPane.showMessageDialog(null,"Artikel erfolgreich eingefuegt!");
+								}
+							} catch (ArtikelExistiertBereitsException ex) {
+								JOptionPane.showMessageDialog(null, ex.getMessage());
+							}*/
 						}
 					});//Ende regButton.addActionListener(new ActionListener()
 			}
