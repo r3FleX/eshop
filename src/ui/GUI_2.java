@@ -39,6 +39,7 @@ public class GUI_2 extends JFrame{
 	
 	private JPanel untenWarenKorbBereichPanel = new JPanel();
 	private JPanel obenPanel = new JPanel();
+	public JPanel untenframe = new JPanel();
 	private MitarbeiterPanel mitarbeiterPanel;
 	private KundenPanel kundenPanel;
 	private SuchPanel suchPanel;
@@ -92,9 +93,13 @@ public class GUI_2 extends JFrame{
 		//ArtikelPanel
 		artikelPanelSetzen();
 		
+		//untenframe
+		untenframe();
+		
 		//GUI setzen
 		this.mainPanel.add(this.navframe,BorderLayout.NORTH);
 		this.mainPanel.add(this.contentframe,BorderLayout.CENTER);	
+		this.mainPanel.add(this.untenframe,BorderLayout.SOUTH);	
 		add(this.mainPanel);
 		setVisible(true);
 	}
@@ -110,9 +115,10 @@ public class GUI_2 extends JFrame{
 	public void KundenPanelSetzen(){
 		kundenPanel = new KundenPanel(this);
 		kundenPanel.setLayout(new GridLayout(1, 3));
-		this.navframe.add(kundenPanel, BorderLayout.NORTH);	
+		this.navframe.add(kundenPanel, BorderLayout.NORTH);			
 		
 	}
+	
 	public void MitarbeiterPanelSetzen(){
 		mitarbeiterPanel = new MitarbeiterPanel(this);
 		mitarbeiterPanel.setLayout(new GridLayout(1, 3));
@@ -129,6 +135,14 @@ public class GUI_2 extends JFrame{
 	public void artikelPanelSetzen(){
 		artikelPanel = new ArtikelPanel(shop.gibAlleArtikel(), this);
 		this.contentframe.add(artikelPanel, BorderLayout.CENTER);	
+	}
+	
+	//untenframe
+	public void untenframe(){
+		untenframe.setLayout(new GridLayout(1, 3));
+		untenframe.add(warenKorbButtons.kaufAbschliessenButton);
+		untenframe.setBorder(BorderFactory.createTitledBorder("Kaufabwicklungsbereich")); //Ueberschrift Kaufabwicklungsbereich
+		untenframe.setVisible(false);
 	}
 		
 	//Wenn Benutzer eingeloggt
@@ -184,10 +198,7 @@ public class GUI_2 extends JFrame{
 	public void zumWarenKorb(){
 		obenPanel.setVisible(true);
 		
-		//Hinzufuegen unten Warenkorb Panel
-		untenWarenKorbBereichPanel.add(warenKorbButtons.kaufAbschliessenButton);
-		untenWarenKorbBereichPanel.setBorder(BorderFactory.createTitledBorder("Kaufabwicklungsbereich")); //Ueberschrift Kaufabwicklungsbereich
-		untenWarenKorbBereichPanel.setVisible(true);
+		untenframe.setVisible(true);
 		
 		//loescht Artikel Panel
 		contentframe.remove(artikelPanel);
@@ -205,6 +216,7 @@ public class GUI_2 extends JFrame{
 	}
 	
 	public void zumShopButton(){	
+		
 		obenPanel.remove(warenKorbButtons.zumShop);
 		contentframe.remove(warenkorbPanel);
 		contentframe.remove(untenWarenKorbBereichPanel);
