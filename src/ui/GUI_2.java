@@ -93,7 +93,7 @@ public class GUI_2 extends JFrame{
 		//ArtikelPanel
 		artikelPanelSetzen();
 		
-		
+		///
 		//GUI setzen
 		this.mainPanel.add(this.navframe,BorderLayout.NORTH);
 		this.mainPanel.add(this.contentframe,BorderLayout.CENTER);	
@@ -148,17 +148,17 @@ public class GUI_2 extends JFrame{
 				if(!(user.getAccountNr() == -1)){
 					obenPanel.setVisible(true);
 					menuBar.setUserLoggedIn(true);
-					//TODO Fragen nach eleganterer lösung
+					//TODO Fragen nach eleganterer lï¿½sung
 					//GUI user ersetzen
 					Kunde guest = (Kunde) this.user;
 					Warenkorb tmpWarenkorb = guest.getWarenkorb();
 					this.user = user;
-					//warenkorb übernehmen
+					//warenkorb ï¿½bernehmen
 					//guest wird zum aktuellen "kunden"
 					guest = (Kunde) this.user;
 					
 					guest.setWarenkorb(tmpWarenkorb);
-					//und zurück
+					//und zurï¿½ck
 					this.user = guest;
 					//userpanel einblenden
 				}				
