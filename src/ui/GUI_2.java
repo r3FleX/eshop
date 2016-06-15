@@ -1,28 +1,15 @@
 package ui;
 import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.EventQueue;
 import java.awt.GridLayout;
-import java.awt.List;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.JTextField;
 
 import domain.Shopverwaltung;
-import domain.exceptions.ArtikelExistiertNichtException;
-import domain.exceptions.BestandUeberschrittenException;
 import ui.controller.SuchController;
 import ui.module.ArtikelPanel;
-import ui.module.LoginPanel;
 import ui.module.MenuePanel;
 import ui.module.SuchPanel;
 import ui.module.UserPanel;
@@ -75,41 +62,6 @@ public class GUI_2 extends JFrame{
 		this.initialize();
 	}	
 	
-	//Getter und Setter
-	public ArtikelPanel getArtikelPanel() {
-		return artikelPanel;
-	}
-	public void setArtikelPanel(ArtikelPanel artikelPanel) {
-		this.artikelPanel = artikelPanel;
-	}
-	public Shopverwaltung getShop() {
-		return shop;
-	}
-	
-	public Account getUser() {
-		return user;
-	}
-
-	public void setUser(Account user) {
-		this.user = user;
-	}
-	
-	public WarenkorbPanel getWarenkorbPanel() {
-		return warenkorbPanel;
-	}
-
-	public void setWarenkorbPanel(WarenkorbPanel warenkorbPanel) {
-		this.warenkorbPanel = warenkorbPanel;
-	}
-	
-	public JPanel getObenPanel() {
-		return obenPanel;
-	}
-
-	public void setObenPanel(JPanel obenPanel) {
-		this.obenPanel = obenPanel;
-	}
-	
 	//initialisieren
 	private void initialize() {
 		
@@ -141,8 +93,6 @@ public class GUI_2 extends JFrame{
 		//ArtikelPanel
 		artikelPanelSetzen();
 		
-		//userLoggedIn
-	//	userLoggedIn(user);
 		
 		//GUI setzen
 		this.mainPanel.add(this.navframe,BorderLayout.NORTH);
@@ -190,7 +140,6 @@ public class GUI_2 extends JFrame{
 				refresh();
 				if(!(user.getAccountNr() == -1)){
 					obenPanel.setVisible(true);
-					refresh();
 					menuBar.setUserLoggedIn(true);
 					//TODO Fragen nach eleganterer lösung
 					//GUI user ersetzen
@@ -274,7 +223,40 @@ public class GUI_2 extends JFrame{
 	public void untenWarenKorbBereichPanel(boolean b){
 		untenWarenKorbBereichPanel.setVisible(b);
 	}
+	//Getter und Setter
+	public ArtikelPanel getArtikelPanel() {
+		return artikelPanel;
+	}
+	public void setArtikelPanel(ArtikelPanel artikelPanel) {
+		this.artikelPanel = artikelPanel;
+	}
+	public Shopverwaltung getShop() {
+		return shop;
+	}
+	
+	public Account getUser() {
+		return user;
+	}
 
+	public void setUser(Account user) {
+		this.user = user;
+	}
+	
+	public WarenkorbPanel getWarenkorbPanel() {
+		return warenkorbPanel;
+	}
+
+	public void setWarenkorbPanel(WarenkorbPanel warenkorbPanel) {
+		this.warenkorbPanel = warenkorbPanel;
+	}
+	
+	public JPanel getObenPanel() {
+		return obenPanel;
+	}
+
+	public void setObenPanel(JPanel obenPanel) {
+		this.obenPanel = obenPanel;
+	}
 	//refresht alle Panels
 	public void refresh(){
 
