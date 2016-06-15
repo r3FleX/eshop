@@ -99,14 +99,22 @@ public class GUI_2 extends JFrame{
 		this.mainPanel.add(this.contentframe,BorderLayout.CENTER);	
 		add(this.mainPanel);
 		setVisible(true);
+		
+		//if (user instanceof Kunde) {
+			
+			userpanel.remove(userpanel.statistikButton);
+			contentframe.remove(userpanel);
+			
+			refresh();
+		//}
 	}
 	
 	//ObenPanel
 	public void obenPanelSetzen(){
 		obenPanel.setLayout(new GridLayout(1,1));
 		obenPanel.add(suchPanel);
-		obenPanel.add(warenKorbButtons.zumWarenKorbButton);
 		obenPanel.add(warenKorbButtons.getInWarenKorbLegenButton());
+		obenPanel.add(warenKorbButtons.zumWarenKorbButton);
 		obenPanel.setVisible(true);
 	}
 	
@@ -134,7 +142,6 @@ public class GUI_2 extends JFrame{
 	//Wenn Benutzer eingeloggt
 	public void userLoggedIn(Account user) {
 		//menuebar anpassen 
-		userpanel.remove(userpanel.statistikButton);
 			if (user instanceof Kunde) {
 				obenPanel.setVisible(true);
 				refresh();
@@ -158,7 +165,7 @@ public class GUI_2 extends JFrame{
 				userpanel.setVisible(true); //Panel einblenden
 				System.out.println("Kunde " + user.getName() + " ist eingeloggt.");
 				userpanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login	
-				userpanel.getStatistikButton().setVisible(false);
+				//userpanel.getStatistikButton().setVisible(false);
 				userpanel.remove(userpanel.statistikButton);
 				refresh();
 			}
@@ -170,7 +177,7 @@ public class GUI_2 extends JFrame{
 				obenPanel.setVisible(false);
 				userpanel.getStatistikButton().setVisible(true);
 				userpanel.add(userpanel.statistikButton);
-				
+				userpanel.add(userpanel.artikelHinzufuegenButton);
 				refresh();
 			}
 	}
@@ -204,19 +211,17 @@ public class GUI_2 extends JFrame{
 		obenPanel.remove(warenKorbButtons.zumWarenKorbButton);
 		obenPanel.remove(warenKorbButtons.getInWarenKorbLegenButton());
 		obenPanel.add(warenKorbButtons.zumShop);
-		userpanel.setVisible(true);
 		userpanel.remove(userpanel.statistikButton);
 		refresh();
 	}
 	
-	public void zumShopButton(){
+	public void zumShopButton(){	
 		obenPanel.remove(warenKorbButtons.zumShop);
 		contentframe.remove(warenkorbPanel);
 		contentframe.remove(untenWarenKorbBereichPanel);
 		untenWarenKorbBereichPanel.remove(warenKorbButtons.kaufAbschliessenButton);
 		
-		initialize();	
-		userpanel.setVisible(true);
+		initialize();
 		refresh();
 	}
 	

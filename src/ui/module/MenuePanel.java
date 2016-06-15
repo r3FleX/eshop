@@ -60,6 +60,10 @@ public class MenuePanel extends JPanel implements ActionListener{
 		mnHilfe.add(mnWieArtikelKaufen);
 		mnWieArtikelKaufen.addActionListener(this);
 		
+		JMenuItem mnUberUns = new JMenuItem("\u00DCber uns");
+		mnHilfe.add(mnUberUns);
+		mnUberUns.addActionListener(this);
+		
 		setUserLoggedIn(false);
 		setMenue(menueBar);
 	}

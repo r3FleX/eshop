@@ -41,7 +41,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 			final JFrame login = new JFrame();
 	
 			login.setSize(200, 300);
-			login.setLayout(new GridLayout(7, 1));
+			login.setLayout(new GridLayout(6, 1));
 	
 			JLabel labelname = new JLabel("Name:");
 			login.add(labelname);
@@ -54,6 +54,9 @@ public class LoginPanel extends JPanel implements ActionListener{
 	
 			final JPasswordField passwortFeld = new JPasswordField();
 			login.add(passwortFeld);
+			
+			JLabel platzhalter = new JLabel("");
+			login.add(platzhalter);
 			
 			JButton loginButton = new JButton("Login");
 			login.add(loginButton);
@@ -101,7 +104,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 			final JFrame registrieren = new JFrame();
 
 			registrieren.setSize(400, 300);
-			registrieren.setLayout(new GridLayout(11, 1));
+			registrieren.setLayout(new GridLayout(12, 1));
 
 			JLabel name = new JLabel("Name:");
 			registrieren.add(name);
@@ -132,6 +135,9 @@ public class LoginPanel extends JPanel implements ActionListener{
 
 			final JTextField ortFeld = new JTextField();
 			registrieren.add(ortFeld);
+			
+			JLabel platzhalter = new JLabel("");
+			registrieren.add(platzhalter);
 
 			JButton regButton = new JButton("Registrieren");
 			registrieren.add(regButton);
@@ -163,7 +169,7 @@ public class LoginPanel extends JPanel implements ActionListener{
 						JOptionPane.showMessageDialog(null, e1.getMessage());
 					}
 				}
-			});
-		}
-	}
+			});//Ende regButton.addActionListener(new ActionListener()
+		}//Ende else if (command.equals("Registrieren"))
+	}//public void actionPerformed(ActionEvent arg0)
 }
