@@ -167,6 +167,7 @@ public class GUI_2 extends JFrame{
 				userpanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login	
 				//userpanel.getStatistikButton().setVisible(false);
 				userpanel.remove(userpanel.statistikButton);
+				userpanel.remove(userpanel.artikelHinzufuegenButton);
 				refresh();
 			}
 			else if(user instanceof Mitarbeiter) {
