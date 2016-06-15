@@ -33,9 +33,9 @@ public class GUI_2 extends JFrame{
 	private MenuePanel menuBar;
 	
 	//LayoutPanel
-	private JPanel navframe = new JPanel();		
-	private JPanel contentframe = new JPanel();	
-	private JPanel mainPanel = new JPanel();
+	public JPanel navframe = new JPanel();		
+	public JPanel contentframe = new JPanel();	
+	public JPanel mainPanel = new JPanel();
 	
 	private JPanel untenWarenKorbBereichPanel = new JPanel();
 	//private JPanel warenkorbPanel = new JPanel();
@@ -45,9 +45,9 @@ public class GUI_2 extends JFrame{
 	private MitarbeiterPanel mitarbeiterPanel;
 	private KundenPanel kundenPanel;
 	private SuchPanel suchPanel;
-	private ArtikelPanel artikelPanel;
+	public ArtikelPanel artikelPanel;
 	private WarenkorbButtonPanel warenKorbButtons;
-	private WarenkorbPanel warenkorbPanel;
+	public WarenkorbPanel warenkorbPanel;
 	
 	//Konstrukter
 	public GUI_2(String datei) {
@@ -73,7 +73,8 @@ public class GUI_2 extends JFrame{
 		this.mainPanel.setLayout(new BorderLayout());
 		this.navframe.setLayout(new BorderLayout());
 		this.contentframe.setLayout(new BorderLayout());
-		//men�bar
+		
+		//Menuebar
 		setJMenuBar(menuBar.getMenue());
 		
 		//Warenkorb erstellen.
@@ -85,7 +86,7 @@ public class GUI_2 extends JFrame{
 		//SuchPanel
 		suchPanelSetzen();
 		
-		//Oben Panel
+		//ObenPanel
 		this.contentframe.add(obenPanel, BorderLayout.NORTH);
 		
 		//"norden splitten"
@@ -227,7 +228,11 @@ public class GUI_2 extends JFrame{
 		contentframe.remove(warenkorbPanel);
 		contentframe.remove(untenWarenKorbBereichPanel);
 		untenWarenKorbBereichPanel.remove(warenKorbButtons.kaufAbschliessenButton);		
-		initialize();
+		
+		obenPanel.add(suchPanel);
+		obenPanel.add(warenKorbButtons.getInWarenKorbLegenButton());
+		obenPanel.add(warenKorbButtons.zumWarenKorbButton);
+		contentframe.add(artikelPanel);
 		
 		refresh();
 	}

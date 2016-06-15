@@ -125,7 +125,9 @@ public class MitarbeiterPanel extends JPanel{
 			
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("refresh");
+				gui.contentframe.remove(gui.artikelPanel);
 				gui.refresh();
+				gui.contentframe.add(gui.artikelPanel);
 			}
 		});
 	}
