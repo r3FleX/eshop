@@ -75,6 +75,12 @@ public class MitarbeiterPanel extends JPanel{
 					final JTextField bestandFeld = new JTextField();
 					artikelHinzufuegenFrame.add(bestandFeld);
 					
+					JLabel packungsgroesse = new JLabel("Packungsgroesse:");
+					artikelHinzufuegenFrame.add(packungsgroesse);
+
+					final JTextField packungsgroesseFeld = new JTextField();
+					artikelHinzufuegenFrame.add(packungsgroesseFeld);
+					
 					JLabel platzhalter = new JLabel("");
 					artikelHinzufuegenFrame.add(platzhalter);
 
@@ -87,24 +93,27 @@ public class MitarbeiterPanel extends JPanel{
 				
 						public void actionPerformed(ActionEvent arg0) {
 							
-							//hole ..
 							String artikelname = artikelnameFeld.getText();
-							String artikelnummer = artikelnummerFeld.getText();
-							int preis = Integer.parseInt(preisFeld.getText());
-							String bestand = bestandFeld.getText();
-							/*
+							int artikelnummer = Integer.parseInt(artikelnummerFeld.getText());
+							int bestand = Integer.parseInt(bestandFeld.getText());
+							float preis = Float.parseFloat(preisFeld.getText());
+							int packungsgroesse = Integer.parseInt(packungsgroesseFeld.getText());
+							
 							try {
 								
 								Shopverwaltung shop = gui.getShop();
-								Artikel artikel = artikel.setArtname(name);
+								shop.fuegeArtikelEin(artikelname, artikelnummer, bestand, preis, packungsgroesse);
 								
-								if (){
-									
-									JOptionPane.showMessageDialog(null,"Artikel erfolgreich eingefuegt!");
+								try {
+									shop.schreibeArtikeldaten();
+									JOptionPane.showMessageDialog(null,"Artikel erfolgreich hinzugefuegt!");
+									artikelHinzufuegenFrame.setVisible(false);
+								} catch (IOException e) {
+									e.printStackTrace();
 								}
 							} catch (ArtikelExistiertBereitsException ex) {
 								JOptionPane.showMessageDialog(null, ex.getMessage());
-							}*/
+							}
 						}
 					});//Ende regButton.addActionListener(new ActionListener()
 			}

@@ -148,3 +148,8 @@ MassengutArtikel_8956
 12
 0.0
 1
+Tisch
+1234
+10
+10.0
+0
