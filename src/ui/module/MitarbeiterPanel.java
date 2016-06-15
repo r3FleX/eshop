@@ -22,14 +22,14 @@ import ui.GUI_2;
 import valueobjects.Account;
 import valueobjects.Kunde;
 
-public class UserPanel extends JPanel{
+public class MitarbeiterPanel extends JPanel{
 	
 	private GUI_2 gui;
 	public JButton statistikButton = new JButton("Statistik",new ImageIcon("src/assets/statistikIcon.png"));
 	public JButton artikelHinzufuegenButton = new JButton("Artikel hinzufuegen", new ImageIcon("src/assets/artikelHinzufuegenIcon.png"));
 	
 	//Konstruktor
-	public UserPanel(GUI_2 gui) {
+	public MitarbeiterPanel(GUI_2 gui) {
 		
 		this.gui = gui;
 	

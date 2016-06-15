@@ -12,7 +12,7 @@ import ui.controller.SuchController;
 import ui.module.ArtikelPanel;
 import ui.module.MenuePanel;
 import ui.module.SuchPanel;
-import ui.module.UserPanel;
+import ui.module.MitarbeiterPanel;
 import ui.module.WarenkorbButtonPanel;
 import ui.module.WarenkorbPanel;
 import valueobjects.Account;
@@ -41,7 +41,7 @@ public class GUI_2 extends JFrame{
 	//private JPanel warenKorbBereichPanel = new JPanel();
 	
 	private JPanel obenPanel = new JPanel();
-	private UserPanel userpanel;
+	private MitarbeiterPanel userpanel;
 	private SuchPanel suchPanel;
 	private ArtikelPanel artikelPanel;
 	private WarenkorbButtonPanel warenKorbButtons;
@@ -99,14 +99,6 @@ public class GUI_2 extends JFrame{
 		this.mainPanel.add(this.contentframe,BorderLayout.CENTER);	
 		add(this.mainPanel);
 		setVisible(true);
-		
-		//if (user instanceof Kunde) {
-			
-			userpanel.remove(userpanel.statistikButton);
-			contentframe.remove(userpanel);
-			
-			refresh();
-		//}
 	}
 	
 	//ObenPanel
@@ -115,12 +107,11 @@ public class GUI_2 extends JFrame{
 		obenPanel.add(suchPanel);
 		obenPanel.add(warenKorbButtons.getInWarenKorbLegenButton());
 		obenPanel.add(warenKorbButtons.zumWarenKorbButton);
-		obenPanel.setVisible(true);
 	}
 	
 	//LoginPanel
 	public void userPanelSetzen(){
-		userpanel = new UserPanel(this);
+		userpanel = new MitarbeiterPanel(this);
 		userpanel.setLayout(new GridLayout(1, 3));
 		userpanel.setVisible(false);
 		this.navframe.add(userpanel, BorderLayout.NORTH);	
@@ -143,8 +134,6 @@ public class GUI_2 extends JFrame{
 	public void userLoggedIn(Account user) {
 		//menuebar anpassen 
 			if (user instanceof Kunde) {
-				obenPanel.setVisible(true);
-				refresh();
 				if(!(user.getAccountNr() == -1)){
 					obenPanel.setVisible(true);
 					menuBar.setUserLoggedIn(true);
@@ -163,6 +152,7 @@ public class GUI_2 extends JFrame{
 					//userpanel einblenden
 				}				
 				userpanel.setVisible(true); //Panel einblenden
+				obenPanel.setVisible(true);
 				System.out.println("Kunde " + user.getName() + " ist eingeloggt.");
 				userpanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login	
 				//userpanel.getStatistikButton().setVisible(false);
