@@ -71,6 +71,8 @@ public class GUI_2 extends JFrame{
 		this.mainPanel.setLayout(new BorderLayout());
 		this.navframe.setLayout(new BorderLayout());
 		this.contentframe.setLayout(new BorderLayout());
+		//menübar
+		setJMenuBar(menuBar.getMenue());
 		
 		//Warenkorb erstellen.
 		warenkorbPanel = new WarenkorbPanel(this);	
@@ -87,8 +89,6 @@ public class GUI_2 extends JFrame{
 		//"norden splitten"
 		obenPanelSetzen();
 
-		//LoginPanel
-		userPanelSetzen();
 			
 		//ArtikelPanel
 		artikelPanelSetzen();
@@ -115,7 +115,7 @@ public class GUI_2 extends JFrame{
 		userpanel.setLayout(new GridLayout(1, 3));
 		userpanel.setVisible(false);
 		this.navframe.add(userpanel, BorderLayout.NORTH);	
-		setJMenuBar(menuBar.getMenue());
+		
 	}
 	
 	//SuchPanel
@@ -161,11 +161,12 @@ public class GUI_2 extends JFrame{
 				refresh();
 			}
 			else if(user instanceof Mitarbeiter) {
+				obenPanel.setVisible(false);
 				menuBar.setUserLoggedIn(true);
 				userpanel.setVisible(true); //Panel einblenden
 				System.out.println("Mitarbeiter " + user.getName() + " ist eingeloggt.");		
 				userpanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
-				obenPanel.setVisible(false);
+				
 				userpanel.getStatistikButton().setVisible(true);
 				userpanel.add(userpanel.statistikButton);
 				userpanel.add(userpanel.artikelHinzufuegenButton);
