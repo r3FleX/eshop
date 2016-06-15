@@ -139,7 +139,8 @@ public class WarenkorbButtonPanel extends JPanel{
 						if (!fehlerliste.isEmpty()) {
 							JOptionPane.showMessageDialog(null,"Es konnten nicht alle Artikel zum Kauf angeboten werden.");				
 							} else {
-							Rechnung rechnung = null;
+							RechnungsPanel rechnung = new RechnungsPanel(gui);
+			/*				Rechnung rechnung = null;
 			
 							try {
 								rechnung = shop.kaufAbwickeln((Kunde) user);
@@ -229,8 +230,8 @@ public class WarenkorbButtonPanel extends JPanel{
 							schliessen.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent actionEv) {
 									rechnungFenster.setVisible(false);
-								}
-							});//Ende schliessen Button						
+								} 
+							});//Ende schliessen Button	*/					
 						}//Ende else (!fehlerliste.isEmpty())
 					}//if (jaNein == 0)
 					

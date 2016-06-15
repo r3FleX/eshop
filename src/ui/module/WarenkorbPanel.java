@@ -41,7 +41,6 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 	}
 
 	private JScrollPane scrollPane;
-	private Shopverwaltung shop;
 	private GUI_2 gui;
 
 	//Konstruktor
