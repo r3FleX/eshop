@@ -38,7 +38,6 @@ public class WarenkorbButtonPanel extends JPanel{
 	private JTable warenkorbTabelle = null;
 	private JLabel gesamt = new JLabel();
 	private GUI_2 gui;
-	private Shopverwaltung shop;
 	private RechnungsPanel rechnungspanel;
 	
 	private Account user;
@@ -55,9 +54,8 @@ public class WarenkorbButtonPanel extends JPanel{
 	private JTextField anzahl = new JTextField();
 	
 	//Konstruktor
-	public WarenkorbButtonPanel(Shopverwaltung shop, GUI_2 gui) {
+	public WarenkorbButtonPanel(GUI_2 gui) {
 		
-		this.shop = shop;
 		this.gui = gui;
 		
 		
@@ -89,7 +87,9 @@ public class WarenkorbButtonPanel extends JPanel{
 					inDenWarenkorbButton.addActionListener(new ActionListener() {	
 						public void actionPerformed(ActionEvent arg1) {
 							try {  //inWarenkorbEinfuegen(Artikel art, int anzahl, Kunde kunde)
-								Artikel art = shop.artikelSuchen(Integer.parseInt((gui.getArtikelPanel().getArtikeltable().getValueAt(gui.getArtikelPanel().getAusgabeTabelle().getSelectedRow(),0)).toString()));
+								
+								Shopverwaltung shop = gui.getShop();
+								Artikel art = shop .artikelSuchen(Integer.parseInt((gui.getArtikelPanel().getArtikeltable().getValueAt(gui.getArtikelPanel().getAusgabeTabelle().getSelectedRow(),0)).toString()));
 								shop.inWarenkorbEinfuegen(art,Integer.parseInt(anzahl.getText()),(Kunde) gui.getUser());
 								//aktuallisere Warenkorb
 								Kunde user = (Kunde) gui.getUser();
@@ -134,7 +134,8 @@ public class WarenkorbButtonPanel extends JPanel{
 					int jaNein = JOptionPane.showConfirmDialog(null,"Bestellung abschliessen?");
 					if (jaNein == 0) {
 						
-						HashMap<Artikel, Integer> fehlerliste = shop.pruefeKauf((Kunde) user);
+						Shopverwaltung shop = gui.getShop();
+						HashMap<Artikel, Integer> fehlerliste = shop .pruefeKauf((Kunde) user);
 						if (!fehlerliste.isEmpty()) {
 							JOptionPane.showMessageDialog(null,"Es konnten nicht alle Artikel zum Kauf angeboten werden.");				
 							} else {

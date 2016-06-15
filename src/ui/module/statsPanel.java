@@ -130,7 +130,6 @@ public class statsPanel extends JPanel {
 		   List <Stats> alleStats = gui.getShop().gibAlleStats();
 			if (alleStats.isEmpty()) {
 				System.out.println("Keine Statistiken verfügbar");
-				//TODO sags der GUI ..
 			} else {
 				Iterator<Stats> iter = alleStats.iterator();
 				int lastartikelnummer = 0;

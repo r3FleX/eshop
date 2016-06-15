@@ -76,7 +76,7 @@ public class GUI_2 extends JFrame{
 		warenkorbPanel = new WarenkorbPanel(this);	
 		
 		//Warenkorb Schaltflarchen
-		warenKorbButtons = new WarenkorbButtonPanel(shop, this);
+		warenKorbButtons = new WarenkorbButtonPanel(this);
 		
 		//SuchPanel
 		suchPanelSetzen();
