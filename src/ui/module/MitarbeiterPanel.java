@@ -88,7 +88,7 @@ public class MitarbeiterPanel extends JPanel{
 					artikelHinzufuegenFrame.add(hinzufuegenButton);
 					artikelHinzufuegenFrame.setVisible(true);
 					
-					
+					//Artikel hinzufuegen
 					hinzufuegenButton.addActionListener(new ActionListener() { 
 				
 						public void actionPerformed(ActionEvent arg0) {
