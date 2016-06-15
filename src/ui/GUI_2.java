@@ -179,8 +179,9 @@ public class GUI_2 extends JFrame{
 				MitarbeiterPanelSetzen();
 				System.out.println("Mitarbeiter " + user.getName() + " ist eingeloggt.");		
 				mitarbeiterPanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
-				mitarbeiterPanel.add(mitarbeiterPanel.statistikButton);
-				mitarbeiterPanel.add(mitarbeiterPanel.artikelHinzufuegenButton);
+				//mitarbeiterPanel.add(mitarbeiterPanel.statistikButton);
+				//mitarbeiterPanel.add(mitarbeiterPanel.artikelHinzufuegenButton);
+				//mitarbeiterPanel.add(mitarbeiterPanel.refreshButton);
 				refresh();
 			}
 	}
