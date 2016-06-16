@@ -48,6 +48,7 @@ public class GUI_2 extends JFrame{
 	private ArtikelPanel artikelPanel;
 	private WarenkorbButtonPanel warenKorbButtons;
 	private WarenkorbPanel warenkorbPanel;
+	private ArtikelTableModel atm;
 	
 	//Konstrukter
 	public GUI_2(String datei) {
@@ -169,6 +170,7 @@ public class GUI_2 extends JFrame{
 				
 				System.out.println("Kunde " + user.getName() + " ist eingeloggt.");
 				kundenPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login	
+				
 				refresh();
 			}
 			else if(user instanceof Mitarbeiter) {
