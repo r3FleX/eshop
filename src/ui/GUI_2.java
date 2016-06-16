@@ -6,9 +6,11 @@ import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import domain.Shopverwaltung;
+import domain.exceptions.ArtikelExistiertBereitsException;
 import domain.exceptions.ArtikelExistiertNichtException;
 import domain.exceptions.BestandUeberschrittenException;
 import ui.controller.SuchController;
@@ -121,20 +123,23 @@ public class GUI_2 extends JFrame{
 	public void KundenPanelSetzen(){
 		kundenPanel = new KundenPanel(this);
 		kundenPanel.setLayout(new GridLayout(1, 3));
-		this.navframe.add(kundenPanel, BorderLayout.NORTH);			
-		
+		navframe.add(kundenPanel, BorderLayout.NORTH);		
 	}
 	
 	public void MitarbeiterPanelSetzen(){
 		mitarbeiterPanel = new MitarbeiterPanel(this);
 		mitarbeiterPanel.setLayout(new GridLayout(1, 3));
-		this.navframe.add(mitarbeiterPanel, BorderLayout.NORTH);	
+		navframe.add(mitarbeiterPanel, BorderLayout.NORTH);
+		artikelPanel.setVisible(false);
+		warenkorbPanel.setVisible(false);
+		contentframe.add(mitarbeiterPanel.getContentframe());
+		refresh();
 		
 	}	
 	//SuchPanel
 	public void suchPanelSetzen(){
 		suchPanel = new SuchPanel(suchController, this);
-		this.obenPanel.add(suchPanel, BorderLayout.NORTH);	
+		obenPanel.add(suchPanel, BorderLayout.NORTH);	
 	}
 	
 	//ArtikelPanel
@@ -256,6 +261,37 @@ public class GUI_2 extends JFrame{
         this.getWarenkorbPanel().getArtikeltable().setDataVector2(user.getWarenkorb());
 		
 	}
+	/** Fügt einen Artikel dem shop hinzu
+	 * 
+	 * @param atkl
+	 */
+	public void addArtikel(String artikelname,int artikelnummer, int bestand,float preis,int packungsgroesse) {
+		
+		try {
+			shop.fuegeArtikelEin(artikelname, artikelnummer, bestand, preis, packungsgroesse);
+			try {
+				shop.schreibeArtikeldaten();
+				JOptionPane.showMessageDialog(null,"Artikel erfolgreich hinzugefuegt!");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} catch (ArtikelExistiertBereitsException ex) {
+			JOptionPane.showMessageDialog(null, ex.getMessage());
+		}		
+	}
+	/** Löscht einen Artikel aus dem Shop
+	 * 
+	 * @param atkl
+	 */	
+	public void deleteArtikel(int nr) {
+		try {
+			shop.entferneArtikel(nr);
+		} catch (ArtikelExistiertNichtException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}	
 	public void untenWarenKorbBereichPanel(boolean b){
 		untenWarenKorbBereichPanel.setVisible(b);
 	}

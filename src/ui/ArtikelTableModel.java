@@ -25,8 +25,8 @@ import valueobjects.Warenkorb;
 
 
 public class ArtikelTableModel extends DefaultTableModel {
-	
-	public ArtikelTableModel(boolean option) {
+	boolean edit = false;
+	public ArtikelTableModel(boolean option, boolean edit) {
 		// Ober-Objekt der Klasse DefaultTableModel initialisieren		
 		super();
 		
@@ -40,7 +40,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 
 		// Spaltennamen in geerbtem Attribut merken
 		this.columnIdentifiers = spalten;
-		
+		this.edit = edit;
 	}
 	
 		// Tabellendaten hinzufügen
@@ -83,4 +83,19 @@ public class ArtikelTableModel extends DefaultTableModel {
 		}
 		this.setDataVector(rows, columnIdentifiers);
 	}
+	
+    public boolean isCellEditable(int row, int col) {
+    	//Tabelle bearbeitbar?
+    	if (this.edit == false) {
+    		//Optionen freigeben
+    		if (col > 4) return true;
+    		return false;
+    	}
+    	//artikelnummern dürfen nicht geaednert werden ..
+        if (col < 1) {
+          return false;
+        } else {
+          return true;
+        }
+      }
 }

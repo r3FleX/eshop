@@ -40,11 +40,9 @@ import domain.exceptions.BestandUeberschrittenException;
 
 public class ArtikelPanel extends JPanel{
 	
-	//private JPanel artikelPanel;
 	private ArtikelTableModel artikeltable;
 	private JTable ausgabeTabelle;
 	private JScrollPane scrollPane;
-//	private Shopverwaltung shop;
 	private GUI_2 gui;
 	
 	//Konstruktor
@@ -56,7 +54,7 @@ public class ArtikelPanel extends JPanel{
 		this.setBorder(BorderFactory.createTitledBorder("Artikel")); //Ueberschrift Artikel
 		
 		// TableModel als "Datencontainer" anlegen:
-		artikeltable = new ArtikelTableModel(true);
+		artikeltable = new ArtikelTableModel(true,false);
 		
 		// Artikel-Liste aufbereiten
 		//artikeltable.setDataVector(new Vector<Artikel>(),"Kaufen");

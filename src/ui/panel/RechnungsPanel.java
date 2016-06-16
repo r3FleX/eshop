@@ -89,7 +89,7 @@ public class RechnungsPanel extends JPanel{
 
 
 		// TableModel als "Datencontainer" anlegen:
-		artikeltable = new ArtikelTableModel(false);
+		artikeltable = new ArtikelTableModel(false,false);
 		
 		// JTable-Objekt erzeugen und mit Datenmodell initialisieren:
 		ausgabeTabelle = new JTable(artikeltable);
