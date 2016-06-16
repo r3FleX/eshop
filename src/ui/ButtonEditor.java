@@ -28,61 +28,15 @@ public class ButtonEditor extends DefaultCellEditor {
 	private String label;
 	private boolean isPushed;
 //	private Shopverwaltung shop;
-	private Account user;
-	private WarenkorbPanel warenkorbpanel;
-	private JTable ausgabeTabelle;
 	private GUI_2 gui;
-	public ButtonEditor(JCheckBox checkBox, JTable ausgabeTabelle, Account user, GUI_2 gui) {
+	public ButtonEditor(JCheckBox checkBox, GUI_2 gui,ActionListener listen) {
 
 		super(checkBox);
 	    button = new JButton();
 	    button.setOpaque(true);
-	    this.ausgabeTabelle = ausgabeTabelle;
-	    this.user = user;
-//	    this.shop = shop;
 	    this.gui = gui;
-	    
 	    //Actionlistener
-	    button.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {
-			  
-			    fireEditingStopped();
-			    //warenkorbpanel.wieOftArtikelZumWarenKorb();
-			    try {
-					JLabel wieOftArtikelKaufenLabel = new JLabel("Wie oft wollen Sie den Artikel kaufen?");
-					final JTextField anzahl = new JTextField();
-					JButton inDenWarenkorbButton = new JButton("In den Warenkorb");
-
-					final JFrame wieOftArtikelKaufenFrame = new JFrame();
-					wieOftArtikelKaufenFrame.getContentPane().setLayout(new GridLayout(2, 1));
-					wieOftArtikelKaufenFrame.setSize(450, 100);
-					wieOftArtikelKaufenFrame.getContentPane().add(wieOftArtikelKaufenLabel);
-					wieOftArtikelKaufenFrame.getContentPane().add(anzahl);
-					wieOftArtikelKaufenFrame.getContentPane().add(inDenWarenkorbButton);
-					wieOftArtikelKaufenFrame.setVisible(true);
-					
-					inDenWarenkorbButton.addActionListener(new ActionListener() {
-
-						public void actionPerformed(ActionEvent arg0) {
-							try {  //inWarenkorbEinfuegen(Artikel art,                ->                                                                                            ,int anzahl                        , Kunde kunde)	
-								Shopverwaltung shop = gui.getShop();
-								shop.inWarenkorbEinfuegen(shop.artikelSuchen(Integer.parseInt((ausgabeTabelle.getValueAt(ausgabeTabelle.getSelectedRow(),0)).toString())),Integer.parseInt(anzahl.getText()),(Kunde) user);
-								wieOftArtikelKaufenFrame.setVisible(false);
-							} catch (NumberFormatException e) {
-								e.printStackTrace();
-							} catch (BestandUeberschrittenException e) {
-								JOptionPane.showMessageDialog(null, e.getMessage());
-							} catch (ArtikelExistiertNichtException e) {
-								JOptionPane.showMessageDialog(null, e.getMessage());
-							}
-						}
-					});
-
-				} catch (NumberFormatException e1) {
-					e1.printStackTrace();
-				}
-			}
-	    });
+	    button.addActionListener(listen);
 	}
 
 	public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column){

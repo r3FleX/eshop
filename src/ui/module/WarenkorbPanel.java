@@ -53,7 +53,7 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 		this.setVisible(true);
 		
 		// TableModel als "Datencontainer" anlegen:
-		artikeltable = new ArtikelTableModel();
+		artikeltable = new ArtikelTableModel(false);
 		
 		// JTable-Objekt erzeugen und mit Datenmodell initialisieren:
 		ausgabeTabelle = new JTable(artikeltable);

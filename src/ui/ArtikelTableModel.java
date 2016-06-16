@@ -26,12 +26,8 @@ import valueobjects.Warenkorb;
 
 public class ArtikelTableModel extends DefaultTableModel {
 	
-	//private Kunde kunde;
-	private Account user;
-	
-	public ArtikelTableModel() {
-		// Ober-Objekt der Klasse DefaultTableModel initialisieren
-		
+	public ArtikelTableModel(boolean option) {
+		// Ober-Objekt der Klasse DefaultTableModel initialisieren		
 		super();
 		
 		Vector spalten = new Vector();		
@@ -40,7 +36,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 		spalten.add("Bestand");
 		spalten.add("Preis");
 		spalten.add("Packungsgroesse");
-		spalten.add("Option");
+		if (option) spalten.add("Option");
 
 		// Spaltennamen in geerbtem Attribut merken
 		this.columnIdentifiers = spalten;
@@ -48,7 +44,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 	}
 	
 		// Tabellendaten hinzufügen
-		public void setDataVector(List<Artikel> articles) {
+		public void setDataVector(List<Artikel> articles, String optionname) {
 			// DefaultTableModel erwartet Repräsentation der Tabellendaten
 			// als Vector von Vectoren
 			Vector rows = new Vector();
@@ -60,11 +56,8 @@ public class ArtikelTableModel extends DefaultTableModel {
 				einArtikelAlsVector.add(artikel.getBestand());
 				einArtikelAlsVector.add(artikel.getPreis());
 				einArtikelAlsVector.add(artikel.getPackungsgroesse());
-				//if (this.user instanceof Mitarbeiter) {
-					einArtikelAlsVector.add("Kaufen");
-				//}
+				if (!optionname.isEmpty()) einArtikelAlsVector.add(optionname);
 				rows.add(einArtikelAlsVector);
-				//einArtikelAlsVector.add(kunde.getWarenkorb().getInhalt().values());
 			}
 			this.setDataVector(rows, columnIdentifiers);
 		}

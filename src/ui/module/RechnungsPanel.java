@@ -31,7 +31,6 @@ public class RechnungsPanel extends JPanel{
 	private JLabel gesamt = new JLabel();
 	private ArtikelTableModel artikeltable;
 	private JTable ausgabeTabelle = null;
-	private JTable warenkorbTabelle = null;
 	private JScrollPane scrollPane;
 	
 	//Konstruktor
@@ -90,7 +89,7 @@ public class RechnungsPanel extends JPanel{
 
 
 		// TableModel als "Datencontainer" anlegen:
-		artikeltable = new ArtikelTableModel();
+		artikeltable = new ArtikelTableModel(false);
 		
 		// JTable-Objekt erzeugen und mit Datenmodell initialisieren:
 		ausgabeTabelle = new JTable(artikeltable);
@@ -101,9 +100,6 @@ public class RechnungsPanel extends JPanel{
 		// Anzeige der Artikelliste auch in der Kunden-Ansicht
 		artikeltable.setDataVector2(user.getWarenkorb());
 		unten.add(scrollPane);			
-		
-		
-		
 
 		gesamtpreis = rechnung.getGesamtpreis();
 		gesamt.setText("Gesamtpreis: " + gesamtpreis + "€");
