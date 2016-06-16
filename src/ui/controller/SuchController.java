@@ -3,7 +3,7 @@ package ui.controller;
 import domain.Artikelverwaltung;
 import domain.Shopverwaltung;
 import ui.GUI_2;
-import ui.module.ArtikelPanel;
+import ui.panel.ArtikelPanel;
 import valueobjects.Artikel;
 
 import java.util.List;

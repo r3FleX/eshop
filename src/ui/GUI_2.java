@@ -9,15 +9,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import domain.Shopverwaltung;
+import domain.exceptions.ArtikelExistiertNichtException;
+import domain.exceptions.BestandUeberschrittenException;
 import ui.controller.SuchController;
-import ui.module.ArtikelPanel;
-import ui.module.KundenPanel;
-import ui.module.MenuePanel;
-import ui.module.SuchPanel;
-import ui.module.MitarbeiterPanel;
-import ui.module.WarenkorbButtonPanel;
-import ui.module.WarenkorbPanel;
+import ui.panel.ArtikelPanel;
+import ui.panel.KundenPanel;
+import ui.panel.MenuePanel;
+import ui.panel.MitarbeiterPanel;
+import ui.panel.SuchPanel;
+import ui.panel.WarenkorbButtonPanel;
+import ui.panel.WarenkorbPanel;
 import valueobjects.Account;
+import valueobjects.Artikel;
 import valueobjects.Kunde;
 import valueobjects.Mitarbeiter;
 import valueobjects.Warenkorb;
@@ -237,7 +240,22 @@ public class GUI_2 extends JFrame{
 		
 		refresh();
 	}
-	
+	/**Fügt einen Artikel in den Warenkorb
+	 * 
+	 * @param anzahl -> Anzahl der Artikel die Hinzugefügt werden sollen
+	 * @throws NumberFormatException
+	 * @throws BestandUeberschrittenException
+	 * @throws ArtikelExistiertNichtException
+	 */
+	public void zumWarenkorbHinzufuegen(int anzahl) throws NumberFormatException, BestandUeberschrittenException, ArtikelExistiertNichtException {
+
+		Artikel art = shop.artikelSuchen(Integer.parseInt((this.getArtikelPanel().getArtikeltable().getValueAt(this.getArtikelPanel().getAusgabeTabelle().getSelectedRow(),0)).toString()));
+		shop.inWarenkorbEinfuegen(art,anzahl,(Kunde) this.user);
+		//aktuallisere Warenkorb
+		Kunde user = (Kunde) this.getUser();
+        this.getWarenkorbPanel().getArtikeltable().setDataVector2(user.getWarenkorb());
+		
+	}
 	public void untenWarenKorbBereichPanel(boolean b){
 		untenWarenKorbBereichPanel.setVisible(b);
 	}

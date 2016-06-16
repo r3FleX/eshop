@@ -15,8 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 import domain.Shopverwaltung;
-import ui.module.WarenkorbButtonPanel;
-import ui.module.WarenkorbPanel;
+import ui.panel.WarenkorbButtonPanel;
+import ui.panel.WarenkorbPanel;
 import valueobjects.Account;
 import valueobjects.Artikel;
 import valueobjects.Kunde;
@@ -79,7 +79,6 @@ public class ArtikelTableModel extends DefaultTableModel {
 			einArtikelAlsVector.add(artikel.getName());
 			einArtikelAlsVector.add((Integer)warenkorb.getInhalt().get(artikel));
 			einArtikelAlsVector.add(artikel.getPreis());
-			
 			rows.add(einArtikelAlsVector);
 		}
 		this.setDataVector(rows, columnIdentifiers);

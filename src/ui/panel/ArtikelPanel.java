@@ -1,4 +1,4 @@
-package ui.module;
+package ui.panel;
 
 import java.awt.GridLayout;
 import java.util.List;
@@ -97,11 +97,8 @@ public class ArtikelPanel extends JPanel{
 						public void actionPerformed(ActionEvent arg0) {
 							try { 
 								//Zum Warenkorb hinzufügen
-								Shopverwaltung shop = gui.getShop();
-								Artikel atikl = shop.artikelSuchen(Integer.parseInt((ausgabeTabelle.getValueAt(ausgabeTabelle.getSelectedRow(),0)).toString()));
 								int anz = Integer.parseInt(anzahl.getText());
-								shop.inWarenkorbEinfuegen(atikl ,anz,(Kunde) gui.getUser());
-								//ANzahl frame ausblenden
+								gui.zumWarenkorbHinzufuegen(anz);
 								wieOftArtikelKaufenFrame.setVisible(false);
 							} catch (NumberFormatException e) {
 								e.printStackTrace();

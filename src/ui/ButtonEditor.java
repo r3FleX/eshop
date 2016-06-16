@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 import domain.Shopverwaltung;
 import domain.exceptions.ArtikelExistiertNichtException;
 import domain.exceptions.BestandUeberschrittenException;
-import ui.module.WarenkorbPanel;
+import ui.panel.WarenkorbPanel;
 import valueobjects.Account;
 import valueobjects.Kunde;
 

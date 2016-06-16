@@ -1,4 +1,4 @@
-package ui.module;
+package ui.panel;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -33,15 +33,7 @@ import valueobjects.Warenkorb;
 
 public class WarenkorbButtonPanel extends JPanel{
 	
-
-	private JTable ausgabeTabelle = null;
-	private JTable warenkorbTabelle = null;
-	private JLabel gesamt = new JLabel();
 	private GUI_2 gui;
-	private RechnungsPanel rechnungspanel;
-	
-	private Account user;
-	private float gesamtpreis = 0.0f;
 	
 	public JButton zumWarenKorbButton = new JButton("zum Warenkorb",new ImageIcon("src/assets/warenkorbIcon.png"));
 	private JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
@@ -86,14 +78,9 @@ public class WarenkorbButtonPanel extends JPanel{
 
 					inDenWarenkorbButton.addActionListener(new ActionListener() {	
 						public void actionPerformed(ActionEvent arg1) {
-							try {  //inWarenkorbEinfuegen(Artikel art, int anzahl, Kunde kunde)
+							try {
+								gui.zumWarenkorbHinzufuegen(Integer.parseInt(anzahl.getText()));
 								
-								Shopverwaltung shop = gui.getShop();
-								Artikel art = shop .artikelSuchen(Integer.parseInt((gui.getArtikelPanel().getArtikeltable().getValueAt(gui.getArtikelPanel().getAusgabeTabelle().getSelectedRow(),0)).toString()));
-								shop.inWarenkorbEinfuegen(art,Integer.parseInt(anzahl.getText()),(Kunde) gui.getUser());
-								//aktuallisere Warenkorb
-								Kunde user = (Kunde) gui.getUser();
-						        gui.getWarenkorbPanel().getArtikeltable().setDataVector2(user.getWarenkorb());
 								wieOftArtikelKaufenFrame.setVisible(false);
 							} catch (NumberFormatException e) {
 								e.printStackTrace();
