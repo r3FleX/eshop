@@ -13,7 +13,7 @@ public class Artikel {
 	private float preis;
 	
 	public int getPackungsgroesse() {
-		return 0;
+		return 1;
 	}
 
 	public boolean isMassengut() {
