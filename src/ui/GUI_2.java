@@ -53,7 +53,6 @@ public class GUI_2 extends JFrame{
 	private ArtikelPanel artikelPanel;
 	private WarenkorbButtonPanel warenKorbButtons;
 	private WarenkorbPanel warenkorbPanel;
-	private ArtikelTableModel atm;
 	
 	//Konstrukter
 	public GUI_2(String datei) {
@@ -191,9 +190,10 @@ public class GUI_2 extends JFrame{
 	//Wenn Benutzer ausgeloggt
 	public void userLoggedOut(){
 		if (user instanceof Kunde) {
-			kundenPanel.setVisible(false);
-		}else{	
-			mitarbeiterPanel.setVisible(false);
+			contentframe.remove(kundenPanel);
+		}else{
+			navframe.remove(mitarbeiterPanel);
+			contentframe.remove(mitarbeiterPanel.getContentframe());
 			artikelPanel.setVisible(true);
 			warenkorbPanel.setVisible(true);
 			untenframe.setVisible(true);			

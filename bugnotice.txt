@@ -14,6 +14,8 @@
 
 - Kauf wird nicht abgeschlossen
 
+-warenkorb kaufen butten verschwindet beim ausloggen
+
 
 // MITARBEITER //
 
