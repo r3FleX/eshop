@@ -8,6 +8,7 @@ import java.util.Vector;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -20,6 +21,8 @@ import domain.Shopverwaltung;
 import domain.exceptions.ArtikelExistiertNichtException;
 import domain.exceptions.BestandUeberschrittenException;
 import ui.ArtikelTableModel;
+import ui.ButtonEditor;
+import ui.ButtonRenderer;
 import ui.GUI_2;
 import valueobjects.Account;
 import valueobjects.Artikel;
@@ -53,7 +56,7 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 		this.setVisible(true);
 		
 		// TableModel als "Datencontainer" anlegen:
-		artikeltable = new ArtikelTableModel(false,false);
+		artikeltable = new ArtikelTableModel(true,false);
 		
 		// JTable-Objekt erzeugen und mit Datenmodell initialisieren:
 		ausgabeTabelle = new JTable(artikeltable);
@@ -64,10 +67,30 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 				
 		Kunde user =(Kunde) this.gui.getUser();
 		// Anzeige der Artikelliste auch in der Kunden-Ansicht
-		artikeltable.setDataVector2(user.getWarenkorb());
-		this.add(scrollPane);	
+		artikeltable.setDataVector2(user.getWarenkorb(),"Entfernen");
+		this.add(scrollPane);
+		renderOption();	
 	}	
 	
+	private void renderOption() {
+		 ActionListener listen = new ActionListener() {
+			    public void actionPerformed(ActionEvent e) {
+					try {
+						
+							
+						JOptionPane.showMessageDialog(null,"Entfernt mich o.O");
+					} catch (NumberFormatException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}    				
+		    };
+		};
+		//Layout Tabelle -> Button fuer "Option"
+		ausgabeTabelle.getColumn("Option").setCellRenderer(new ButtonRenderer());
+		ausgabeTabelle.getColumn("Option").setCellEditor(new ButtonEditor(new JCheckBox(),gui, listen));	
+		
+	}
+
 	public void wieOftArtikelZumWarenKorb(){
 		
 		

@@ -65,9 +65,10 @@ public class ArtikelTableModel extends DefaultTableModel {
 	
 	/**
 	 * Tabellendaten hinzufügen (für den Warenkorb)
+	 * @param optionname 
 	 */
 	
-	public void setDataVector2(Warenkorb warenkorb) {
+	public void setDataVector2(Warenkorb warenkorb, String optionname) {
 		Set<Artikel> articles = warenkorb.getInhalt().keySet();
 		
 		Vector rows = new Vector();
@@ -79,6 +80,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 			einArtikelAlsVector.add(artikel.getName());
 			einArtikelAlsVector.add((Integer)warenkorb.getInhalt().get(artikel));
 			einArtikelAlsVector.add(artikel.getPreis());
+			if (!optionname.isEmpty()) einArtikelAlsVector.add(optionname);
 			rows.add(einArtikelAlsVector);
 		}
 		this.setDataVector(rows, columnIdentifiers);

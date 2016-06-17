@@ -258,7 +258,7 @@ public class GUI_2 extends JFrame{
 		shop.inWarenkorbEinfuegen(art,anzahl,(Kunde) this.user);
 		//aktuallisere Warenkorb
 		Kunde user = (Kunde) this.getUser();
-        this.getWarenkorbPanel().getArtikeltable().setDataVector2(user.getWarenkorb());
+        this.getWarenkorbPanel().getArtikeltable().setDataVector2(user.getWarenkorb(),"");
 		
 	}
 	/** Fügt einen Artikel dem shop hinzu

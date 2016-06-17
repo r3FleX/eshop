@@ -98,7 +98,7 @@ public class RechnungsPanel extends JPanel{
 		// JTable in ScrollPane platzieren:
 		scrollPane = new JScrollPane(ausgabeTabelle);
 		// Anzeige der Artikelliste auch in der Kunden-Ansicht
-		artikeltable.setDataVector2(user.getWarenkorb());
+		artikeltable.setDataVector2(user.getWarenkorb(),"");
 		unten.add(scrollPane);			
 
 		gesamtpreis = rechnung.getGesamtpreis();
