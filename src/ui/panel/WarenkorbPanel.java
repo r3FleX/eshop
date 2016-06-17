@@ -27,6 +27,7 @@ import ui.GUI_2;
 import valueobjects.Account;
 import valueobjects.Artikel;
 import valueobjects.Kunde;
+import valueobjects.Warenkorb;
 
 public class WarenkorbPanel extends JPanel implements ActionListener {
 
@@ -67,9 +68,8 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 				
 		Kunde user =(Kunde) this.gui.getUser();
 		// Anzeige der Artikelliste auch in der Kunden-Ansicht
-		artikeltable.setDataVector2(user.getWarenkorb(),"Entfernen");
+		this.updateData(user.getWarenkorb());
 		this.add(scrollPane);
-		renderOption();	
 	}	
 	
 	private void renderOption() {
@@ -106,5 +106,10 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 	
 	public void setAusgabeTabelle(JTable ausgabeTabelle) {
 		this.ausgabeTabelle = ausgabeTabelle;
+	}
+
+	public void updateData(Warenkorb warenkorb) {
+		artikeltable.setDataVector2(warenkorb,"Entfernen");
+		renderOption();	
 	}
 }

@@ -80,6 +80,7 @@ public class ArtikelTableModel extends DefaultTableModel {
 			einArtikelAlsVector.add(artikel.getName());
 			einArtikelAlsVector.add((Integer)warenkorb.getInhalt().get(artikel));
 			einArtikelAlsVector.add(artikel.getPreis());
+			einArtikelAlsVector.add(artikel.getPackungsgroesse());
 			if (!optionname.isEmpty()) einArtikelAlsVector.add(optionname);
 			rows.add(einArtikelAlsVector);
 		}
