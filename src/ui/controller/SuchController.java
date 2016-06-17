@@ -11,12 +11,9 @@ import java.util.List;
 public class SuchController {
 
     private GUI_2 gui;
-    private Shopverwaltung shopverwaltung;
 
-    public SuchController(GUI_2 gui, Shopverwaltung shopverwaltung) {
-
+    public SuchController(GUI_2 gui) {
         this.gui = gui;
-        this.shopverwaltung = shopverwaltung;
     }
     
     //Der Such Button ruft im suchController suchen auf. 
@@ -25,8 +22,8 @@ public class SuchController {
     public void suchen(String suchText) {
     	
         List<Artikel> suchErgebnis = suchText.isEmpty() ?
-                shopverwaltung.gibAlleArtikel() :
-                shopverwaltung.sucheNachArtikel(suchText);                
+                gui.getShop().gibAlleArtikel() :
+                gui.getShop().sucheNachArtikel(suchText);                
         gui.getArtikelPanel().getArtikeltable().setDataVector(suchErgebnis,"Kaufen");
         gui.getArtikelPanel().renderOption();
     }

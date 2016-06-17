@@ -59,8 +59,8 @@ public class GUI_2 extends JFrame{
 	public GUI_2(String datei) {
 		try {
 			shop = new Shopverwaltung(datei);
-			menuBar = new MenuePanel(this, shop, user);			
-			this.suchController = new SuchController(this, shop); 
+			menuBar = new MenuePanel(this);			
+			this.suchController = new SuchController(this); 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -72,6 +72,12 @@ public class GUI_2 extends JFrame{
 	
 	//initialisieren
 	private void initialize() {
+		//Panels Initializieren
+		artikelPanel = new ArtikelPanel(shop.gibAlleArtikel(), this);
+		mitarbeiterPanel = new MitarbeiterPanel(this);
+		kundenPanel = new KundenPanel(this);
+		suchPanel = new SuchPanel(suchController, this);
+		
 		
 		//beendet das Programm durch klicken auf [X]
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -101,9 +107,6 @@ public class GUI_2 extends JFrame{
 		//ArtikelPanel
 		artikelPanelSetzen();
 		
-		//untenframe
-		untenframe();
-		
 		//GUI setzen
 		this.mainPanel.add(this.navframe,BorderLayout.NORTH);
 		this.mainPanel.add(this.contentframe,BorderLayout.CENTER);	
@@ -121,30 +124,30 @@ public class GUI_2 extends JFrame{
 	}
 	
 	public void KundenPanelSetzen(){
-		kundenPanel = new KundenPanel(this);
 		kundenPanel.setLayout(new GridLayout(1, 3));
-		navframe.add(kundenPanel, BorderLayout.NORTH);		
+		kundenPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login	
+		navframe.add(kundenPanel, BorderLayout.NORTH);
+		//nnicht benötige panel ausblenden
+		obenPanel.setVisible(true);
 	}
 	
 	public void MitarbeiterPanelSetzen(){
-		mitarbeiterPanel = new MitarbeiterPanel(this);
 		mitarbeiterPanel.setLayout(new GridLayout(1, 3));
 		navframe.add(mitarbeiterPanel, BorderLayout.NORTH);
+		contentframe.add(mitarbeiterPanel.getContentframe());
+		mitarbeiterPanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
+		//nicht benötigte Panel ausblenden
 		artikelPanel.setVisible(false);
 		warenkorbPanel.setVisible(false);
-		contentframe.add(mitarbeiterPanel.getContentframe());
-		refresh();
-		
+		untenframe.setVisible(false);
 	}	
 	//SuchPanel
-	public void suchPanelSetzen(){
-		suchPanel = new SuchPanel(suchController, this);
+	public void suchPanelSetzen(){		
 		obenPanel.add(suchPanel, BorderLayout.NORTH);	
 	}
 	
 	//ArtikelPanel
 	public void artikelPanelSetzen(){
-		artikelPanel = new ArtikelPanel(shop.gibAlleArtikel(), this);
 		this.contentframe.add(artikelPanel, BorderLayout.CENTER);	
 	}
 	
@@ -155,44 +158,33 @@ public class GUI_2 extends JFrame{
 		untenframe.add(warenKorbButtons.kaufAbschliessenButton);
 		untenframe.add(new JLabel());//Platzhalter
 		untenframe.setBorder(BorderFactory.createTitledBorder("Kaufabwicklungsbereich")); //Ueberschrift Kaufabwicklungsbereich
-		untenframe.setVisible(false);
 	}
 		
 	//Wenn Benutzer eingeloggt
 	public void userLoggedIn(Account user) {
 		//Menuebar anpassen 
+		menuBar.setUserLoggedIn(true);
+		
 			if (user instanceof Kunde) {
+				//kunde einloggen und warenkorb übernehmen
 				if(!(user.getAccountNr() == -1)){
-					obenPanel.setVisible(true);
-					menuBar.setUserLoggedIn(true);
-
 					Warenkorb wk = ((Kunde) this.user).getWarenkorb();
 					this.user = user;
-					
 					((Kunde) this.user).setWarenkorb(wk);
 				}				
-				
 				//Panel einblenden
 				KundenPanelSetzen();
-				obenPanel.setVisible(true);
-				
+				//Hinweisfesnterchen das man eingelogt ist
 				System.out.println("Kunde " + user.getName() + " ist eingeloggt.");
-				kundenPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login	
-				
-				refresh();
 			}
 			else if(user instanceof Mitarbeiter) {
 				obenPanel.setVisible(false);
-				menuBar.setUserLoggedIn(true); //Menuebar mitteilen das user eingelogt
-				
 				//mitarbeiter einloggen
 				this.user = user;
+				//Panel einblenden
 				MitarbeiterPanelSetzen();
-				
+				//hinweisfesnterchen
 				System.out.println("Mitarbeiter " + user.getName() + " ist eingeloggt.");	
-				mitarbeiterPanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
-
-				refresh();
 			}
 	}
 	
@@ -202,6 +194,9 @@ public class GUI_2 extends JFrame{
 			kundenPanel.setVisible(false);
 		}else{	
 			mitarbeiterPanel.setVisible(false);
+			artikelPanel.setVisible(true);
+			warenkorbPanel.setVisible(true);
+			untenframe.setVisible(true);			
 		}		
 		//Gastkonto "reaktivieren"
 		this.user = (Account) new Kunde("Gast", "gast", -1, "none", 12345, "none");

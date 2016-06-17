@@ -25,7 +25,7 @@ public class MenuePanel implements ActionListener{
 	private GUI_2 gui;
 	
 	//Konstruktor
-	public MenuePanel(GUI_2 gui, Shopverwaltung shop, Account user) {
+	public MenuePanel(GUI_2 gui) {
 		this.gui = gui;
 		
 		JMenuBar menueBar = new JMenuBar();		
