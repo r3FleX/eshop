@@ -1,6 +1,6 @@
 Cola
 8927
-12
+14
 10.0
 0
 Audi A6
@@ -43,11 +43,6 @@ Artikel_8935
 70
 0.0
 0
-MassengutArtikel_8936
-8936
-21
-0.0
-4
 Artikel_8937
 8937
 54
@@ -212,4 +207,9 @@ test9
 9
 9
 9.0
+0
+MassengutArtikel_8936
+8936
+21
+0.0
 0

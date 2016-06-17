@@ -96,35 +96,17 @@ public class MitarbeiterPanel extends JPanel{
 	private void renderOption() {
 		 ActionListener listen = new ActionListener() {
 			    public void actionPerformed(ActionEvent e) {
-					Shopverwaltung shop = gui.getShop();
-					//Zum Warenkorb hinzufügen
-					//int anz = Integer.parseInt(anzahl.getText());
-					//gui.zumWarenkorbHinzufuegen(anz);
 					try {
+						//geaenderte Daten auslesen
 						int artikelnummer = Integer.parseInt((artikeltable.getValueAt(ausgabeTabelle.getSelectedRow(),0)).toString());
-						Artikel art = shop.artikelSuchen(artikelnummer);
-						//bearbeiteten Artikel speichern
-						
-						
-						
-					//	gui.deleteArtikel(artikelnummer);
-						
-					/*	
-						String artikelname = artikelnameFeld.getText();
-						int artikelnummer = Integer.parseInt(artikelnummerFeld.getText());
-						int bestand = Integer.parseInt(bestandFeld.getText());
-						float preis = Float.parseFloat(preisFeld.getText());
-						int packungsgroesse = Integer.parseInt(packungsgroesseFeld.getText());*/
-						//gui.addArtikel(artikelname,artikelnummer, bestand,preis,packungsgroesse);						
-						
-						
+						String artikelname =  artikeltable.getValueAt(ausgabeTabelle.getSelectedRow(), 1).toString();
+						int bestand = Integer.parseInt((artikeltable.getValueAt(ausgabeTabelle.getSelectedRow(),2)).toString());
+						float preis = Float.parseFloat((artikeltable.getValueAt(ausgabeTabelle.getSelectedRow(),3)).toString());
+						int packungsgroesse = Integer.parseInt((artikeltable.getValueAt(ausgabeTabelle.getSelectedRow(),4)).toString());
+						//änderungen speichern
+						gui.aendereArtikel(artikelname,artikelnummer, bestand,preis,packungsgroesse);							
+						JOptionPane.showMessageDialog(null,"Artikeländerungen Gespeichert");
 					} catch (NumberFormatException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (BestandUeberschrittenException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (ArtikelExistiertNichtException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}    				
@@ -132,9 +114,7 @@ public class MitarbeiterPanel extends JPanel{
 		};
 		//Layout Tabelle -> Button fuer "Option"
 		ausgabeTabelle.getColumn("Option").setCellRenderer(new ButtonRenderer());
-		ausgabeTabelle.getColumn("Option").setCellEditor(
-		        new ButtonEditor(new JCheckBox(),gui, listen));	
-		
+		ausgabeTabelle.getColumn("Option").setCellEditor(new ButtonEditor(new JCheckBox(),gui, listen));		
 	}
 
 	//Getter uns Setter

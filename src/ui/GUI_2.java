@@ -266,7 +266,7 @@ public class GUI_2 extends JFrame{
 	 * @param atkl
 	 */
 	public void addArtikel(String artikelname,int artikelnummer, int bestand,float preis,int packungsgroesse) {
-		
+/*		
 		try {
 			shop.fuegeArtikelEin(artikelname, artikelnummer, bestand, preis, packungsgroesse);
 			try {
@@ -277,21 +277,43 @@ public class GUI_2 extends JFrame{
 			}
 		} catch (ArtikelExistiertBereitsException ex) {
 			JOptionPane.showMessageDialog(null, ex.getMessage());
-		}		
+		}
+		*/		
 	}
 	/** Löscht einen Artikel aus dem Shop
 	 * 
 	 * @param atkl
 	 */	
 	public void deleteArtikel(int nr) {
-		try {
+	/*	try {
 			shop.entferneArtikel(nr);
 		} catch (ArtikelExistiertNichtException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}	
+	public void aendereArtikel(String artikelname,int artikelnummer, int bestand,float preis,int packungsgroesse) {
+		
+		try {
+			shop.aendereArtikel(artikelname, artikelnummer, bestand, preis, packungsgroesse);
+		} catch (ArtikelExistiertBereitsException | ArtikelExistiertNichtException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			shop.schreibeArtikeldaten();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			shop.schreibeStatsdaten();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public void untenWarenKorbBereichPanel(boolean b){
 		untenWarenKorbBereichPanel.setVisible(b);
 	}

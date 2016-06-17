@@ -140,7 +140,28 @@ public class Artikelverwaltung {
 		throw new ArtikelExistiertNichtException(artklNummer);
 
 	}
-
+	/** ƒndert die Datein eines artikels
+	 * 
+	 * @param artikelname
+	 * @param artikelnummer
+	 * @param bestand
+	 * @param preis
+	 * @param packungsgroesse
+	 */
+	public void aendereArtikel(String artikelname, int artikelnummer, int bestand, float preis, int packungsgroesse) {		
+		for (Artikel testArtikel : artikelBestand) {
+			if (testArtikel.getNummer() == artikelnummer) {
+				testArtikel.setArtname(artikelname);
+				testArtikel.setPreis(preis);
+				//TODO umwandeln von normalen artikel in masengutartikel
+			/*	if (packungsgroesse > 0 ) {
+					testArtikel.setMassengut(true);	
+					testArtikel.setPackungsgroesse(packungsgroesse);
+				} */
+				testArtikel.setBestand(bestand);				
+			}
+		}			
+	}
 	/**
 	 * Methode, die anhand eines Titels nach Artikeln sucht. Es wird eine Liste
 	 * von Artikeln zurueckgegeben, welche mit dem exakten Titel uebereinstimmt.
@@ -234,4 +255,6 @@ public class Artikelverwaltung {
 		// Persistenz-Schnittstelle wieder schlie√üen
 		pm.close();
 	}
+
+
 }

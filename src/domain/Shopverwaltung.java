@@ -192,6 +192,15 @@ public class Shopverwaltung {
 		meineStats.statupdate(artklnummer,data.getName(), newBestand1, LagerEreignisTyp.BESTAND_VERAENDERT);
 		return meineArtikel.aendereBestand(artklnummer, newBestand1);		
 	}
+	//Bestand aendern
+	public void aendereArtikel(String artikelname, int artikelnummer,int  bestand,float preis, int packungsgroesse) throws ArtikelExistiertBereitsException, ArtikelExistiertNichtException {
+		Artikel data = meineArtikel.artikelSuchen(artikelnummer);
+		//bestand verändert? an stats weiterleiten
+		if (data.getBestand() != bestand) meineStats.statupdate(artikelnummer,data.getName(), bestand, LagerEreignisTyp.BESTAND_VERAENDERT);
+		//artikeldaten ändern (lassen)
+		meineArtikel.aendereArtikel(artikelname,artikelnummer,bestand,preis,packungsgroesse);
+				
+	}	
 	
 	//Warenkorn einfuegen
 	public void inWarenkorbEinfuegen(Artikel art, int anzahl, Kunde kunde) throws BestandUeberschrittenException, ArtikelExistiertNichtException {
