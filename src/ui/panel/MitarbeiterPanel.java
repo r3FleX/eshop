@@ -45,7 +45,7 @@ public class MitarbeiterPanel extends JPanel{
 	private JScrollPane scrollPane;
 	private JButton statistikButton = new JButton("Statistik",new ImageIcon("src/assets/statistikIcon.png"));
 	private JButton artikelHinzufuegenButton = new JButton("Artikel hinzufuegen", new ImageIcon("src/assets/artikelHinzufuegenIcon.png"));
-	private JButton refreshButton = new JButton("refresh", new ImageIcon("src/assets/refreshIcon.png"));
+	//private JButton refreshButton = new JButton("refresh", new ImageIcon("src/assets/refreshIcon.png"));
 	
 	//Konstruktor
 	public MitarbeiterPanel(GUI_2 gui) {
@@ -79,20 +79,20 @@ public class MitarbeiterPanel extends JPanel{
 		
 		add(statistikButton);
 		add(artikelHinzufuegenButton);
-		add(refreshButton);
+		//add(refreshButton);
 		
 		hinzufugenPanel(); 
 		
-		refreshButton.addActionListener(new ActionListener() { 
+		/*refreshButton.addActionListener(new ActionListener() { 
 			
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("refresh");
 //TODO artikelliste aktualliseren
 			}
 		});		
-		
+		*/	
 	}			
-			
+	
 	private void renderOption() {
 		 ActionListener listen = new ActionListener() {
 			    public void actionPerformed(ActionEvent e) {
