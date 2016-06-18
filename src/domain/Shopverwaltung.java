@@ -207,7 +207,11 @@ public class Shopverwaltung {
 		Warenkorb warenkorb = kunde.getWarenkorb();		
 		warenkorb.einfuegen(art, anzahl);
 	}
-	
+	//Warenkorn einfuegen
+	public void ausWarenkorbloechen(Artikel art, Kunde kunde) throws ArtikelExistiertNichtException {
+		Warenkorb warenkorb = kunde.getWarenkorb();		
+		warenkorb.loeschen(art);
+	}	
 	// Artikel suchen.
 	public Artikel artikelSuchen(int gesuchteNummer) throws BestandUeberschrittenException, ArtikelExistiertNichtException {
 		return meineArtikel.artikelSuchen (gesuchteNummer);

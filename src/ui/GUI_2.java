@@ -256,6 +256,17 @@ public class GUI_2 extends JFrame{
         this.getWarenkorbPanel().updateData(user.getWarenkorb());
 		
 	}
+	
+	
+	public void ausWarenkorbentfernen(int artikelnummer) throws ArtikelExistiertNichtException, BestandUeberschrittenException {
+		shop.ausWarenkorbloechen(shop.artikelSuchen(artikelnummer), (Kunde) user);
+		Kunde user = (Kunde) this.getUser();
+        this.getWarenkorbPanel().updateData(user.getWarenkorb());		
+	}	
+	
+	
+	
+	
 	/** Fügt einen Artikel dem shop hinzu
 	 * 
 	 * @param atkl

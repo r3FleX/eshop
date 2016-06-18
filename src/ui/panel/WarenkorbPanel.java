@@ -76,11 +76,16 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 		 ActionListener listen = new ActionListener() {
 			    public void actionPerformed(ActionEvent e) {
 					try {
-						
-							
-						JOptionPane.showMessageDialog(null,"Entfernt mich o.O");
+						//zu entfernenden artikel suchen
+						int artikelnummer = Integer.parseInt((artikeltable.getValueAt(ausgabeTabelle.getSelectedRow(),0)).toString());
+						try {
+							gui.ausWarenkorbentfernen(artikelnummer);
+							JOptionPane.showMessageDialog(null,"Artikel wurde aus dem Warenkorb entfernt");
+						} catch (ArtikelExistiertNichtException | BestandUeberschrittenException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 					} catch (NumberFormatException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}    				
 		    };
