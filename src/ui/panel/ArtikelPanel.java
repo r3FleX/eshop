@@ -82,7 +82,7 @@ public class ArtikelPanel extends JPanel{
 					JLabel wieOftArtikelKaufenLabel = new JLabel("Wie oft wollen Sie den Artikel kaufen?");
 					final JTextField anzahl = new JTextField();
 					JButton inDenWarenkorbButton = new JButton("In den Warenkorb");
-					//TODO Hübsch machen	
+					//TODO Hï¿½bsch machen	
 					final JFrame wieOftArtikelKaufenFrame = new JFrame();
 					wieOftArtikelKaufenFrame.getContentPane().setLayout(new GridLayout(2, 1));
 					wieOftArtikelKaufenFrame.setSize(450, 100);
@@ -94,7 +94,7 @@ public class ArtikelPanel extends JPanel{
 					inDenWarenkorbButton.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent arg0) {
 							try { 
-								//Zum Warenkorb hinzufügen
+								//Zum Warenkorb hinzufï¿½gen
 								int anz = Integer.parseInt(anzahl.getText());
 								gui.zumWarenkorbHinzufuegen(anz);
 								wieOftArtikelKaufenFrame.setVisible(false);

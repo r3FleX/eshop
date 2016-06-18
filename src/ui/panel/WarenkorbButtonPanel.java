@@ -39,7 +39,7 @@ public class WarenkorbButtonPanel extends JPanel{
 	private JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
 	public JButton kaufAbschliessenButton = new JButton("Kauf abschliessen");	
 	public JButton zumShop = new JButton("zurueck zum Shop");
-	public JButton inDenWarenkorbButton = new JButton("In den Warenkorb");	
+	//public JButton inDenWarenkorbButton = new JButton("In den Warenkorb");	
 	
 	private JLabel wieOftArtikelKaufenLabel = new JLabel("Wie oft wollen Sie den Artikel kaufen?");
 	private JFrame wieOftArtikelKaufenFrame = new JFrame();
@@ -50,19 +50,20 @@ public class WarenkorbButtonPanel extends JPanel{
 		
 		this.gui = gui;
 		
-		
+	
+		/*
 		//Fuer Warenkorb Button "zum Warenkorb"
 		//ACTIONLISTINER
 		zumWarenKorbButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				System.out.println("Warenkorb geöffnet ausgefuehrt");	
+				System.out.println("Warenkorb geï¿½ffnet ausgefuehrt");	
 				gui.zumWarenKorb();
 			}
 		});	
 		
 		//Fuer Warenkorb Button "in Warenkorb legen" 
-		//ACTIONLISTINER
+		//ACTIONLISTINER 
 		inWarenKorbLegenButton.addActionListener(new ActionListener() {	
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("in den warenkorb");
@@ -96,7 +97,7 @@ public class WarenkorbButtonPanel extends JPanel{
 				}
 			}
 		});
-		
+		*/
 		//Fuer Warenkorb Button "zum Shop"
 		//ACTIONLISTINER
 		zumShop.addActionListener(new ActionListener() {
@@ -107,14 +108,14 @@ public class WarenkorbButtonPanel extends JPanel{
 			}
 		});	
 		
-		//Fuer Warenkorb Button "Kauf abschließen"	
+		//Fuer Warenkorb Button "Kauf abschlieï¿½en"	
 		//ACTIONLISTINER
 		kaufAbschliessenButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {				
-				System.out.println("Kauf Abschließ Button");
+				System.out.println("Kauf Abschlieï¿½ Button");
 				//JOptionPane.showMessageDialog(null,"bitte einloggen!");
 				//rechnungspanel.actionPerformed(arg0);
-				//prüfen ob User eingelogt?
+				//prï¿½fen ob User eingelogt?
 				Account user = gui.getUser();
 				//JOptionPane.showMessageDialog(null,"bitte einloggen!");
 				if(!(user.getAccountNr() == -1)){

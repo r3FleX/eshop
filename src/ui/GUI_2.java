@@ -126,7 +126,7 @@ public class GUI_2 extends JFrame{
 		kundenPanel.setLayout(new GridLayout(1, 3));
 		kundenPanel.setBorder(BorderFactory.createTitledBorder("Kundenbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Kunden Login	
 		navframe.add(kundenPanel, BorderLayout.NORTH);
-		//nnicht benötige panel ausblenden
+		//nnicht benï¿½tige panel ausblenden
 		obenPanel.setVisible(true);
 	}
 	
@@ -135,7 +135,7 @@ public class GUI_2 extends JFrame{
 		navframe.add(mitarbeiterPanel, BorderLayout.NORTH);
 		contentframe.add(mitarbeiterPanel.getContentframe());
 		mitarbeiterPanel.setBorder(BorderFactory.createTitledBorder("Mitarbeiterbereich  -  Herzlich Willkommen: "+user.getName()+" !")); //Ueberschrift Mitarbeiter Login
-		//nicht benötigte Panel ausblenden
+		//nicht benï¿½tigte Panel ausblenden
 		artikelPanel.setVisible(false);
 		warenkorbPanel.setVisible(false);
 		untenframe.setVisible(false);
@@ -165,7 +165,7 @@ public class GUI_2 extends JFrame{
 		menuBar.setUserLoggedIn(true);
 		
 			if (user instanceof Kunde) {
-				//kunde einloggen und warenkorb übernehmen
+				//kunde einloggen und warenkorb ï¿½bernehmen
 				if(!(user.getAccountNr() == -1)){
 					Warenkorb wk = ((Kunde) this.user).getWarenkorb();
 					this.user = user;
@@ -197,7 +197,8 @@ public class GUI_2 extends JFrame{
 			artikelPanel.setVisible(true);
 			warenkorbPanel.setVisible(true);
 			untenframe.setVisible(true);			
-		}		
+		}
+		JOptionPane.showMessageDialog(null,"Erfolgreich ausgeloggt!");
 		//Gastkonto "reaktivieren"
 		this.user = (Account) new Kunde("Gast", "gast", -1, "none", 12345, "none");
 	}
@@ -240,9 +241,9 @@ public class GUI_2 extends JFrame{
 		
 		refresh();
 	}
-	/**Fügt einen Artikel in den Warenkorb
+	/**Fï¿½gt einen Artikel in den Warenkorb
 	 * 
-	 * @param anzahl -> Anzahl der Artikel die Hinzugefügt werden sollen
+	 * @param anzahl -> Anzahl der Artikel die Hinzugefï¿½gt werden sollen
 	 * @throws NumberFormatException
 	 * @throws BestandUeberschrittenException
 	 * @throws ArtikelExistiertNichtException
@@ -267,7 +268,7 @@ public class GUI_2 extends JFrame{
 	
 	
 	
-	/** Fügt einen Artikel dem shop hinzu
+	/** Fï¿½gt einen Artikel dem shop hinzu
 	 * 
 	 * @param atkl
 	 */
@@ -286,7 +287,7 @@ public class GUI_2 extends JFrame{
 		}
 		*/		
 	}
-	/** Löscht einen Artikel aus dem Shop
+	/** Lï¿½scht einen Artikel aus dem Shop
 	 * 
 	 * @param atkl
 	 */	

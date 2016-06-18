@@ -52,7 +52,7 @@ public class MitarbeiterPanel extends JPanel{
 		
 		this.gui = gui;
 
-		//Artikelliste für Mitarbeiter erstellen
+		//Artikelliste fï¿½r Mitarbeiter erstellen
 		
 		artikelPanel.setLayout(new GridLayout());
 		artikelPanel.setBorder(BorderFactory.createTitledBorder("Artikel")); //Ueberschrift Artikel
@@ -81,7 +81,7 @@ public class MitarbeiterPanel extends JPanel{
 		add(artikelHinzufuegenButton);
 		add(refreshButton);
 		
-		hinzufügenPanel(); 
+		hinzufugenPanel(); 
 		
 		refreshButton.addActionListener(new ActionListener() { 
 			
@@ -103,9 +103,9 @@ public class MitarbeiterPanel extends JPanel{
 						int bestand = Integer.parseInt((artikeltable.getValueAt(ausgabeTabelle.getSelectedRow(),2)).toString());
 						float preis = Float.parseFloat((artikeltable.getValueAt(ausgabeTabelle.getSelectedRow(),3)).toString());
 						int packungsgroesse = Integer.parseInt((artikeltable.getValueAt(ausgabeTabelle.getSelectedRow(),4)).toString());
-						//änderungen speichern
+						//ï¿½nderungen speichern
 						gui.aendereArtikel(artikelname,artikelnummer, bestand,preis,packungsgroesse);							
-						JOptionPane.showMessageDialog(null,"Artikeländerungen Gespeichert");
+						JOptionPane.showMessageDialog(null,"Artikelï¿½nderungen Gespeichert");
 					} catch (NumberFormatException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -134,7 +134,7 @@ public class MitarbeiterPanel extends JPanel{
 		this.artikelHinzufuegenButton = artikelHinzufuegenButton;
 	}
 	
-	public void hinzufügenPanel() {
+	public void hinzufugenPanel() {
 		final JFrame artikelHinzufuegenFrame = new JFrame();
 
 		artikelHinzufuegenFrame.setSize(400, 300);
