@@ -34,19 +34,9 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 	//private JPanel warenkorbPanel;
 	private JTable ausgabeTabelle;
 	private ArtikelTableModel artikeltable;
-	
-	
-	public ArtikelTableModel getArtikeltable() {
-		return artikeltable;
-	}
-
-	public void setArtikeltable(ArtikelTableModel artikeltable) {
-		this.artikeltable = artikeltable;
-	}
-
 	private JScrollPane scrollPane;
 	private GUI_2 gui;
-
+		
 	//Konstruktor
 	public WarenkorbPanel(GUI_2 gui) {
 		this.gui = gui;
@@ -70,7 +60,15 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 		// Anzeige der Artikelliste auch in der Kunden-Ansicht
 		this.updateData(user.getWarenkorb());
 		this.add(scrollPane);
-	}	
+	}
+	
+	public ArtikelTableModel getArtikeltable() {
+		return artikeltable;
+	}
+
+	public void setArtikeltable(ArtikelTableModel artikeltable) {
+		this.artikeltable = artikeltable;
+	}
 	
 	private void renderOption() {
 		 ActionListener listen = new ActionListener() {
@@ -96,10 +94,7 @@ public class WarenkorbPanel extends JPanel implements ActionListener {
 		
 	}
 
-	public void wieOftArtikelZumWarenKorb(){
-		
-		
-	}
+	public void wieOftArtikelZumWarenKorb(){}
 
 	public void actionPerformed(ActionEvent arg0) {
 		System.out.println("Warenkorb Aktion ausgefuehrt");	

@@ -89,9 +89,9 @@ public class GUI_2 extends JFrame{
 		setJMenuBar(menuBar.getMenue());
 		
 		//Warenkorb erstellen.
-		warenkorbPanel = new WarenkorbPanel(this);	
+		warenkorbPanel = new WarenkorbPanel(this);
 		
-		//Warenkorb Schaltflarchen
+		//Warenkorb Schaltflaechen
 		warenKorbButtons = new WarenkorbButtonPanel(this);
 		
 		//SuchPanel
