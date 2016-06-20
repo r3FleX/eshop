@@ -36,7 +36,7 @@ public class WarenkorbButtonPanel extends JPanel{
 	private GUI_2 gui;
 	
 	public JButton zumWarenKorbButton = new JButton("zum Warenkorb",new ImageIcon("src/assets/warenkorbIcon.png"));
-	private JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
+	//private JButton inWarenKorbLegenButton = new JButton("in Warenkorb legen",new ImageIcon("src/assets/inWarenkorbLegenIcon.png"));
 	public JButton kaufAbschliessenButton = new JButton("Kauf abschliessen");	
 	public JButton zumShop = new JButton("zurueck zum Shop");
 	public JButton inDenWarenkorbButton = new JButton("In den Warenkorb");	
@@ -60,7 +60,7 @@ public class WarenkorbButtonPanel extends JPanel{
 				gui.zumWarenKorb();
 			}
 		});	
-		
+		/*
 		//Fuer Warenkorb Button "in Warenkorb legen" 
 		//ACTIONLISTINER 
 		inWarenKorbLegenButton.addActionListener(new ActionListener() {	
@@ -96,7 +96,7 @@ public class WarenkorbButtonPanel extends JPanel{
 				}
 			}
 		});
-		
+		*/
 		//Fuer Warenkorb Button "zum Shop"
 		//ACTIONLISTINER
 		zumShop.addActionListener(new ActionListener() {
@@ -141,6 +141,7 @@ public class WarenkorbButtonPanel extends JPanel{
 			}//Ende public void actionPerformed(ActionEvent e)
 		});//Endekauf AbschliessenButton.addActionListener(new ActionListener()
 	}
+	/*
 	public JButton getInWarenKorbLegenButton() {
 		return inWarenKorbLegenButton;
 	}
@@ -148,7 +149,7 @@ public class WarenkorbButtonPanel extends JPanel{
 	public void setInWarenKorbLegenButton(JButton inWarenKorbLegenButton) {
 		this.inWarenKorbLegenButton = inWarenKorbLegenButton;
 	}
-	
+	*/
 	public String createInWarenkorbLegenButtonTable() {
 		return "Buy it";
 	}	

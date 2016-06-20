@@ -118,7 +118,7 @@ public class GUI_2 extends JFrame{
 	public void obenPanelSetzen(){
 		obenPanel.setLayout(new GridLayout(1,1));
 		obenPanel.add(suchPanel);
-		obenPanel.add(warenKorbButtons.getInWarenKorbLegenButton());
+		//obenPanel.add(warenKorbButtons.getInWarenKorbLegenButton());
 		obenPanel.add(warenKorbButtons.zumWarenKorbButton);
 	}
 	
@@ -219,7 +219,7 @@ public class GUI_2 extends JFrame{
 		contentframe.remove(suchPanel);
 		
 		obenPanel.remove(warenKorbButtons.zumWarenKorbButton);
-		obenPanel.remove(warenKorbButtons.getInWarenKorbLegenButton());
+		//obenPanel.remove(warenKorbButtons.getInWarenKorbLegenButton());
 		obenPanel.add(warenKorbButtons.zumShop);
 		refresh();
 	}
@@ -235,7 +235,7 @@ public class GUI_2 extends JFrame{
 		untenWarenKorbBereichPanel.remove(warenKorbButtons.kaufAbschliessenButton);		
 		
 		obenPanel.add(suchPanel);
-		obenPanel.add(warenKorbButtons.getInWarenKorbLegenButton());
+		//obenPanel.add(warenKorbButtons.getInWarenKorbLegenButton());
 		obenPanel.add(warenKorbButtons.zumWarenKorbButton);
 		contentframe.add(artikelPanel);
 		
