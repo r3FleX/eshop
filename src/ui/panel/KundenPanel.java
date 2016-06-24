@@ -19,7 +19,5 @@ public class KundenPanel extends JPanel{
 	public KundenPanel(GUI_2 gui) {
 		this.gui = gui;
 		
-
-
 	}
 }

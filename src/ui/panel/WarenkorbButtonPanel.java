@@ -56,7 +56,7 @@ public class WarenkorbButtonPanel extends JPanel{
 		zumWarenKorbButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				System.out.println("Warenkorb ge�ffnet ausgefuehrt");	
+				System.out.println("Warenkorb geoeffnet ausgefuehrt");	
 				gui.zumWarenKorb();
 			}
 		});	
@@ -107,14 +107,14 @@ public class WarenkorbButtonPanel extends JPanel{
 			}
 		});	
 		
-		//Fuer Warenkorb Button "Kauf abschlie�en"	
+		//Fuer Warenkorb Button "Kauf abschliessen"	
 		//ACTIONLISTINER
 		kaufAbschliessenButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {				
-				System.out.println("Kauf Abschlie� Button");
+				System.out.println("Kauf Abschliessen Button");
 				//JOptionPane.showMessageDialog(null,"bitte einloggen!");
 				//rechnungspanel.actionPerformed(arg0);
-				//pr�fen ob User eingelogt?
+				//pruefen ob User eingelogt?
 				Account user = gui.getUser();
 				//JOptionPane.showMessageDialog(null,"bitte einloggen!");
 				if(!(user.getAccountNr() == -1)){

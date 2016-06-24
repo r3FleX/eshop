@@ -43,7 +43,7 @@ public class GUI_2 extends JFrame{
 	public JPanel contentframe = new JPanel();	
 	public JPanel mainPanel = new JPanel();
 	
-	private JPanel untenWarenKorbBereichPanel = new JPanel();
+//	private JPanel untenWarenKorbBereichPanel = new JPanel();
 	private JPanel obenPanel = new JPanel();
 	public JPanel untenframe = new JPanel();
 	
@@ -71,13 +71,13 @@ public class GUI_2 extends JFrame{
 	
 	//initialisieren
 	private void initialize() {
+		
 		//Panels Initializieren
 		artikelPanel = new ArtikelPanel(shop.gibAlleArtikel(), this);
 		mitarbeiterPanel = new MitarbeiterPanel(this);
 		kundenPanel = new KundenPanel(this);
 		suchPanel = new SuchPanel(suchController, this);
-		
-		
+				
 		//beendet das Programm durch klicken auf [X]
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
@@ -105,6 +105,9 @@ public class GUI_2 extends JFrame{
 			
 		//ArtikelPanel
 		artikelPanelSetzen();
+		
+		//UntenPanel 
+		untenframe();
 		
 		//GUI setzen
 		this.mainPanel.add(this.navframe,BorderLayout.NORTH);
@@ -140,6 +143,7 @@ public class GUI_2 extends JFrame{
 		warenkorbPanel.setVisible(false);
 		untenframe.setVisible(false);
 	}	
+	
 	//SuchPanel
 	public void suchPanelSetzen(){		
 		obenPanel.add(suchPanel, BorderLayout.NORTH);	
@@ -152,6 +156,8 @@ public class GUI_2 extends JFrame{
 	
 	//untenframe
 	public void untenframe(){
+		
+		untenframe.setVisible(false);
 		untenframe.setLayout(new GridLayout(1, 3));
 		untenframe.add(new JLabel());//Platzhalter
 		untenframe.add(warenKorbButtons.kaufAbschliessenButton);
@@ -231,8 +237,8 @@ public class GUI_2 extends JFrame{
 		
 		obenPanel.remove(warenKorbButtons.zumShop);
 		contentframe.remove(warenkorbPanel);
-		contentframe.remove(untenWarenKorbBereichPanel);
-		untenWarenKorbBereichPanel.remove(warenKorbButtons.kaufAbschliessenButton);		
+		//contentframe.remove(untenWarenKorbBereichPanel);
+		//untenWarenKorbBereichPanel.remove(warenKorbButtons.kaufAbschliessenButton);		
 		
 		obenPanel.add(suchPanel);
 		//obenPanel.add(warenKorbButtons.getInWarenKorbLegenButton());
@@ -243,35 +249,32 @@ public class GUI_2 extends JFrame{
 	}
 	/**Fuegt einen Artikel in den Warenkorb
 	 * 
-	 * @param anzahl -> Anzahl der Artikel die Hinzugef�gt werden sollen
+	 * @param anzahl -> Anzahl der Artikel die hinzugefuegt werden sollen
 	 * @throws NumberFormatException
 	 * @throws BestandUeberschrittenException
 	 * @throws ArtikelExistiertNichtException
 	 */
+	
 	public void zumWarenkorbHinzufuegen(int anzahl) throws NumberFormatException, BestandUeberschrittenException, ArtikelExistiertNichtException {
 
 		Artikel art = shop.artikelSuchen(Integer.parseInt((this.getArtikelPanel().getArtikeltable().getValueAt(this.getArtikelPanel().getAusgabeTabelle().getSelectedRow(),0)).toString()));
 		shop.inWarenkorbEinfuegen(art,anzahl,(Kunde) this.user);
 		//aktuallisere Warenkorb
 		Kunde user = (Kunde) this.getUser();
-        this.getWarenkorbPanel().updateData(user.getWarenkorb());
-		
+        this.getWarenkorbPanel().updateData(user.getWarenkorb());	
 	}
-	
-	
+		
 	public void ausWarenkorbentfernen(int artikelnummer) throws ArtikelExistiertNichtException, BestandUeberschrittenException {
 		shop.ausWarenkorbloechen(shop.artikelSuchen(artikelnummer), (Kunde) user);
 		Kunde user = (Kunde) this.getUser();
         this.getWarenkorbPanel().updateData(user.getWarenkorb());		
 	}	
 	
-	
-	
-	
 	/** Fuegt einen Artikel dem shop hinzu
 	 * 
 	 * @param atkl
 	 */
+	
 	public void addArtikel(String artikelname,int artikelnummer, int bestand,float preis,int packungsgroesse) {
 /*		
 		try {
@@ -287,10 +290,12 @@ public class GUI_2 extends JFrame{
 		}
 		*/		
 	}
+	
 	/** Loescht einen Artikel aus dem Shop
 	 * 
 	 * @param atkl
 	 */	
+	
 	public void deleteArtikel(int nr) {
 	/*	try {
 			shop.entferneArtikel(nr);
@@ -321,10 +326,10 @@ public class GUI_2 extends JFrame{
 			e.printStackTrace();
 		}
 	}
-	public void untenWarenKorbBereichPanel(boolean b){
+	/*public void untenWarenKorbBereichPanel(boolean b){
 		untenWarenKorbBereichPanel.setVisible(b);
 	}
-	
+	*/
 	//Getter und Setter
 	public ArtikelPanel getArtikelPanel() {
 		return artikelPanel;
